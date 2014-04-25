@@ -1,0 +1,178 @@
+---
+
+# Simple Drupal Development VM Playbook for Ubuntu 12.04
+#
+# This extremely simple Ansible playbook sets up a minimalistic Drupal
+# environment for local testing. It is built for Ubuntu 12.04, and is structured
+# in the most simple way possible. It uses most Ansible best practices, but as
+# far as organization goes, this playbook doesn't use roles, groups, etc., and
+# should definitely be structured differently (using includes for each group of
+# tasks) if you're using it to manage real-world infrastructure.
+#
+# There is a vars.yml file containing some variables to choose what version of
+# Drupal will be installed, and what the domain name (plus '.dev') will be.
+#
+# @author Jeff Geerling, 2014
+
+- hosts: all
+
+  vars_files:
+  - vars.yml
+
+  pre_tasks:
+  - name: Update apt cache if needed.
+    apt: update_cache=yes cache_valid_time=3600
+
+  handlers:
+  - name: restart apache
+    command: service apache2 restart
+
+  tasks:
+  # COMMON #####################################################################
+  - name: "Common: Get software for apt repository management."
+    apt: pkg={{ item }} state=installed
+    with_items:
+    - python-apt
+    - python-pycurl
+
+  - name: "Common: Add ondrej repository for later versions of PHP."
+    # Note: You can remove '-oldstable' for PHP 5.5.x.
+    apt_repository: repo='ppa:ondrej/php5-oldstable'
+
+  - name: "Common: Install Apache, MySQL, PHP, and other dependencies."
+    apt: pkg={{ item }} state=installed
+    with_items:
+    - git
+    - curl
+    - sendmail
+    - apache2
+    - php5
+    - php5-common
+    - php5-mysql
+    - php5-cli
+    - php5-curl
+    - php5-gd
+    - php5-dev
+    - php5-mcrypt
+    - php-apc
+    - php-pear
+    - python-mysqldb
+    - mysql-server
+
+  - name: "Common: Disable the firewall (since this is for local dev only)."
+    service: name=ufw state=stopped
+
+  - name: "Common: Start Apache, MySQL, and PHP."
+    service: name={{ item }} state=started enabled=yes
+    with_items:
+    - apache2
+    - mysql
+
+  # APACHE #####################################################################
+  - name: "Apache: Enable mods required for Drupal."
+    file: >
+      src=/etc/apache2/mods-available/{{ item }}
+      dest=/etc/apache2/mods-enabled/{{ item }}
+      state=link
+    with_items:
+    - rewrite.load
+    notify: restart apache
+
+  - name: "Apache: Add Apache virtualhost for Drupal 8 development."
+    template: >
+      src=templates/drupal.dev.conf.j2
+      dest=/etc/apache2/sites-available/{{ domain }}.dev.conf
+      owner=root group=root mode=644
+    notify: restart apache
+
+  - name: "Apache: Symlink Drupal virtualhost to sites-enabled."
+    file: >
+      src=/etc/apache2/sites-available/{{ domain }}.dev.conf
+      dest=/etc/apache2/sites-enabled/{{ domain }}.dev.conf
+      state=link
+    notify: restart apache
+
+  - name: "Apache: Remove default virtualhost file."
+    file: >
+      path=/etc/apache2/sites-enabled/000-default
+      state=absent
+    notify: restart apache
+
+  # PHP ########################################################################
+  - name: "PHP: Enable upload progress via APC."
+    lineinfile: >
+      dest=/etc/php5/conf.d/20-apc.ini
+      regexp="^apc\.rfc1867"
+      line="apc.rfc1867 = 1"
+      state=present
+    notify: restart apache
+
+  # MYSQL ######################################################################
+  - name: "MySQL: Remove the MySQL test database."
+    mysql_db: db=test state=absent
+
+  - name: "MySQL: Create a database for Drupal."
+    mysql_db: db={{ domain }} state=present
+
+  # COMPOSER ###################################################################
+  - name: "Composer: Install Composer into the current directory."
+    shell: >
+      curl -sS https://getcomposer.org/installer | php
+      creates=/usr/local/bin/composer
+
+  - name: "Composer: Move Composer into globally-accessible location."
+    shell: >
+      mv composer.phar /usr/local/bin/composer
+      creates=/usr/local/bin/composer
+
+  # DRUSH ######################################################################
+  - name: "Drush: Check out drush master branch."
+    git: repo=https://github.com/drush-ops/drush.git dest=/opt/drush
+
+  - name: "Install Drush dependencies with Composer."
+    shell: >
+      /usr/local/bin/composer install
+      chdir=/opt/drush
+      creates=/opt/drush/vendor/autoload.php
+
+  - name: "Drush: Create drush bin symlink."
+    file: >
+      src=/opt/drush/drush
+      dest=/usr/local/bin/drush
+      state=link
+
+  # DRUPAL #####################################################################
+  # Download Drupal using drush (--no-cache prevents checksum error).
+  # - name: "Drupal: Download Drupal Core."
+  #   command:
+  #     drush dl drupal-{{ drupal_core_version }} --no-cache
+  #     creates={{ drupal_core_path }}/index.php
+  #     chdir=/var/www
+
+  # Download Drupal using Git.
+  - name: "Drupal: Check out Drupal Core to the Apache docroot."
+    git: >
+      repo=http://git.drupal.org/project/drupal.git
+      version={{ drupal_core_version }}
+      dest={{ drupal_core_path }}
+
+  - name: "Drupal: Install Drupal."
+    command: >
+      drush si -y --site-name="{{ drupal_site_name }}" --account-name=admin
+      --account-pass=admin --db-url=mysql://root@localhost/{{ domain }}
+      chdir={{ drupal_core_path }}
+      creates={{ drupal_core_path }}/sites/default/settings.php
+    notify: restart apache
+
+  # SEE: https://drupal.org/node/2121849#comment-8413637
+  - name: "Drupal: Set permissions properly on settings.php."
+    file: >
+      path={{ drupal_core_path }}/sites/default/settings.php
+      mode=744
+
+  - name: "Drupal: Set permissions properly on files directory."
+    file: >
+      path={{ drupal_core_path }}/sites/default/files
+      mode=777
+      state=directory
+      recurse=yes

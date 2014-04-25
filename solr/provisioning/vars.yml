@@ -1,0 +1,6 @@
+---
+# The directory into which Solr will be downloaded for setup.
+download_dir: /tmp
+
+# The directory inside which Solr will be installed.
+solr_dir: /opt/solr
