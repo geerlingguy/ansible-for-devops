@@ -16,13 +16,9 @@ It should take 5-10 minutes to build or rebuild the VM from scratch on a decent 
 
   1. Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
   2. Download and install [Vagrant](http://www.vagrantup.com/downloads.html).
-  3. [Mac/Linux only] Install Ansible:
-    `sudo easy_install pip`
-    `sudo pip install ansible`
+  3. [Mac/Linux only] Install [Ansible](http://docs.ansible.com/intro_installation.html).
 
 Note for Windows users: *This guide assumes you're on a Mac or Linux host. Windows support may be added when I get a little more time; the main difference is Ansible needs to be bootstrapped from within the VM after it's created. See [JJG-Ansible-Windows](https://github.com/geerlingguy/JJG-Ansible-Windows) for more information.*
-
-Note for Mac users: *On Mac OS X, you may also need to install XCode (free on the App Store) to install some required dependencies. If you're having trouble installing Ansible, check out the [Installing Ansible docs](http://docs.ansible.com/intro_installation.html).*
 
 ### 2 - Build the Virtual Machine
 
