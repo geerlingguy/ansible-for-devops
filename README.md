@@ -13,3 +13,6 @@ MIT / BSD
 ## Buy the Book
 
 <iframe width="160" height="400" src="https://leanpub.com/ansible-for-devops/embed" frameborder="0" allowtransparency="true"></iframe>
+[![Ansible for DevOps Cover](https://s3.amazonaws.com/titlepages.leanpub.com/ansible-for-devops/medium)](https://leanpub.com/ansible-for-devops)
+
+You can buy [Ansible for DevOps](https://leanpub.com/ansible-for-devops) on LeanPub.
