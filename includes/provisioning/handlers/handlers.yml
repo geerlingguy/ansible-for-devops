@@ -1,0 +1,3 @@
+---
+- name: restart apache
+  command: service apache2 restart

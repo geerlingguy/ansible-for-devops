@@ -1,0 +1,32 @@
+---
+
+# Drupal LAMP Playbook (using task and handler includes) for Ubuntu 12.04
+#
+# This extremely simple Ansible playbook sets up a minimalistic Drupal
+# environment for local testing. It is built for Ubuntu 12.04, and is structured
+# using simple playbook task and handler include files. It uses most Ansible
+# best practices, but as far as organization goes, this playbook doesn't use
+# roles, groups, etc., and is intended as an example only.
+#
+# @author Jeff Geerling, 2014
+
+- hosts: all
+
+  vars_files:
+    - vars.yml
+
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=3600
+
+  handlers:
+    - include: handlers/handlers.yml
+
+  tasks:
+    - include: tasks/common.yml
+    - include: tasks/apache.yml
+    - include: tasks/php.yml
+    - include: tasks/mysql.yml
+    - include: tasks/composer.yml
+    - include: tasks/drush.yml
+    - include: tasks/drupal.yml

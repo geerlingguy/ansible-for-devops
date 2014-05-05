@@ -1,0 +1,10 @@
+---
+- name: "Install Composer into the current directory."
+  shell: >
+    curl -sS https://getcomposer.org/installer | php
+    creates=/usr/local/bin/composer
+
+- name: "Move Composer into globally-accessible location."
+  shell: >
+    mv composer.phar /usr/local/bin/composer
+    creates=/usr/local/bin/composer

@@ -1,0 +1,6 @@
+---
+- name: "Remove the MySQL test database."
+  mysql_db: db=test state=absent
+
+- name: "Create a database for Drupal."
+  mysql_db: db={{ domain }} state=present

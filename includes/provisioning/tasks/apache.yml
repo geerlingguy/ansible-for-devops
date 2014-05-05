@@ -1,0 +1,29 @@
+---
+- name: "Enable mods required for Drupal."
+  file: >
+    src=/etc/apache2/mods-available/{{ item }}
+    dest=/etc/apache2/mods-enabled/{{ item }}
+    state=link
+  with_items:
+  - rewrite.load
+  notify: restart apache
+
+- name: "Add Apache virtualhost for Drupal 8 development."
+  template: >
+    src=templates/drupal.dev.conf.j2
+    dest=/etc/apache2/sites-available/{{ domain }}.dev.conf
+    owner=root group=root mode=644
+  notify: restart apache
+
+- name: "Symlink Drupal virtualhost to sites-enabled."
+  file: >
+    src=/etc/apache2/sites-available/{{ domain }}.dev.conf
+    dest=/etc/apache2/sites-enabled/{{ domain }}.dev.conf
+    state=link
+  notify: restart apache
+
+- name: "Remove default virtualhost file."
+  file: >
+    path=/etc/apache2/sites-enabled/000-default
+    state=absent
+  notify: restart apache
