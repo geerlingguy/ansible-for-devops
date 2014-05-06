@@ -65,13 +65,8 @@
     - mysql
 
   # APACHE #####################################################################
-  - name: "Apache: Enable mods required for Drupal."
-    file: >
-      src=/etc/apache2/mods-available/{{ item }}
-      dest=/etc/apache2/mods-enabled/{{ item }}
-      state=link
-    with_items:
-    - rewrite.load
+  - name: "Apache: Enable Apache rewrite module (required for Drupal)."
+    apache2_module: name=rewrite state=present
     notify: restart apache
 
   - name: "Apache: Add Apache virtualhost for Drupal 8 development."
