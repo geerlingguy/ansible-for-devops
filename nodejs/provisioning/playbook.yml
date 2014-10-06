@@ -18,15 +18,14 @@
     node_apps_location: /usr/local/opt/node
 
   tasks:
-  # COMMON #####################################################################
-  - name: "Common: Import EPEL and Remi GPG keys."
-    rpm_key: key={{ item }} state=present
+  - name: Import EPEL and Remi GPG keys.
+    rpm_key: "key={{ item }} state=present"
     with_items:
     - "https://fedoraproject.org/static/0608B895.txt"
     - "http://rpms.famillecollet.com/RPM-GPG-KEY-remi"
 
-  - name: "Common: Install EPEL and Remi repos."
-    command: rpm -Uvh --force {{ item.href }} creates={{ item.creates }}
+  - name: Install EPEL and Remi repos.
+    command: "rpm -Uvh --force {{ item.href }} creates={{ item.creates }}"
     with_items:
     - {
       href: "http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm",
@@ -37,33 +36,29 @@
       creates: "/etc/yum.repos.d/remi.repo"
     }
 
-  - name: "Common: Disable firewall (since this is a dev environment)."
+  - name: Disable firewall (since this is a dev environment).
     service: name=iptables state=stopped enabled=no
 
-  # NODE #######################################################################
-  - name: "Node: Install Node.js and npm."
+  - name: Install Node.js and npm.
     yum: pkg=npm state=present enablerepo=epel
 
-  - name: "Node: Install forever (to run our Node.js app)."
+  - name: Install forever (to run our Node.js app).
     npm: name=forever global=yes state=latest
 
-  # SAMPLE APP #################################################################
-  - name: "Node: Ensure Node.js app folder exists."
-    file: path={{ node_apps_location }} state=directory
+  - name: Ensure Node.js app folder exists.
+    file: "path={{ node_apps_location }} state=directory"
 
-  # For < 100 files, the copy module is adequate. For larger copies, consider
-  # using the synchronize module instead.
-  - name: "Node: Copy example Node.js app to server."
-    copy: src=app dest={{ node_apps_location }}
+  - name: Copy example Node.js app to server.
+    copy: "src=app dest={{ node_apps_location }}"
 
-  - name: "Node: Install app dependencies defined in package.json via npm."
-    npm: path={{ node_apps_location }}/app
+  - name: Install app dependencies defined in package.json.
+    npm: "path={{ node_apps_location }}/app"
 
-  - name: "Node: Check list of Node.js apps running."
+  - name: Check list of running Node.js apps.
     command: forever list
     register: forever_list
     changed_when: false
 
-  - name: "Node: Start example Node.js app."
-    command: forever start {{ node_apps_location }}/app/app.js
+  - name: Start example Node.js app.
+    command: "forever start {{ node_apps_location }}/app/app.js"
     when: "forever_list.stdout.find('{{ node_apps_location}}/app/app.js') == -1"
