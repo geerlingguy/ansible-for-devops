@@ -25,7 +25,6 @@
     service: name=tomcat7 state=restarted
 
   tasks:
-  # TOMCAT 7 ###################################################################
   - name: Install Tomcat 7.
     apt: "pkg={{ item }} state=installed"
     with_items:
@@ -35,14 +34,11 @@
   - name: Ensure Tomcat 7 is started and enabled on boot.
     service: name=tomcat7 state=started enabled=yes
 
-  # APACHE SOLR ################################################################
-  # Small gotcha for get_url - always put filename in dest to avoid having
-  # Ansible download the file every time the playbook is run!
   - name: Download Solr.
-    get_url: >
-      url=http://apache.osuosl.org/lucene/solr/4.7.1/solr-4.7.1.tgz
-      dest={{ download_dir }}/solr-4.7.1.tgz
-      sha256sum=4a546369a31d34b15bc4b99188984716bf4c0c158c0e337f3c1f98088aec70ee
+    get_url:
+      url: http://apache.osuosl.org/lucene/solr/4.7.1/solr-4.7.1.tgz
+      dest: "{{ download_dir }}/solr-4.7.1.tgz"
+      sha256sum: 4a546369a31d34b15bc4b99188984716bf4c0c158c0e337f3c1f98088aec70ee
 
   - name: Expand Solr.
     command: >
@@ -85,32 +81,36 @@
     notify: restart tomcat
 
   - name: Ensure solr example directory is absent.
-    file: >
-      path={{ solr_dir }}/example
-      state=absent
+    file:
+      path: "{{ solr_dir }}/example"
+      state: absent
 
   - name: Set up solr data directory.
-    file: >
-      path={{ solr_dir }}/data
-      state=directory
-      owner=tomcat7 group=tomcat7
+    file:
+      path: "{{ solr_dir }}/data"
+      state: directory
+      owner: tomcat7
+      group: tomcat7
 
   - name: Configure solrconfig.xml for new data directory.
-    lineinfile: >
-      dest={{ solr_dir }}/collection1/conf/solrconfig.xml
-      regexp="^.*<dataDir.+$"
-      line="<dataDir>${solr.data.dir:{{ solr_dir }}/data}</dataDir>"
-      state=present
+    lineinfile:
+      dest: "{{ solr_dir }}/collection1/conf/solrconfig.xml"
+      regexp: "^.*<dataDir.+$"
+      line: "<dataDir>${solr.data.dir:{{ solr_dir }}/data}</dataDir>"
+      state: present
 
   - name: Set permissions for solr home.
-    file: >
-      path={{ solr_dir }}
-      recurse=yes
-      owner=tomcat7 group=tomcat7
+    file:
+      path: "{{ solr_dir }}"
+      recurse: yes
+      owner: tomcat7
+      group: tomcat7
 
   - name: Add Catalina configuration for solr.
-    template: >
-      src=templates/solr.xml.j2
-      dest=/etc/tomcat7/Catalina/localhost/solr.xml
-      owner=root group=tomcat7 mode=644
+    template:
+      src: templates/solr.xml.j2
+      dest: /etc/tomcat7/Catalina/localhost/solr.xml
+      owner: root
+      group: tomcat7
+      mode: 0644
     notify: restart tomcat
