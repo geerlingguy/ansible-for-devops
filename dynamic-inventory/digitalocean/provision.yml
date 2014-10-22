@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Create new Droplet.
+      digital_ocean:
+        state: present
+        command: droplet
+        name: ansible-test
+        private_networking: yes
+        # 512mb
+        size_id: 66
+        # CentOS 7.0 x64
+        image_id: 6713409
+        # nyc2
+        region_id: 4
+        ssh_key_ids: 138954
+        # Required for idempotence/only one droplet creation.
+        unique_name: yes
+      register: do
+
+    - name: Add new host to our inventory.
+      add_host:
+        name: "{{ do.droplet.ip_address }}"
+        groups: do
+      when: do.droplet is defined
+
+- hosts: do
+  remote_user: root
+
+  tasks:
+    - name: Install tcpdump.
+      yum: name=tcpdump state=installed
