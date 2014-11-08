@@ -1,0 +1,6 @@
+---
+# To run: `ansible-playbook main.yml -i inventory`.
+- include: provisioning/varnish.yml
+- include: provisioning/www.yml
+- include: provisioning/db.yml
+- include: provisioning/memcached.yml

@@ -1,0 +1,51 @@
+<?php
+/**
+ * @file
+ * Infrastructure test page.
+ *
+ * DO NOT use this in production. It is simply a PoC.
+ */
+
+// Connect to MySQL.
+$username = 'mycompany_user';
+$password = 'mysecurepassword';
+try {
+  $db = new PDO(
+    'mysql:host=192.168.2.5;dbname=mycompany_database',
+    $username,
+    $password,
+    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+  $mysql_result = '<span style="color: green;">PASS</span>';
+}
+catch (PDOException $e) {
+  $mysql_result = '<span style="color: red;">FAIL</span>';
+}
+
+// Connect to Memcached.
+$memcached_result = '<span style="color: red;">FAIL</span>';
+if (class_exists('Memcached')) {
+  $memcached = new Memcached;
+  $memcached->addServer('192.168.2.6', 11211);
+
+  // Test adding a value to memcached.
+  if ($memcached->add('test', 'success', 1)) {
+    $result = $memcached->get('test');
+    if ($result == 'success') {
+      $memcached_result = '<span style="color: green;">PASS</span>';
+      $memcached->delete('test');
+    }
+  }
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Host {{ inventory_hostname }}</title>
+  <style>* { font-family: Helvetica, Arial, sans-serif }</style>
+</head>
+<body>
+  <h1>Host {{ inventory_hostname }}</h1>
+  <p>MySQL Connection: <?php print $mysql_result; ?></p>
+  <p>Memcached Connection: <?php print $memcached_result; ?></p>
+</body>
+</html>

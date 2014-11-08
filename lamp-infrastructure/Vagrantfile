@@ -1,0 +1,92 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # Base VM OS configuration.
+  config.vm.box = "centos65"
+  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-nocm.box"
+
+  config.vm.provision "shell",
+    inline: "sudo iptables -F && service iptables save"
+
+  # Varnish.
+  config.vm.define "varnish" do |varnish|
+    varnish.vm.hostname = "varnish.dev"
+    varnish.vm.network :private_network, ip: "192.168.2.2"
+
+    # VirtualBox.
+    varnish.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--name", "varnish.dev"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 512]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+  end
+
+  # Apache.
+  config.vm.define "www1" do |www1|
+    www1.vm.hostname = "www1.dev"
+    www1.vm.network :private_network, ip: "192.168.2.3"
+
+    www1.vm.provision "shell",
+      inline: "sudo iptables -F && service iptables save && sudo yum update -y"
+
+    # VirtualBox.
+    www1.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--name", "www1.dev"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 256]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+  end
+
+  # Apache.
+  config.vm.define "www2" do |www2|
+    www2.vm.hostname = "www2.dev"
+    www2.vm.network :private_network, ip: "192.168.2.4"
+
+    www2.vm.provision "shell",
+      inline: "sudo iptables -F && service iptables save && sudo yum update -y"
+
+    # VirtualBox.
+    www2.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--name", "www2.dev"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 256]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+  end
+
+  # MySQL.
+  config.vm.define "db1" do |db1|
+    db1.vm.hostname = "db1.dev"
+    db1.vm.network :private_network, ip: "192.168.2.5"
+
+    # VirtualBox.
+    db1.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--name", "db1.dev"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 512]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+  end
+
+  # Memcached.
+  config.vm.define "memcached" do |memcached|
+    memcached.vm.hostname = "memcached.dev"
+    memcached.vm.network :private_network, ip: "192.168.2.6"
+
+    # VirtualBox.
+    memcached.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--name", "memcached.dev"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 512]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+  end
+end
