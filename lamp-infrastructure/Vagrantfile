@@ -3,8 +3,7 @@
 
 Vagrant.configure("2") do |config|
   # Base VM OS configuration.
-  config.vm.box = "centos65"
-  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-nocm.box"
+  config.vm.box = "geerlingguy/centos6"
 
   config.vm.provision "shell",
     inline: "sudo iptables -F && service iptables save"
