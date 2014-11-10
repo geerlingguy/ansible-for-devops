@@ -74,10 +74,25 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  # MySQL.
+  config.vm.define "db2" do |db2|
+    db2.vm.hostname = "db2.dev"
+    db2.vm.network :private_network, ip: "192.168.2.6"
+
+    # VirtualBox.
+    db2.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--name", "db2.dev"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 512]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+  end
+
   # Memcached.
   config.vm.define "memcached" do |memcached|
     memcached.vm.hostname = "memcached.dev"
-    memcached.vm.network :private_network, ip: "192.168.2.6"
+    memcached.vm.network :private_network, ip: "192.168.2.7"
 
     # VirtualBox.
     memcached.vm.provider :virtualbox do |v|

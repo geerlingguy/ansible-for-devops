@@ -1,0 +1,31 @@
+# Varnish
+[lamp-varnish]
+[a4d.lamp.varnish]
+
+[lamp-varnish:children]
+#a4d.lamp.varnish
+
+# Apache
+[lamp-www]
+[a4d.lamp.www.1]
+[a4d.lamp.www.2]
+
+[lamp-www:children]
+a4d.lamp.www.1
+a4d.lamp.www.2
+
+# MySQL
+[lamp-db]
+[a4d.lamp.db.1]
+[a4d.lamp.db.2]
+
+[lamp-db:children]
+#a4d.lamp.db.1
+#a4d.lamp.db.2
+
+# Memcached
+[lamp-memcached]
+[a4d.lamp.memcached]
+
+[lamp-memcached:children]
+#a4d.lamp.memcached

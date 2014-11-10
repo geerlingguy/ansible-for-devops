@@ -1,0 +1,3 @@
+---
+- include: provisioners/digitalocean.yml
+- include: configure.yml

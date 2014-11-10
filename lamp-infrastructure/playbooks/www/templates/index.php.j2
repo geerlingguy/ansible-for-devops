@@ -1,0 +1,88 @@
+<?php
+/**
+ * @file
+ * Infrastructure test page.
+ *
+ * DO NOT use this in production. It is simply a PoC.
+ */
+
+$mysql_servers = array(
+{% for host in groups['lamp-db'] %}
+  '{{ host }}',
+{% endfor %}
+);
+$mysql_results = array();
+foreach ($mysql_servers as $host) {
+  if ($result = mysql_test_connection($host)) {
+    $mysql_results[$host] = '<span style="color: green;">PASS</span> (' . $result['status'] . ')';
+  }
+  else {
+    $mysql_results[$host] = '<span style="color: red;">FAIL</span>';
+  }
+}
+
+// Connect to Memcached.
+$memcached_result = '<span style="color: red;">FAIL</span>';
+if (class_exists('Memcached')) {
+  $memcached = new Memcached;
+  $memcached->addServer('{{ groups['lamp-memcached'][0] }}', 11211);
+
+  // Test adding a value to memcached.
+  if ($memcached->add('test', 'success', 1)) {
+    $result = $memcached->get('test');
+    if ($result == 'success') {
+      $memcached_result = '<span style="color: green;">PASS</span>';
+      $memcached->delete('test');
+    }
+  }
+}
+
+/**
+ * Connect to a MySQL server and test the connection.
+ *
+ * @param string $host
+ *   IP Address or hostname of the server.
+ *
+ * @return array
+ *   Array with keys 'success' (bool) and 'status' ('slave' or 'master'). Empty
+ *   if connection failure.
+ */
+function mysql_test_connection($host) {
+  $username = 'mycompany_user';
+  $password = 'secret';
+  try {
+    $db = new PDO(
+      'mysql:host=' . $host . ';dbname=mycompany_database',
+      $username,
+      $password,
+      array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
+    // Query to see if the server is configured as a master or slave.
+    $statement = $db->prepare("SELECT variable_value FROM information_schema.global_variables WHERE variable_name = 'LOG_BIN';");
+    $statement->execute();
+    $result = $statement->fetch();
+
+    return array(
+      'success' => TRUE,
+      'status' => ($result[0] == 'ON') ? 'master' : 'slave',
+    );
+  }
+  catch (PDOException $e) {
+    return array();
+  }
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Host {{ inventory_hostname }}</title>
+  <style>* { font-family: Helvetica, Arial, sans-serif }</style>
+</head>
+<body>
+  <h1>Host {{ inventory_hostname }}</h1>
+  <?php foreach ($mysql_results as $host => $result): ?>
+    <p>MySQL Connection (<?php print $host; ?>): <?php print $result; ?></p>
+  <?php endforeach; ?>
+  <p>Memcached Connection: <?php print $memcached_result; ?></p>
+</body>
+</html>

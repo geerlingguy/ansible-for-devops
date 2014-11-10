@@ -1,28 +1,29 @@
-[varnish]
+[lamp-varnish]
 192.168.2.2
 
-[www]
+[lamp-www]
 192.168.2.3
 192.168.2.4
 
-[db]
-192.168.2.5
+[lamp-db]
+192.168.2.5 mysql_replication_role=master mysql_server_id=1
+192.168.2.6 mysql_replication_role=slave mysql_server_id=2
 
-[memcached]
-192.168.2.6
+[lamp-memcached]
+192.168.2.7
 
-[varnish:vars]
+[lamp-varnish:vars]
 ansible_ssh_user=vagrant
 ansible_ssh_private_key_file=/Users/jgeerling/.vagrant.d/insecure_private_key
 
-[www:vars]
+[lamp-www:vars]
 ansible_ssh_user=vagrant
 ansible_ssh_private_key_file=/Users/jgeerling/.vagrant.d/insecure_private_key
 
-[db:vars]
+[lamp-db:vars]
 ansible_ssh_user=vagrant
 ansible_ssh_private_key_file=/Users/jgeerling/.vagrant.d/insecure_private_key
 
-[memcached:vars]
+[lamp-memcached:vars]
 ansible_ssh_user=vagrant
 ansible_ssh_private_key_file=/Users/jgeerling/.vagrant.d/insecure_private_key

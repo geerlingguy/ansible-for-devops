@@ -1,0 +1,19 @@
+{% for host in groups['lamp-www'] %}
+backend www{{ loop.index }} {
+  .host = "{{ host }}";
+  .port = "80";
+}
+{% endfor %}
+
+director www random {
+{% for host in groups['lamp-www'] %}
+  { .backend = www{{ loop.index }}; .weight = 1; }
+{% endfor %}
+}
+
+sub vcl_recv {
+  set req.backend = www;
+
+  # For testing ONLY; we want to make sure load balancing is working correctly.
+  return (pass);
+}
