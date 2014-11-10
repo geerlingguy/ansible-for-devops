@@ -9,6 +9,9 @@
 192.168.2.5 mysql_replication_role=master mysql_server_id=1
 192.168.2.6 mysql_replication_role=slave mysql_server_id=2
 
+[a4d.lamp.db.1]
+192.168.2.5
+
 [lamp-memcached]
 192.168.2.7
 

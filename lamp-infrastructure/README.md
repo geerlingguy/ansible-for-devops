@@ -1,6 +1,6 @@
 # Web Architecture Example - Ansible
 
-This is a simple example of a complete web architecture configuration using Ansible to configure a set of VMs either on local infrastructure using VirtualBox and Vagrant (using the included Vagrantfile), or on a cloud hosting provider.
+This is a simple example of a complete web architecture configuration using Ansible to configure a set of VMs either on local infrastructure using VirtualBox and Vagrant (using the included Vagrantfile), or on a cloud hosting provider (in this case, DigitalOcean).
 
 The architecture for the example web application will be:
 
@@ -24,7 +24,11 @@ The architecture for the example web application will be:
      |  192.168.2.5               |     |  192.168.2.6               |
       ----------------------------       ----------------------------
 
-This architecture offers multiple levels of caching and high availability/redundancy on almost all levels, though to keep it simple, there are a few 'single points of failure'. All persistent data stored in the database is stored in a slave server, and one of the slowest and most constrained parts of the stack (the web servers, in this case running a PHP application through Apache) is easy to scale horizontally, behind Varnish, which is acting as a caching (reverse proxy) layer as well as a load balancer.
+*IP addresses and hostnames in this diagram are modeled after local VirtualBox/Vagrant-based VMs.*
+
+This architecture offers multiple levels of caching and high availability/redundancy on almost all levels, though to keep it simple, there are single points of failure. All persistent data stored in the database is stored in a slave server, and one of the slowest and most constrained parts of the stack (the web servers, in this case running a PHP application through Apache) is easy to scale horizontally, behind Varnish, which is acting as a caching (reverse proxy) layer and load balancer.
+
+For the purpose of demonstration, Varnish's caching is completely disabled, so you can refresh and see both Apache servers (with caching enabled, Varnish would cache the first response then keep serving it without hitting the rest of the stack). You can see the caching and load balancing configuration in `playbooks/varnish/templates/default.vcl`).
 
 ## Build and configure the servers (Local)
 
@@ -35,7 +39,7 @@ To build the VMs and configure them using Ansible, follow these steps (both from
 
 This guide assumes you already have Vagrant, VirtualBox, and Ansible installed locally.
 
-After everything is booted and configured, visit http://varnish.dev/ (if you configured the domain in your hosts file) in a browser, and refresh a few times to see that Varnish, Apache, PHP, Memcached, and MySQL are all working properly!
+After everything is booted and configured, visit http://varnish.dev/ (if you configured the domain in your hosts file with the line `192.168.2.2  varnish.dev`) in a browser, and refresh a few times to see that Varnish, Apache, PHP, Memcached, and MySQL are all working properly!
 
 ## Build and configure the servers (DigitalOcean)
 
