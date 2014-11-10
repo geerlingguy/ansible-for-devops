@@ -1,12 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Vagrantfile API/syntax version.
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-
-  # Configure VM settings for servers running in VirtualBox.
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "256"]
   end
@@ -14,30 +11,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Application server 1.
   config.vm.define "app1" do |app|
     app.vm.hostname = "orc-app1.dev"
-
-    app.vm.box = "centos64"
-    app.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box"
-
+    app.vm.box = "geerlingguy/centos6"
     app.vm.network :private_network, ip: "192.168.60.4"
   end
 
   # Application server 2.
   config.vm.define "app2" do |app|
     app.vm.hostname = "orc-app2.dev"
-
-    app.vm.box = "centos64"
-    app.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box"
-
+    app.vm.box = "geerlingguy/centos6"
     app.vm.network :private_network, ip: "192.168.60.5"
   end
 
   # Database server.
   config.vm.define "db" do |db|
     db.vm.hostname = "orc-db.dev"
-
-    db.vm.box = "centos64"
-    db.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box"
-
+    db.vm.box = "geerlingguy/centos6"
     db.vm.network :private_network, ip: "192.168.60.6"
   end
 end
