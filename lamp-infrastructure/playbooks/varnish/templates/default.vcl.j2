@@ -1,3 +1,7 @@
+vcl 4.0;
+
+import directors;
+
 {% for host in groups['lamp-www'] %}
 backend www{{ loop.index }} {
   .host = "{{ host }}";
@@ -5,14 +9,15 @@ backend www{{ loop.index }} {
 }
 {% endfor %}
 
-director www random {
+sub vcl_init {
+  new vdir = directors.random();
 {% for host in groups['lamp-www'] %}
-  { .backend = www{{ loop.index }}; .weight = 1; }
+  vdir.add_backend(www{{ loop.index }}, 1);
 {% endfor %}
 }
 
 sub vcl_recv {
-  set req.backend = www;
+  set req.backend_hint = vdir.backend();
 
   # For testing ONLY; we want to make sure load balancing is working correctly.
   return (pass);

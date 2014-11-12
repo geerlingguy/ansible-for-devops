@@ -1,0 +1,83 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    instances:
+      - { name: a4d.lamp.varnish, ssh_key: "jeff_mba_home", group: "lamp-varnish", security_group: ["default", "a4d_lamp_http"] }
+      - { name: a4d.lamp.www.1, ssh_key: "jeff_mba_home", group: "lamp-www", security_group: ["default", "a4d_lamp_http"] }
+      - { name: a4d.lamp.www.2, ssh_key: "jeff_mba_home", group: "lamp-www", security_group: ["default", "a4d_lamp_http"] }
+      - { name: a4d.lamp.db.1, ssh_key: "jeff_mba_home", group: "lamp-db", security_group: ["default", "a4d_lamp_db"] }
+      - { name: a4d.lamp.db.2, ssh_key: "jeff_mba_home", group: "lamp-db", security_group: ["default", "a4d_lamp_db"] }
+      - { name: a4d.lamp.memcached, ssh_key: "jeff_mba_home", group: "lamp-memcached", security_group: ["default", "a4d_lamp_memcached"] }
+
+    security_groups:
+      - name: a4d_lamp_http
+        rules:
+          - { proto: tcp, from_port: 80, to_port: 80, cidr_ip: 0.0.0.0/0 }
+          - { proto: tcp, from_port: 22, to_port: 22, cidr_ip: 0.0.0.0/0 }
+        rules_egress: []
+      - name: a4d_lamp_db
+        rules:
+          - { proto: tcp, from_port: 3306, to_port: 3306, cidr_ip: 0.0.0.0/0 }
+          - { proto: tcp, from_port: 22, to_port: 22, cidr_ip: 0.0.0.0/0 }
+        rules_egress: []
+      - name: a4d_lamp_memcached
+        rules:
+          - { proto: tcp, from_port: 11211, to_port: 11211, cidr_ip: 0.0.0.0/0 }
+          - { proto: tcp, from_port: 22, to_port: 22, cidr_ip: 0.0.0.0/0 }
+        rules_egress: []
+
+  tasks:
+    - name: Configure EC2 Security Groups.
+      ec2_group:
+        name: "{{ item.name }}"
+        description: Example EC2 security group for A4D.
+        region: us-west-2
+        state: present
+        rules: "{{ item.rules }}"
+        rules_egress: "{{ item.rules_egress }}"
+      with_items: security_groups
+
+    - name: Provision EC2 instances.
+      ec2:
+        key_name: "{{ item.ssh_key | default('') }}"
+        instance_tags:
+          inventory_group: "{{ item.group | default('') }}"
+          inventory_host: "{{ item.name | default('') }}"
+        group: "{{ item.security_group | default('') }}"
+        instance_type: "{{ item.type | default('t2.micro')}}" # Falls within free tier
+        image: "{{ item.image | default('ami-11125e21') }}" # RedHat 6.5 x64 hvm
+        region: "{{ item.region | default('us-west-2') }}" # Oregon
+        wait: yes
+        wait_timeout: 500
+        exact_count: 1
+        count_tag:
+          inventory_group: "{{ item.group | default('') }}"
+          inventory_host: "{{ item.name | default('') }}"
+      register: created_instances
+      with_items: instances
+
+    - name: Add EC2 instances to their respective inventory groups.
+      add_host:
+        name: "{{ item.1.tagged_instances.0.public_ip }}"
+        groups: "aws,{{ item.1.item.group }},{{ item.1.item.name }}"
+        # You can dynamically add inventory variables per-host.
+        ansible_ssh_user: ec2-user
+        mysql_replication_role: "{{ 'master' if (item.1.item.name == 'a4d.lamp.db.1') else 'slave' }}"
+        mysql_server_id: "{{ item.0 }}"
+      when: item.1.instances is defined
+      with_indexed_items: created_instances.results
+
+# Run some general configuration on all AWS hosts.
+- hosts: aws
+  gather_facts: false
+
+  tasks:
+    - name: Wait for port 22 to become available.
+      local_action: "wait_for port=22 host={{ inventory_hostname }} search_regex=OpenSSH delay=3"
+
+    - name: Set selinux into 'permissive' mode.
+      selinux: policy=targeted state=permissive
+      sudo: yes

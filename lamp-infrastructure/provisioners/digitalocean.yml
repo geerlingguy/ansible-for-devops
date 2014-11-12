@@ -31,7 +31,7 @@
     - name: Add DigitalOcean hosts to their respective inventory groups.
       add_host:
         name: "{{ item.1.droplet.ip_address }}"
-        groups: "{{ droplets[item.0].group }},{{ item.1.droplet.name }}"
+        groups: "digitalocean,{{ droplets[item.0].group }},{{ item.1.droplet.name }}"
         # You can dynamically add inventory variables per-host.
         ansible_ssh_user: root
         mysql_replication_role: "{{ 'master' if (item.1.droplet.name == 'a4d.lamp.db.1') else 'slave' }}"

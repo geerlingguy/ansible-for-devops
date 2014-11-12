@@ -43,7 +43,7 @@ After everything is booted and configured, visit http://varnish.dev/ (if you con
 
 ## Build and configure the servers (DigitalOcean)
 
-Pre-suppositions: You have a DigitalOcean account, and you grabbed your v1 API Client ID and API Key from the account.
+Pre-suppositions: You have a DigitalOcean account, and you have your v1 API Client ID and API Key from the account. Additionally, you have `dopy` and Ansible installed on your workstation (install `dopy` with `sudo pip install dopy`).
 
 To build the droplets and configure them using Ansible, follow these steps (both from within this directory):
 
@@ -57,3 +57,20 @@ After everything is booted and configured, visit the IP address of the Varnish s
 
   - Public IP addresses are used for all cross-droplet communication (e.g. PHP to MySQL/Memcached communication, MySQL master/slave replication). For better security and potentially a tiny performance improvement, you can use droplets' `private_ip_address` for cross-droplet communication.
   - Hosting active or inactive droplets on DigitalOcean will incur hosting fees (normally $0.01 USD/hour for the default 512mb droplets used in this example). While the charges will be nominal (likely less than $1 USD for many hours of testing), it's important to destroy droplets you aren't actively using!
+
+## Build and configure the servers (AWS)
+
+Pre-suppositions: You have an Amazon Web Services account with a valid payment method configured, and you have your AWS Access Key and AWS Secret Key from your account. Additionally, you have `boto` and Ansible installed on your workstation (install `boto` with `sudo pip install boto`).
+
+To build the droplets and configure them using Ansible, follow these steps (both from within this directory):
+
+  1. Set your AWS Access Key: `export AWS_ACCESS_KEY=[access key here]`
+  2. Set your AWS Secret Key: `export AWS_SECRET_KEY=[secret key here]`
+  3. Run `ansible-playbook provision.yml`.
+
+After everything is booted and configured, visit the IP address of the Varnish server that was created in your AWS account in a browser, and refresh a few times to see that Varnish, Apache, PHP, Memcached, and MySQL are all working properly!
+
+### Notes
+
+  - Public IP addresses are used for all cross-instance communication (e.g. PHP to MySQL/Memcached communication, MySQL master/slave replication). For better security and potentially a tiny performance improvement, you can use instances' `private_ip` for cross-instance communication.
+  - Hosting instances on AWS may incur hosting fees (unless all usage falls within AWS's first-year free tier limits). While the charges will be nominal (likely less than $1 USD for many hours of testing), it's important to destroy instances you aren't actively using!
