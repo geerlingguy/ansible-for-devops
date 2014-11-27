@@ -5,18 +5,21 @@ Vagrant.configure("2") do |config|
   # Base VM OS configuration.
   config.vm.box = "geerlingguy/centos6"
 
+  # General VirtualBox VM configuration.
+  config.vm.provider :virtualbox do |v|
+    v.customize ["modifyvm", :id, "--cpus", 1]
+    v.customize ["modifyvm", :id, "--ioapic", "on"]
+  end
+
   # Varnish.
   config.vm.define "varnish" do |varnish|
     varnish.vm.hostname = "varnish.dev"
     varnish.vm.network :private_network, ip: "192.168.2.2"
 
-    # VirtualBox.
     varnish.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--name", "varnish.dev"]
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--cpus", 1]
-      v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
   end
 
@@ -28,13 +31,10 @@ Vagrant.configure("2") do |config|
     www1.vm.provision "shell",
       inline: "sudo yum update -y"
 
-    # VirtualBox.
     www1.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--name", "www1.dev"]
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 256]
-      v.customize ["modifyvm", :id, "--cpus", 1]
-      v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
   end
 
@@ -46,13 +46,10 @@ Vagrant.configure("2") do |config|
     www2.vm.provision "shell",
       inline: "sudo yum update -y"
 
-    # VirtualBox.
     www2.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--name", "www2.dev"]
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 256]
-      v.customize ["modifyvm", :id, "--cpus", 1]
-      v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
   end
 
@@ -61,13 +58,10 @@ Vagrant.configure("2") do |config|
     db1.vm.hostname = "db1.dev"
     db1.vm.network :private_network, ip: "192.168.2.5"
 
-    # VirtualBox.
     db1.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--name", "db1.dev"]
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--cpus", 1]
-      v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
   end
 
@@ -76,13 +70,10 @@ Vagrant.configure("2") do |config|
     db2.vm.hostname = "db2.dev"
     db2.vm.network :private_network, ip: "192.168.2.6"
 
-    # VirtualBox.
     db2.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--name", "db2.dev"]
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--cpus", 1]
-      v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
   end
 
@@ -91,13 +82,10 @@ Vagrant.configure("2") do |config|
     memcached.vm.hostname = "memcached.dev"
     memcached.vm.network :private_network, ip: "192.168.2.7"
 
-    # VirtualBox.
     memcached.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--name", "memcached.dev"]
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--cpus", 1]
-      v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
 
     # Run Ansible provisioner once for all VMs at the end.
