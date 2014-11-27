@@ -4,7 +4,6 @@
   gather_facts: false
 
   vars:
-    droplet_default_state: present
     droplets:
       - { name: a4d.lamp.varnish, ssh_key: "138954", group: "lamp-varnish" }
       - { name: a4d.lamp.www.1, ssh_key: "138954", group: "lamp-www" }
@@ -16,7 +15,7 @@
   tasks:
     - name: Provision DigitalOcean droplets.
       digital_ocean:
-        state: "{{ item.state | default(droplet_default_state) }}"
+        state: "{{ item.state | default('present') }}"
         command: droplet
         name: "{{ item.name }}"
         private_networking: yes

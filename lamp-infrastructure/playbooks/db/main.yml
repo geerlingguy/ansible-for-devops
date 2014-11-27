@@ -9,8 +9,18 @@
     - name: Create dynamic MySQL variables.
       set_fact:
         mysql_users:
-          - { name: mycompany_user, host: "{{ groups['lamp-www'][0] }}", password: secret, priv: "*.*:SELECT" }
-          - { name: mycompany_user, host: "{{ groups['lamp-www'][1] }}", password: secret, priv: "*.*:SELECT" }
+          - {
+            name: mycompany_user,
+            host: "{{ groups['lamp-www'][0] }}",
+            password: secret,
+            priv: "*.*:SELECT"
+          }
+          - {
+            name: mycompany_user,
+            host: "{{ groups['lamp-www'][1] }}",
+            password: secret,
+            priv: "*.*:SELECT"
+          }
         mysql_replication_master: "{{ groups['a4d.lamp.db.1'][0] }}"
     - debug: var=mysql_replication_master
 
