@@ -76,7 +76,7 @@
 
   tasks:
     - name: Wait for port 22 to become available.
-      local_action: "wait_for port=22 host={{ inventory_hostname }} search_regex=OpenSSH delay=3"
+      local_action: "wait_for port=22 host={{ inventory_hostname }}"
 
     - name: Set selinux into 'permissive' mode.
       selinux: policy=targeted state=permissive

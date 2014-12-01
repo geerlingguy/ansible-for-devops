@@ -37,3 +37,10 @@
         mysql_server_id: "{{ item.0 }}"
       when: item.1.droplet is defined
       with_indexed_items: created_droplets.results
+
+- hosts: digitalocean
+  remote_user: root
+
+  tasks:
+    - name: Wait for port 22 to become available.
+      local_action: "wait_for port=22 host={{ inventory_hostname }}"
