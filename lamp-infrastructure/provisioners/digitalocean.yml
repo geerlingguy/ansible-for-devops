@@ -5,12 +5,12 @@
 
   vars:
     droplets:
-      - { name: a4d.lamp.varnish, ssh_key: "138954", group: "lamp-varnish" }
-      - { name: a4d.lamp.www.1, ssh_key: "138954", group: "lamp-www" }
-      - { name: a4d.lamp.www.2, ssh_key: "138954", group: "lamp-www" }
-      - { name: a4d.lamp.db.1, ssh_key: "138954", group: "lamp-db" }
-      - { name: a4d.lamp.db.2, ssh_key: "138954", group: "lamp-db" }
-      - { name: a4d.lamp.memcached, ssh_key: "138954", group: "lamp-memcached" }
+      - { name: a4d.lamp.varnish, group: "lamp-varnish" }
+      - { name: a4d.lamp.www.1, group: "lamp-www" }
+      - { name: a4d.lamp.www.2, group: "lamp-www" }
+      - { name: a4d.lamp.db.1, group: "lamp-db" }
+      - { name: a4d.lamp.db.2, group: "lamp-db" }
+      - { name: a4d.lamp.memcached, group: "lamp-memcached" }
 
   tasks:
     - name: Provision DigitalOcean droplets.
@@ -22,7 +22,7 @@
         size_id: "{{ item.size | default(66) }}" # 512mb
         image_id: "{{ item.image | default(6372108) }}" # CentOS 6 x64.
         region_id: "{{ item.region | default(4) }}" # NYC2
-        ssh_key_ids: "{{ item.ssh_key | default('') }}"
+        ssh_key_ids: "{{ item.ssh_key | default('138954') }}" # geerlingguy
         unique_name: yes
       register: created_droplets
       with_items: droplets
@@ -30,15 +30,17 @@
     - name: Add DigitalOcean hosts to their respective inventory groups.
       add_host:
         name: "{{ item.1.droplet.ip_address }}"
-        groups: "digitalocean,{{ droplets[item.0].group }},{{ item.1.droplet.name }}"
+        groups: "do,{{ droplets[item.0].group }},{{ item.1.droplet.name }}"
         # You can dynamically add inventory variables per-host.
         ansible_ssh_user: root
-        mysql_replication_role: "{{ 'master' if (item.1.droplet.name == 'a4d.lamp.db.1') else 'slave' }}"
+        mysql_replication_role: >
+          "{{ 'master' if (item.1.droplet.name == 'a4d.lamp.db.1')
+          else 'slave' }}"
         mysql_server_id: "{{ item.0 }}"
       when: item.1.droplet is defined
       with_indexed_items: created_droplets.results
 
-- hosts: digitalocean
+- hosts: do
   remote_user: root
 
   tasks:

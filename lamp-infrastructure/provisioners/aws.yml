@@ -5,12 +5,36 @@
 
   vars:
     instances:
-      - { name: a4d.lamp.varnish, ssh_key: "jeff_mba_home", group: "lamp-varnish", security_group: ["default", "a4d_lamp_http"] }
-      - { name: a4d.lamp.www.1, ssh_key: "jeff_mba_home", group: "lamp-www", security_group: ["default", "a4d_lamp_http"] }
-      - { name: a4d.lamp.www.2, ssh_key: "jeff_mba_home", group: "lamp-www", security_group: ["default", "a4d_lamp_http"] }
-      - { name: a4d.lamp.db.1, ssh_key: "jeff_mba_home", group: "lamp-db", security_group: ["default", "a4d_lamp_db"] }
-      - { name: a4d.lamp.db.2, ssh_key: "jeff_mba_home", group: "lamp-db", security_group: ["default", "a4d_lamp_db"] }
-      - { name: a4d.lamp.memcached, ssh_key: "jeff_mba_home", group: "lamp-memcached", security_group: ["default", "a4d_lamp_memcached"] }
+      - {
+        name: a4d.lamp.varnish,
+        group: "lamp-varnish",
+        security_group: ["default", "a4d_lamp_http"]
+      }
+      - {
+        name: a4d.lamp.www.1,
+        group: "lamp-www",
+        security_group: ["default", "a4d_lamp_http"]
+      }
+      - {
+        name: a4d.lamp.www.2,
+        group: "lamp-www",
+        security_group: ["default", "a4d_lamp_http"]
+      }
+      - {
+        name: a4d.lamp.db.1,
+        group: "lamp-db",
+        security_group: ["default", "a4d_lamp_db"]
+      }
+      - {
+        name: a4d.lamp.db.2,
+        group: "lamp-db",
+        security_group: ["default", "a4d_lamp_db"]
+      }
+      - {
+        name: a4d.lamp.memcached,
+        group: "lamp-memcached",
+        security_group: ["default", "a4d_lamp_memcached"]
+      }
 
     security_groups:
       - name: a4d_lamp_http
@@ -34,7 +58,7 @@
       ec2_group:
         name: "{{ item.name }}"
         description: Example EC2 security group for A4D.
-        region: us-west-2
+        region: "{{ item.region | default('us-west-2') }}" # Oregon
         state: present
         rules: "{{ item.rules }}"
         rules_egress: "{{ item.rules_egress }}"
@@ -42,13 +66,13 @@
 
     - name: Provision EC2 instances.
       ec2:
-        key_name: "{{ item.ssh_key | default('') }}"
+        key_name: "{{ item.ssh_key | default('jeff_mba_home') }}"
         instance_tags:
           inventory_group: "{{ item.group | default('') }}"
           inventory_host: "{{ item.name | default('') }}"
         group: "{{ item.security_group | default('') }}"
-        instance_type: "{{ item.type | default('t2.micro')}}" # Falls within free tier
-        image: "{{ item.image | default('ami-11125e21') }}" # RedHat 6.5 x64 hvm
+        instance_type: "{{ item.type | default('t2.micro')}}" # Free Tier
+        image: "{{ item.image | default('ami-11125e21') }}" # RHEL6 x64 hvm
         region: "{{ item.region | default('us-west-2') }}" # Oregon
         wait: yes
         wait_timeout: 500
@@ -65,7 +89,9 @@
         groups: "aws,{{ item.1.item.group }},{{ item.1.item.name }}"
         # You can dynamically add inventory variables per-host.
         ansible_ssh_user: ec2-user
-        mysql_replication_role: "{{ 'master' if (item.1.item.name == 'a4d.lamp.db.1') else 'slave' }}"
+        mysql_replication_role: >
+          {{ 'master' if (item.1.item.name == 'a4d.lamp.db.1')
+          else 'slave' }}
         mysql_server_id: "{{ item.0 }}"
       when: item.1.instances is defined
       with_indexed_items: created_instances.results
