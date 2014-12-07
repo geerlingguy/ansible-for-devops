@@ -30,6 +30,14 @@ This architecture offers multiple levels of caching and high availability/redund
 
 For the purpose of demonstration, Varnish's caching is completely disabled, so you can refresh and see both Apache servers (with caching enabled, Varnish would cache the first response then keep serving it without hitting the rest of the stack). You can see the caching and load balancing configuration in `playbooks/varnish/templates/default.vcl`).
 
+## Prerequisites
+
+Before you can run any of these playbooks, you will need to [install Ansible](http://docs.ansible.com/intro_installation.html), and run the following command to download dependencies (from within the same directory as this README file):
+
+    $ ansible-galaxy install -r requirements.txt
+
+If you would like to build the infrastructure locally, you will also need to install the latest versions of [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html).
+
 ## Build and configure the servers (Local)
 
 To build the VMs and configure them using Ansible, follow these steps (both from within this directory):
