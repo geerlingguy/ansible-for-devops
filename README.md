@@ -8,7 +8,7 @@ For even more interesting examples of what you can do with Ansible, please see m
 
 ## License
 
-MIT / BSD
+MIT
 
 ## Buy the Book
 
