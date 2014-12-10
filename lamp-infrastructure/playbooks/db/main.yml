@@ -22,7 +22,6 @@
             priv: "*.*:SELECT"
           }
         mysql_replication_master: "{{ groups['a4d.lamp.db.1'][0] }}"
-    - debug: var=mysql_replication_master
 
   roles:
     - geerlingguy.firewall
