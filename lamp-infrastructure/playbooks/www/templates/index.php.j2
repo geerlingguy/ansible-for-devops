@@ -14,7 +14,8 @@ $mysql_servers = array(
 $mysql_results = array();
 foreach ($mysql_servers as $host) {
   if ($result = mysql_test_connection($host)) {
-    $mysql_results[$host] = '<span style="color: green;">PASS</span> (' . $result['status'] . ')';
+    $mysql_results[$host] = '<span style="color: green;">PASS</span>';
+    $mysql_results[$host] .= ' (' . $result['status'] . ')';
   }
   else {
     $mysql_results[$host] = '<span style="color: red;">FAIL</span>';
@@ -44,8 +45,8 @@ if (class_exists('Memcached')) {
  *   IP Address or hostname of the server.
  *
  * @return array
- *   Array with keys 'success' (bool) and 'status' ('slave' or 'master'). Empty
- *   if connection failure.
+ *   Array with keys 'success' (bool) and 'status' ('slave' or 'master').
+ *   Empty if connection failure.
  */
 function mysql_test_connection($host) {
   $username = 'mycompany_user';
@@ -58,7 +59,9 @@ function mysql_test_connection($host) {
       array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
     // Query to see if the server is configured as a master or slave.
-    $statement = $db->prepare("SELECT variable_value FROM information_schema.global_variables WHERE variable_name = 'LOG_BIN';");
+    $statement = $db->prepare("SELECT variable_value
+      FROM information_schema.global_variables
+      WHERE variable_name = 'LOG_BIN';");
     $statement->execute();
     $result = $statement->fetch();
 
