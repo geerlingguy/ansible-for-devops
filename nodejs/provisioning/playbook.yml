@@ -40,7 +40,7 @@
     service: name=iptables state=stopped enabled=no
 
   - name: Install Node.js and npm.
-    yum: pkg=npm state=present enablerepo=epel
+    yum: name=npm state=present enablerepo=epel
 
   - name: Install forever (to run our Node.js app).
     npm: name=forever global=yes state=latest
