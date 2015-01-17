@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Build Docker image from Dockerfiles.
+      docker_image:
+        name: test
+        path: test
+        state: build
+
+    - name: Run the test container.
+      docker:
+        image: test:latest
+        name: test
+        state: running
