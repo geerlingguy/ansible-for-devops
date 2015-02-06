@@ -1,0 +1,69 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars.yml
+
+  roles:
+    - geerlingguy.passenger
+
+  tasks:
+    - name: Ensure demo application is at correct release.
+      git:
+        repo: https://github.com/geerlingguy/demo-rails-app.git
+        version: "{{ app_version }}"
+        dest: "{{ app_directory }}"
+        accept_hostkey: true
+      register: app_updated
+      notify: restart nginx
+
+    - name: Ensure secrets file is present.
+      template:
+        src: templates/secrets.yml.j2
+        dest: "{{ app_directory }}/config/secrets.yml"
+        owner: "{{ app_user }}"
+        group: "{{ app_user }}"
+        mode: 0664
+      notify: restart nginx
+
+    - name: Install required dependencies with bundler.
+      shell: "bundle install --path vendor/bundle chdir={{ app_directory }}"
+      when: app_updated.changed == true
+      notify: restart nginx
+
+    - name: Check if database exists.
+      stat: "path={{ app_directory }}/db/{{ app_environment.RAILS_ENV }}.sqlite3"
+      register: app_db_exists
+
+    - name: Create database.
+      shell: "bundle exec rake db:create chdir={{ app_directory }}"
+      when: app_db_exists.stat.exists == false
+      notify: restart nginx
+
+    - name: Perform deployment-related rake tasks.
+      shell: "{{ item }} chdir={{ app_directory }}"
+      with_items:
+        - bundle exec rake db:migrate
+        - bundle exec rake assets:precompile
+      environment: app_environment
+      when: app_updated.changed == true
+      notify: restart nginx
+
+    - name: Ensure demo application has correct user for files.
+      file:
+        path: "{{ app_directory }}"
+        state: directory
+        owner: "{{ app_user }}"
+        group: "{{ app_user }}"
+        recurse: yes
+      notify: restart nginx
+
+    # - name: Ensure bundled dependencies are installed.
+    #   command: "bundle install chdir={{ app_directory }}"
+    #   sudo: no
+    #   remote_user: "{{ app_user }}"
+
+    # TODO: Add environment variables:
+    #   - SECRET_KEY_BASE=app_secret
+    #   - RAILS_SERVE_STATIC_FILES=true
+    # TODO: Launch the server with the app_secret environment variable set.

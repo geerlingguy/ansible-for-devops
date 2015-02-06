@@ -1,0 +1,24 @@
+---
+# Variables for our Ruby app.
+app_version: 1.1.4
+app_directory: /opt/demo-rails-app
+app_user: www-data
+app_secrets:
+  dev: fe562ec1e21eecc5af4d83f6a157a7a7fa15f026280fd15d234ef2b8b2e28a6bf3084d831c2c9cbc99f4cdf50f6d1d651ba6a39398f47c1b6669015e3f151187
+  test: 4408f36dd290766d2f368fdfcedf4d9bf801da1a24c9a103ea86a1438caaaf0f4c0a55ed9993ee8b20120be1bf655b4c61920d4d1e9f029a8045541bc46fa97b
+  prod: 4408f36dd290766d2f368fdfcedf4d9bf801da1a24c9a103ea86a1438caaaf0f4c0a55ed9993ee8b20120be1bf655b4c61920d4d1e9f029a8045541bc46fa97b
+app_environment:
+  RAILS_ENV: production
+
+passenger_server_name: 0.0.0.0
+passenger_app_root: /opt/demo-rails-app/public
+passenger_app_env: production
+passenger_ruby: /usr/local/bin/ruby
+
+# Variables for Ruby installation.
+ruby_install_from_source: true
+ruby_download_url: http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.0.tar.gz
+ruby_version: 2.2.0
+ruby_install_gems:
+  - rails
+  - rb-readline

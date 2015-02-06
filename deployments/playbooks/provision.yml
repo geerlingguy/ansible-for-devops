@@ -1,0 +1,35 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars.yml
+
+  roles:
+    - geerlingguy.git
+    - geerlingguy.nodejs
+    - geerlingguy.ruby
+    - geerlingguy.passenger
+
+  tasks:
+    - name: Install app dependencies.
+      apt: "name={{ item }} state=present"
+      with_items:
+        - libsqlite3-dev
+        - libreadline-dev
+
+    - command: which rails
+      register: rails_result
+      changed_when: false
+      failed_when: false
+
+    - name: Install rails.
+      shell: gem install rails --no-ri --no-rdoc
+      when: rails_result.rc != 0
+
+    - name: Ensure app directory exists and is writeable.
+      file:
+        path: "{{ app_directory }}"
+        state: directory
+        owner: "{{ app_user }}"
+        group: "{{ app_user }}"
+        mode: 0755
