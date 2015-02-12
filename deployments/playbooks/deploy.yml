@@ -57,13 +57,3 @@
         group: "{{ app_user }}"
         recurse: yes
       notify: restart nginx
-
-    # - name: Ensure bundled dependencies are installed.
-    #   command: "bundle install chdir={{ app_directory }}"
-    #   sudo: no
-    #   remote_user: "{{ app_user }}"
-
-    # TODO: Add environment variables:
-    #   - SECRET_KEY_BASE=app_secret
-    #   - RAILS_SERVE_STATIC_FILES=true
-    # TODO: Launch the server with the app_secret environment variable set.

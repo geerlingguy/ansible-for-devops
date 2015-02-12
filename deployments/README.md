@@ -18,9 +18,9 @@ The first 'production' release of this demo app is version `1.1.4`, which includ
 
 Some notable releases you could test:
 
-  - `1.1.4`: The first production release. Basic interface for performing CRUD operations on Articles.
+  - `1.1.4`: The first stable release. Very basic interface for performing CRUD operations on Articles, but this release is not idempotently-deployable due to some incorrect settings.
   - `1.2.0`: Major changes to the structure of the app, like the home page and general layout.
-  - `1.2.1`: The page title has been updated. (Sometimes it's the little things :).
+  - `1.2.2`: First 'production' version of the app, with user interface elements complete. First version of the app able to be deployed idempotently.
 
 ## About the Author
 

@@ -17,15 +17,6 @@
         - libsqlite3-dev
         - libreadline-dev
 
-    - command: which rails
-      register: rails_result
-      changed_when: false
-      failed_when: false
-
-    - name: Install rails.
-      shell: gem install rails --no-ri --no-rdoc
-      when: rails_result.rc != 0
-
     - name: Ensure app directory exists and is writeable.
       file:
         path: "{{ app_directory }}"
