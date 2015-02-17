@@ -21,6 +21,7 @@ Some notable releases you could test:
   - `1.1.4`: The first stable release. Very basic interface for performing CRUD operations on Articles, but this release is not idempotently-deployable due to some incorrect settings.
   - `1.2.0`: Major changes to the structure of the app, like the home page and general layout.
   - `1.2.2`: First 'production' version of the app, with user interface elements complete. First version of the app able to be deployed idempotently.
+  - `1.3.0`: Major UX and design/layout improvements.
 
 ## About the Author
 
