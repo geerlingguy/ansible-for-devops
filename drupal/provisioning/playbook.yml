@@ -34,7 +34,7 @@
     apt_repository: repo='ppa:ondrej/php5'
 
   - name: "Install Apache, MySQL, PHP, and other dependencies."
-    apt: "name={{ item }} state=installed"
+    apt: "name={{ item }} state=installed" update_cache=yes
     with_items:
       - git
       - curl
