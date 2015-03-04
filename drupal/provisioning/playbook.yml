@@ -17,7 +17,7 @@
 
   pre_tasks:
   - name: Update apt cache if needed.
-    apt: update_cache=yes
+    apt: update_cache=yes cache_valid_time=3600
 
   handlers:
   - name: restart apache
@@ -31,10 +31,10 @@
       - python-pycurl
 
   - name: Add ondrej repository for PHP 5.5.
-    apt_repository: repo='ppa:ondrej/php5'
+    apt_repository: repo='ppa:ondrej/php5' update_cache=yes
 
   - name: "Install Apache, MySQL, PHP, and other dependencies."
-    apt: "name={{ item }} state=installed" update_cache=yes
+    apt: "name={{ item }} state=installed"
     with_items:
       - git
       - curl
