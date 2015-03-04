@@ -1,13 +1,13 @@
 ---
-- name: "Get software for apt repository management."
+- name: Get software for apt repository management.
   apt: name={{ item }} state=installed
   with_items:
   - python-apt
   - python-pycurl
 
-- name: "Add ondrej repository for later versions of PHP."
+- name: Add ondrej repository for later versions of PHP.
   # Note: You can remove '-oldstable' for PHP 5.5.x.
-  apt_repository: repo='ppa:ondrej/php5-oldstable'
+  apt_repository: repo='ppa:ondrej/php5-oldstable' update_cache=yes
 
 - name: "Install Apache, MySQL, PHP, and other dependencies."
   apt: name={{ item }} state=installed
@@ -29,7 +29,7 @@
   - python-mysqldb
   - mysql-server
 
-- name: "Disable the firewall (since this is for local dev only)."
+- name: Disable the firewall (since this is for local dev only).
   service: name=ufw state=stopped
 
 - name: "Start Apache, MySQL, and PHP."
