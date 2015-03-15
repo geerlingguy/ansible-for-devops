@@ -42,6 +42,7 @@
 
 - hosts: do
   remote_user: root
+  gather_facts: false
 
   tasks:
     - name: Wait for port 22 to become available.
