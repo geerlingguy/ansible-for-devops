@@ -1,0 +1,53 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # Base VM OS configuration.
+  config.vm.box = "geerlingguy/ubuntu1404"
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.ssh.insert_key = false
+
+  config.vm.provider :virtualbox do |v|
+    v.memory = 256
+    v.cpus = 1
+  end
+
+  boxes = [
+    {
+      :name => "nodejs1",
+      :ip => "192.168.3.2"
+    },
+    {
+      :name => "nodejs2",
+      :ip => "192.168.3.3"
+    },
+    {
+      :name => "nodejs3",
+      :ip => "192.168.3.4"
+    },
+    {
+      :name => "nodejs4",
+      :ip => "192.168.3.5"
+    },
+  ]
+
+  boxes.each do |opts|
+    config.vm.define opts[:name] do |config|
+      config.vm.hostname = opts[:name]
+      config.vm.network :private_network, ip: opts[:ip]
+
+      if opts[:name] == "nodejs4"
+        config.vm.provision "ansible" do |ansible|
+          ansible.playbook = "playbooks/main.yml"
+          ansible.inventory_path = "inventory"
+          ansible.limit = "all"
+          ansible.extra_vars = {
+            ansible_ssh_user: 'vagrant',
+            ansible_ssh_private_key_file: "~/.vagrant.d/insecure_private_key"
+          }
+        end
+      end
+    end
+  end
+
+end

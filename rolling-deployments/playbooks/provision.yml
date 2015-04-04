@@ -1,0 +1,11 @@
+---
+- hosts: nodejs-api
+  sudo: yes
+
+  vars:
+    nodejs_forever: true
+
+  roles:
+    - geerlingguy.nodejs
+
+  tasks: []

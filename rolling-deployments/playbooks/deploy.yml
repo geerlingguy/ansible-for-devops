@@ -1,0 +1,41 @@
+---
+- hosts: nodejs-api
+  sudo: yes
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Ensure Node.js API app is present.
+      git:
+        repo: https://github.com/geerlingguy/demo-nodejs-api.git
+        version: "{{ app_version }}"
+        dest: "{{ app_directory }}"
+        accept_hostkey: true
+      notify: restart forever apps
+
+    - name: Ensure Node.js API app dependencies are present.
+      npm: "path={{ app_directory }}"
+
+    - name: Run Node.js API app tests.
+      command: "npm test chdir={{ app_directory }}"
+      changed_when: false
+
+    - name: Get list of all running Node.js apps.
+      command: forever list
+      register: forever_list
+      changed_when: false
+
+    - name: Ensure Node.js API app is started.
+      command: "forever start {{ app_directory }}/app.js"
+      when: "forever_list.stdout.find('app.js') == -1"
+
+    - name: Add cron entry to start Node.js API app on reboot.
+      cron:
+        name: "Start Node.js API app"
+        special_time: reboot
+        job: "forever start {{ app_directory }}/app.js"
+
+  handlers:
+    - name: restart forever apps
+      command: "forever restartall"
