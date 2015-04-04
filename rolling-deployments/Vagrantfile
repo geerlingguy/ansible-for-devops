@@ -13,22 +13,10 @@ Vagrant.configure("2") do |config|
   end
 
   boxes = [
-    {
-      :name => "nodejs1",
-      :ip => "192.168.3.2"
-    },
-    {
-      :name => "nodejs2",
-      :ip => "192.168.3.3"
-    },
-    {
-      :name => "nodejs3",
-      :ip => "192.168.3.4"
-    },
-    {
-      :name => "nodejs4",
-      :ip => "192.168.3.5"
-    },
+    { :name => "nodejs1", :ip => "192.168.3.2" },
+    { :name => "nodejs2", :ip => "192.168.3.3" },
+    { :name => "nodejs3", :ip => "192.168.3.4" },
+    { :name => "nodejs4", :ip => "192.168.3.5" }
   ]
 
   boxes.each do |opts|

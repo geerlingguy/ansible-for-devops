@@ -16,6 +16,8 @@ Once the VM is built, you can test the API by running the following command (cop
         do curl -w "\n" "http://192.168.3.$i:8080/hello/john"; \
       done
 
+If the above command outputs `"hello john"` on four lines, everything worked correctly!
+
 ## Deploying application updates
 
 The first 'production' release of this demo app is version `1.0.0`, which contains one simple endpoint for `/hello/:name` and an integration test to make sure it's working correctly. Subsequent releases can be deployed by incrementing the `app_version` in `playbooks/vars.yml`, then running the Ansible provisioner again with `vagrant provision`.
