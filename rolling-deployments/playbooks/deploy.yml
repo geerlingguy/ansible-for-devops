@@ -1,5 +1,6 @@
 ---
 - hosts: nodejs-api
+  gather_facts: no
   sudo: yes
 
   vars_files:
@@ -8,7 +9,7 @@
   tasks:
     - name: Ensure Node.js API app is present.
       git:
-        repo: https://github.com/geerlingguy/demo-nodejs-api.git
+        repo: "{{ app_repository }}"
         version: "{{ app_version }}"
         dest: "{{ app_directory }}"
         accept_hostkey: true

@@ -4,8 +4,10 @@
 
   vars:
     nodejs_forever: true
+    firewall_allowed_tcp_ports:
+      - "22"
+      - "8080"
 
   roles:
+    - geerlingguy.firewall
     - geerlingguy.nodejs
-
-  tasks: []
