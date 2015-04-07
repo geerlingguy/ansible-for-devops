@@ -13,14 +13,20 @@
         version: "{{ app_version }}"
         dest: "{{ app_directory }}"
         accept_hostkey: true
+      register: app_updated
       notify: restart forever apps
 
     - name: Ensure Node.js API app dependencies are present.
       npm: "path={{ app_directory }}"
+      when: app_updated.changed
+
+    - name: Stop all running instances of the app.
+      command: "forever stopall"
+      when: app_updated.changed
 
     - name: Run Node.js API app tests.
       command: "npm test chdir={{ app_directory }}"
-      changed_when: false
+      when: app_updated.changed
 
     - name: Get list of all running Node.js apps.
       command: forever list
