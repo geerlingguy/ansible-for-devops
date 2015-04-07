@@ -16,12 +16,12 @@
       register: app_updated
       notify: restart forever apps
 
-    - name: Ensure Node.js API app dependencies are present.
-      npm: "path={{ app_directory }}"
-      when: app_updated.changed
-
     - name: Stop all running instances of the app.
       command: "forever stopall"
+      when: app_updated.changed
+
+    - name: Ensure Node.js API app dependencies are present.
+      npm: "path={{ app_directory }}"
       when: app_updated.changed
 
     - name: Run Node.js API app tests.
