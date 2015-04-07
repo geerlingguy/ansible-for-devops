@@ -25,7 +25,8 @@ The first 'production' release of this demo app is version `1.0.0`, which contai
 Some notable releases you could test:
 
   - `1.0.0`: The first stable release, but only one boring `/hello/:name` endpoint.
-  - TODO
+  - `1.0.1`: New `/ping/:server` endpoint, but one test is broken.
+  - `1.0.2`: Tests are fixed, and `/ping/:server` endpoint responds correctly.
 
 ## About the Author
 
