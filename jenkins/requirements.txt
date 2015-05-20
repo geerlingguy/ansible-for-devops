@@ -1,0 +1,5 @@
+geerlingguy.firewall
+geerlingguy.git
+geerlingguy.ansible
+geerlingguy.java
+geerlingguy.jenkins

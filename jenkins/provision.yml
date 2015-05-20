@@ -1,0 +1,18 @@
+---
+- hosts: all
+
+  vars:
+    firewall_allowed_tcp_ports:
+      - "22"
+      - "8080"
+    jenkins_plugins:
+      - git
+      - ssh
+      - ansicolor
+
+  roles:
+    - geerlingguy.firewall
+    - geerlingguy.git
+    - geerlingguy.ansible
+    - geerlingguy.java
+    - geerlingguy.jenkins
