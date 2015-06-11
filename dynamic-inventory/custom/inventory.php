@@ -4,8 +4,6 @@
 /**
  * @file
  * Example custom dynamic inventory script for Ansible, in PHP.
- *
- * @author Jeff Geerling, 2015
  */
 
 /**
@@ -78,3 +76,5 @@ function get_inventory($argv = []) {
 
 // Get the inventory.
 get_inventory($_SERVER['argv']);
+
+?>

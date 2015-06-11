@@ -2,8 +2,6 @@
 
 '''
 Example custom dynamic inventory script for Ansible, in Python.
-
-@author Jeff Geerling, 2015
 '''
 
 import os
@@ -41,7 +39,8 @@ class ExampleInventory(object):
                 'hosts': ['192.168.28.71', '192.168.28.72'],
                 'vars': {
                     'ansible_ssh_user': 'vagrant',
-                    'ansible_ssh_private_key_file': '~/.vagrant.d/insecure_private_key',
+                    'ansible_ssh_private_key_file':
+                        '~/.vagrant.d/insecure_private_key',
                     'example_variable': 'value'
                 }
             },
