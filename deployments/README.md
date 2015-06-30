@@ -25,4 +25,4 @@ Some notable releases you could test:
 
 ## About the Author
 
-[Jeff Geerling](http://jeffgeerling.com/), owner of [Midwestern Mac, LLC](http://www.midwesternmac.com/), created this project in 2015 so he could accelerate his Ruby on Rails deployment workflow. This project, and others like it, are also featured as examples in Jeff's book, [Ansible for DevOps](https://leanpub.com/ansible-for-devops).
+This project was created by [Jeff Geerling](http://jeffgeerling.com/) as an example for [Ansible for DevOps](https://leanpub.com/ansible-for-devops).

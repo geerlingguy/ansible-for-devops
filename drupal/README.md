@@ -1,10 +1,8 @@
 # Simple Drupal Development VM
 
-**For Drupal 6, 7, 8, etc.**
+**For a fully-featured VM environment for Drupal, please check out [Drupal VM](http://www.drupalvm.com/).**
 
-This project aims to make spinning up a simple local Drupal test/development environment incredibly quick and easy, and to introduce new developers to the wonderful world of Drupal development on local virtual machines (instead of crufty old MAMP/WAMP-based development).
-
-It will install the following on an Ubuntu 12.04 linux VM:
+This project makes local Drupal test/development environment management quick and easy. It installs the following on an Ubuntu 12.04 linux VM:
 
   - Apache 2.2.x
   - PHP 5.4.x
@@ -12,7 +10,7 @@ It will install the following on an Ubuntu 12.04 linux VM:
   - Drush 7.x (latest dev release)
   - Drupal 6.x, 7.x, or 8.0.x (configurable)
 
-It should take 5-10 minutes to build or rebuild the VM from scratch on a decent broadband connection.
+It takes 5-10 minutes to build or rebuild the VM from scratch on a decent broadband connection.
 
 ## Quick Start Guide
 
@@ -47,4 +45,4 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 
 ## About the Author
 
-[Jeff Geerling](http://jeffgeerling.com/), owner of [Midwestern Mac, LLC](http://www.midwesternmac.com/), created this project in 2014 so he could accelerate his Drupal core and contrib development workflow. This project, and others like it, are also featured as examples in Jeff's book, [Ansible for DevOps](https://leanpub.com/ansible-for-devops).
+This project was created by [Jeff Geerling](http://jeffgeerling.com/) as an example for [Ansible for DevOps](https://leanpub.com/ansible-for-devops).

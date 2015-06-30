@@ -1,16 +1,4 @@
 ---
-
-# Simple Apache Solr VM Playbook for Ubuntu.
-#
-# This extremely simple Ansible playbook sets up a simple Apache Solr server
-# using Java and Tomcat 7. It is built for Ubuntu 12.04, and is structured in
-# the most simple way possible. It uses most Ansible best practices, but as far
-# as organization goes, this playbook doesn't use roles, groups, etc., and
-# should definitely be structured differently if you're using it to manage
-# real-world infrastructure.
-#
-# @author Jeff Geerling, 2014
-
 - hosts: all
 
   vars_files:

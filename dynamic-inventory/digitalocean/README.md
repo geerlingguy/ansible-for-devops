@@ -16,4 +16,4 @@ Before you can use either of these examples, you will need to set a couple envir
 
 ## Author Information
 
-These examples were created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
+These examples were created in 2015 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).

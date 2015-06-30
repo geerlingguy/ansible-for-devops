@@ -1,16 +1,4 @@
 ---
-
-# Simple Node.js VM Playbook for CentOS 6.4
-#
-# This extremely simple Ansible playbook sets up a minimalistic Node.js
-# environment for local testing. It is built for CentOS 6.4, and is structured
-# in the most simple way possible. It uses most Ansible best practices, but as
-# far as organization goes, this playbook doesn't use roles, groups, etc., and
-# should definitely be structured differently (using includes for each group of
-# tasks) if you're using it to manage real-world infrastructure.
-#
-# @author Jeff Geerling, 2014
-
 - hosts: all
 
   vars:

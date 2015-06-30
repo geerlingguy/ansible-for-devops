@@ -2,7 +2,7 @@
 
 This project aims to make spinning up a simple local Node.js test/development environment incredibly quick and easy, and to introduce new developers to the wonderful world of Node.js development on local virtual machines.
 
-It will install the following on a CentOS 6.4 linux VM:
+It will install the following on a CentOS 6 linux VM:
 
   - Node.js (latest version in EPEL repository)
   - Express
@@ -45,4 +45,4 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 
 ## About the Author
 
-[Jeff Geerling](http://jeffgeerling.com/), owner of [Midwestern Mac, LLC](http://www.midwesternmac.com/), created this project in 2014 so he could accelerate his Node.js development workflow. This project, and others like it, are also featured as examples in Jeff's book, [Ansible for DevOps](https://leanpub.com/ansible-for-devops).
+This project was created by [Jeff Geerling](http://jeffgeerling.com/) as an example for [Ansible for DevOps](https://leanpub.com/ansible-for-devops).
