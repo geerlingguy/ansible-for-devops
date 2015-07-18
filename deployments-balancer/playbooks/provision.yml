@@ -1,0 +1,29 @@
+---
+- hosts: balancer
+  sudo: yes
+
+  vars:
+    firewall_allowed_tcp_ports:
+      - "22"
+      - "80"
+    haproxy_backend_servers:
+      - name: app1
+        address: 192.168.4.3:80
+      - name: app2
+        address: 192.168.4.4:80
+
+  roles:
+    - geerlingguy.firewall
+    - geerlingguy.haproxy
+
+- hosts: app
+  sudo: yes
+
+  vars:
+    firewall_allowed_tcp_ports:
+      - "22"
+      - "80"
+
+  roles:
+    - geerlingguy.firewall
+    - geerlingguy.apache
