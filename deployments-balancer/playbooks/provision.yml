@@ -7,9 +7,9 @@
       - "22"
       - "80"
     haproxy_backend_servers:
-      - name: app1
+      - name: 192.168.4.3
         address: 192.168.4.3:80
-      - name: app2
+      - name: 192.168.4.4
         address: 192.168.4.4:80
 
   roles:
