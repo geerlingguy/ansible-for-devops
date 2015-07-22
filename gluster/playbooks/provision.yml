@@ -16,19 +16,6 @@
         - "{{ gluster_brick_dir }}"
         - "{{ gluster_mount_dir }}"
 
-    - name: Check if Gluster volumes already exist.
-      shell: "gluster volume info"
-      changed_when: false
-      register: gluster_volume_info
-
-    - name: Connect to Gluster peers.
-      shell: "gluster peer probe {{ item }}"
-      register: gluster_peer_probe
-      changed_when: "'already in peer list' not in gluster_peer_probe.stdout"
-      failed_when: false
-      with_items: groups.gluster
-      when: "'Volume Name: gluster' not in gluster_volume_info.stdout"
-
     - name: Create Gluster volume.
       gluster_volume:
         state: present
@@ -37,9 +24,6 @@
         replicas: 2
         cluster: "{{ groups.gluster | join(',') }}"
         host: "{{ inventory_hostname }}"
-        # The following two options are defaults.
-        # transport: tcp
-        # start_on_create: yes
         force: yes
       run_once: true
 
