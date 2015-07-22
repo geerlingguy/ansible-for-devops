@@ -1,6 +1,6 @@
 # GlusterFS Distributed Filesystem Configuration
 
-TODO.
+This project creates a distributed filesystem on two servers using [GlusterFS](http://www.gluster.org/).
 
 ## Building the VMs
 
@@ -10,7 +10,23 @@ TODO.
   4. Run `ansible-galaxy install -r requirements.txt` in this directory to get the required Ansible roles.
   5. Run `vagrant up` to build the VMs and configure the infrastructure.
 
-When Vagrant is finished provisioning the VMs with Ansible, TODO.
+When Vagrant is finished provisioning the VMs with Ansible, run the following two commands to confirm that Gluster is operating nominally:
+
+    # Get status for the Gluster cluster.
+    $ ansible gluster -i inventory -a "gluster peer status" -s
+    
+    # Get volume info for the Gluster cluster.
+    ansible gluster -i inventory -a "gluster volume info" -s
+
+You can also do the following to confirm that files are being replicated/distributed correctly:
+
+  1. Log into the first server: `vagrant ssh gluster1`
+  2. Create a file in the mounted gluster volume: `sudo touch /mnt/gluster/test`
+  3. Log out of the first server: `exit`
+  4. Log into the second server: `vagrant ssh gluster2`
+  5. List the contents of the gluster directory: `ls /mnt/gluster`
+
+You should see the `test` file you created in step 2; this means Gluster is working correctly!
 
 ## About the Author
 

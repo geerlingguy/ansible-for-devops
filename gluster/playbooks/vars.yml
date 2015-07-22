@@ -23,7 +23,3 @@ firewall_allowed_udp_ports:
 gluster_mount_dir: /mnt/gluster
 gluster_brick_dir: /srv/gluster/brick
 gluster_brick_name: gluster
-gluster_brick_config:
-  "replica 2 transport tcp
-  {{ groups.gluster[0] }}:{{ gluster_brick_dir }}
-  {{ groups.gluster[1] }}:{{ gluster_brick_dir }}"
