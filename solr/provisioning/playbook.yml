@@ -5,100 +5,100 @@
     - vars.yml
 
   pre_tasks:
-  - name: Update apt cache if needed.
-    apt: update_cache=yes cache_valid_time=3600
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=3600
 
   handlers:
-  - name: restart tomcat
-    service: name=tomcat7 state=restarted
+    - name: restart tomcat
+      service: name=tomcat7 state=restarted
 
   tasks:
-  - name: Install Tomcat 7.
-    apt: "name={{ item }} state=installed"
-    with_items:
-      - tomcat7
-      - tomcat7-admin
+    - name: Install Tomcat 7.
+      apt: "name={{ item }} state=installed"
+      with_items:
+        - tomcat7
+        - tomcat7-admin
 
-  - name: Ensure Tomcat 7 is started and enabled on boot.
-    service: name=tomcat7 state=started enabled=yes
+    - name: Ensure Tomcat 7 is started and enabled on boot.
+      service: name=tomcat7 state=started enabled=yes
 
-  - name: Download Solr.
-    get_url:
-      url: http://apache.osuosl.org/lucene/solr/4.9.1/solr-4.9.1.tgz
-      dest: "{{ download_dir }}/solr-4.9.1.tgz"
-      sha256sum: 4a546369a31d34b15bc4b99188984716bf4c0c158c0e337f3c1f98088aec70ee
+    - name: Download Solr.
+      get_url:
+        url: "http://apache.osuosl.org/lucene/solr/{{ solr_version }}/solr-{{ solr_version }}.tgz"
+        dest: "{{ download_dir }}/solr-{{ solr_version }}.tgz"
+        sha256sum: 4a546369a31d34b15bc4b99188984716bf4c0c158c0e337f3c1f98088aec70ee
 
-  - name: Expand Solr.
-    command: >
-      tar -C /tmp -xvzf {{ download_dir }}/solr-4.9.1.tgz
-      creates={{ download_dir }}/solr-4.9.1/dist/solr-4.9.1.war
+    - name: Expand Solr.
+      command: >
+        tar -C /tmp -xvzf {{ download_dir }}/solr-4.9.1.tgz
+        creates={{ download_dir }}/solr-4.9.1/dist/solr-4.9.1.war
 
-  - name: Copy Solr into place.
-    command: >
-      cp -r {{ download_dir }}/solr-4.9.1 {{ solr_dir }}
-      creates={{ solr_dir }}/dist/solr-4.9.1.war
+    - name: Copy Solr into place.
+      command: >
+        cp -r {{ download_dir }}/solr-4.9.1 {{ solr_dir }}
+        creates={{ solr_dir }}/dist/solr-4.9.1.war
 
-  # Use shell so commands are passed in correctly.
-  - name: Copy Solr components into place.
-    shell: >
-      cp -r {{ item.src }} {{ item.dest }}
-      creates={{ item.creates }}
-    with_items:
-      # Solr example configuration and war file.
-      - {
-        src: "{{ solr_dir }}/example/webapps/solr.war",
-        dest: "{{ solr_dir }}/solr.war",
-        creates: "{{ solr_dir }}/solr.war"
-      }
-      - {
-        src: "{{ solr_dir }}/example/solr/*",
-        dest: "{{ solr_dir }}/",
-        creates: "{{ solr_dir }}/solr.xml"
-      }
-      # Solr log4j logging configuration.
-      - {
-        src: "{{ solr_dir }}/example/lib/ext/*",
-        dest: "/var/lib/tomcat7/shared/",
-        creates: "/var/lib/tomcat7/shared/log4j-1.2.16.jar"
-      }
-      - {
-        src: "{{ solr_dir }}/example/resources/log4j.properties",
-        dest: "/var/lib/tomcat7/shared/classes",
-        creates: "/var/lib/tomcat7/shared/classes/log4j.properties"
-      }
-    notify: restart tomcat
+    # Use shell so commands are passed in correctly.
+    - name: Copy Solr components into place.
+      shell: >
+        cp -r {{ item.src }} {{ item.dest }}
+        creates={{ item.creates }}
+      with_items:
+        # Solr example configuration and war file.
+        - {
+          src: "{{ solr_dir }}/example/webapps/solr.war",
+          dest: "{{ solr_dir }}/solr.war",
+          creates: "{{ solr_dir }}/solr.war"
+        }
+        - {
+          src: "{{ solr_dir }}/example/solr/*",
+          dest: "{{ solr_dir }}/",
+          creates: "{{ solr_dir }}/solr.xml"
+        }
+        # Solr log4j logging configuration.
+        - {
+          src: "{{ solr_dir }}/example/lib/ext/*",
+          dest: "/var/lib/tomcat7/shared/",
+          creates: "/var/lib/tomcat7/shared/log4j-1.2.16.jar"
+        }
+        - {
+          src: "{{ solr_dir }}/example/resources/log4j.properties",
+          dest: "/var/lib/tomcat7/shared/classes",
+          creates: "/var/lib/tomcat7/shared/classes/log4j.properties"
+        }
+      notify: restart tomcat
 
-  - name: Ensure solr example directory is absent.
-    file:
-      path: "{{ solr_dir }}/example"
-      state: absent
+    - name: Ensure solr example directory is absent.
+      file:
+        path: "{{ solr_dir }}/example"
+        state: absent
 
-  - name: Set up solr data directory.
-    file:
-      path: "{{ solr_dir }}/data"
-      state: directory
-      owner: tomcat7
-      group: tomcat7
+    - name: Set up solr data directory.
+      file:
+        path: "{{ solr_dir }}/data"
+        state: directory
+        owner: tomcat7
+        group: tomcat7
 
-  - name: Configure solrconfig.xml for new data directory.
-    lineinfile:
-      dest: "{{ solr_dir }}/collection1/conf/solrconfig.xml"
-      regexp: "^.*<dataDir.+$"
-      line: "<dataDir>${solr.data.dir:{{ solr_dir }}/data}</dataDir>"
-      state: present
+    - name: Configure solrconfig.xml for new data directory.
+      lineinfile:
+        dest: "{{ solr_dir }}/collection1/conf/solrconfig.xml"
+        regexp: "^.*<dataDir.+$"
+        line: "<dataDir>${solr.data.dir:{{ solr_dir }}/data}</dataDir>"
+        state: present
 
-  - name: Set permissions for solr home.
-    file:
-      path: "{{ solr_dir }}"
-      recurse: yes
-      owner: tomcat7
-      group: tomcat7
+    - name: Set permissions for solr home.
+      file:
+        path: "{{ solr_dir }}"
+        recurse: yes
+        owner: tomcat7
+        group: tomcat7
 
-  - name: Add Catalina configuration for solr.
-    template:
-      src: templates/solr.xml.j2
-      dest: /etc/tomcat7/Catalina/localhost/solr.xml
-      owner: root
-      group: tomcat7
-      mode: 0644
-    notify: restart tomcat
+    - name: Add Catalina configuration for solr.
+      template:
+        src: templates/solr.xml.j2
+        dest: /etc/tomcat7/Catalina/localhost/solr.xml
+        owner: root
+        group: tomcat7
+        mode: 0644
+      notify: restart tomcat

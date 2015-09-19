@@ -4,3 +4,7 @@ download_dir: /tmp
 
 # The directory inside which Solr will be installed.
 solr_dir: /opt/solr
+
+# Solr version and download information.
+solr_version: 4.9.1
+solr_sha256sum: 4a546369a31d34b15bc4b99188984716bf4c0c158c0e337f3c1f98088aec70ee
