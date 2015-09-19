@@ -14,7 +14,7 @@
 
   tasks:
     - name: Install Tomcat 7.
-      apt: "name={{ item }} state=installed"
+      apt: "name={{ item }} state=present"
       with_items:
         - tomcat7
         - tomcat7-admin
