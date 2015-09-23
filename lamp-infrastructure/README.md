@@ -34,7 +34,7 @@ For the purpose of demonstration, Varnish's caching is completely disabled, so y
 
 Before you can run any of these playbooks, you will need to [install Ansible](http://docs.ansible.com/intro_installation.html), and run the following command to download dependencies (from within the same directory as this README file):
 
-    $ ansible-galaxy install -r requirements.txt
+    $ ansible-galaxy install -r requirements.yml
 
 If you would like to build the infrastructure locally, you will also need to install the latest versions of [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html).
 

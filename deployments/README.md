@@ -7,7 +7,7 @@ This project builds a [Ruby on Rails](http://rubyonrails.org/)-based app inside 
   1. Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
   2. Download and install [Vagrant](http://www.vagrantup.com/downloads.html).
   3. [Mac/Linux only] Install [Ansible](http://docs.ansible.com/intro_installation.html).
-  4. Run `ansible-galaxy install -r requirements.txt` in this directory to get the required Ansible roles.
+  4. Run `ansible-galaxy install -r requirements.yml` in this directory to get the required Ansible roles.
   5. Run `vagrant up` to build the VM and deploy the version of the app specified in `playbooks/vars.yml`.
 
 Once the VM is built, you can visit `http://192.168.33.7/` (or whatever domain name you point to that IP address in your local hosts file) to view the demo app.

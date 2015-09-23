@@ -1,0 +1,10 @@
+---
+- src: geerlingguy.firewall
+- src: geerlingguy.repo-epel
+- src: geerlingguy.varnish
+- src: geerlingguy.apache
+- src: geerlingguy.php
+- src: geerlingguy.php-mysql
+- src: geerlingguy.php-memcached
+- src: geerlingguy.mysql
+- src: geerlingguy.memcached

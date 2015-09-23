@@ -1,0 +1,5 @@
+---
+- src: geerlingguy.firewall
+- src: geerlingguy.ansible
+- src: geerlingguy.java
+- src: geerlingguy.jenkins
