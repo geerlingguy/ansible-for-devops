@@ -119,7 +119,7 @@
         chdir=/opt/drush
         creates=/opt/drush/vendor/autoload.php
 
-    - name: "Drush: Create drush bin symlink."
+    - name: Create drush bin symlink.
       file:
         src: /opt/drush/drush
         dest: /usr/local/bin/drush
