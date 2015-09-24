@@ -1,10 +1,17 @@
 ---
-- name: "Install Composer into the current directory."
-  shell: >
-    curl -sS https://getcomposer.org/installer | php
+- name: Download Composer installer.
+  get_url:
+    url: https://getcomposer.org/installer
+    dest: /tmp/composer-installer.php
+    mode: 0755
+
+- name: Run Composer installer.
+  command: >
+    php composer-installer.php
+    chdir=/tmp
     creates=/usr/local/bin/composer
 
-- name: "Move Composer into globally-accessible location."
+- name: Move Composer into globally-accessible location.
   shell: >
-    mv composer.phar /usr/local/bin/composer
+    mv /tmp/composer.phar /usr/local/bin/composer
     creates=/usr/local/bin/composer

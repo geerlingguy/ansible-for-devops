@@ -1,15 +1,17 @@
 ---
-- name: "Check out drush master branch."
-  git: repo=https://github.com/drush-ops/drush.git dest=/opt/drush
+- name: Check out drush master branch.
+  git:
+    repo: https://github.com/drush-ops/drush.git
+    dest: /opt/drush
 
-- name: "Install Drush dependencies with Composer."
+- name: Install Drush dependencies with Composer.
   shell: >
     /usr/local/bin/composer install
     chdir=/opt/drush
     creates=/opt/drush/vendor/autoload.php
 
-- name: "Create drush bin symlink."
-  file: >
-    src=/opt/drush/drush
-    dest=/usr/local/bin/drush
-    state=link
+- name: Create drush bin symlink.
+  file:
+    src: /opt/drush/drush
+    dest: /usr/local/bin/drush
+    state: link
