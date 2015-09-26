@@ -45,27 +45,22 @@
         creates={{ item.creates }}
       with_items:
         # Solr example configuration and war file.
-        - {
-          src: "{{ solr_dir }}/example/webapps/solr.war",
-          dest: "{{ solr_dir }}/solr.war",
+        - src: "{{ solr_dir }}/example/webapps/solr.war"
+          dest: "{{ solr_dir }}/solr.war"
           creates: "{{ solr_dir }}/solr.war"
-        }
-        - {
-          src: "{{ solr_dir }}/example/solr/*",
+
+        - src: "{{ solr_dir }}/example/solr/*"
           dest: "{{ solr_dir }}/",
           creates: "{{ solr_dir }}/solr.xml"
-        }
+
         # Solr log4j logging configuration.
-        - {
-          src: "{{ solr_dir }}/example/lib/ext/*",
-          dest: "/var/lib/tomcat7/shared/",
+        - src: "{{ solr_dir }}/example/lib/ext/*"
+          dest: "/var/lib/tomcat7/shared/"
           creates: "/var/lib/tomcat7/shared/log4j-1.2.16.jar"
-        }
-        - {
-          src: "{{ solr_dir }}/example/resources/log4j.properties",
-          dest: "/var/lib/tomcat7/shared/classes",
+
+        - src: "{{ solr_dir }}/example/resources/log4j.properties"
+          dest: "/var/lib/tomcat7/shared/classes"
           creates: "/var/lib/tomcat7/shared/classes/log4j.properties"
-        }
       notify: restart tomcat
 
     - name: Ensure solr example directory is absent.

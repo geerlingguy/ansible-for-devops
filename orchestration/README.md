@@ -14,7 +14,7 @@ This simple Vagrantfile configures three Virtual Machines using Vagrant and Virt
   2. Download and install [Vagrant](http://www.vagrantup.com/downloads.html).
   3. [Mac/Linux only] Install [Ansible](http://docs.ansible.com/intro_installation.html).
 
-Note for Windows users: *This guide assumes you're on a Mac or Linux host. Windows support may be added when I get a little more time; the main difference is Ansible needs to be bootstrapped from within the VM after it's created. See [JJG-Ansible-Windows](https://github.com/geerlingguy/JJG-Ansible-Windows) for more information.*
+Note for Windows users: *This guide assumes you're on a Mac or Linux host. Windows hosts are unsupported at this time.*
 
 ### 2 - Build the Virtual Machine
 
