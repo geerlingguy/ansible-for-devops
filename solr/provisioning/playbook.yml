@@ -26,17 +26,17 @@
       get_url:
         url: "http://apache.osuosl.org/lucene/solr/{{ solr_version }}/solr-{{ solr_version }}.tgz"
         dest: "{{ download_dir }}/solr-{{ solr_version }}.tgz"
-        sha256sum: 4a546369a31d34b15bc4b99188984716bf4c0c158c0e337f3c1f98088aec70ee
+        sha256sum: "{{ solr_sha256sum }}"
 
     - name: Expand Solr.
       command: >
-        tar -C /tmp -xvzf {{ download_dir }}/solr-4.9.1.tgz
-        creates={{ download_dir }}/solr-4.9.1/dist/solr-4.9.1.war
+        tar -C /tmp -xvzf {{ download_dir }}/solr-{{ solr_version }}.tgz
+        creates={{ download_dir }}/solr-{{ solr_version }}/dist/solr-{{ solr_version }}.war
 
     - name: Copy Solr into place.
       command: >
-        cp -r {{ download_dir }}/solr-4.9.1 {{ solr_dir }}
-        creates={{ solr_dir }}/dist/solr-4.9.1.war
+        cp -r {{ download_dir }}/solr-{{ solr_version }} {{ solr_dir }}
+        creates={{ solr_dir }}/dist/solr-{{ solr_version }}.war
 
     # Use shell so commands are passed in correctly.
     - name: Copy Solr components into place.
