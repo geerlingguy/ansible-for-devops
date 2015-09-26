@@ -50,7 +50,7 @@
           creates: "{{ solr_dir }}/solr.war"
 
         - src: "{{ solr_dir }}/example/solr/*"
-          dest: "{{ solr_dir }}/",
+          dest: "{{ solr_dir }}/"
           creates: "{{ solr_dir }}/solr.xml"
 
         # Solr log4j logging configuration.
