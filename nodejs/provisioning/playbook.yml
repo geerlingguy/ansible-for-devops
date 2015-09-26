@@ -14,10 +14,8 @@
     - name: Install Remi repo.
       command: "rpm -Uvh --force {{ item.href }} creates={{ item.creates }}"
       with_items:
-        - {
-          href: "http://rpms.famillecollet.com/enterprise/remi-release-6.rpm",
+        - href: "http://rpms.famillecollet.com/enterprise/remi-release-6.rpm"
           creates: "/etc/yum.repos.d/remi.repo"
-        }
 
     - name: Install EPEL repo.
       yum: name=epel-release state=present
