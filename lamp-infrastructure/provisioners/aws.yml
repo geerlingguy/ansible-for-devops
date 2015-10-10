@@ -5,36 +5,24 @@
 
   vars:
     instances:
-      - {
-        name: a4d.lamp.varnish,
-        group: "lamp-varnish",
+      - name: a4d.lamp.varnish
+        group: "lamp-varnish"
         security_group: ["default", "a4d_lamp_http"]
-      }
-      - {
-        name: a4d.lamp.www.1,
-        group: "lamp-www",
+      - name: a4d.lamp.www.1
+        group: "lamp-www"
         security_group: ["default", "a4d_lamp_http"]
-      }
-      - {
-        name: a4d.lamp.www.2,
-        group: "lamp-www",
+      - name: a4d.lamp.www.2
+        group: "lamp-www"
         security_group: ["default", "a4d_lamp_http"]
-      }
-      - {
-        name: a4d.lamp.db.1,
-        group: "lamp-db",
+      - name: a4d.lamp.db.1
+        group: "lamp-db"
         security_group: ["default", "a4d_lamp_db"]
-      }
-      - {
-        name: a4d.lamp.db.2,
-        group: "lamp-db",
+      - name: a4d.lamp.db.2
+        group: "lamp-db"
         security_group: ["default", "a4d_lamp_db"]
-      }
-      - {
-        name: a4d.lamp.memcached,
-        group: "lamp-memcached",
+      - name: a4d.lamp.memcached
+        group: "lamp-memcached"
         security_group: ["default", "a4d_lamp_memcached"]
-      }
 
     security_groups:
       - name: a4d_lamp_http
