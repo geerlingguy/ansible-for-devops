@@ -35,7 +35,8 @@
 
     - name: Copy Solr into place.
       command: >
-        cp -r {{ download_dir }}/solr-{{ solr_version }} {{ solr_dir }}
+        cp -r {{ download_dir }}/solr-{{ solr_version }} \
+        {{ solr_dir }}
         creates={{ solr_dir }}/dist/solr-{{ solr_version }}.war
 
     # Use shell so commands are passed in correctly.

@@ -49,7 +49,7 @@ function empty_inventory() {
  * Get inventory.
  *
  * @param array $argv
- *   Array of command line arguments (as returned by $_SERVER['argv']).
+ *   Array of command line arguments (as in $_SERVER['argv']).
  *
  * @return array
  *   Inventory of groups or vars, depending on arguments.

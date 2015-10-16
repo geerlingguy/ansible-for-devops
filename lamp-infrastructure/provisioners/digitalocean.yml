@@ -20,14 +20,14 @@
         name: "{{ item.name }}"
         private_networking: yes
         size_id: "{{ item.size | default(66) }}" # 512mb
-        image_id: "{{ item.image | default(6372108) }}" # CentOS 6 x64.
+        image_id: "{{ item.image | default(6372108) }}" # CentOS
         region_id: "{{ item.region | default(4) }}" # NYC2
-        ssh_key_ids: "{{ item.ssh_key | default('138954') }}" # geerlingguy
+        ssh_key_ids: "{{ item.ssh_key | default('138954') }}"
         unique_name: yes
       register: created_droplets
       with_items: droplets
 
-    - name: Add DigitalOcean hosts to their respective inventory groups.
+    - name: Add DigitalOcean hosts to inventory groups.
       add_host:
         name: "{{ item.1.droplet.ip_address }}"
         groups: "do,{{ droplets[item.0].group }},{{ item.1.droplet.name }}"

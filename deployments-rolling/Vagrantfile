@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
       config.vm.hostname = opts[:name]
       config.vm.network :private_network, ip: opts[:ip]
 
-      # Provision all the VMs using Ansible after the last VM is booted.
+      # Provision all the VMs using Ansible after last VM is up.
       if opts[:name] == "nodejs4"
         config.vm.provision "ansible" do |ansible|
           ansible.playbook = "playbooks/main.yml"

@@ -45,7 +45,7 @@ if (class_exists('Memcached')) {
  *   IP Address or hostname of the server.
  *
  * @return array
- *   Array with keys 'success' (bool) and 'status' ('slave' or 'master').
+ *   Array with 'success' (bool) and 'status' ('slave' or 'master').
  *   Empty if connection failure.
  */
 function mysql_test_connection($host) {
@@ -84,7 +84,8 @@ function mysql_test_connection($host) {
 <body>
   <h1>Host {{ inventory_hostname }}</h1>
   <?php foreach ($mysql_results as $host => $result): ?>
-    <p>MySQL Connection (<?php print $host; ?>): <?php print $result; ?></p>
+    <p>MySQL Connection (<?php print $host; ?>): 
+    <?php print $result; ?></p>
   <?php endforeach; ?>
   <p>Memcached Connection: <?php print $memcached_result; ?></p>
 </body>

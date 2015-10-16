@@ -26,7 +26,7 @@ class ExampleInventory(object):
         elif self.args.host:
             # Not implemented, since we return _meta info `--list`.
             self.inventory = self.empty_inventory()
-        # If no groups or vars are present, return an empty inventory.
+        # If no groups or vars are present, return empty inventory.
         else:
             self.inventory = self.empty_inventory()
 

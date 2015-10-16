@@ -27,18 +27,38 @@
     security_groups:
       - name: a4d_lamp_http
         rules:
-          - { proto: tcp, from_port: 80, to_port: 80, cidr_ip: 0.0.0.0/0 }
-          - { proto: tcp, from_port: 22, to_port: 22, cidr_ip: 0.0.0.0/0 }
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            cidr_ip: 0.0.0.0/0
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: 0.0.0.0/0
         rules_egress: []
+
       - name: a4d_lamp_db
         rules:
-          - { proto: tcp, from_port: 3306, to_port: 3306, cidr_ip: 0.0.0.0/0 }
-          - { proto: tcp, from_port: 22, to_port: 22, cidr_ip: 0.0.0.0/0 }
+          - proto: tcp
+            from_port: 3306
+            to_port: 3306
+            cidr_ip: 0.0.0.0/0
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: 0.0.0.0/0
         rules_egress: []
+
       - name: a4d_lamp_memcached
         rules:
-          - { proto: tcp, from_port: 11211, to_port: 11211, cidr_ip: 0.0.0.0/0 }
-          - { proto: tcp, from_port: 22, to_port: 22, cidr_ip: 0.0.0.0/0 }
+          - proto: tcp
+            from_port: 11211
+            to_port: 11211
+            cidr_ip: 0.0.0.0/0
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: 0.0.0.0/0
         rules_egress: []
 
   tasks:
@@ -59,8 +79,8 @@
           inventory_group: "{{ item.group | default('') }}"
           inventory_host: "{{ item.name | default('') }}"
         group: "{{ item.security_group | default('') }}"
-        instance_type: "{{ item.type | default('t2.micro')}}" # Free Tier
-        image: "{{ item.image | default('ami-11125e21') }}" # RHEL6 x64 hvm
+        instance_type: "{{ item.type | default('t2.micro')}}" # Free
+        image: "{{ item.image | default('ami-11125e21') }}" # RHEL6
         region: "{{ item.region | default('us-west-2') }}" # Oregon
         wait: yes
         wait_timeout: 500
@@ -71,7 +91,7 @@
       register: created_instances
       with_items: instances
 
-    - name: Add EC2 instances to their respective inventory groups.
+    - name: Add EC2 instances to inventory groups.
       add_host:
         name: "{{ item.1.tagged_instances.0.public_ip }}"
         groups: "aws,{{ item.1.item.group }},{{ item.1.item.name }}"
