@@ -12,7 +12,6 @@ MIT
 
 ## Buy the Book
 
-<iframe width="160" height="400" src="https://leanpub.com/ansible-for-devops/embed" frameborder="0" allowtransparency="true"></iframe>
-[![Ansible for DevOps Cover](https://s3.amazonaws.com/titlepages.leanpub.com/ansible-for-devops/medium)](https://leanpub.com/ansible-for-devops)
+[![Ansible for DevOps Cover](https://s3.amazonaws.com/titlepages.leanpub.com/ansible-for-devops/medium)](http://www.ansiblefordevops.com/)
 
-You can buy [Ansible for DevOps](https://leanpub.com/ansible-for-devops) on LeanPub.
+Buy [Ansible for DevOps](http://www.ansiblefordevops.com/) for your e-reader or in paperback format.

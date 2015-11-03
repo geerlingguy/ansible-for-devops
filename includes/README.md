@@ -9,4 +9,4 @@ After running `vagrant up`, you can access the installed Drupal site following t
 
 ## About the Author
 
-This project was created by [Jeff Geerling](http://jeffgeerling.com/) as an example for [Ansible for DevOps](https://leanpub.com/ansible-for-devops).
+This project was created by [Jeff Geerling](http://jeffgeerling.com/) as an example for [Ansible for DevOps](http://www.ansiblefordevops.com/).
