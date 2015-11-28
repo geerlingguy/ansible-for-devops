@@ -290,18 +290,17 @@ or environment variables (DO_ACCESS_TOKEN=)'''
 
         self.data = {}
         self.data['droplets'] = manager.all_active_droplets()
-        self.data['regions']  = self.sanitize_list(manager.all_regions())
-        self.data['images']   = self.sanitize_list(manager.all_images(filter=None))
-        self.data['sizes']    = self.sanitize_list(manager.sizes())
-        self.data['ssh_keys'] = self.sanitize_list(manager.all_ssh_keys())
-        self.data['domains']  = self.sanitize_list(manager.all_domains())
+        self.data['regions']  = manager.all_regions()
+        self.data['images']   = manager.all_images(filter=None)
+        self.data['sizes']    = manager.sizes()
+        self.data['ssh_keys'] = manager.all_ssh_keys()
+        self.data['domains']  = manager.all_domains()
         self.index = {}
         self.index['region_to_name']  = self.build_index(self.data['regions'], 'name', 'slug')
         self.index['size_to_name']    = self.build_index(self.data['sizes'], 'memory', 'slug')
-	self.index['image_to_name']   = self.build_index(self.data['images'], 'id', 'name')
+        self.index['image_to_name']   = self.build_index(self.data['images'], 'id', 'name')
         self.index['image_to_distro'] = self.build_index(self.data['images'], 'id', 'distribution')
 	self.index['host_to_droplet'] = self.build_index(self.data['droplets'], 'ip_address', 'id', False)
-
         self.build_inventory()
 
         self.write_to_cache()
@@ -310,7 +309,7 @@ or environment variables (DO_ACCESS_TOKEN=)'''
     def load_droplets_from_digital_ocean(self):
         ''' Use dopy to get droplet information from DigitalOcean and save data in cache files '''
         manager  = DoManager(None, self.access_token, api_version=2)
-        self.data['droplets'] = self.sanitize_list(manager.all_active_droplets())
+        self.data['droplets'] = manager.all_active_droplets()
         self.index['host_to_droplet'] = self.build_index(self.data['droplets'], 'ip_address', 'id', False)
         self.build_inventory()
         self.write_to_cache()
@@ -322,7 +321,7 @@ or environment variables (DO_ACCESS_TOKEN=)'''
             key = item[key_from]
             dest_dict[key] = name
         return dest_dict
- 
+
     def build_inventory(self):
         '''Build Ansible inventory of droplets'''
         self.inventory = {}
@@ -376,7 +375,7 @@ or environment variables (DO_ACCESS_TOKEN=)'''
             manager = DoManager(None, self.access_token, api_version=2)
             droplet_id = self.index['host_to_droplet'][host]
             droplet = self.sanitize_dict(manager.show_droplet(droplet_id))
-       
+
         if not droplet:
             return {}
 
@@ -385,7 +384,7 @@ or environment variables (DO_ACCESS_TOKEN=)'''
         for k, v in droplet.items():
             info['do_'+k] = v
 
-        # Generate user-friendly variables (i.e. not the ID's) 
+        # Generate user-friendly variables (i.e. not the ID's)
         if droplet.has_key('region_id'):
             info['do_region'] = self.index['region_to_name'].get(droplet['region_id'])
         if droplet.has_key('size_id'):
@@ -458,14 +457,6 @@ or environment variables (DO_ACCESS_TOKEN=)'''
             if v != None:
                 new_dict[self.to_safe(str(k))] = self.to_safe(str(v))
         return new_dict
-
-
-    def sanitize_list(self, seq):
-        new_seq = []
-        for d in seq:
-            new_seq.append(self.sanitize_dict(d))
-        return new_seq
-
 
 
 ###########################################################################
