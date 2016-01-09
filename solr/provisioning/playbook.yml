@@ -57,7 +57,7 @@
         # Solr log4j logging configuration.
         - src: "{{ solr_dir }}/example/lib/ext/*"
           dest: "/var/lib/tomcat7/shared/"
-          creates: "/var/lib/tomcat7/shared/log4j-1.2.16.jar"
+          creates: "/var/lib/tomcat7/shared/log4j-1.2.17.jar"
 
         - src: "{{ solr_dir }}/example/resources/log4j.properties"
           dest: "/var/lib/tomcat7/shared/classes"
