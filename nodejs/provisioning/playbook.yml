@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  sudo: yes
 
   vars:
     # Vars can also be passed in via CLI with `--extra-vars="name=value"`.
