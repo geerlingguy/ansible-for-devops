@@ -27,7 +27,7 @@
       yum: name=npm state=present enablerepo=epel
 
     - name: Install Forever (to run our Node.js app).
-      npm: name=forever global=yes state=latest
+      npm: name=forever global=yes state=present
 
     - name: Ensure Node.js app folder exists.
       file: "path={{ node_apps_location }} state=directory"
