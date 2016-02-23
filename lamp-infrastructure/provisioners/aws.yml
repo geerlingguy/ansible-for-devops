@@ -114,4 +114,4 @@
 
     - name: Set selinux into 'permissive' mode.
       selinux: policy=targeted state=permissive
-      sudo: yes
+      become: yes

@@ -1,7 +1,7 @@
 ---
 - hosts: nodejs-api
   gather_facts: no
-  sudo: yes
+  become: yes
 
   vars_files:
     - vars.yml

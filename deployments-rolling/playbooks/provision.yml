@@ -1,6 +1,6 @@
 ---
 - hosts: nodejs-api
-  sudo: yes
+  become: yes
 
   vars:
     nodejs_forever: true

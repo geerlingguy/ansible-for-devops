@@ -1,6 +1,6 @@
 ---
 - hosts: app
-  sudo: yes
+  become: yes
   serial: 1
 
   pre_tasks:

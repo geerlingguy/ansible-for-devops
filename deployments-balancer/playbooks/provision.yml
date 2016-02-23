@@ -1,6 +1,6 @@
 ---
 - hosts: balancer
-  sudo: yes
+  become: yes
 
   vars:
     firewall_allowed_tcp_ports:
@@ -17,7 +17,7 @@
     - geerlingguy.haproxy
 
 - hosts: app
-  sudo: yes
+  become: yes
 
   vars:
     firewall_allowed_tcp_ports:
