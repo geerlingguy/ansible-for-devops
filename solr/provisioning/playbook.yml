@@ -24,7 +24,7 @@
 
     - name: Download Solr.
       get_url:
-        url: "http://apache.osuosl.org/lucene/solr/{{ solr_version }}/solr-{{ solr_version }}.tgz"
+        url: "https://archive.apache.org/dist/lucene/solr/{{ solr_version }}/solr-{{ solr_version }}.tgz"
         dest: "{{ download_dir }}/solr-{{ solr_version }}.tgz"
         sha256sum: "{{ solr_sha256sum }}"
 
