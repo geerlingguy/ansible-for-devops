@@ -20,7 +20,7 @@
         - python-pycurl
 
     - name: Add ondrej repository for later versions of PHP.
-      apt_repository: repo='ppa:ondrej/php5' update_cache=yes
+      apt_repository: repo='ppa:ondrej/php5-5.6' update_cache=yes
 
     - name: "Install Apache, MySQL, PHP, and other dependencies."
       apt: "name={{ item }} state=present"
@@ -37,7 +37,7 @@
         - php5-gd
         - php5-dev
         - php5-mcrypt
-        - php-apc
+        - php5-apcu
         - php-pear
         - python-mysqldb
         - mysql-server
@@ -130,6 +130,12 @@
         repo: http://git.drupal.org/project/drupal.git
         version: "{{ drupal_core_version }}"
         dest: "{{ drupal_core_path }}"
+
+    - name: Install Drupal dependencies with Composer.
+      shell: >
+        /usr/local/bin/composer install
+        chdir={{ drupal_core_path }}
+        creates={{ drupal_core_path }}/sites/default/settings.php
 
     - name: Install Drupal.
       command: >
