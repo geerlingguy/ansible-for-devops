@@ -8,8 +8,9 @@ Vagrant.configure("2") do |config|
 
   # General VirtualBox VM configuration.
   config.vm.provider :virtualbox do |v|
-    v.customize ["modifyvm", :id, "--memory", 512]
-    v.customize ["modifyvm", :id, "--cpus", 1]
+    v.memory = 512
+    v.cpus = 1
+    v.linked_clone = true
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
