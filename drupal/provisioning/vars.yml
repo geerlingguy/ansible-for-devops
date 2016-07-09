@@ -1,5 +1,5 @@
 ---
-# The core version you want to use (e.g. 6.x, 7.x, 8.1.x).
+# The core version you want to use (e.g. 8.1.x, 8.2.x).
 drupal_core_version: "8.1.x"
 
 # The path where Drupal will be downloaded and installed.
