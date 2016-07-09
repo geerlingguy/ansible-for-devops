@@ -2,10 +2,9 @@
 
 This project aims to make spinning up a simple local Apache Solr environment incredibly quick and easy, and to introduce users to the fast and powerful search engine behind some of the largest document collections on the Internet.
 
-It will install the following on a Ubuntu 12.04 linux VM:
+It will install the following on a Ubuntu 16.04 linux VM:
 
   - Java
-  - Apache Tomcat 7
   - Apache Solr
 
 It should take 5-10 minutes to build or rebuild the VM from scratch on a decent broadband connection.
@@ -41,4 +40,4 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 
 ## About the Author
 
-This project was created by [Jeff Geerling](http://jeffgeerling.com/) as an example for [Ansible for DevOps](http://www.ansiblefordevops.com/).
+This project was created by [Jeff Geerling](http://www.jeffgeerling.com/) as an example for [Ansible for DevOps](http://www.ansiblefordevops.com/).

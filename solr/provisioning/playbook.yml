@@ -9,92 +9,36 @@
       apt: update_cache=yes cache_valid_time=3600
 
   handlers:
-    - name: restart tomcat
-      service: name=tomcat7 state=restarted
+    - name: restart solr
+      service: name=solr state=restarted
 
   tasks:
-    - name: Install Tomcat 7.
-      apt: "name={{ item }} state=present"
-      with_items:
-        - tomcat7
-        - tomcat7-admin
-
-    - name: Ensure Tomcat 7 is started and enabled on boot.
-      service: name=tomcat7 state=started enabled=yes
+    - name: Install Java.
+      apt: name=openjdk-8-jdk state=present
 
     - name: Download Solr.
       get_url:
         url: "https://archive.apache.org/dist/lucene/solr/{{ solr_version }}/solr-{{ solr_version }}.tgz"
         dest: "{{ download_dir }}/solr-{{ solr_version }}.tgz"
-        sha256sum: "{{ solr_sha256sum }}"
+        checksum: "{{ solr_checksum }}"
 
     - name: Expand Solr.
-      command: >
-        tar -C /tmp -xvzf {{ download_dir }}/solr-{{ solr_version }}.tgz
-        creates={{ download_dir }}/solr-{{ solr_version }}/dist/solr-{{ solr_version }}.war
+      unarchive:
+        src: "{{ download_dir }}/solr-{{ solr_version }}.tgz"
+        dest: "{{ download_dir }}"
+        copy: no
+        creates: "{{ download_dir }}/solr-{{ solr_version }}/README.txt"
 
-    - name: Copy Solr into place.
-      command: >
-        cp -r {{ download_dir }}/solr-{{ solr_version }} \
-        {{ solr_dir }}
-        creates={{ solr_dir }}/dist/solr-{{ solr_version }}.war
-
-    # Use shell so commands are passed in correctly.
-    - name: Copy Solr components into place.
+    - name: Run Solr installation script.
       shell: >
-        cp -r {{ item.src }} {{ item.dest }}
-        creates={{ item.creates }}
-      with_items:
-        # Solr example configuration and war file.
-        - src: "{{ solr_dir }}/example/webapps/solr.war"
-          dest: "{{ solr_dir }}/solr.war"
-          creates: "{{ solr_dir }}/solr.war"
+        {{ download_dir }}/solr-{{ solr_version }}/bin/install_solr_service.sh
+        {{ download_dir }}/solr-{{ solr_version }}.tgz
+        -i /opt
+        -d /var/solr
+        -u solr
+        -s solr
+        -p 8983
+        creates={{ solr_dir }}/bin/solr
 
-        - src: "{{ solr_dir }}/example/solr/*"
-          dest: "{{ solr_dir }}/"
-          creates: "{{ solr_dir }}/solr.xml"
-
-        # Solr log4j logging configuration.
-        - src: "{{ solr_dir }}/example/lib/ext/*"
-          dest: "/var/lib/tomcat7/shared/"
-          creates: "/var/lib/tomcat7/shared/log4j-1.2.17.jar"
-
-        - src: "{{ solr_dir }}/example/resources/log4j.properties"
-          dest: "/var/lib/tomcat7/shared/classes"
-          creates: "/var/lib/tomcat7/shared/classes/log4j.properties"
-      notify: restart tomcat
-
-    - name: Ensure solr example directory is absent.
-      file:
-        path: "{{ solr_dir }}/example"
-        state: absent
-
-    - name: Set up solr data directory.
-      file:
-        path: "{{ solr_dir }}/data"
-        state: directory
-        owner: tomcat7
-        group: tomcat7
-
-    - name: Configure solrconfig.xml for new data directory.
-      lineinfile:
-        dest: "{{ solr_dir }}/collection1/conf/solrconfig.xml"
-        regexp: "^.*<dataDir.+$"
-        line: "<dataDir>${solr.data.dir:{{ solr_dir }}/data}</dataDir>"
-        state: present
-
-    - name: Set permissions for solr home.
-      file:
-        path: "{{ solr_dir }}"
-        recurse: yes
-        owner: tomcat7
-        group: tomcat7
-
-    - name: Add Catalina configuration for solr.
-      template:
-        src: templates/solr.xml.j2
-        dest: /etc/tomcat7/Catalina/localhost/solr.xml
-        owner: root
-        group: tomcat7
-        mode: 0644
-      notify: restart tomcat
+    - name: Ensure solr is started and enabled on boot.
+      service: name=solr state=started enabled=yes
