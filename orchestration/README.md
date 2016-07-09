@@ -30,4 +30,4 @@ Read through the third chapter of [Ansible for DevOps](http://www.ansiblefordevo
 
 ## About the Author
 
-This project was created by [Jeff Geerling](http://jeffgeerling.com/) as an example for [Ansible for DevOps](http://www.ansiblefordevops.com/).
+This project was created by [Jeff Geerling](http://www.jeffgeerling.com/) as an example for [Ansible for DevOps](http://www.ansiblefordevops.com/).

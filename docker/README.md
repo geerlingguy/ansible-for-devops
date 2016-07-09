@@ -12,4 +12,4 @@ For a more complete example of using Ansible to build and manage Docker containe
 
 ## About the Author
 
-This project was created by [Jeff Geerling](http://jeffgeerling.com/) as an example for [Ansible for DevOps](http://www.ansiblefordevops.com/).
+This project was created by [Jeff Geerling](http://www.jeffgeerling.com/) as an example for [Ansible for DevOps](http://www.ansiblefordevops.com/).
