@@ -29,16 +29,20 @@
         - curl
         - sendmail
         - apache2
-        - php5
-        - php5-common
-        - php5-mysql
-        - php5-cli
-        - php5-curl
-        - php5-gd
-        - php5-dev
-        - php5-mcrypt
-        - php5-apcu
-        - php-pear
+        - php7.0-common
+        - php7.0-cli
+        - php7.0-dev
+        - php7.0-gd
+        - php7.0-curl
+        - php7.0-json
+        - php7.0-opcache
+        - php7.0-xml
+        - php7.0-mbstring
+        - php7.0-pdo
+        - php7.0-mysql
+        - php-apcu
+        - libpcre3-dev
+        - libapache2-mod-php7.0
         - python-mysqldb
         - mysql-server
 
@@ -55,7 +59,7 @@
       apache2_module: name=rewrite state=present
       notify: restart apache
 
-    - name: Add Apache virtualhost for Drupal 8 development.
+    - name: Add Apache virtualhost for Drupal 8.
       template:
         src: "templates/drupal.dev.conf.j2"
         dest: "/etc/apache2/sites-available/{{ domain }}.dev.conf"
@@ -73,23 +77,31 @@
 
     - name: Remove default virtualhost file.
       file:
-        path: "/etc/apache2/sites-enabled/000-default"
+        path: "/etc/apache2/sites-enabled/000-default.conf"
         state: absent
       notify: restart apache
 
-    - name: Enable upload progress via APC.
+    - name: Adjust OpCache memory setting.
       lineinfile:
-        dest: "/etc/php5/apache2/conf.d/20-apcu.ini"
-        regexp: "^apc.rfc1867"
-        line: "apc.rfc1867 = 1"
+        dest: "/etc/php/7.0/apache2/conf.d/10-opcache.ini"
+        regexp: "^opcache.memory_consumption"
+        line: "opcache.memory_consumption = 96"
         state: present
       notify: restart apache
 
     - name: Remove the MySQL test database.
       mysql_db: db=test state=absent
 
-    - name: Create a database for Drupal.
+    - name: Create a MySQL database for Drupal.
       mysql_db: "db={{ domain }} state=present"
+
+    - name: Create a MySQL user for Drupal.
+      mysql_user:
+        name: "{{ domain }}"
+        password: "1234"
+        priv: "{{ domain }}.*:ALL"
+        host: localhost
+        state: present
 
     - name: Download Composer installer.
       get_url:
@@ -142,7 +154,7 @@
         drush si -y --site-name="{{ drupal_site_name }}"
         --account-name=admin
         --account-pass=admin
-        --db-url=mysql://root@localhost/{{ domain }}
+        --db-url=mysql://{{ domain }}:1234@localhost/{{ domain }}
         chdir={{ drupal_core_path }}
         creates={{ drupal_core_path }}/sites/default/settings.php
       notify: restart apache

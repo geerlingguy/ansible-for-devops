@@ -2,13 +2,13 @@
 
 **For a fully-featured VM environment for Drupal, please check out [Drupal VM](http://www.drupalvm.com/).**
 
-This project makes local Drupal test/development environment management quick and easy. It installs the following on an Ubuntu 12.04 linux VM:
+This project makes local Drupal test/development environment management quick and easy. It installs the following on an Ubuntu 16.04 linux VM:
 
-  - Apache 2.2.x
-  - PHP 5.4.x
-  - MySQL 5.5.x
-  - Drush 7.x (latest dev release)
-  - Drupal 6.x, 7.x, or 8.0.x (configurable)
+  - Apache 2.4.x
+  - PHP 7.0.x
+  - MySQL 5.7.x
+  - Drush 8.x
+  - Drupal 8.1.x
 
 It takes 5-10 minutes to build or rebuild the VM from scratch on a decent broadband connection.
 
@@ -45,4 +45,4 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 
 ## About the Author
 
-This project was created by [Jeff Geerling](http://jeffgeerling.com/) as an example for [Ansible for DevOps](http://www.ansiblefordevops.com/).
+This project was created by [Jeff Geerling](http://www.jeffgeerling.com/) as an example for [Ansible for DevOps](http://www.ansiblefordevops.com/).

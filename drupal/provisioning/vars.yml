@@ -9,4 +9,4 @@ drupal_core_path: "/var/www/drupal-{{ drupal_core_version }}-dev"
 domain: "drupaltest"
 
 # Your Drupal site name.
-drupal_site_name: "D8 Test"
+drupal_site_name: "Drupal Test"
