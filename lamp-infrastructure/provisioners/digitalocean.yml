@@ -38,7 +38,7 @@
           else 'slave' }}"
         mysql_server_id: "{{ item.0 }}"
       when: item.1.droplet is defined
-      with_indexed_items: created_droplets.results
+      with_indexed_items: "{{ created_droplets.results }}"
 
 - hosts: do
   remote_user: root
