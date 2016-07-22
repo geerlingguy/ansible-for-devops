@@ -19,13 +19,13 @@
         command: droplet
         name: "{{ item.name }}"
         private_networking: yes
-        size_id: "{{ item.size | default(66) }}" # 512mb
-        image_id: "{{ item.image | default(6372108) }}" # CentOS
-        region_id: "{{ item.region | default(4) }}" # NYC2
+        size_id: "{{ item.size | default('512mb') }}"
+        image_id: "{{ item.image | default('centos-6-5-x32') }}"
+        region_id: "{{ item.region | default('nyc2') }}"
         ssh_key_ids: "{{ item.ssh_key | default('138954') }}"
         unique_name: yes
       register: created_droplets
-      with_items: droplets
+      with_items: "{{ droplets }}"
 
     - name: Add DigitalOcean hosts to inventory groups.
       add_host:

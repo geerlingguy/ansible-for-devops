@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
   # Base VM OS configuration.
   config.vm.box = "geerlingguy/centos6"
   config.ssh.insert_key = false
+  config.vm.synced_folder '.', '/vagrant', disabled: true
 
   # General VirtualBox VM configuration.
   config.vm.provider :virtualbox do |v|

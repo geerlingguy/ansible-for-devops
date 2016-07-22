@@ -51,13 +51,12 @@ After everything is booted and configured, visit http://varnish.dev/ (if you con
 
 ## Build and configure the servers (DigitalOcean)
 
-Pre-suppositions: You have a DigitalOcean account, and you have your v1 API Client ID and API Key from the account. Additionally, you have `dopy` and Ansible installed on your workstation (install `dopy` with `sudo pip install dopy`).
+Pre-suppositions: You have a DigitalOcean account, and you have a Personal Access Token for your account. Additionally, you have `dopy` and Ansible installed on your workstation (install `dopy` with `sudo pip install dopy`).
 
 To build the droplets and configure them using Ansible, follow these steps (both from within this directory):
 
-  1. Set your DigitalOcean v1 Client ID: `export DO_CLIENT_ID=[client ID here]`
-  2. Set your DigitalOcean v1 API Key: `export DO_API_KEY=[api key here]`
-  3. Run `ansible-playbook provision.yml`.
+  1. Set your DigitalOcean Personal Access Token: `export DO_API_TOKEN=[token here]`
+  2. Run `ansible-playbook provision.yml`.
 
 After everything is booted and configured, visit the IP address of the Varnish server that was created in your DigitalOcean account in a browser, and refresh a few times to see that Varnish, Apache, PHP, Memcached, and MySQL are all working properly!
 
