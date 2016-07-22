@@ -1,6 +1,6 @@
 # Simple Docker Example - Ansible
 
-This is an extremely simple Docker example to help introduce you to managing Docker containers via Ansible. The example is explained in more detail in Chapter 8 of [Ansible for DevOps](http://ansiblefordevops.com/).
+This is an extremely simple Docker example to help introduce you to managing Docker containers via Ansible. The example is explained in more detail in Chapter 8 of [Ansible for DevOps](https://www.ansiblefordevops.com/).
 
 To run the example, make sure you have Docker installed on the workstation or VM where this playbook is located, then enter the command:
 

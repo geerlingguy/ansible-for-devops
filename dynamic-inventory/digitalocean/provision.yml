@@ -10,12 +10,9 @@
         command: droplet
         name: ansible-test
         private_networking: yes
-        # 512mb
-        size_id: 66
-        # CentOS 7.0 x64
-        image_id: 6713409
-        # nyc2
-        region_id: 4
+        size_id: 512mb
+        image_id: centos-7-0-x64
+        region_id: nyc2
         ssh_key_ids: 138954
         # Required for idempotence/only one droplet creation.
         unique_name: yes
