@@ -1,6 +1,7 @@
 ---
 - hosts: all
-
+  become: yes
+  
   vars_files:
     - vars.yml
 
