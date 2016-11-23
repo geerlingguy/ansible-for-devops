@@ -13,6 +13,7 @@
         size_id: 512mb
         image_id: centos-7-0-x64
         region_id: nyc2
+        # Customize this for your account.
         ssh_key_ids: 138954
         # Required for idempotence/only one droplet creation.
         unique_name: yes
