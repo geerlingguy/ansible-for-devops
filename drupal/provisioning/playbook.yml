@@ -27,6 +27,7 @@
       with_items:
         - git
         - curl
+        - unzip
         - sendmail
         - apache2
         - php7.0-common
