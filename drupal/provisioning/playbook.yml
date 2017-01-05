@@ -148,7 +148,7 @@
       shell: >
         /usr/local/bin/composer install
         chdir={{ drupal_core_path }}
-        creates={{ drupal_core_path }}/sites/default/settings.php
+        creates={{ drupal_core_path }}/vendor/autoload.php
 
     - name: Install Drupal.
       command: >
