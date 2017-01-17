@@ -8,7 +8,7 @@ This project makes local Drupal test/development environment management quick an
   - PHP 7.0.x
   - MySQL 5.7.x
   - Drush 8.x
-  - Drupal 8.1.x
+  - Drupal 8.2.x
 
 It takes 5-10 minutes to build or rebuild the VM from scratch on a decent broadband connection.
 

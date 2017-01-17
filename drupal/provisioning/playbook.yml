@@ -20,7 +20,7 @@
         - python-pycurl
 
     - name: Add ondrej repository for later versions of PHP.
-      apt_repository: repo='ppa:ondrej/php5-5.6' update_cache=yes
+      apt_repository: repo='ppa:ondrej/php' update_cache=yes
 
     - name: "Install Apache, MySQL, PHP, and other dependencies."
       apt: "name={{ item }} state=present"
@@ -30,20 +30,20 @@
         - unzip
         - sendmail
         - apache2
-        - php7.0-common
-        - php7.0-cli
-        - php7.0-dev
-        - php7.0-gd
-        - php7.0-curl
-        - php7.0-json
-        - php7.0-opcache
-        - php7.0-xml
-        - php7.0-mbstring
-        - php7.0-pdo
-        - php7.0-mysql
+        - php7.1-common
+        - php7.1-cli
+        - php7.1-dev
+        - php7.1-gd
+        - php7.1-curl
+        - php7.1-json
+        - php7.1-opcache
+        - php7.1-xml
+        - php7.1-mbstring
+        - php7.1-pdo
+        - php7.1-mysql
         - php-apcu
         - libpcre3-dev
-        - libapache2-mod-php7.0
+        - libapache2-mod-php7.1
         - python-mysqldb
         - mysql-server
 
@@ -84,7 +84,7 @@
 
     - name: Adjust OpCache memory setting.
       lineinfile:
-        dest: "/etc/php/7.0/apache2/conf.d/10-opcache.ini"
+        dest: "/etc/php/7.1/apache2/conf.d/10-opcache.ini"
         regexp: "^opcache.memory_consumption"
         line: "opcache.memory_consumption = 96"
         state: present
