@@ -10,7 +10,7 @@ The architecture for the example web application will be:
                         -------------------------
                           /                   \
            ---------------------          ---------------------
-          |  www1.dev (Apache)  |        |  www1.dev (Apache)  |
+          |  www1.dev (Apache)  |        |  www2.dev (Apache)  |
           |  192.168.2.3        |        |  192.168.2.4        |
            ---------------------          ---------------------
                           \                   /
