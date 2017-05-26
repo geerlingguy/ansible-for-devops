@@ -1,0 +1,17 @@
+---
+services: docker
+
+env:
+  # Run each example test in a separate environment.
+  - distro: ubuntu1404
+    playbook: deployments.yml
+  # - distro: ubuntu1404
+  #   playbook: test.yml
+
+script:
+  # Download test shim.
+  - wget -O ${PWD}/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
+  - chmod +x ${PWD}/test.sh
+
+  # Run tests.
+  - ${PWD}/tests/test.sh
