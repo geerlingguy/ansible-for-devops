@@ -2,11 +2,13 @@
 services: docker
 
 env:
-  # Run each example test in a separate environment.
-  - distro: ubuntu1404
-    playbook: deployments.yml
-  - distro: ubuntu1404
-    playbook: deployments-rolling.yml
+  # Run each test playbook in a separate environment.
+  - playbook: deployments.yml
+    distro: ubuntu1404
+    test_idempotence: false
+
+  - playbook: deployments-rolling.yml
+    distro: ubuntu1404
 
 script:
   # Download test shim.
