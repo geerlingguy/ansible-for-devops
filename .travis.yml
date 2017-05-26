@@ -5,8 +5,8 @@ env:
   # Run each example test in a separate environment.
   - distro: ubuntu1404
     playbook: deployments.yml
-  # - distro: ubuntu1404
-  #   playbook: test.yml
+  - distro: ubuntu1404
+    playbook: deployments-rolling.yml
 
 script:
   # Download test shim.
