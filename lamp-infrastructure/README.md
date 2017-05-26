@@ -86,4 +86,4 @@ After everything is booted and configured, visit the IP address of the Varnish s
 
 ## About the Author
 
-This project was created by [Jeff Geerling](http://www.jeffgeerling.com/) as an example for [Ansible for DevOps](https://www.ansiblefordevops.com/).
+This project was created by [Jeff Geerling](https://www.jeffgeerling.com/) as an example for [Ansible for DevOps](https://www.ansiblefordevops.com/).

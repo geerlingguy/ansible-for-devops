@@ -34,4 +34,4 @@ The deployment playbook will run serially over all the webservers, and for each 
 
 ## About the Author
 
-This project was created by [Jeff Geerling](http://www.jeffgeerling.com/) as an example for [Ansible for DevOps](https://www.ansiblefordevops.com/).
+This project was created by [Jeff Geerling](https://www.jeffgeerling.com/) as an example for [Ansible for DevOps](https://www.ansiblefordevops.com/).
