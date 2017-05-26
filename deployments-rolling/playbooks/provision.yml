@@ -13,6 +13,3 @@
   roles:
     - geerlingguy.firewall
     - geerlingguy.nodejs
-
-  tasks:
-    - debug: var=nodejs_install_npm_user
