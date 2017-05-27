@@ -1,6 +1,6 @@
 ---
-# The core version you want to use (e.g. 8.2.x, 8.3.x).
-drupal_core_version: "8.2.x"
+# The core version you want to use (e.g. 8.3.x, 8.4.x).
+drupal_core_version: "8.3.x"
 
 # The path where Drupal will be downloaded and installed.
 drupal_core_path: "/var/www/drupal-{{ drupal_core_version }}-dev"
