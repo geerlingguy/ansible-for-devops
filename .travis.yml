@@ -7,8 +7,19 @@ env:
     distro: ubuntu1404
     test_idempotence: false
 
+  # TODO.
+  # - playbook: deployments-balancer.yml
+  #   distro: ubuntu1404
+
   - playbook: deployments-rolling.yml
     distro: ubuntu1404
+
+  # Docker.
+  # - playbook: docker.yml
+  #   distro: ubuntu1404
+
+  - playbook: drupal.yml
+    distro: ubuntu1604
 
 script:
   # Download test shim.
