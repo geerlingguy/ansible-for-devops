@@ -20,6 +20,38 @@ env:
   - playbook: drupal.yml
     distro: ubuntu1604
 
+  # TODO.
+  # - playbook: dynamic-inventory.yml
+  #   distro: ubuntu1604
+
+  # TODO.
+  # - playbook: includes.yml
+  #   distro: ubuntu1604
+
+  # TODO.
+  # - playbook: jenkins.yml
+  #   distro: ubuntu1604
+
+  # TODO.
+  # - playbook: lamp-infrastructure.yml
+  #   distro: ubuntu1604
+
+  # TODO.
+  # - playbook: nodejs.yml
+  #   distro: ubuntu1604
+
+  # TODO.
+  # - playbook: nodejs-role.yml
+  #   distro: ubuntu1604
+
+  # TODO.
+  # - playbook: orchestration.yml
+  #   distro: ubuntu1604
+
+  # TODO.
+  # - playbook: solr.yml
+  #   distro: ubuntu1604
+
 script:
   # Download test shim.
   - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/

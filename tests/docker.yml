@@ -1,12 +1,17 @@
 ---
 - hosts: all
 
+  vars:
+    pip_install_packages:
+      - docker-py
+
   pre_tasks:
     - name: Update the apt cache so we can install ufw.
       apt: update_cache=yes cache_valid_time=600
 
   roles:
     - geerlingguy.docker
+    - geerlingguy.pip
 
 # Docker test.
 - include: ../docker/main.yml

@@ -5,3 +5,4 @@
 - src: geerlingguy.nodejs
 - src: geerlingguy.passenger
 - src: geerlingguy.docker
+- src: geerlingguy.pip
