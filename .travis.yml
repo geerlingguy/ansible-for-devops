@@ -14,9 +14,8 @@ env:
   - playbook: deployments-rolling.yml
     distro: ubuntu1404
 
-  # Docker.
-  # - playbook: docker.yml
-  #   distro: ubuntu1404
+  - playbook: docker.yml
+    distro: ubuntu1604
 
   - playbook: drupal.yml
     distro: ubuntu1604
