@@ -16,6 +16,7 @@ env:
 
   - playbook: docker.yml
     distro: ubuntu1604
+    test_idempotence: false
 
   - playbook: drupal.yml
     distro: ubuntu1604
