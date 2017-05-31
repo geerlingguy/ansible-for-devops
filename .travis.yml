@@ -28,9 +28,8 @@ env:
   - playbook: includes.yml
     distro: ubuntu1604
 
-  # TODO.
-  # - playbook: jenkins.yml
-  #   distro: ubuntu1604
+  - playbook: jenkins.yml
+    distro: ubuntu1604
 
   # TODO.
   # - playbook: lamp-infrastructure.yml

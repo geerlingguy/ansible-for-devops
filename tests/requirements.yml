@@ -6,3 +6,6 @@
 - src: geerlingguy.passenger
 - src: geerlingguy.docker
 - src: geerlingguy.pip
+- src: geerlingguy.ansible
+- src: geerlingguy.java
+- src: geerlingguy.jenkins
