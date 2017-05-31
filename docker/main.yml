@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-    - name: Build Docker image from the test Dockerfile.
+    - name: Ensure Docker image is built from the test Dockerfile.
       docker_image:
         name: test
         path: test
