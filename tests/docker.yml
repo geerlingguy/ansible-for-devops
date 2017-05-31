@@ -3,7 +3,7 @@
 
   vars:
     pip_install_packages:
-      - docker-py
+      - docker
 
   pre_tasks:
     - name: Update the apt cache so we can install ufw.
