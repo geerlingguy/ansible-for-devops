@@ -3,7 +3,7 @@
   apache2_module: name=rewrite state=present
   notify: restart apache
 
-- name: Add Apache virtualhost for Drupal 8 development.
+- name: Add Apache virtualhost for Drupal 8.
   template:
     src: "templates/drupal.dev.conf.j2"
     dest: "/etc/apache2/sites-available/{{ domain }}.dev.conf"

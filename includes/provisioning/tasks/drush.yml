@@ -1,7 +1,8 @@
 ---
-- name: Check out drush master branch.
+- name: Check out drush 8.x branch.
   git:
     repo: https://github.com/drush-ops/drush.git
+    version: 8.x
     dest: /opt/drush
 
 - name: Install Drush dependencies with Composer.

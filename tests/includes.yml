@@ -1,0 +1,12 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Update the apt cache so we can install ufw.
+      apt: update_cache=yes cache_valid_time=600
+
+    - name: Install ufw so we can disable it in the playbook.
+      apt: name=ufw state=present
+
+# Includes test.
+- include: ../includes/provisioning/playbook.yml

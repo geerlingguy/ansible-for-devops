@@ -6,25 +6,30 @@
     - python-pycurl
 
 - name: Add ondrej repository for later versions of PHP.
-  apt_repository: repo='ppa:ondrej/php5' update_cache=yes
+  apt_repository: repo='ppa:ondrej/php' update_cache=yes
 
 - name: "Install Apache, MySQL, PHP, and other dependencies."
   apt: "name={{ item }} state=present"
   with_items:
     - git
     - curl
+    - unzip
     - sendmail
     - apache2
-    - php5
-    - php5-common
-    - php5-mysql
-    - php5-cli
-    - php5-curl
-    - php5-gd
-    - php5-dev
-    - php5-mcrypt
-    - php-apc
-    - php-pear
+    - php7.1-common
+    - php7.1-cli
+    - php7.1-dev
+    - php7.1-gd
+    - php7.1-curl
+    - php7.1-json
+    - php7.1-opcache
+    - php7.1-xml
+    - php7.1-mbstring
+    - php7.1-pdo
+    - php7.1-mysql
+    - php-apcu
+    - libpcre3-dev
+    - libapache2-mod-php7.1
     - python-mysqldb
     - mysql-server
 

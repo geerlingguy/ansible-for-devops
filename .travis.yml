@@ -7,7 +7,7 @@ env:
     distro: ubuntu1404
     test_idempotence: false
 
-  # TODO.
+  # TODO: Not easy to test in CI at this time.
   # - playbook: deployments-balancer.yml
   #   distro: ubuntu1404
 
@@ -21,7 +21,7 @@ env:
   - playbook: drupal.yml
     distro: ubuntu1604
 
-  # TODO.
+  # TODO: Not easy to test in CI at this time.
   # - playbook: dynamic-inventory.yml
   #   distro: ubuntu1604
 
