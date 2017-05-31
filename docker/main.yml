@@ -9,8 +9,8 @@
         path: test
         state: build
 
-    - name: Run the test container.
-      docker:
+    - name: Ensure the test container is running.
+      docker_container:
         image: test:latest
         name: test
-        state: running
+        state: started
