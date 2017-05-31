@@ -25,9 +25,8 @@ env:
   # - playbook: dynamic-inventory.yml
   #   distro: ubuntu1604
 
-  # TODO.
-  # - playbook: includes.yml
-  #   distro: ubuntu1604
+  - playbook: includes.yml
+    distro: ubuntu1604
 
   # TODO.
   # - playbook: jenkins.yml
