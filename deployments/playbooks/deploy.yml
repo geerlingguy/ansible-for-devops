@@ -47,7 +47,7 @@
       with_items:
         - bundle exec rake db:migrate
         - bundle exec rake assets:precompile
-      environment: app_environment
+      environment: "{{ app_environment }}"
       when: app_updated.changed == true
       notify: restart nginx
 

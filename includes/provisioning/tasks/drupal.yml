@@ -5,11 +5,19 @@
     version: "{{ drupal_core_version }}"
     dest: "{{ drupal_core_path }}"
 
+- name: Install Drupal dependencies with Composer.
+  shell: >
+    /usr/local/bin/composer install
+    chdir={{ drupal_core_path }}
+    creates={{ drupal_core_path }}/vendor/autoload.php
+
 - name: Install Drupal.
   command: >
-    drush si -y --site-name="{{ drupal_site_name }}" --account-name=admin
-    --account-pass=admin --db-url=mysql://root@localhost/{{ domain }}
-    chdir={{ drupal_core_path }}
+    drush si -y --site-name="{{ drupal_site_name }}"
+    --account-name=admin
+    --account-pass=admin
+    --db-url=mysql://{{ domain }}:1234@localhost/{{ domain }}
+    --root={{ drupal_core_path }}
     creates={{ drupal_core_path }}/sites/default/settings.php
   notify: restart apache
 

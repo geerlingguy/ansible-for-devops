@@ -1,0 +1,4 @@
+---
+# Deployments test.
+- include: ../deployments/playbooks/provision.yml
+- include: ../deployments/playbooks/deploy.yml

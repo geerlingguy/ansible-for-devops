@@ -2,5 +2,13 @@
 - name: Remove the MySQL test database.
   mysql_db: db=test state=absent
 
-- name: Create a database for Drupal.
+- name: Create a MySQL database for Drupal.
   mysql_db: "db={{ domain }} state=present"
+
+- name: Create a MySQL user for Drupal.
+  mysql_user:
+    name: "{{ domain }}"
+    password: "1234"
+    priv: "{{ domain }}.*:ALL"
+    host: localhost
+    state: present

@@ -20,3 +20,6 @@ passenger_ruby: /usr/local/bin/ruby
 ruby_install_from_source: true
 ruby_download_url: http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.0.tar.gz
 ruby_version: 2.2.0
+
+# Variables for Node.js installation.
+nodejs_install_npm_user: root

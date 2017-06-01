@@ -3,14 +3,14 @@
   connection: local
 
   tasks:
-    - name: Build Docker image from Dockerfiles.
+    - name: Ensure Docker image is built from the test Dockerfile.
       docker_image:
         name: test
         path: test
         state: build
 
-    - name: Run the test container.
-      docker:
+    - name: Ensure the test container is running.
+      docker_container:
         image: test:latest
         name: test
-        state: running
+        state: started

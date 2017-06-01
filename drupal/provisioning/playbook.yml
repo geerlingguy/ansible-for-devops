@@ -78,7 +78,7 @@
 
     - name: Remove default virtualhost file.
       file:
-        path: "/etc/apache2/sites-enabled/000-default.conf"
+        path: "/etc/apache2/sites-enabled/000-default"
         state: absent
       notify: restart apache
 
@@ -121,9 +121,10 @@
         mv /tmp/composer.phar /usr/local/bin/composer
         creates=/usr/local/bin/composer
 
-    - name: Check out drush master branch.
+    - name: Check out drush 8.x branch.
       git:
         repo: https://github.com/drush-ops/drush.git
+        version: 8.x
         dest: /opt/drush
 
     - name: Install Drush dependencies with Composer.
@@ -156,7 +157,7 @@
         --account-name=admin
         --account-pass=admin
         --db-url=mysql://{{ domain }}:1234@localhost/{{ domain }}
-        chdir={{ drupal_core_path }}
+        --root={{ drupal_core_path }}
         creates={{ drupal_core_path }}/sites/default/settings.php
       notify: restart apache
 
