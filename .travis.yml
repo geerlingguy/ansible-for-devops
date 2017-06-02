@@ -31,13 +31,12 @@ env:
   - playbook: jenkins.yml
     distro: ubuntu1604
 
-  # TODO.
+  # TODO: Not easy to test in CI at this time.
   # - playbook: lamp-infrastructure.yml
   #   distro: ubuntu1604
 
-  # TODO.
-  # - playbook: nodejs.yml
-  #   distro: ubuntu1604
+  - playbook: nodejs.yml
+    distro: centos7
 
   # TODO.
   # - playbook: nodejs-role.yml
