@@ -45,9 +45,8 @@ env:
   # - playbook: orchestration.yml
   #   distro: ubuntu1604
 
-  # TODO.
-  # - playbook: solr.yml
-  #   distro: ubuntu1604
+  - playbook: solr.yml
+    distro: ubuntu1604
 
 script:
   # Download test shim.

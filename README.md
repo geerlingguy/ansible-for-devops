@@ -6,7 +6,7 @@ This repository contains Ansible examples developed to support different section
 
 Most of the examples are full-fledged VM examples, which use Vagrant, VirtualBox, and Ansible to boot and configure VMs on your local workstation. Not all playbooks follow all of Ansible's best practices, as they illustrate particular Ansible features in an instructive manner.
 
-For even more interesting examples of what you can do with Ansible, please see the [Ansible Vagrant Examples](https://github.com/geerlingguy/ansible-vagrant-examples) repository.
+For more interesting examples of what you can do with Ansible, please see the [Ansible Vagrant Examples](https://github.com/geerlingguy/ansible-vagrant-examples) repository, and browse through some of [geerlingguy's roles on Ansible Galaxy](https://galaxy.ansible.com/geerlingguy/).
 
 ## License
 

@@ -1,0 +1,3 @@
+---
+# Solr test.
+- include: ../solr/provisioning/playbook.yml
