@@ -5,43 +5,40 @@
     node_apps_location: /usr/local/opt/node
 
   pre_tasks:
-    # COMMON ###################################################################
-    - name: "Common: Import EPEL and Remi GPG keys."
-      rpm_key: "key={{ item }} state=present"
-      with_items:
-        - "https://fedoraproject.org/static/0608B895.txt"
-        - "http://rpms.famillecollet.com/RPM-GPG-KEY-remi"
+    - name: Install Remi repo.
+      yum:
+        name: "http://rpms.remirepo.net/enterprise/remi-release-7.rpm"
+        state: present
 
-    - name: "Common: Install EPEL and Remi repos."
-      command: "rpm -Uvh --force {{ item.href }} creates={{ item.creates }}"
-      with_items:
-        - href: "http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm"
-          creates: "/etc/yum.repos.d/epel.repo"
-        - href: "http://rpms.famillecollet.com/enterprise/remi-release-6.rpm"
-          creates: "/etc/yum.repos.d/remi.repo"
+    - name: Import Remi GPG key.
+      rpm_key:
+        key: "http://rpms.remirepo.net/RPM-GPG-KEY-remi"
+        state: present
 
-    - name: "Common: Disable firewall (since this is a dev environment)."
-      service: name=iptables state=stopped enabled=no
+    - name: Install EPEL repo.
+      yum: name=epel-release state=present
+
+    - name: Ensure firewalld is stopped (since this is a test server).
+      service: name=firewalld state=stopped
 
   roles:
     - nodejs
 
   tasks:
-    # SAMPLE APP ###############################################################
-    - name: "Node: Ensure Node.js app folder exists."
+    - name: Ensure Node.js app folder exists.
       file: "path={{ node_apps_location }} state=directory"
 
-    - name: "Node: Copy example Node.js app to server."
+    - name: Copy example Node.js app to server.
       copy: "src=app dest={{ node_apps_location }}"
 
-    - name: "Node: Install app dependencies defined in package.json via npm."
+    - name: Install app dependencies defined in package.json.
       npm: "path={{ node_apps_location }}/app"
 
-    - name: "Node: Check list of Node.js apps running."
+    - name: Check list of running Node.js apps.
       command: forever list
       register: forever_list
       changed_when: false
 
-    - name: "Node: Start example Node.js app."
+    - name: Start example Node.js app.
       command: "forever start {{ node_apps_location }}/app/app.js"
-      when: "forever_list.stdout.find('{{ node_apps_location}}/app/app.js') == -1"
+      when: "forever_list.stdout.find(node_apps_location + '/app/app.js') == -1"

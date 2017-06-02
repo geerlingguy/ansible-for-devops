@@ -38,11 +38,10 @@ env:
   - playbook: nodejs.yml
     distro: centos7
 
-  # TODO.
-  # - playbook: nodejs-role.yml
-  #   distro: ubuntu1604
+  - playbook: nodejs-role.yml
+    distro: centos7
 
-  # TODO.
+  # TODO: Not easy to test in CI at this time.
   # - playbook: orchestration.yml
   #   distro: ubuntu1604
 
