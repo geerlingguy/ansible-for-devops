@@ -1,6 +1,6 @@
 # Build an example Docker container image.
 FROM busybox
-MAINTAINER Jeff Geerling <geerlingguy@mac.com>
+LABEL maintainer="Jeff Geerling"
 
 # Run a command when the container starts.
 CMD ["/bin/true"]
