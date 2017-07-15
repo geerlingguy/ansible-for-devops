@@ -70,11 +70,11 @@
         state: present
         rules: "{{ item.rules }}"
         rules_egress: "{{ item.rules_egress }}"
-      with_items: security_groups
+      with_items: "{{ security_groups }}"
 
     - name: Provision EC2 instances.
       ec2:
-        key_name: "{{ item.ssh_key | default('jeff_mba_home') }}"
+        key_name: "{{ item.ssh_key | default('lamp_aws') }}"
         instance_tags:
           inventory_group: "{{ item.group | default('') }}"
           inventory_host: "{{ item.name | default('') }}"
@@ -89,7 +89,7 @@
           inventory_group: "{{ item.group | default('') }}"
           inventory_host: "{{ item.name | default('') }}"
       register: created_instances
-      with_items: instances
+      with_items: "{{ instances }}"
 
     - name: Add EC2 instances to inventory groups.
       add_host:
@@ -97,12 +97,13 @@
         groups: "aws,{{ item.1.item.group }},{{ item.1.item.name }}"
         # You can dynamically add inventory variables per-host.
         ansible_ssh_user: ec2-user
+        host_key_checking: false
         mysql_replication_role: >
           {{ 'master' if (item.1.item.name == 'a4d.lamp.db.1')
           else 'slave' }}
         mysql_server_id: "{{ item.0 }}"
       when: item.1.instances is defined
-      with_indexed_items: created_instances.results
+      with_indexed_items: "{{ created_instances.results }}"
 
 # Run some general configuration on all AWS hosts.
 - hosts: aws

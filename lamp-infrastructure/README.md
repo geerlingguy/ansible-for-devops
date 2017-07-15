@@ -68,7 +68,7 @@ After everything is booted and configured, visit the IP address of the Varnish s
 
 ## Build and configure the servers (AWS)
 
-Pre-suppositions: You have an Amazon Web Services account with a valid payment method configured, and you have your AWS Access Key and AWS Secret Key from your account. Additionally, you have `boto` and Ansible installed on your workstation (install `boto` with `sudo pip install boto`).
+Pre-suppositions: You have an Amazon Web Services account with a valid payment method configured, and you have your AWS Access Key and AWS Secret Key from your account. Additionally, you have `boto` and Ansible installed on your workstation (install `boto` with `pip install boto`).
 
 To build the droplets and configure them using Ansible, follow these steps (both from within this directory):
 
@@ -77,6 +77,8 @@ To build the droplets and configure them using Ansible, follow these steps (both
   3. Run `ansible-playbook provision.yml`.
 
 After everything is booted and configured, visit the IP address of the Varnish server that was created in your AWS account in a browser, and refresh a few times to see that Varnish, Apache, PHP, Memcached, and MySQL are all working properly!
+
+> If you get an error like "Failed to connect to the host via ssh: Host key verification failed.", then you can temporarily disable host key checking. Run the command `export ANSIBLE_HOST_KEY_CHECKING=False` and then run the `provision.yml` playbook again.
 
 ### Notes
 

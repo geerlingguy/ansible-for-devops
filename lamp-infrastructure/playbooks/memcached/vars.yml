@@ -5,4 +5,4 @@ firewall_additional_rules:
   - "iptables -A INPUT -p tcp --dport 11211 -s {{ groups['lamp-www'][0] }} -j ACCEPT"
   - "iptables -A INPUT -p tcp --dport 11211 -s {{ groups['lamp-www'][1] }} -j ACCEPT"
 
-memcached_listen_ip: "{{ groups['lamp-memcached'][0] }}"
+memcached_listen_ip: "0.0.0.0"
