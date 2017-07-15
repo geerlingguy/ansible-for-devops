@@ -11,7 +11,7 @@
         socket: /var/lib/haproxy/stats
         backend: habackend
       delegate_to: "{{ item }}"
-      with_items: groups.balancer
+      with_items: "{{ groups.balancer }}"
 
   tasks:
     - debug: msg="Deployment would be done here."
@@ -31,4 +31,4 @@
         socket: /var/lib/haproxy/stats
         backend: habackend
       delegate_to: "{{ item }}"
-      with_items: groups.balancer
+      with_items: "{{ groups.balancer }}"
