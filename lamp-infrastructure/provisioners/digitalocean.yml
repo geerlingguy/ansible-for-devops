@@ -20,7 +20,7 @@
         name: "{{ item.name }}"
         private_networking: yes
         size_id: "{{ item.size | default('512mb') }}"
-        image_id: "{{ item.image | default('centos-6-5-x32') }}"
+        image_id: "{{ item.image | default('centos-6-5-x64') }}"
         region_id: "{{ item.region | default('nyc2') }}"
         # Customize this default for your account.
         ssh_key_ids: "{{ item.ssh_key | default('138954') }}"
