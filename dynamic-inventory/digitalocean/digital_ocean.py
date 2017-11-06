@@ -371,6 +371,15 @@ or environment variables (DO_API_TOKEN)''')
             else:
                 dest = droplet['ip_address']
 
+            for tag in droplet.get('tags', []):
+                if tag not in self.inventory:
+                    self.inventory[tag] = {
+                        'hosts': [],
+                        'vars': {},
+                    }
+
+                self.inventory[tag]['hosts'].append(dest)
+
             self.inventory['all']['hosts'].append(dest)
 
             self.inventory[droplet['id']] = [dest]
