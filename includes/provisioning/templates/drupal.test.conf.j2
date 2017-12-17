@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName {{ domain }}.test
+    ServerAlias www.{{ domain }}.test
+    DocumentRoot {{ drupal_core_path }}
+    <Directory "{{ drupal_core_path }}">
+        Options FollowSymLinks Indexes
+        AllowOverride All
+    </Directory>
+</VirtualHost>
