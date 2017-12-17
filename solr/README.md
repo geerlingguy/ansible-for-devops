@@ -29,8 +29,8 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 
 ### 3 - Configure your host machine to access the VM.
 
-  1. [Edit your hosts file](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file), adding the line `192.168.66.66  solr.dev` so you can connect to the VM.
-  2. Open your browser and access [http://solr.dev:8080/solr/](http://solr.dev:8080/solr).
+  1. [Edit your hosts file](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file), adding the line `192.168.66.66  solr.test` so you can connect to the VM.
+  2. Open your browser and access [http://solr.test:8080/solr/](http://solr.test:8080/solr).
 
 ## Notes
 

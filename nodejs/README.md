@@ -30,8 +30,8 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 
 ### 3 - Configure your host machine to access the VM.
 
-  1. [Edit your hosts file](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file), adding the line `192.168.55.55  nodejs.dev` so you can connect to the VM.
-  2. Open your browser and access [http://nodejs.dev/](http://nodejs.dev/).
+  1. [Edit your hosts file](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file), adding the line `192.168.55.55  nodejs.test` so you can connect to the VM.
+  2. Open your browser and access [http://nodejs.test/](http://nodejs.test/).
 
 ## Notes
 

@@ -6,8 +6,8 @@ The primary difference in this example (as explained in [Ansible for DevOps](htt
 
 After running `vagrant up`, perform the following steps to access the app via a hostname:
 
-  1. [Edit your hosts file](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file), adding the line `192.168.55.56  nodejs-role.dev` so you can connect to the VM.
-  2. Open your browser and access [http://nodejs-role.dev/](http://nodejs-role.dev/).
+  1. [Edit your hosts file](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file), adding the line `192.168.55.56  nodejs-role.test` so you can connect to the VM.
+  2. Open your browser and access [http://nodejs-role.test/](http://nodejs-role.test/).
 
 ## About the Author
 

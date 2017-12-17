@@ -4,25 +4,25 @@ This is a simple example of a complete web architecture configuration using Ansi
 
 The architecture for the example web application will be:
 
-                        -------------------------
-                       |  varnish.dev (Varnish)  |
-                       |  192.168.2.2            |
-                        -------------------------
+                       --------------------------
+                      |  varnish.test (Varnish)  |
+                      |  192.168.2.2             |
+                       --------------------------
                           /                   \
-           ---------------------          ---------------------
-          |  www1.dev (Apache)  |        |  www2.dev (Apache)  |
-          |  192.168.2.3        |        |  192.168.2.4        |
-           ---------------------          ---------------------
+         ----------------------          ----------------------
+        |  www1.test (Apache)  |        |  www2.test (Apache)  |
+        |  192.168.2.3         |        |  192.168.2.4         |
+         ----------------------          ----------------------
                           \                   /
-                      -----------------------------
-                     |  memcached.dev (Memcached)  |
-                     |  192.168.2.7                |
-                      -----------------------------
+                      ------------------------------
+                     |  memcached.test (Memcached)  |
+                     |  192.168.2.7                 |
+                      ------------------------------
                           /                   \
-      ----------------------------       ----------------------------
-     |  db1.dev (MySQL - Master)  |     |  db2.dev (MySQL - Slave)   |
-     |  192.168.2.5               |     |  192.168.2.6               |
-      ----------------------------       ----------------------------
+     -----------------------------       ----------------------------
+    |  db1.test (MySQL - Master)  |     |  db2.test (MySQL - Slave)  |
+    |  192.168.2.5                |     |  192.168.2.6               |
+     -----------------------------       ----------------------------
 
 *IP addresses and hostnames in this diagram are modeled after local VirtualBox/Vagrant-based VMs.*
 
@@ -47,7 +47,7 @@ To build the VMs and configure them using Ansible, follow these steps (both from
 
 This guide assumes you already have Vagrant, VirtualBox, and Ansible installed locally.
 
-After everything is booted and configured, visit http://varnish.dev/ (if you configured the domain in your hosts file with the line `192.168.2.2  varnish.dev`) in a browser, and refresh a few times to see that Varnish, Apache, PHP, Memcached, and MySQL are all working properly!
+After everything is booted and configured, visit http://varnish.test/ (if you configured the domain in your hosts file with the line `192.168.2.2  varnish.test`) in a browser, and refresh a few times to see that Varnish, Apache, PHP, Memcached, and MySQL are all working properly!
 
 ## Build and configure the servers (DigitalOcean)
 

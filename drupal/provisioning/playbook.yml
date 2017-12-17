@@ -62,8 +62,8 @@
 
     - name: Add Apache virtualhost for Drupal 8.
       template:
-        src: "templates/drupal.dev.conf.j2"
-        dest: "/etc/apache2/sites-available/{{ domain }}.dev.conf"
+        src: "templates/drupal.test.conf.j2"
+        dest: "/etc/apache2/sites-available/{{ domain }}.test.conf"
         owner: root
         group: root
         mode: 0644
@@ -71,8 +71,8 @@
 
     - name: Symlink Drupal virtualhost to sites-enabled.
       file:
-        src: "/etc/apache2/sites-available/{{ domain }}.dev.conf"
-        dest: "/etc/apache2/sites-enabled/{{ domain }}.dev.conf"
+        src: "/etc/apache2/sites-available/{{ domain }}.test.conf"
+        dest: "/etc/apache2/sites-enabled/{{ domain }}.test.conf"
         state: link
       notify: restart apache
 
