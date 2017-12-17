@@ -78,7 +78,7 @@
 
     - name: Remove default virtualhost file.
       file:
-        path: "/etc/apache2/sites-enabled/000-default"
+        path: "/etc/apache2/sites-enabled/000-default.conf"
         state: absent
       notify: restart apache
 
