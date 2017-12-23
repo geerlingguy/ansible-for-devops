@@ -1,5 +1,8 @@
 ---
 - hosts: all
 
+  vars:
+    pip_package: python-pip
+
 # HTTPS Self-Signed Certificate test.
 - include: ../https-self-signed/provisioning/main.yml
