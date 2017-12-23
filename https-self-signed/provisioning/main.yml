@@ -23,6 +23,10 @@
     certificate_dir: /etc/letsencrypt/live
     server_hostname: https.test
 
+  pre_tasks:
+    - name: Ensure apt cache is updated.
+      apt: update_cache=yes cache_valid_time=600
+
   roles:
     - geerlingguy.firewall
     - geerlingguy.pip
