@@ -1,5 +1,9 @@
 ---
 - hosts: all
 
+  tasks:
+    - name: Update the apt cache.
+      apt: update_cache=yes cache_valid_time=600
+
 # HTTPS Self-Signed Certificate test.
 - include: ../https-self-signed/provisioning/main.yml
