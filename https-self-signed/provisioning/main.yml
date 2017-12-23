@@ -1,0 +1,50 @@
+---
+- hosts: all
+
+  vars:
+    # Firewall settings.
+    firewall_allowed_tcp_ports:
+      - "22"
+      - "80"
+      - "443"
+
+    # Python settings.
+    pip_package: python3-pip
+    pip_install_packages: ['pyopenssl']
+
+    # Nginx settings.
+    nginx_vhosts: []
+    nginx_remove_default_vhost: True
+    nginx_ppa_use: True
+    nginx_ppa_version: stable
+    nginx_docroot: /var/www/html
+
+    # Self-signed certificate settings.
+    certificate_dir: /etc/letsencrypt/live
+    server_hostname: https.test
+
+  roles:
+    - geerlingguy.firewall
+    - geerlingguy.pip
+    - geerlingguy.nginx
+
+  tasks:
+    - import_tasks: tasks/self-signed-cert.yml
+
+    - name: Ensure docroot exists.
+      file:
+        path: "{{ nginx_docroot }}"
+        state: directory
+
+    - name: Copy example index.html file in place.
+      copy:
+        src: files/index.html
+        dest: "{{ nginx_docroot }}/index.html"
+        mode: 0755
+
+    - name: Copy Nginx server configuration in place.
+      template:
+        src: templates/https.test.conf.j2
+        dest: /etc/nginx/sites-enabled/https.test.conf
+        mode: 0644
+      notify: restart nginx

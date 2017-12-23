@@ -4,3 +4,5 @@ vagrant_ansible_inventory_default
 *.cache
 *.retry
 test.sh
+
+*/provisioning/roles/geerlingguy.*

@@ -1,0 +1,5 @@
+---
+- hosts: all
+
+# HTTPS Self-Signed Certificate test.
+- include: ../https-self-signed/provisioning/main.yml
