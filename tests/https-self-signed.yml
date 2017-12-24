@@ -1,8 +1,9 @@
 ---
 - hosts: all
 
-  vars:
-    pip_package: python-pip
+  tasks:
+    - name: Ensure the older Python 2 pip is available.
+      package: name=python-pip state=present
 
 # HTTPS Self-Signed Certificate test.
 - include: ../https-self-signed/provisioning/main.yml
