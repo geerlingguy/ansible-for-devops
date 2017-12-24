@@ -2,6 +2,9 @@
 - hosts: all
 
   tasks:
+    - name: Ensure apt cache is updated.
+      apt: update_cache=yes cache_valid_time=600
+
     - name: Ensure the older Python 2 pip is available.
       package: name=python-pip state=present
 
