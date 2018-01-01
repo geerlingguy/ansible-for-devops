@@ -17,5 +17,5 @@ nginx_ppa_version: stable
 nginx_docroot: /var/www/html
 
 # Self-signed certificate settings.
-certificate_dir: /etc/letsencrypt/live
+certificate_dir: /etc/ssl/private
 server_hostname: https.test

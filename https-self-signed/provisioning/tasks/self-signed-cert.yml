@@ -10,7 +10,7 @@
 
 - name: Generate an OpenSSL CSR.
   openssl_csr:
-    path: "/etc/ssl/private/{{ server_hostname }}.csr"
+    path: "{{ certificate_dir }}/{{ server_hostname }}.csr"
     privatekey_path: "{{ certificate_dir }}/{{ server_hostname }}/privkey.pem"
     common_name: "{{ server_hostname }}"
 
@@ -18,5 +18,5 @@
   openssl_certificate:
     path: "{{ certificate_dir }}/{{ server_hostname }}/fullchain.pem"
     privatekey_path: "{{ certificate_dir }}/{{ server_hostname }}/privkey.pem"
-    csr_path: /etc/ssl/private/{{ server_hostname }}.csr
+    csr_path: "{{ certificate_dir }}/{{ server_hostname }}.csr"
     provider: selfsigned
