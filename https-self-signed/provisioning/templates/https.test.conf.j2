@@ -1,4 +1,6 @@
 # HTTPS Test server configuration.
+
+# Redirect HTTP traffic to HTTPS.
 server {
     listen 80 default_server;
     server_name _;
@@ -6,6 +8,7 @@ server {
     return 301 https://$host$request_uri;
 }
 
+# Serve HTTPS traffic using the self-signed certificate created by Ansible.
 server {
     listen 443 ssl default_server;
     server_name {{ server_hostname }};
