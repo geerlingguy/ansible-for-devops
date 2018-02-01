@@ -3,7 +3,9 @@
 
   vars:
     pip_install_packages:
-      - docker
+      # See: https://github.com/ansible/ansible/issues/35612
+      - name: docker
+        version: "2.7.0"
 
   pre_tasks:
     - name: Update the apt cache so we can install ufw.
