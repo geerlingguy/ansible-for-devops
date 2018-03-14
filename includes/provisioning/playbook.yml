@@ -9,13 +9,13 @@
       apt: update_cache=yes cache_valid_time=3600
 
   handlers:
-    - include: handlers/handlers.yml
+    - import_tasks: handlers/handlers.yml
 
   tasks:
-    - include: tasks/common.yml
-    - include: tasks/apache.yml
-    - include: tasks/php.yml
-    - include: tasks/mysql.yml
-    - include: tasks/composer.yml
-    - include: tasks/drush.yml
-    - include: tasks/drupal.yml
+    - import_tasks: tasks/common.yml
+    - import_tasks: tasks/apache.yml
+    - import_tasks: tasks/php.yml
+    - import_tasks: tasks/mysql.yml
+    - import_tasks: tasks/composer.yml
+    - import_tasks: tasks/drush.yml
+    - import_tasks: tasks/drupal.yml
