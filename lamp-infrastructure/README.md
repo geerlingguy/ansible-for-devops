@@ -60,6 +60,8 @@ To build the droplets and configure them using Ansible, follow these steps (both
 
 After everything is booted and configured, visit the IP address of the Varnish server that was created in your DigitalOcean account in a browser, and refresh a few times to see that Varnish, Apache, PHP, Memcached, and MySQL are all working properly!
 
+> If you get an error like "Failed to connect to the host via ssh: Host key verification failed.", then you can temporarily disable host key checking. Run the command `export ANSIBLE_HOST_KEY_CHECKING=False` and then run the `provision.yml` playbook again.
+
 ### Notes
 
   - Public IP addresses are used for all cross-droplet communication (e.g. PHP to MySQL/Memcached communication, MySQL master/slave replication). For better security and potentially a tiny performance improvement, you can use droplets' `private_ip_address` for cross-droplet communication.

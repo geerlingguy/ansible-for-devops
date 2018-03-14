@@ -1,5 +1,5 @@
 ---
-- include: playbooks/varnish/main.yml
-- include: playbooks/www/main.yml
-- include: playbooks/db/main.yml
-- include: playbooks/memcached/main.yml
+- import_playbook: playbooks/varnish/main.yml
+- import_playbook: playbooks/www/main.yml
+- import_playbook: playbooks/db/main.yml
+- import_playbook: playbooks/memcached/main.yml

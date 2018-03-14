@@ -2,8 +2,8 @@
 # Uncomment the provisioner you would like to use. For for Vagrant provisioning,
 # use `vagrant up` instead of this playbook.
 
-- include: provisioners/digitalocean.yml
-# - include: provisioners/aws.yml
+- import_playbook: provisioners/digitalocean.yml
+# - import_playbook: provisioners/aws.yml
 
 # Configure provisioned servers.
-- include: configure.yml
+- import_playbook: configure.yml
