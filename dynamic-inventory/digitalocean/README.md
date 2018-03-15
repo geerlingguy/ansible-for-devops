@@ -7,7 +7,7 @@ Chapter 7 of [Ansible for DevOps](https://www.ansiblefordevops.com/) contains de
 Examples using Ansible's DigitalOcean integration are contained within this directory.
 
   - `provision.yml` contains an example of provisioning a new DigitalOcean droplet, then immediately configuring it with Ansible.
-  - `digital_ocean.py` is the DigitalOcean dynamic inventory script included with Ansible. Don't use this copy; get a fresh, up-to-date copy from the Ansible project instead.
+  - `digital_ocean.py` (and `digital_ocean.ini`) is the DigitalOcean dynamic inventory script included with Ansible. Don't use this copy; get the latest version from the Ansible project: [digital_ocean.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/digital_ocean.py).
 
 Before you can use either of these examples, you will need to set an environment variable with your DigitalOcean API Personal Access Token:
 
