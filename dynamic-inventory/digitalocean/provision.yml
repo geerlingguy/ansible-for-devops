@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   connection: local
-  gather_facts: false
+  gather_facts: False
 
   tasks:
     - name: Create new Droplet.
@@ -10,9 +10,9 @@
         command: droplet
         name: ansible-test
         private_networking: yes
-        size_id: 512mb
-        image_id: centos-7-0-x64
-        region_id: nyc2
+        size_id: s-1vcpu-1gb
+        image_id: centos-7-x64
+        region_id: nyc3
         # Customize this for your account.
         ssh_key_ids: 138954
         # Required for idempotence/only one droplet creation.
@@ -24,10 +24,11 @@
         name: "{{ do.droplet.ip_address }}"
         groups: do
       when: do.droplet is defined
+      changed_when: False
 
 - hosts: do
   remote_user: root
-  gather_facts: false
+  gather_facts: False
 
   tasks:
     - name: Wait for port 22 to become available.
