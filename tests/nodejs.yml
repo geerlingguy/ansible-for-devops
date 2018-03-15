@@ -6,4 +6,4 @@
       yum: name=firewalld state=present
 
 # Node.js test.
-- include: ../nodejs/provisioning/playbook.yml
+- import_playbook: ../nodejs/provisioning/playbook.yml

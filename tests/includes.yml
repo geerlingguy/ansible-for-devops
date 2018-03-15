@@ -9,4 +9,4 @@
       apt: name=ufw state=present
 
 # Includes test.
-- include: ../includes/provisioning/playbook.yml
+- import_playbook: ../includes/provisioning/playbook.yml

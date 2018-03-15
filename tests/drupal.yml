@@ -9,4 +9,4 @@
       apt: name=ufw state=present
 
 # Drupal test.
-- include: ../drupal/provisioning/playbook.yml
+- import_playbook: ../drupal/provisioning/playbook.yml

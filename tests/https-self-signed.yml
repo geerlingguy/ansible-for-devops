@@ -9,4 +9,4 @@
       package: name=python-pip state=present
 
 # HTTPS Self-Signed Certificate test.
-- include: ../https-self-signed/provisioning/main.yml
+- import_playbook: ../https-self-signed/provisioning/main.yml

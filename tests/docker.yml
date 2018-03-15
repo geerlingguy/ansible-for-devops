@@ -16,4 +16,4 @@
     - geerlingguy.pip
 
 # Docker test.
-- include: ../docker/main.yml
+- import_playbook: ../docker/main.yml

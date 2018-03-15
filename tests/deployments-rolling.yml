@@ -7,5 +7,5 @@
         groups: nodejs-api
       changed_when: false
 
-- include: ../deployments-rolling/playbooks/provision.yml
-- include: ../deployments-rolling/playbooks/deploy.yml
+- import_playbook: ../deployments-rolling/playbooks/provision.yml
+- import_playbook: ../deployments-rolling/playbooks/deploy.yml

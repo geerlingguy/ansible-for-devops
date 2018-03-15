@@ -6,4 +6,4 @@
       apt: update_cache=yes cache_valid_time=600
 
 # Jenkins test.
-- include: ../jenkins/provision.yml
+- import_playbook: ../jenkins/provision.yml

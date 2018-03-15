@@ -6,4 +6,4 @@
       yum: name=firewalld state=present
 
 # Node.js role test.
-- include: ../nodejs-role/playbook.yml
+- import_playbook: ../nodejs-role/playbook.yml
