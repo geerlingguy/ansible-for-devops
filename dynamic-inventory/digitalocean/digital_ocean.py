@@ -192,7 +192,7 @@ or environment variables (DO_API_TOKEN)''')
         self.cache_filename = self.cache_path + "/ansible-digital_ocean.cache"
         self.cache_refreshed = False
 
-        if self.is_cache_valid:
+        if self.is_cache_valid():
             self.load_from_cache()
             if len(self.data) == 0:
                 if self.args.force_cache:
@@ -294,7 +294,7 @@ or environment variables (DO_API_TOKEN)''')
         parser.add_argument('--pretty','-p', action='store_true', help='Pretty-print results')
 
         parser.add_argument('--cache-path', action='store', help='Path to the cache files (default: .)')
-        parser.add_argument('--cache-max_age', action='store', help='Maximum age of the cached items (default: 0)')
+        parser.add_argument('--cache-max_age', action='store', help='Maximum age of the cached items (default: 0)', type=int)
         parser.add_argument('--force-cache', action='store_true', default=False, help='Only use data from the cache')
         parser.add_argument('--refresh-cache','-r', action='store_true', default=False,
                             help='Force refresh of cache by making API requests to DigitalOcean (default: False - use cache files)')
@@ -306,6 +306,9 @@ or environment variables (DO_API_TOKEN)''')
 
         if self.args.api_token:
             self.api_token = self.args.api_token
+
+        if self.args.cache_max_age:
+            self.cache_max_age = self.args.cache_max_age
 
         # Make --list default if none of the other commands are specified
         if (not self.args.droplets and not self.args.regions and
