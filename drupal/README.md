@@ -4,11 +4,11 @@
 
 This project makes local Drupal test/development environment management quick and easy. It installs the following on an Ubuntu 16.04 linux VM:
 
-  - Apache 2.4.x
-  - PHP 7.0.x
-  - MySQL 5.7.x
-  - Drush 8.x
-  - Drupal 8.2.x
+  - Apache
+  - PHP
+  - MySQL
+  - Drush
+  - Drupal
 
 It takes 5-10 minutes to build or rebuild the VM from scratch on a decent broadband connection.
 
