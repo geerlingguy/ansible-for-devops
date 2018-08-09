@@ -1,7 +1,7 @@
 ---
 - name: Check out Drupal Core to the Apache docroot.
   git:
-    repo: http://git.drupal.org/project/drupal.git
+    repo: https://git.drupal.org/project/drupal.git
     version: "{{ drupal_core_version }}"
     dest: "{{ drupal_core_path }}"
 
