@@ -1,0 +1,19 @@
+---
+- hosts: all
+
+  vars:
+    pip_install_packages:
+      # See: https://github.com/ansible/ansible/issues/35612
+      - name: docker
+        version: "2.7.0"
+
+  pre_tasks:
+    - name: Update the apt cache.
+      apt: update_cache=yes cache_valid_time=600
+
+  roles:
+    - geerlingguy.docker
+    - geerlingguy.pip
+
+# Docker Hubot test.
+- import_playbook: ../docker-hubot/main.yml
