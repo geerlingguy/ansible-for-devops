@@ -4,11 +4,6 @@
     name: sudo
     state: present
 
-- name: Ensure hubot user exists.
-  user:
-    name: hubot
-    create_home: yes
-
 - name: Install required Node.js packages.
   npm:
     name: "{{ item }}"
@@ -18,6 +13,12 @@
     - yo
     - generator-hubot
 
+- name: Ensure hubot user exists.
+  user:
+    name: hubot
+    create_home: yes
+    home: "{{ hubot_home }}"
+
 - name: Generate hubot.
   command: >
     yo hubot
@@ -26,13 +27,13 @@
     --description="{{ hubot_description }}"
     --adapter=slack
     --defaults
-    chdir=/home/hubot
+    chdir={{ hubot_home }}
   become: yes
   become_user: hubot
 
 - name: Remove certain scripts from external-scripts.json.
   lineinfile:
-    path: /home/hubot/external-scripts.json
+    path: "{{ hubot_home }}/external-scripts.json"
     regexp: "{{ item }}"
     state: absent
   with_items:
@@ -43,5 +44,5 @@
 
 - name: Remove the hubot-scripts.json file.
   file:
-    path: /home/hubot/hubot-scripts.json
+    path: "{{ hubot_home }}/hubot-scripts.json"
     state: absent

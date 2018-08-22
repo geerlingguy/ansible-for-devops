@@ -18,10 +18,9 @@ This will generate a Docker image named `a4d/hubot-slack`, which you should see 
 
 To run the image, run the command below, replacing `TOKEN_HERE` with the API token your bot uses from Slack:
 
-    $ docker run -d --name "hubot-slack" -e HUBOT_
-SLACK_TOKEN=TOKEN_HERE a4d/hubot-slack
+    $ docker run -d --name hubot -e HUBOT_SLACK_TOKEN=TOKEN_HERE a4d/hubot-slack
 
-The container should be running in the background. You can inspect the logs from the bot using `docker logs hubot-slack`, and you can kill and remove the container with `docker rm -f hubot-slack`.
+The container should be running in the background. You can inspect the logs from the bot using `docker logs hubot`, and you can kill and remove the container with `docker rm -f hubot`.
 
 ## About the Author
 
