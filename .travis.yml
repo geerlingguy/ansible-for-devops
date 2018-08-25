@@ -39,6 +39,10 @@ env:
     distro: ubuntu1604
 
   # TODO: Not easy to test in CI at this time.
+  # - playbook: kubernetes.yml
+  #   distro: debian9
+
+  # TODO: Not easy to test in CI at this time.
   # - playbook: lamp-infrastructure.yml
   #   distro: ubuntu1604
 

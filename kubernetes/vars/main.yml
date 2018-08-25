@@ -1,0 +1,9 @@
+---
+docker_package: docker-ce=18.06.1~ce~3-0~debian
+
+kubernetes_allow_pods_on_master: False
+kubernetes_pod_network_cidr: '10.244.0.0/16'
+
+kubernetes_apiserver_advertise_address: "192.168.84.2"
+kubernetes_flannel_manifest_file: "~/kube-flannel-vagrant.yml"
+kubernetes_kubelet_extra_args: '--node-ip={{ inventory_hostname }}'

@@ -1,0 +1,8 @@
+[k8s]
+192.168.84.2 kubernetes_role=master
+192.168.84.3 kubernetes_role=node
+192.168.84.4 kubernetes_role=node
+
+[k8s:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key

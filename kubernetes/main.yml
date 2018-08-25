@@ -1,0 +1,39 @@
+---
+- hosts: k8s
+  become: yes
+
+  vars_files:
+    - vars/main.yml
+
+  pre_tasks:
+    - name: Copy kube-flannel-vagrant.yml file in place.
+      copy:
+        src: files/manifests/kube-system/kube-flannel-vagrant.yml
+        dest: "~/kube-flannel-vagrant.yml"
+
+    - name: Disable swap immediately.
+      shell: swapoff --all
+      when: ansible_swaptotal_mb > 0
+      tags: ['always']
+
+    - name: Disable swap permanently.
+      mount:
+        name: none
+        src: /dev/mapper/packer--debian--9--amd64--vg-swap_1
+        fstype: swap
+        opts: sw
+        passno: 0
+        dump: 0
+        state: absent
+      when: ansible_swaptotal_mb > 0
+      tags: ['always']
+
+  roles:
+    - role: geerlingguy.pip
+      tags: ['pip', 'docker']
+
+    - role: geerlingguy.docker
+      tags: ['docker']
+
+    - role: geerlingguy.kubernetes
+      tags: ['kubernetes']
