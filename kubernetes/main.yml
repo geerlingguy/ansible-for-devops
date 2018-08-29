@@ -11,24 +11,10 @@
         src: files/manifests/kube-system/kube-flannel-vagrant.yml
         dest: "~/kube-flannel-vagrant.yml"
 
-    - name: Disable swap immediately.
-      shell: swapoff --all
-      when: ansible_swaptotal_mb > 0
-      tags: ['always']
-
-    - name: Disable swap permanently.
-      mount:
-        name: none
-        src: /dev/mapper/packer--debian--9--amd64--vg-swap_1
-        fstype: swap
-        opts: sw
-        passno: 0
-        dump: 0
-        state: absent
-      when: ansible_swaptotal_mb > 0
-      tags: ['always']
-
   roles:
+    - role: geerlingguy.swap
+      tags: ['swap', 'kubernetes']
+
     - role: geerlingguy.pip
       tags: ['pip', 'docker']
 
