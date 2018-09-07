@@ -1,0 +1,34 @@
+---
+# This playbook assumes you already have the kubectl binary installed
+# and available in the $PATH.
+- hosts: k8s-master
+  become: yes
+
+  tasks:
+    - name: Retrieve kubectl config file from the master server.
+      fetch:
+        src: /root/.kube/config
+        dest: files/kubectl-config
+        flat: yes
+
+    - name: Get the phpmyadmin Pod name.
+      command: >
+        kubectl --no-headers=true get pod -l app=phpmyadmin
+        -o custom-columns=:metadata.name
+      register: phpmyadmin_pod
+
+    - name: Add the phpmyadmin Pod to the inventory.
+      add_host:
+        name: '{{ phpmyadmin_pod.stdout }}'
+        kubectl_pod: '{{ phpmyadmin_pod.stdout }}'
+        kubectl_namespace: default
+        ansible_kubectl_config: files/kubectl-config
+        ansible_connection: kubectl
+
+    # Note: Python must be present in the container to use other modules.
+    - name: Run a command inside the container.
+      raw: date
+      register: date_output
+      delegate_to: '{{ phpmyadmin_pod.stdout }}'
+
+    - debug: var=date_output.stdout

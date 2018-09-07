@@ -1,0 +1,52 @@
+---
+- hosts: k8s-master
+  become: yes
+
+  pre_tasks:
+    - name: Ensure Pip is installed.
+      package:
+        name: python-pip
+        state: present
+
+    - name: Ensure OpenShift client is installed.
+      pip:
+        name: openshift
+        state: present
+
+  tasks:
+    - name: Apply Nginx definition from Ansible controller file system.
+      k8s:
+        state: present
+        definition: "{{ lookup('file', 'files/nginx.yml') | from_yaml }}"
+
+    - name: Expose the Nginx service with an inline Service definition.
+      k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            labels:
+              app: nginx
+            name: a4d-nginx
+            namespace: default
+          spec:
+            type: NodePort
+            ports:
+            - port: 80
+              protocol: TCP
+              targetPort: 80
+            selector:
+              app: nginx
+
+    - name: Get the details of the a4d-nginx Service.
+      k8s:
+        api_version: v1
+        kind: Service
+        name: a4d-nginx
+        namespace: default
+      register: a4d_nginx_service
+
+    - name: Print the NodePort of the a4d-nginx Service.
+      debug:
+        var: a4d_nginx_service.result.spec.ports[0].nodePort
