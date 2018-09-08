@@ -68,3 +68,15 @@
       environment:
         HELM_HOST: '{{ helm_host }}:{{ helm_port }}'
       when: "'phpmyadmin' not in helm_list_results.stdout"
+
+    - name: Get the details of the a4d-nginx Service.
+      k8s:
+        api_version: v1
+        kind: Service
+        name: phpmyadmin
+        namespace: default
+      register: phpmyadmin_service
+
+    - name: Print the NodePort of the phpmyadmin Service.
+      debug:
+        var: phpmyadmin_service.result.spec.ports[0].nodePort
