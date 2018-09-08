@@ -69,7 +69,7 @@
         HELM_HOST: '{{ helm_host }}:{{ helm_port }}'
       when: "'phpmyadmin' not in helm_list_results.stdout"
 
-    - name: Get the details of the a4d-nginx Service.
+    - name: Get the details of the phpmyadmin Service.
       k8s:
         api_version: v1
         kind: Service
