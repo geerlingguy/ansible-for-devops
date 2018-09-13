@@ -25,7 +25,7 @@
         ansible_kubectl_config: files/kubectl-config
         ansible_connection: kubectl
 
-    # Note: Python must be present in the container to use other modules.
+    # Note: Python is required to use other modules.
     - name: Run a command inside the container.
       raw: date
       register: date_output
