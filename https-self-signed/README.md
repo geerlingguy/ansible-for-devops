@@ -1,6 +1,6 @@
 # HTTPS Self-Signed Certificate Demo VM
 
-This project spins up a VM and demonstrates generating self-signed certificates locally, or Let's Encrypt certificates on a public server.
+This project spins up a VM and demonstrates generating self-signed certificates locally.
 
 ## Quick Start Guide
 

@@ -1,0 +1,2 @@
+[letsencrypt]
+domain.example.com ansible_ssh_user=root letsencrypt_email=webmaster@example.com

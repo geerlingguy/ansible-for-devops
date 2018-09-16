@@ -1,0 +1,19 @@
+# HTTPS server configuration.
+
+# Redirect HTTP traffic to HTTPS.
+server {
+    listen 80 default_server;
+    server_name _;
+    index index.html;
+    return 301 https://$host$request_uri;
+}
+
+# Serve HTTPS traffic using the self-signed certificate created by Ansible.
+server {
+    listen 443 ssl default_server;
+    server_name {{ inventory_hostname }};
+    root {{ nginx_docroot }};
+
+    ssl_certificate /etc/letsencrypt/live/{{ inventory_hostname }}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/{{ inventory_hostname }}/privkey.pem;
+}

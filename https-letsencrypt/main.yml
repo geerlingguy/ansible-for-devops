@@ -1,0 +1,41 @@
+---
+- hosts: all
+  gather_facts: no
+
+  vars_files:
+    - vars/main.yml
+
+  pre_tasks:
+    - name: Install Python if not already present.
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: False
+
+    - name: Gather facts after Python is definitely present.
+      setup:
+
+    - name: Ensure apt cache is updated.
+      apt: update_cache=yes cache_valid_time=600
+
+  roles:
+    - geerlingguy.firewall
+    - geerlingguy.nginx
+    - geerlingguy.certbot
+
+  tasks:
+    - name: Ensure docroot exists.
+      file:
+        path: "{{ nginx_docroot }}"
+        state: directory
+
+    - name: Copy example index.html file in place.
+      copy:
+        src: files/index.html
+        dest: "{{ nginx_docroot }}/index.html"
+        mode: 0755
+
+    - name: Copy Nginx server configuration in place.
+      template:
+        src: templates/https-letsencrypt.conf.j2
+        dest: /etc/nginx/sites-enabled/https-letsencrypt.conf
+        mode: 0644
+      notify: restart nginx

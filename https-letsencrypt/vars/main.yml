@@ -1,0 +1,20 @@
+---
+# Firewall settings.
+firewall_allowed_tcp_ports:
+  - "22"
+  - "80"
+  - "443"
+
+# Nginx settings.
+nginx_vhosts: []
+nginx_remove_default_vhost: True
+nginx_ppa_use: True
+nginx_ppa_version: stable
+nginx_docroot: /var/www/html
+
+# Let's Encrypt certificate settings.
+certbot_create_if_missing: yes
+certbot_admin_email: "{{ letsencrypt_email }}"
+certbot_certs:
+  - domains:
+      - "{{ inventory_hostname }}"
