@@ -13,10 +13,11 @@
 
   tasks:
     - name: Install app dependencies.
-      apt: "name={{ item }} state=present"
-      with_items:
-        - libsqlite3-dev
-        - libreadline-dev
+      apt:
+        name:
+          - libsqlite3-dev
+          - libreadline-dev
+        state: present
 
     - name: Ensure app directory exists and is writeable.
       file:
