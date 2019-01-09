@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "geerlingguy/ubuntu1404"
+  config.vm.box = "geerlingguy/ubuntu1804"
   config.ssh.insert_key = false
 
   config.vm.provider "virtualbox" do |v|
