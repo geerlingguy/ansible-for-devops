@@ -1,6 +1,6 @@
 ---
 # Variables for our app.
-app_version: 2.0.0
+app_version: 2.0.1
 app_directory: /opt/demo-rails-app
 app_user: www-data
 app_secrets:
