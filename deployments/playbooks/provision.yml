@@ -17,6 +17,7 @@
         name:
           - libsqlite3-dev
           - libreadline-dev
+          - tzdata
         state: present
 
     - name: Ensure app directory exists and is writeable.
