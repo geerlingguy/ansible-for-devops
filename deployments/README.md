@@ -14,14 +14,14 @@ Once the VM is built, you can visit `http://192.168.33.7/` (or whatever domain n
 
 ## Deploying application updates
 
-The first 'production' release of this demo app is version `1.1.4`, which includes a basic interface for viewing and managing Articles. Subsequent releases can be deployed by incrementing the `app_version` in `playbooks/vars.yml`, then running the Ansible provisioner again with `vagrant provision`.
+The first 'production' release of this demo app is version `2.0.1`, which includes a basic interface for viewing and managing Articles. Subsequent releases can be deployed by incrementing the `app_version` in `playbooks/vars.yml`, then running the Ansible provisioner again with `vagrant provision`.
 
 Some notable releases you could test:
 
-  - `1.1.4`: The first stable release. Very basic interface for performing CRUD operations on Articles, but this release is not idempotently-deployable due to some incorrect settings.
-  - `1.2.0`: Major changes to the structure of the app, like the home page and general layout.
-  - `1.2.2`: First 'production' version of the app, with user interface elements complete. First version of the app able to be deployed idempotently.
-  - `1.3.0`: Major UX and design/layout improvements.
+  - `1.1.4`: First stable release, but not idempotent when deployed.
+    - TODO: This version is deprecated, but a similar version may be added soon.
+  - `2.0.1`: First stable release with Article CRUD deployable on modern Ruby versions.
+  - `2.1.0`: Includes a fancy new header with a linear gradient background. Marketing is happy.
 
 ## About the Author
 
