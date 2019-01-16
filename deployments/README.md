@@ -18,8 +18,6 @@ The first 'production' release of this demo app is version `2.0.1`, which includ
 
 Some notable releases you could test:
 
-  - `1.1.4`: First stable release, but not idempotent when deployed.
-    - TODO: This version is deprecated, but a similar version may be added soon.
   - `2.0.1`: First stable release with Article CRUD deployable on modern Ruby versions.
   - `2.1.0`: Includes a fancy new header with a linear gradient background. Marketing is happy.
 

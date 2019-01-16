@@ -29,7 +29,7 @@
       notify: restart nginx
 
     - name: Install required dependencies with bundler.
-      shell: "bundle install --path vendor/bundle chdir={{ app_directory }}"
+      command: "bundle install --path vendor/bundle chdir={{ app_directory }}"
       when: app_updated.changed == true
       notify: restart nginx
 
@@ -38,12 +38,12 @@
       register: app_db_exists
 
     - name: Create database.
-      shell: "bundle exec rake db:create chdir={{ app_directory }}"
+      command: "bundle exec rake db:create chdir={{ app_directory }}"
       when: app_db_exists.stat.exists == false
       notify: restart nginx
 
     - name: Perform deployment-related rake tasks.
-      shell: "{{ item }} chdir={{ app_directory }}"
+      command: "{{ item }} chdir={{ app_directory }}"
       with_items:
         - bundle exec rake db:migrate
         - bundle exec rake assets:precompile
