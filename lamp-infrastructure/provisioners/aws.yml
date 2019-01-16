@@ -80,7 +80,7 @@
           inventory_host: "{{ item.name | default('') }}"
         group: "{{ item.security_group | default('') }}"
         instance_type: "{{ item.type | default('t2.micro')}}" # Free
-        image: "{{ item.image | default('ami-11125e21') }}" # RHEL6
+        image: "{{ item.image | default('ami-3ecc8f46') }}" # CentOS 7
         region: "{{ item.region | default('us-west-2') }}" # Oregon
         wait: yes
         wait_timeout: 500
