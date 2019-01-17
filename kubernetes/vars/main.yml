@@ -2,12 +2,21 @@
 swap_file_state: absent
 swap_file_path: /dev/mapper/packer--debian--9--amd64--vg-swap_1
 
-docker_package: docker-ce=18.06.1~ce~3-0~debian
+docker_package: docker-ce=5:18.09.0~3-0~debian-stretch
 docker_install_compose: False
 
-kubernetes_version: 'stable-1.11'
+kubernetes_version: '1.13'
 kubernetes_allow_pods_on_master: False
 kubernetes_pod_network_cidr: '10.244.0.0/16'
+kubernetes_packages:
+  - name: kubelet=1.13.1-00
+    state: present
+  - name: kubectl=1.13.1-00
+    state: present
+  - name: kubeadm=1.13.1-00
+    state: present
+  - name: kubernetes-cni
+    state: present
 
 kubernetes_apiserver_advertise_address: "192.168.84.2"
 kubernetes_flannel_manifest_file: "~/kube-flannel-vagrant.yml"
