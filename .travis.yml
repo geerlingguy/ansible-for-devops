@@ -9,10 +9,10 @@ env:
 
   # TODO: Not easy to test in CI at this time.
   # - playbook: deployments-balancer.yml
-  #   distro: ubuntu1404
+  #   distro: ubuntu1804
 
   - playbook: deployments-rolling.yml
-    distro: ubuntu1404
+    distro: ubuntu1804
 
   - playbook: docker.yml
     distro: ubuntu1604
