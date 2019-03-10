@@ -11,6 +11,10 @@
       - "22"
       - "8080"
 
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=3600
+
   roles:
     - geerlingguy.firewall
     - geerlingguy.nodejs
