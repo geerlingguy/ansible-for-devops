@@ -15,7 +15,7 @@ Note for Windows users: *This guide assumes you're on a Mac or Linux host. Windo
 ### 2 - Build the Virtual Machine
 
   1. Download this project and put it wherever you want.
-  2. Open Terminal, cd to this directory (containing the `Vagrantfile` and this REAMDE file).
+  2. Open Terminal, cd to this directory (containing the `Vagrantfile` and this README file).
   3. Run `ansible-galaxy install -r requirements.yml -p ./roles` to install required Ansible roles.
   4. Type in `vagrant up`, and let Vagrant do its magic.
 
