@@ -3,7 +3,7 @@
   become: yes
 
   tasks:
-    - name: Create Tiller namespace.
+    - name: Create Tiller ServiceAccount.
       k8s:
         state: present
         definition:
