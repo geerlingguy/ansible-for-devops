@@ -48,6 +48,7 @@
           - libpcre3-dev
           - libapache2-mod-php7.1
           - python-mysqldb
+          - python3-pymysql
           - mysql-server
 
     - name: Disable the firewall (since this is for local dev only).
@@ -94,15 +95,16 @@
       notify: restart apache
 
     - name: Remove the MySQL test database.
-      mysql_db: db=test state=absent
+      mysql_db: db=test state=absent login_unix_socket=/var/run/mysqld/mysqld.sock
 
     - name: Create a MySQL database for Drupal.
-      mysql_db: "db={{ domain }} state=present"
+      mysql_db: "db={{ domain }} state=present login_unix_socket=/var/run/mysqld/mysqld.sock"
 
     - name: Create a MySQL user for Drupal.
       mysql_user:
         name: "{{ domain }}"
         password: "1234"
+        login_unix_socket: /var/run/mysqld/mysqld.sock
         priv: "{{ domain }}.*:ALL"
         host: localhost
         state: present
