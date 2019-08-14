@@ -1,6 +1,7 @@
 ---
 - hosts: all
-  gather_facts: no
+  gather_facts: false
+  become: true
 
   vars_files:
     - vars/main.yml
@@ -8,7 +9,7 @@
   pre_tasks:
     - name: Install Python if not already present.
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-      changed_when: False
+      changed_when: false
 
     - name: Gather facts after Python is definitely present.
       setup:

@@ -29,6 +29,14 @@ Run the Ansible playbook to automatically generate a Let's Encrypt certificate a
 
     ansible-playbook -i inventory main.yml
 
+### 5 - Verify the certificate works
+
+After the playbook completes, visit your site at the https URL and verify it works with a valid certificate: `https://domain.example.com/`
+
+Or use openssl on the command line to verify the certificate details:
+
+    openssl s_client -showcerts -connect domain.example.com:443
+
 ## About the Author
 
 This project was created by [Jeff Geerling](https://www.jeffgeerling.com/) as an example for [Ansible for DevOps](https://www.ansiblefordevops.com/).
