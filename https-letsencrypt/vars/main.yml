@@ -7,13 +7,13 @@ firewall_allowed_tcp_ports:
 
 # Nginx settings.
 nginx_vhosts: []
-nginx_remove_default_vhost: True
-nginx_ppa_use: True
+nginx_remove_default_vhost: true
+nginx_ppa_use: true
 nginx_ppa_version: stable
 nginx_docroot: /var/www/html
 
 # Let's Encrypt certificate settings.
-certbot_create_if_missing: yes
+certbot_create_if_missing: true
 certbot_admin_email: "{{ letsencrypt_email }}"
 certbot_certs:
   - domains:

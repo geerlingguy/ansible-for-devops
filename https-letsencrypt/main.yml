@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: letsencrypt
   gather_facts: false
   become: true
 
@@ -15,7 +15,7 @@
       setup:
 
     - name: Ensure apt cache is updated.
-      apt: update_cache=yes cache_valid_time=600
+      apt: update_cache=true cache_valid_time=600
 
   roles:
     - geerlingguy.firewall

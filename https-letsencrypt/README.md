@@ -13,8 +13,8 @@ This demonstrates generating valid TLS certificates using Let's Encrypt and Cert
 
   1. Create a publicly-accessible VM running Ubuntu 18.04 (on your favorite cloud provider, like AWS, DigitalOcean, etc.).
   2. Point a valid domain name at this server's IP address (e.g. using Route53 or your DNS provider).
-  3. Make sure your SSH key is added to the root user account.
-  4. Make sure you can SSH into the server using `ssh root@domain.example.com` (where `domain.example.com` is the domain name you have pointed at the server's IP address).
+  3. Make sure your SSH key is added to your user account, and your account has `sudo` access.
+  4. Make sure you can SSH into the server using `ssh myuser@subdomain.example.com` (where `subdomain.example.com` is the domain name you have pointed at the server's IP address).
 
 ### 3 - Configure the inventory
 
