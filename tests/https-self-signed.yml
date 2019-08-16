@@ -5,5 +5,5 @@
     - name: Ensure apt cache is updated.
       apt: update_cache=true cache_valid_time=600
 
-# HTTPS Proxy test.
-- import_playbook: ../https-nginx-proxy/provisioning/main.yml
+# HTTPS Self-Signed Certificate test.
+- import_playbook: ../https-self-signed/provisioning/main.yml
