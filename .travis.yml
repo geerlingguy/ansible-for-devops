@@ -32,6 +32,9 @@ env:
   - playbook: https-self-signed.yml
     distro: ubuntu1604
 
+  - playbook: https-nginx-proxy.yml
+    distro: debian10
+
   - playbook: includes.yml
     distro: ubuntu1604
 

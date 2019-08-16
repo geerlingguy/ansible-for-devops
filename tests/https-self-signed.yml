@@ -3,7 +3,7 @@
 
   tasks:
     - name: Ensure apt cache is updated.
-      apt: update_cache=yes cache_valid_time=600
+      apt: update_cache=true cache_valid_time=600
 
-# HTTPS Self-Signed Certificate test.
-- import_playbook: ../https-self-signed/provisioning/main.yml
+# HTTPS Proxy test.
+- import_playbook: ../https-nginx-proxy/provisioning/main.yml

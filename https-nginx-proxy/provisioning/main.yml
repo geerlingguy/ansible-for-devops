@@ -1,0 +1,45 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars/main.yml
+
+  pre_tasks:
+    - name: Ensure apt cache is updated.
+      apt: update_cache=true cache_valid_time=600
+
+    - name: Install dependency for pyopenssl.
+      apt: name=libssl-dev state=present
+
+  roles:
+    - geerlingguy.firewall
+    - geerlingguy.pip
+    - geerlingguy.nginx
+
+  tasks:
+    - import_tasks: tasks/self-signed-cert.yml
+
+    - name: Ensure docroot exists.
+      file:
+        path: "{{ nginx_docroot }}"
+        state: directory
+
+    - name: Copy example index.html file in place.
+      copy:
+        src: files/index.html
+        dest: "{{ nginx_docroot }}/index.html"
+        mode: 0755
+
+    - name: Start simple python webserver on port 8080.
+      shell: >
+        python3 -m http.server 8080 --directory {{ nginx_docroot }} &
+      changed_when: false
+      async: 45
+      poll: 0
+
+    - name: Copy Nginx server configuration in place.
+      template:
+        src: templates/https.test.conf.j2
+        dest: /etc/nginx/sites-enabled/https.test.conf
+        mode: 0644
+      notify: restart nginx
