@@ -8,7 +8,7 @@ server {
     return 301 https://$host$request_uri;
 }
 
-# Serve HTTPS traffic using the self-signed certificate created by Ansible.
+# Serve HTTPS traffic using the Let's Encrypt certificate.
 server {
     listen 443 ssl default_server;
     server_name {{ inventory_hostname }};

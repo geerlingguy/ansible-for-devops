@@ -8,7 +8,7 @@ server {
     return 301 https://$host$request_uri;
 }
 
-# Proxy HTTPS traffic using the self-signed certificate created by Ansible.
+# Proxy HTTPS traffic using a self-signed certificate.
 server {
     listen 443 ssl default_server;
     server_name {{ server_hostname }};
