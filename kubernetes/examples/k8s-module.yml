@@ -40,7 +40,7 @@
               app: nginx
 
     - name: Get the details of the a4d-nginx Service.
-      k8s:
+      k8s_info:
         api_version: v1
         kind: Service
         name: a4d-nginx
@@ -49,4 +49,4 @@
 
     - name: Print the NodePort of the a4d-nginx Service.
       debug:
-        var: a4d_nginx_service.result.spec.ports[0].nodePort
+        var: a4d_nginx_service.resources[0].spec.ports[0].nodePort

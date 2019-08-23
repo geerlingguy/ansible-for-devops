@@ -24,7 +24,14 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 ### 3 - Configure your host machine to access the VM.
 
   1. [Edit your hosts file](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file), adding the line `192.168.84.3  cluster.k8s.test` so you can connect to the VM.
-  2. Open your browser and access [http://cluster.k8s.test](http://cluster.k8s.test).
+
+### 4 - Deploy applications to the Kubernetes cluster
+
+For details on how to deploy all these examples, please refer to chapter 14 in Ansible for DevOps. One quick example you can test locally:
+
+  1. cd into the 'examples' directory, and run the `k8s-module.yml` playbook, which creates an Nginx deployment and service on the cluster: `ansible-playbook -i ../inventory k8s-module.yml`
+  2. Copy the nodePort from the final task output in that playbook; this is the port on which Nginx is accessible.
+  3. Open your browser and access [http://cluster.k8s.test:32474/](http://cluster.k8s.test:32474/) (assuming nodePort is `32474`).
 
 ## Notes
 
