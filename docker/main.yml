@@ -6,8 +6,10 @@
     - name: Ensure Docker image is built from the test Dockerfile.
       docker_image:
         name: test
-        path: test
-        state: build
+        source: build
+        build:
+          path: test
+        state: present
 
     - name: Ensure the test container is running.
       docker_container:

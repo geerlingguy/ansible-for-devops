@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   vars:
     base_image: node:8
@@ -13,7 +13,8 @@
     - name: Make the latest version of the base image available locally.
       docker_image:
         name: '{{ base_image }}'
-        force: yes
+        source: pull
+        force_source: true
 
     - name: Create the Docker container.
       docker_container:
@@ -37,7 +38,7 @@
         rm -rf /var/lib/apt/lists/*
       delegate_to: '{{ container_name }}'
       args:
-        warn: no
+        warn: false
 
     - name: Commit the container.
       command: >

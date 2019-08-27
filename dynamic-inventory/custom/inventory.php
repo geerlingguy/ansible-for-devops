@@ -19,6 +19,7 @@ function example_inventory() {
       'vars' => [
         'ansible_ssh_user' => 'vagrant',
         'ansible_ssh_private_key_file' => '~/.vagrant.d/insecure_private_key',
+        'ansible_python_interpreter' => '/usr/bin/python3',
         'example_variable' => 'value',
       ],
     ],
