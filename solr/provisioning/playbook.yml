@@ -27,7 +27,7 @@
       unarchive:
         src: "{{ download_dir }}/solr-{{ solr_version }}.tgz"
         dest: "{{ download_dir }}"
-        copy: no
+        remote_src: true
         creates: "{{ download_dir }}/solr-{{ solr_version }}/README.txt"
 
     - name: Run Solr installation script.
