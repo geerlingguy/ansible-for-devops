@@ -6,7 +6,7 @@
     dest: /opt/drush
 
 - name: Install Drush dependencies with Composer.
-  shell: >
+  command: >
     /usr/local/bin/composer install
     chdir=/opt/drush
     creates=/opt/drush/vendor/autoload.php

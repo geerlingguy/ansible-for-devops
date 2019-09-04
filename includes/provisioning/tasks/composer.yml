@@ -12,6 +12,6 @@
     creates=/usr/local/bin/composer
 
 - name: Move Composer into globally-accessible location.
-  shell: >
+  command: >
     mv /tmp/composer.phar /usr/local/bin/composer
     creates=/usr/local/bin/composer

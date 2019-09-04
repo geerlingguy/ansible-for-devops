@@ -93,9 +93,6 @@
         state: present
       notify: restart apache
 
-    - name: Remove the MySQL test database.
-      mysql_db: db=test state=absent
-
     - name: Create a MySQL database for Drupal.
       mysql_db: "db={{ domain }} state=present"
 
@@ -120,7 +117,7 @@
         creates=/usr/local/bin/composer
 
     - name: Move Composer into globally-accessible location.
-      shell: >
+      command: >
         mv /tmp/composer.phar /usr/local/bin/composer
         creates=/usr/local/bin/composer
 
@@ -131,7 +128,7 @@
         dest: /opt/drush
 
     - name: Install Drush dependencies with Composer.
-      shell: >
+      command: >
         /usr/local/bin/composer install
         chdir=/opt/drush
         creates=/opt/drush/vendor/autoload.php
@@ -149,7 +146,7 @@
         dest: "{{ drupal_core_path }}"
 
     - name: Install Drupal dependencies with Composer.
-      shell: >
+      command: >
         /usr/local/bin/composer install
         chdir={{ drupal_core_path }}
         creates={{ drupal_core_path }}/vendor/autoload.php

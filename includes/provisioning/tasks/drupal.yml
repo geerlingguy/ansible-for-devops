@@ -6,7 +6,7 @@
     dest: "{{ drupal_core_path }}"
 
 - name: Install Drupal dependencies with Composer.
-  shell: >
+  command: >
     /usr/local/bin/composer install
     chdir={{ drupal_core_path }}
     creates={{ drupal_core_path }}/vendor/autoload.php
