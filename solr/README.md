@@ -2,7 +2,7 @@
 
 This project aims to make spinning up a simple local Apache Solr environment incredibly quick and easy, and to introduce users to the fast and powerful search engine behind some of the largest document collections on the Internet.
 
-It will install the following on a Ubuntu 16.04 linux VM:
+It will install the following on a Ubuntu 16.04 Linux VM:
 
   - Java
   - Apache Solr
@@ -22,7 +22,7 @@ Note for Windows users: *This guide assumes you're on a Mac or Linux host. Windo
 ### 2 - Build the Virtual Machine
 
   1. Download this project and put it wherever you want.
-  2. Open Terminal, cd to this directory (containing the `Vagrantfile` and this REAMDE file).
+  2. Open Terminal, cd to this directory (containing the `Vagrantfile` and this README file).
   3. Type in `vagrant up`, and let Vagrant do its magic.
 
 Note: *If there are any errors during the course of running `vagrant up`, and it drops you back to your command prompt, just run `vagrant provision` to continue building the VM from where you left off. If there are still errors after doing this a few times, post an issue to this project's issue queue on GitHub with the error.*
