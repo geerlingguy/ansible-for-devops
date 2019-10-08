@@ -1,6 +1,10 @@
 ---
 - hosts: all
 
+  vars:
+    # Added to prevent test failures in CI.
+    firewall_enable_ipv6: false
+
   tasks:
     - name: Update the apt cache so we can install ufw.
       apt: update_cache=yes cache_valid_time=600

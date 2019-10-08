@@ -1,6 +1,10 @@
 ---
 - hosts: all
 
+  vars:
+    # Added to prevent test failures in CI.
+    firewall_enable_ipv6: false
+
   tasks:
     - name: Ensure apt cache is updated.
       apt: update_cache=true cache_valid_time=600

@@ -1,6 +1,10 @@
 ---
 - hosts: all
 
+  vars:
+    # Added to prevent test failures in CI.
+    firewall_enable_ipv6: false
+
   tasks:
     - add_host:
         name: localhost
