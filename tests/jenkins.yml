@@ -11,3 +11,5 @@
 
 # Jenkins test.
 - import_playbook: ../jenkins/provision.yml
+  vars:
+    firewall_enable_ipv6: false
