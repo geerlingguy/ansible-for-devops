@@ -10,5 +10,10 @@
     - name: Ensure ping is present.
       apt: name=iputils-ping state=present
 
-- import_playbook: ../deployments-rolling/playbooks/provision.yml firewall_enable_ipv6='false'
-- import_playbook: ../deployments-rolling/playbooks/deploy.yml firewall_enable_ipv6='false'
+- import_playbook: ../deployments-rolling/playbooks/provision.yml
+  vars:
+    firewall_enable_ipv6: false
+
+- import_playbook: ../deployments-rolling/playbooks/deploy.yml
+  vars:
+    firewall_enable_ipv6: false
