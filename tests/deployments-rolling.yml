@@ -1,10 +1,6 @@
 ---
 - hosts: all
 
-  vars:
-    # Added to prevent test failures in CI.
-    firewall_enable_ipv6: false
-
   tasks:
     - add_host:
         name: localhost
@@ -14,5 +10,5 @@
     - name: Ensure ping is present.
       apt: name=iputils-ping state=present
 
-- import_playbook: ../deployments-rolling/playbooks/provision.yml
-- import_playbook: ../deployments-rolling/playbooks/deploy.yml
+- import_playbook: ../deployments-rolling/playbooks/provision.yml firewall_enable_ipv6='false'
+- import_playbook: ../deployments-rolling/playbooks/deploy.yml firewall_enable_ipv6='false'
