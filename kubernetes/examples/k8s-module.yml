@@ -3,6 +3,13 @@
   become: yes
 
   pre_tasks:
+    - name: Ensure ansible version is supported.
+      assert:
+        that: "ansible_version.full is version_compare('2.7', '>=')"
+        msg: >
+          "Minimum ansible version for this playbook is 2.7"
+          "Minimum tested is 2.7.9"
+
     - name: Ensure Pip is installed.
       package:
         name: python-pip
