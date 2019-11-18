@@ -46,13 +46,11 @@
             selector:
               app: nginx
 
-    - name: Get the details of the a4d-nginx Service.
-      k8s_info:
-        api_version: v1
-        kind: Service
-        name: a4d-nginx
-        namespace: default
-      register: a4d_nginx_service
+    - include_tasks: files/k8s_info.yml
+      when: "ansible_version.full is version_compare('2.9', '>=')"
+
+    - include_tasks: files/k8s_facts.yml
+      when: "ansible_version.full is version_compare('2.9', '<')"
 
     - name: Print the NodePort of the a4d-nginx Service.
       debug:

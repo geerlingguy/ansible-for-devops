@@ -1,0 +1,9 @@
+---
+- name: Get the details of the a4d-nginx Service - Deprecated.
+  k8s_facts:
+    api_version: v1
+    kind: Service
+    name: a4d-nginx
+    namespace: default
+  register: a4d_nginx_service
+
