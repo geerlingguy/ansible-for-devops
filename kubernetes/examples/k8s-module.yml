@@ -2,6 +2,9 @@
 - hosts: k8s-master
   become: yes
 
+  vars_files:
+    - ./vars.yml
+
   pre_tasks:
     - name: Ensure ansible version is supported.
       assert:
@@ -54,4 +57,4 @@
 
     - name: Print the NodePort of the a4d-nginx Service.
       debug:
-        var: a4d_nginx_service.resources[0].spec.ports[0].nodePort
+        msg: 'Now visit {{ hostname }}:{{ a4d_nginx_service.resources[0].spec.ports[0].nodePort }} in your browser'
