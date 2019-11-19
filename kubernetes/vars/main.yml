@@ -21,3 +21,7 @@ kubernetes_packages:
 kubernetes_apiserver_advertise_address: "192.168.84.2"
 kubernetes_flannel_manifest_file: "~/kube-flannel-vagrant.yml"
 kubernetes_kubelet_extra_args: '--node-ip={{ ansible_host }}'
+
+http_proxy: "" # http://user:password@proxy:port/
+https_proxy: "" # http://user:password@proxy:port/
+no_proxy: "" # localhost,127.0.0.0/8,192.168.0.0/16
