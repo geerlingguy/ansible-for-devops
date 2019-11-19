@@ -9,7 +9,7 @@ BEGIN{ tog=0; } \
 
 deps: ## Install required roles to spawn the cluster
 	ansible-galaxy install -r requirements.yml -p ./roles
-	ansible-galaxy install -r example-requirements.yml -p ./roles
+	ansible-galaxy install -r examples-requirements.yml -p ./roles
 
 start: ## Start the cluster
 	vagrant up
