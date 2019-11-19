@@ -1,0 +1,10 @@
+---
+- name: Add cluster address to the /etc/hosts
+  become: true
+  hosts: localhost
+
+  vars_files:
+    - ./vars.yml
+
+  roles:
+   - role: weshouman.add_host
