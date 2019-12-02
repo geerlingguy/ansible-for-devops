@@ -9,10 +9,6 @@
     - name: Update apt cache if needed.
       apt: update_cache=true cache_valid_time=3600
 
-  handlers:
-    - name: restart solr
-      service: name=solr state=restarted
-
   tasks:
     - name: Install Java.
       apt: name=openjdk-8-jdk state=present
