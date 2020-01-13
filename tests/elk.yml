@@ -1,5 +1,11 @@
 ---
 - hosts: all
 
+  tasks:
+    - add_host:
+        name: localhost
+        groups: logs
+      changed_when: false
+
 # ELK test.
 - import_playbook: ../elk/provisioning/elk/playbook.yml
