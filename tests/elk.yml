@@ -1,0 +1,5 @@
+---
+- hosts: all
+
+# ELK test.
+- import_playbook: ../elk/provisioning/elk/playbook.yml

@@ -29,6 +29,9 @@ env:
   # - playbook: dynamic-inventory.yml
   #   distro: ubuntu1604
 
+  - playbook: elk.yml
+    distro: ubuntu1804
+
   - playbook: https-self-signed.yml
     distro: ubuntu1604
 

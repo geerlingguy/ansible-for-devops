@@ -1,0 +1,13 @@
+---
+- src: geerlingguy.java
+- src: geerlingguy.nginx
+- src: geerlingguy.elasticsearch
+  version: 4.0.0
+- src: geerlingguy.elasticsearch-curator
+  version: 2.0.0
+- src: geerlingguy.kibana
+  version: 4.0.0
+- src: geerlingguy.logstash
+  version: 5.0.2
+- src: geerlingguy.filebeat
+  version: 3.0.1

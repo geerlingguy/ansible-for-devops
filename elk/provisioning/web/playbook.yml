@@ -1,0 +1,35 @@
+---
+# Ansible playbook for a web server which forwards its logs to an ELK server.
+#
+# @author Jeff Geerling (2014).
+
+- hosts: webs
+  gather_facts: yes
+
+  vars_files:
+    - vars/main.yml
+
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=86400
+
+  roles:
+    - geerlingguy.nginx
+    - geerlingguy.filebeat
+
+  tasks:
+    - name: Set up virtual host for testing.
+      copy:
+        src: files/example.conf
+        dest: /etc/nginx/sites-enabled/example.conf
+        owner: root
+        group: root
+        mode: 0644
+      notify: restart nginx
+
+    - name: Ensure logs server is in hosts file.
+      lineinfile:
+        dest: /etc/hosts
+        regexp: '.*logs\.test$'
+        line: "192.168.9.90 logs.test"
+        state: present

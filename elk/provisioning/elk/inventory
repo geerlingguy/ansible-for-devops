@@ -1,0 +1,2 @@
+[logs]
+logs.test ansible_ssh_host=192.168.9.90 ansible_ssh_port=22
