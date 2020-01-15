@@ -2,9 +2,9 @@
 
 This project builds a two-server ELK stack using Elasticsearch, Logstash, Kibana, and Filebeat to ship, store, and expose logs.
 
-The first server (`logs`) has the entire ELK stack running, and pushes local auth.log entries into Elasticsearch via Filebeat and Logstash. The second server (`webs`) runs an Nginx webserver and pushes the webserver access.log file and the server's auth.log entries into Elasticsearch via the `logs` server's Logstash instance.
+The first server (`logs`) has the entire ELK stack running, and pushes local auth.log entries into Elasticsearch via Filebeat and Logstash. The second server (`web`) runs an Nginx webserver and pushes the webserver access.log file and the server's auth.log entries into Elasticsearch via the `logs` server's Logstash instance.
 
-Logs are transmitted securely using a self-signed certificate (see the `elk-vagrant-example` certificate).
+Logs are transmitted securely using a self-signed certificate (see the `elk-example` certificate).
 
 ## Building the VMs
 
@@ -14,18 +14,18 @@ Logs are transmitted securely using a self-signed certificate (see the `elk-vagr
   4. Run `ansible-galaxy install -r requirements.yml` in this directory to get the required Ansible roles.
   5. Run `vagrant up` to build the VMs.
 
-Once the VMs are up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into either one via SSH if you'd like by typing in `vagrant ssh [name]` (either `logs` for the ELK server, or `webs` for the Nginx web server). Otherwise, the next steps are below.
+Once the VMs are up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into either one via SSH if you'd like by typing in `vagrant ssh [name]` (either `logs` for the ELK server, or `web` for the Nginx web server). Otherwise, the next steps are below.
 
 ### Setting up your hosts file
 
 You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`; Windows: `%systemroot%\system32\drivers\etc\hosts`), adding the lines below:
 
     192.168.9.90  logs.test
-    192.168.9.91  webs.test
+    192.168.9.91  web.test
 
-(Where `logs.test`/`webs.test` is the hostname you have configured in the `Vagrantfile`).
+(Where `logs.test`/`web.test` is the hostname you have configured in the `Vagrantfile`).
 
-After that is configured, you could visit http://logs.test/ in a browser, and you'll see the Kibana dashboard, and you can visit http://webs.test/, and you'll see Nginx's default index page.
+After that is configured, you could visit http://logs.test/ in a browser, and you'll see the Kibana dashboard, and you can visit http://web.test/, and you'll see Nginx's default index page.
 
 If you'd like additional assistance editing your hosts file, please read [How do I modify my hosts file?](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file) from Rackspace.
 

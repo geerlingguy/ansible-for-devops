@@ -8,4 +8,4 @@
       changed_when: false
 
 # ELK test.
-- import_playbook: ../elk/provisioning/elk/playbook.yml
+- import_playbook: ../elk/provisioning/elk/main.yml

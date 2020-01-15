@@ -1,9 +1,5 @@
 ---
-# Ansible playbook for a web server which forwards its logs to an ELK server.
-#
-# @author Jeff Geerling (2014).
-
-- hosts: webs
+- hosts: web
   gather_facts: yes
 
   vars_files:

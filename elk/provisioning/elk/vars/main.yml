@@ -2,12 +2,7 @@
 java_packages:
   - openjdk-8-jdk
 
-kibana_server_name: logs.test
-kibana_username: kibana
-kibana_password: password
-
 nginx_user: www-data
-nginx_worker_connections: 1024
 nginx_remove_default_vhost: true
 nginx_vhosts:
   # Kibana proxy.
@@ -22,15 +17,17 @@ nginx_vhosts:
           proxy_read_timeout  90s;
       }
 
-logstash_ssl_key_file: elk-vagrant-example.p8
-logstash_ssl_certificate_file: elk-vagrant-example.crt
+elasticsearch_curator_pip_package: python3-pip
+
+logstash_ssl_key_file: elk-example.p8
+logstash_ssl_certificate_file: elk-example.crt
 
 filebeat_output_logstash_enabled: true
 filebeat_output_logstash_hosts:
   - "logs.test:5044"
 
-filebeat_ssl_key_file: elk-vagrant-example.p8
-filebeat_ssl_certificate_file: elk-vagrant-example.crt
+filebeat_ssl_key_file: elk-example.p8
+filebeat_ssl_certificate_file: elk-example.crt
 filebeat_ssl_insecure: "true"
 
 filebeat_inputs:
