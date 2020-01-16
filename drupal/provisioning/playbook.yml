@@ -144,12 +144,22 @@
         repo: https://git.drupal.org/project/drupal.git
         version: "{{ drupal_core_version }}"
         dest: "{{ drupal_core_path }}"
+      register: git_checkout
+
+    - name: Ensure Drupal codebase is owned by www-data.
+      file:
+        path: "{{ drupal_core_path }}"
+        owner: www-data
+        group: www-data
+        recurse: true
+      when: git_checkout.changed | bool
 
     - name: Install Drupal dependencies with Composer.
       command: >
         /usr/local/bin/composer install
         chdir={{ drupal_core_path }}
         creates={{ drupal_core_path }}/vendor/autoload.php
+      become_user: www-data
 
     - name: Install Drupal.
       command: >
@@ -160,16 +170,4 @@
         --root={{ drupal_core_path }}
         creates={{ drupal_core_path }}/sites/default/settings.php
       notify: restart apache
-
-    # SEE: https://drupal.org/node/2121849#comment-8413637
-    - name: Set permissions properly on settings.php.
-      file:
-        path: "{{ drupal_core_path }}/sites/default/settings.php"
-        mode: 0744
-
-    - name: Set permissions properly on files directory.
-      file:
-        path: "{{ drupal_core_path }}/sites/default/files"
-        mode: 0777
-        state: directory
-        recurse: yes
+      become_user: www-data
