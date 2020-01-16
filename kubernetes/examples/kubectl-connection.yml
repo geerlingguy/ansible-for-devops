@@ -20,8 +20,7 @@
     - name: Add the phpmyadmin Pod to the inventory.
       add_host:
         name: '{{ phpmyadmin_pod.stdout }}'
-        kubectl_pod: '{{ phpmyadmin_pod.stdout }}'
-        kubectl_namespace: default
+        ansible_kubectl_namespace: default
         ansible_kubectl_config: files/kubectl-config
         ansible_connection: kubectl
 
