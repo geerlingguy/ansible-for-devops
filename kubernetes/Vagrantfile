@@ -30,6 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # Provision all the VMs using Ansible after last VM is up.
       if opts[:name] == "node2"
         config.vm.provision "ansible" do |ansible|
+          ansible.compatibility_mode = "2.0"
           ansible.playbook = "main.yml"
           ansible.inventory_path = "inventory"
           ansible.limit = "all"
