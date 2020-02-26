@@ -1,6 +1,6 @@
 # Ansible Custom Dynamic Inventory Example
 
-This folder contains a few custom dynamic inventory scripts for use with Ansible.
+This folder contains custom dynamic inventory scripts for use with Ansible.
 
 Each of the scripts has comments for all the different parts of the code which generate and return the inventory in the proper JSON format expected by Ansible.
 

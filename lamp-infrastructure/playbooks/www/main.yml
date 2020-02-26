@@ -18,6 +18,7 @@
       file:
         path: /var/www/html/index.html
         state: absent
+
     - name: Copy our fancy server-specific home page.
       template:
         src: templates/index.php.j2
