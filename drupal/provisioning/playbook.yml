@@ -11,7 +11,7 @@
 
   handlers:
     - name: restart apache
-      service: name=apache2 state=restarted
+      service: name=apache2 state=restarted validate_certs=no
 
   tasks:
     - name: Get software for apt repository management.
