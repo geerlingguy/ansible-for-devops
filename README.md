@@ -18,7 +18,7 @@ Here is an outline of all the examples contained in this repository, by chapter:
 
 ### Chapter 2
 
-  - N/A
+  - [`first-ansible-playbook`](first-ansible-playbook/): A very basic playbook that installs `chronyd` on CentOS and ensures it is running.
 
 ### Chapter 3
 

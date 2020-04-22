@@ -1,0 +1,3 @@
+---
+# First playbook test.
+- import_playbook: ../first-ansible-playbook/playbook.yml
