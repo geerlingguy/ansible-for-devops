@@ -60,7 +60,7 @@ env:
   #   distro: ubuntu1604
 
   - playbook: ''
-    script: molecule.sh
+    shell_script: molecule.sh
 
   - playbook: nodejs.yml
     distro: centos7
@@ -88,6 +88,6 @@ script:
 
   # Run script directly if script is provided.
   - |
-      if [ ! -z "$script" ]; then
-        ${PWD}/tests/${script}
+      if [ ! -z "$shell_script" ]; then
+        ${PWD}/tests/${shell_script}
       fi
