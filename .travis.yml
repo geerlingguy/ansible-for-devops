@@ -55,8 +55,8 @@ env:
   # - playbook: lamp-infrastructure.yml
   #   distro: ubuntu1604
 
-  - playbook: molecule.yml
-    distro: centos8
+  - playbook: ''
+    script: molecule.sh
 
   - playbook: nodejs.yml
     distro: centos7
@@ -72,9 +72,18 @@ env:
     distro: ubuntu1604
 
 script:
-  # Download test shim.
-  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
-  - chmod +x ${PWD}/tests/test.sh
+  # Use test shim and run playbook if playbook is provided.
+  - |
+      if [ -z "$playbook" ]; then
+        # Download test shim.
+        wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
+        chmod +x ${PWD}/tests/test.sh
+        # Run tests.
+        ${PWD}/tests/test.sh
+      fi
 
-  # Run tests.
-  - ${PWD}/tests/test.sh
+  # Run script directly if script is provided.
+  - |
+      if [ -z "$script" ]; then
+        ${PWD}/tests/${script}
+      fi
