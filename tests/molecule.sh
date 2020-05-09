@@ -11,6 +11,10 @@ pip3 install --upgrade setuptools pip
 # Install dependencies.
 sudo pip3 install ansible molecule ansible-test yamllint docker
 
-# Run tests.
 cd molecule
+
+# Run default test (CentOS).
 molecule test
+
+# Run tests on Debian.
+MOLECULE_DISTRO=debian10 molecule test
