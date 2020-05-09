@@ -1,0 +1,42 @@
+---
+- name: Install Apache.
+  hosts: all
+  become: true
+
+  vars:
+    apache_package: apache2
+    apache_service: apache2
+    apache_config_dir: /etc/apache2/sites-enabled
+
+  handlers:
+    - name: restart apache
+      service:
+        name: "{{ apache_service }}"
+        state: restarted
+
+  pre_tasks:
+    - name: Override Apache vars for Red Hat.
+      set_fact:
+        apache_package: httpd
+        apache_service: httpd
+        apache_config_dir: /etc/httpd/conf.d
+      when: ansible_os_family == 'RedHat'
+
+  tasks:
+    - name: Ensure Apache is installed.
+      package:
+        name: "{{ apache_package }}"
+        state: present
+
+    - name: Copy test config file.
+      copy:
+        content: |
+          # An Apache VirtualHost configuration goes here.
+        dest: "{{ apache_config_dir }}/test.conf"
+      notify: restart apache
+
+    - name: Ensure Apache is running and starts at boot.
+      service:
+        name: "{{ apache_service }}"
+        state: started
+        enabled: true

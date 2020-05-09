@@ -64,16 +64,20 @@ Here is an outline of all the examples contained in this repository, by chapter:
 
 ### Chapter 12
 
+  - [`molecule`](molecule/): TODO.
+
+### Chapter 13
+
   - [`https-self-signed`](https-self-signed/): A playbook that generates self-signed certificates.
   - [`https-letsencrypt`](https-letsencrypt/): A playbook that demonstrates automated certificate management with Let's Encrypt and Ansible.
   - [`https-nginx-proxy`](https-nginx-proxy/): A playbook that demonstrates proxying HTTPS traffic through Nginx to HTTP backends.
 
-### Chapter 13
+### Chapter 14
 
   - [`docker`](docker/): Very simple playbook demonstrating Ansible's ability to manage Docker container images.
   - [`docker-hubot`](docker-hubot/): Slightly more involved example of Ansible's ability to manage and run Docker container images.
 
-### Chapter 14
+### Chapter 15
 
   - [`kubernetes`](kubernetes/): A playbook that builds a three-node Kubernetes cluster.
 

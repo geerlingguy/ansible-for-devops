@@ -1,0 +1,8 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Run molecule tests.
+      command: >
+        molecule test
+        chdir=molecule
