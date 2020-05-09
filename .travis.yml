@@ -1,6 +1,10 @@
 ---
 services: docker
 
+branches:
+  only:
+    - master
+
 env:
   # Run each test playbook in a separate environment.
   - playbook: deployments.yml
