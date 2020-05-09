@@ -78,7 +78,7 @@ env:
 script:
   # Use test shim and run playbook if playbook is provided.
   - |
-      if [ -z "$playbook" ]; then
+      if [ ! -z "$playbook" ]; then
         # Download test shim.
         wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
         chmod +x ${PWD}/tests/test.sh
@@ -88,6 +88,6 @@ script:
 
   # Run script directly if script is provided.
   - |
-      if [ -z "$script" ]; then
+      if [ ! -z "$script" ]; then
         ${PWD}/tests/${script}
       fi
