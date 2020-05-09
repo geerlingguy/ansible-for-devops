@@ -12,5 +12,7 @@ pip3 install --upgrade setuptools pip
 sudo pip3 install ansible molecule ansible-test yamllint docker
 
 # Run tests.
+ls
+pwd
 cd ../molecule
 molecule test
