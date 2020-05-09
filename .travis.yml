@@ -59,8 +59,7 @@ env:
   # - playbook: lamp-infrastructure.yml
   #   distro: ubuntu1604
 
-  - playbook: ''
-    shell_script: molecule.sh
+  - shell_script: molecule.sh
 
   - playbook: nodejs.yml
     distro: centos7
