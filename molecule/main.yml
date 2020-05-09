@@ -6,7 +6,6 @@
   vars:
     apache_package: apache2
     apache_service: apache2
-    apache_config_dir: /etc/apache2/sites-enabled
 
   handlers:
     - name: restart apache
@@ -19,7 +18,6 @@
       set_fact:
         apache_package: httpd
         apache_service: httpd
-        apache_config_dir: /etc/httpd/conf.d
       when: ansible_os_family == 'RedHat'
 
   tasks:
@@ -28,11 +26,14 @@
         name: "{{ apache_package }}"
         state: present
 
-    - name: Copy test config file.
+    - name: Copy a web page.
       copy:
         content: |
-          # An Apache VirtualHost configuration goes here.
-        dest: "{{ apache_config_dir }}/test.conf"
+          <html>
+          <head><title>Hello world!</title></head>
+          <body>Hello world!</body>
+          </html>
+        dest: "/var/www/html/index.html"
       notify: restart apache
 
     - name: Ensure Apache is running and starts at boot.
