@@ -65,6 +65,7 @@ Here is an outline of all the examples contained in this repository, by chapter:
 ### Chapter 12
 
   - [`molecule`](molecule/): A Molecule example used for testing and developing an Ansible playbook, or for testing in a Continuous Integration (CI) environment.
+  - [`ci.yml` GitHub Actions workflow](.github/workflows/ci.yml): A GitHub Actions workflow which runs the `molecule` example in a CI environment.
 
 ### Chapter 13
 
