@@ -9,7 +9,7 @@ sudo apt-get install -y python3-pip python3-setuptools
 pip3 install --upgrade setuptools pip
 
 # Install dependencies.
-sudo pip3 install ansible molecule ansible-test yamllint docker
+sudo pip3 install ansible molecule ansible-lint yamllint docker
 
 cd molecule
 
