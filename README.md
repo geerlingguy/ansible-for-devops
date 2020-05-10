@@ -64,7 +64,7 @@ Here is an outline of all the examples contained in this repository, by chapter:
 
 ### Chapter 12
 
-  - [`molecule`](molecule/): TODO.
+  - [`molecule`](molecule/): A Molecule example used for testing and developing an Ansible playbook, or for testing in a Continuous Integration (CI) environment.
 
 ### Chapter 13
 
