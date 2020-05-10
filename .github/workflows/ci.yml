@@ -7,12 +7,15 @@ on:
       - master
 
 jobs:
+
   test:
     name: Molecule
     runs-on: ubuntu-latest
-    matrix:
-      - distro: centos8
-      - distro: debian10
+    strategy:
+      matrix:
+        - distro: centos8
+        - distro: debian10
+
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
