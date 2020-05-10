@@ -7,9 +7,12 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     name: Molecule
     runs-on: ubuntu-latest
+    matrix:
+      - distro: centos8
+      - distro: debian10
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
@@ -26,4 +29,6 @@ jobs:
         run: molecule test
         env:
           PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}
         working-directory: molecule
