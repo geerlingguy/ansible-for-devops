@@ -13,8 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        - distro: centos8
-        - distro: debian10
+        distro:
+          - centos8
+          - debian10
 
     steps:
       - name: Check out the codebase.
