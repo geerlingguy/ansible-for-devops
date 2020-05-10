@@ -1,8 +1,10 @@
 ---
 name: CI
 on:
-  - push
-  - pull_request
+  pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -22,4 +24,6 @@ jobs:
 
       - name: Run Molecule tests.
         run: molecule test
+        env:
+          PY_COLORS: '1'
         working-directory: molecule
