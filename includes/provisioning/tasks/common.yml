@@ -12,6 +12,7 @@
 - name: "Install Apache, MySQL, PHP, and other dependencies."
   apt:
     name:
+      - acl
       - git
       - curl
       - unzip
