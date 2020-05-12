@@ -1,6 +1,6 @@
 ---
 name: CI
-on:
+'on':
   pull_request:
   push:
     branches:
@@ -21,7 +21,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
 
-      - name: Set up Python 3.7.
+      - name: Set up Python 3.
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
