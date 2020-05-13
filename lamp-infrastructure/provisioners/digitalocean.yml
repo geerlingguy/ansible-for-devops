@@ -33,7 +33,7 @@
         name: "{{ item.1.droplet.ip_address }}"
         groups: "do,{{ droplets[item.0].group }},{{ item.1.droplet.name }}"
         # You can dynamically add inventory variables per-host.
-        ansible_ssh_user: root
+        ansible_user: root
         mysql_replication_role: >
           "{{ 'master' if (item.1.droplet.name == 'a4d.lamp.db.1')
           else 'slave' }}"

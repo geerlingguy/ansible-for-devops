@@ -5,5 +5,5 @@
 192.168.3.5
 
 [nodejs-api:vars]
-ansible_ssh_user=vagrant
+ansible_user=vagrant
 ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key

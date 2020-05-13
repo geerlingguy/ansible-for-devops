@@ -10,5 +10,5 @@ k8s-master
 k8s-nodes
 
 [k8s:vars]
-ansible_ssh_user=vagrant
+ansible_user=vagrant
 ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key

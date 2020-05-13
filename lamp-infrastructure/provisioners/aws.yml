@@ -96,7 +96,7 @@
         name: "{{ item.1.tagged_instances.0.public_ip }}"
         groups: "aws,{{ item.1.item.group }},{{ item.1.item.name }}"
         # You can dynamically add inventory variables per-host.
-        ansible_ssh_user: ec2-user
+        ansible_user: ec2-user
         host_key_checking: false
         mysql_replication_role: >
           {{ 'master' if (item.1.item.name == 'a4d.lamp.db.1')
