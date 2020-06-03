@@ -7,11 +7,7 @@ Example custom dynamic inventory script for Ansible, in Python.
 import os
 import sys
 import argparse
-
-try:
-    import json
-except ImportError:
-    import simplejson as json
+import json
 
 class ExampleInventory(object):
 
