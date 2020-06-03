@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 '''
 Example custom dynamic inventory script for Ansible, in Python.
@@ -30,7 +30,7 @@ class ExampleInventory(object):
         else:
             self.inventory = self.empty_inventory()
 
-        print json.dumps(self.inventory);
+        print(json.dumps(self.inventory));
 
     # Example inventory for testing.
     def example_inventory(self):
