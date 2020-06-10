@@ -14,7 +14,9 @@
       with_items: "{{ groups.balancer }}"
 
   tasks:
-    - debug: msg="Deployment would be done here."
+    - name: Wait a short time to simulate a deployment.
+      pause:
+        seconds: 10
 
   post_tasks:
     - name: Wait for backend to come back up.
