@@ -1,14 +1,23 @@
-# blue Ansible test plugin definition.
+# Ansible custom 'blue' test plugin definition.
 
 def is_blue(string):
-    blue_values = ['blue', '#0000ff', '#00f', 'rgb(0,0,255)']
+    ''' Return True if a valid CSS value of 'blue'. '''
+    blue_values = [
+        'blue',
+        '#0000ff',
+        '#00f',
+        'rgb(0,0,255)',
+        'rgb(0%,0%,100%)',
+    ]
     if string in blue_values:
-      return True
+        return True
     else:
-      return False
+        return False
 
 class TestModule(object):
-    ''' custom playbook jinja2 tests '''
+    ''' Return dict of custom jinja tests. '''
 
     def tests(self):
-        return dict(blue=is_blue)
+        return {
+            'blue': is_blue
+        }
