@@ -41,44 +41,49 @@ Here is an outline of all the examples contained in this repository, by chapter:
 
 ### Chapter 7
 
-  - [`dynamic-inventory`](dynamic-inventory/): Two example dynamic inventory scripts (one in PHP, one in Python) for use with Ansible.
+  - [`test-plugin`](test-plugin/): A simple test plugin that verifies a given value is representative of the color blue.
+  - [`collection`](collection/): TODO.
 
 ### Chapter 8
+
+  - [`dynamic-inventory`](dynamic-inventory/): Two example dynamic inventory scripts (one in PHP, one in Python) for use with Ansible.
+
+### Chapter 9
 
   - [`lamp-infrastructure`](lamp-infrastructure/): A multi-server LAMP-based web application infrastructure focused on high-availability and performance for a LAMP-stack app.
   - [`elk`](elk/): A two-server example of the Elasticsearch-Logstash-Kibana stack, which uses one server to store and visualize logs centrally, and another server to send logs via Filebeat.
 
-### Chapter 9
+### Chapter 10
 
   - [`deployments`](deployments/): A playbook that deploys a Ruby on Rails application into an environment that runs Passenger and Nginx to handle web requests.
   - [`deployments-balancer`](deployments-balancer/): A playbook that handles zero-downtime deployments to webservers running behind an HAProxy load balancer.
   - [`deployments-rolling`](deployments-rolling/): A playbook that demonstrates rolling deployments to multiple servers for a Node.js app.
 
-### Chapter 10
+### Chapter 11
 
   - N/A
 
-### Chapter 11
+### Chapter 12
 
   - [`jenkins`](jenkins/): A playbook that installs and configures Jenkins for CI/CD.
 
-### Chapter 12
+### Chapter 13
 
   - [`molecule`](molecule/): A Molecule example used for testing and developing an Ansible playbook, or for testing in a Continuous Integration (CI) environment.
   - [`ci.yml` GitHub Actions workflow](.github/workflows/ci.yml): A GitHub Actions workflow which runs the `molecule` example in a CI environment.
 
-### Chapter 13
+### Chapter 14
 
   - [`https-self-signed`](https-self-signed/): A playbook that generates self-signed certificates.
   - [`https-letsencrypt`](https-letsencrypt/): A playbook that demonstrates automated certificate management with Let's Encrypt and Ansible.
   - [`https-nginx-proxy`](https-nginx-proxy/): A playbook that demonstrates proxying HTTPS traffic through Nginx to HTTP backends.
 
-### Chapter 14
+### Chapter 15
 
   - [`docker`](docker/): Very simple playbook demonstrating Ansible's ability to manage Docker container images.
   - [`docker-hubot`](docker-hubot/): Slightly more involved example of Ansible's ability to manage and run Docker container images.
 
-### Chapter 15
+### Chapter 16
 
   - [`kubernetes`](kubernetes/): A playbook that builds a three-node Kubernetes cluster.
 

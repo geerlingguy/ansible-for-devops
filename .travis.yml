@@ -74,6 +74,9 @@ env:
   - playbook: solr.yml
     distro: ubuntu1604
 
+  - playbook: test-plugin.yml
+    distro: centos7
+
 script:
   # Use test shim and run playbook if playbook is provided.
   - |
