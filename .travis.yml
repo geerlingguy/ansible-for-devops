@@ -6,6 +6,9 @@ branches:
     - master
 
 env:
+  - playbook: collection.yml
+    distro: centos7
+
   # Run each test playbook in a separate environment.
   - playbook: deployments.yml
     distro: ubuntu1804

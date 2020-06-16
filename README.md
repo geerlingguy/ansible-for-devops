@@ -42,7 +42,7 @@ Here is an outline of all the examples contained in this repository, by chapter:
 ### Chapter 7
 
   - [`test-plugin`](test-plugin/): A simple test plugin that verifies a given value is representative of the color blue.
-  - [`collection`](collection/): TODO.
+  - [`collection`](collection/): An example local collection to demonstrate the basic structure of content collections.
 
 ### Chapter 8
 
