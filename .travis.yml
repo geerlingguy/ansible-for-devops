@@ -6,8 +6,7 @@ branches:
     - master
 
 env:
-  - playbook: collection.yml
-    distro: centos7
+  - shell_script: collection.sh
 
   # Run each test playbook in a separate environment.
   - playbook: deployments.yml
