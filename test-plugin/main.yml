@@ -1,0 +1,10 @@
+---
+- hosts: all
+
+  vars:
+    my_color_choice: blue
+
+  tasks:
+    - name: "Verify {{ my_color_choice }} is a form of blue."
+      assert:
+        that: my_color_choice is blue
