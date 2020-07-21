@@ -3,41 +3,12 @@
   become: yes
 
   tasks:
-    - name: Get Tiller's ClusterIP.
-      k8s:
-        api_version: v1
-        kind: Service
-        name: tiller-deploy
-        namespace: kube-system
-      register: tiller_service
-
-    - name: Set the Helm host and port.
-      set_fact:
-        helm_host: "{{ tiller_service.result.spec.clusterIP }}"
-        helm_port: "{{ tiller_service.result.spec.ports[0].port }}"
-
-    - name: Delete phpmyadmin using helm.
-      command: helm delete --purge phpmyadmin
-      environment:
-        HELM_HOST: '{{ helm_host }}:{{ helm_port }}'
-
-    - name: Reset Helm.
-      command: helm reset --force
-      environment:
-        HELM_HOST: '{{ helm_host }}:{{ helm_port }}'
-
-    - name: Remove Tiller RBAC definition.
-      k8s:
+    - name: Remove phpMyAdmin with Helm.
+      community.kubernetes.helm:
+        name: phpmyadmin
+        chart_ref: bitnami/phpmyadmin
+        release_namespace: default
         state: absent
-        definition: "{{ lookup('file', 'files/tiller-rbac.yml') | from_yaml }}"
-
-    - name: Remove Tiller ServiceAccount.
-      k8s:
-        state: absent
-        api_version: v1
-        kind: ServiceAccount
-        name: tiller
-        namespace: kube-system
 
     - name: Delete helm binary.
       file:

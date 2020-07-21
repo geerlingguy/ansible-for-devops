@@ -1,4 +1,8 @@
 ---
-- src: geerlingguy.swap
-- src: geerlingguy.docker
-- src: geerlingguy.kubernetes
+roles:
+  - name: geerlingguy.swap
+  - name: geerlingguy.docker
+  - name: geerlingguy.kubernetes
+
+collections:
+  - name: community.kubernetes
