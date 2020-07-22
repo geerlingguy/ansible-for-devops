@@ -4,7 +4,7 @@
 - src: geerlingguy.elasticsearch
   version: 4.1.1
 - src: geerlingguy.elasticsearch-curator
-  version: 2.0.0
+  version: 2.1.0
 - src: geerlingguy.kibana
   version: 4.0.0
 - src: geerlingguy.logstash
