@@ -4,9 +4,7 @@
   vars:
     pip_package: python3-pip
     pip_install_packages:
-      # See: https://github.com/ansible/ansible/issues/35612
-      - name: docker
-        version: "2.7.0"
+      - docker
 
   pre_tasks:
     - name: Update the apt cache.
