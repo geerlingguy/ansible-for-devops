@@ -8,7 +8,6 @@ firewall_allowed_tcp_ports:
 # Nginx settings.
 nginx_vhosts: []
 nginx_remove_default_vhost: true
-nginx_ppa_use: true
 nginx_ppa_version: stable
 nginx_docroot: /var/www/html
 
