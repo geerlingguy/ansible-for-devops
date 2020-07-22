@@ -34,21 +34,21 @@
           - unzip
           - sendmail
           - apache2
-          - php7.1-common
-          - php7.1-cli
-          - php7.1-dev
-          - php7.1-gd
-          - php7.1-curl
-          - php7.1-json
-          - php7.1-opcache
-          - php7.1-xml
-          - php7.1-mbstring
-          - php7.1-pdo
-          - php7.1-mysql
+          - php7.4-common
+          - php7.4-cli
+          - php7.4-dev
+          - php7.4-gd
+          - php7.4-curl
+          - php7.4-json
+          - php7.4-opcache
+          - php7.4-xml
+          - php7.4-mbstring
+          - php7.4-pdo
+          - php7.4-mysql
           - php-apcu
           - libpcre3-dev
-          - libapache2-mod-php7.1
-          - python-mysqldb
+          - libapache2-mod-php7.4
+          - python3-mysqldb
           - mysql-server
 
     - name: Disable the firewall (since this is for local dev only).
@@ -88,7 +88,7 @@
 
     - name: Adjust OpCache memory setting.
       lineinfile:
-        dest: "/etc/php/7.1/apache2/conf.d/10-opcache.ini"
+        dest: "/etc/php/7.4/apache2/conf.d/10-opcache.ini"
         regexp: "^opcache.memory_consumption"
         line: "opcache.memory_consumption = 96"
         state: present
