@@ -8,6 +8,6 @@
 - src: geerlingguy.kibana
   version: 4.0.0
 - src: geerlingguy.logstash
-  version: 5.0.2
+  version: 5.1.0
 - src: geerlingguy.filebeat
   version: 3.0.1
