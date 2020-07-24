@@ -83,6 +83,7 @@ Here is an outline of all the examples contained in this repository, by chapter:
 
   - [`docker`](docker/): Very simple playbook demonstrating Ansible's ability to manage Docker container images.
   - [`docker-hubot`](docker-hubot/): Slightly more involved example of Ansible's ability to manage and run Docker container images.
+  - [`docker-flask`](docker-flask/): A sample Flask app built with Ansible playbooks running inside the container.
 
 ### Chapter 16
 

@@ -1,0 +1,42 @@
+---
+- name: Build Docker images from Dockerfiles.
+  docker_image:
+    name: "{{ item.name }}"
+    tag: "{{ item.tag }}"
+    source: build
+    build:
+      path: "{{ build_root }}/{{ item.directory }}"
+      pull: false
+    state: present
+  with_items:
+    - { name: data, tag: latest, directory: data }
+    - { name: flask, tag: latest, directory: www }
+    - { name: db, tag: latest, directory: db }
+
+# Data containers don't need to be running to be utilized.
+- name: Run a Data container.
+  docker_container:
+    image: data:latest
+    name: data
+    state: present
+
+- name: Run a Flask container.
+  docker_container:
+    image: flask:latest
+    name: www
+    state: started
+    command: python3 /opt/www/index.py
+    ports: "80:80"
+
+- name: Run a MySQL container.
+  docker_container:
+    image: db:latest
+    name: db
+    state: started
+    volumes_from: data
+    ports: "3306:3306"
+    env:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: flask
+      MYSQL_USER: flask
+      MYSQL_PASSWORD: flask
