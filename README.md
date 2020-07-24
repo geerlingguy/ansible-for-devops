@@ -52,6 +52,7 @@ Here is an outline of all the examples contained in this repository, by chapter:
 
   - [`lamp-infrastructure`](lamp-infrastructure/): A multi-server LAMP-based web application infrastructure focused on high-availability and performance for a LAMP-stack app.
   - [`elk`](elk/): A two-server example of the Elasticsearch-Logstash-Kibana stack, which uses one server to store and visualize logs centrally, and another server to send logs via Filebeat.
+  - [`gluster`](gluster/): A two-server example of building a fast networked storage setup using Gluster.
 
 ### Chapter 10
 

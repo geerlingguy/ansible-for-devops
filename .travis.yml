@@ -41,6 +41,10 @@ env:
   - playbook: first-ansible-playbook.yml
     distro: centos7
 
+  # TODO: Not easy to test in CI at this time.
+  # - playbook: gluster.yml
+  #   distro: ubuntu2004
+
   - playbook: https-self-signed.yml
     distro: ubuntu2004
 
