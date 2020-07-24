@@ -1,4 +1,5 @@
 ---
-- src: geerlingguy.firewall
-- src: geerlingguy.pip
-- src: geerlingguy.nginx
+roles:
+  - name: geerlingguy.firewall
+  - name: geerlingguy.pip
+  - name: geerlingguy.nginx

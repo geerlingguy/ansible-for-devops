@@ -1,4 +1,5 @@
 ---
-- src: geerlingguy.firewall
-- src: geerlingguy.haproxy
-- src: geerlingguy.apache
+roles:
+  - name: geerlingguy.firewall
+  - name: geerlingguy.haproxy
+  - name: geerlingguy.apache

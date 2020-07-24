@@ -1,4 +1,5 @@
 ---
-- src: geerlingguy.firewall
-- src: geerlingguy.nodejs
-- src: geerlingguy.git
+roles:
+  - name: geerlingguy.firewall
+  - name: geerlingguy.nodejs
+  - name: geerlingguy.git

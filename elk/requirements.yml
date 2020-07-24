@@ -1,13 +1,14 @@
 ---
-- src: geerlingguy.java
-- src: geerlingguy.nginx
-- src: geerlingguy.elasticsearch
+roles:
+- name: geerlingguy.java
+- name: geerlingguy.nginx
+- name: geerlingguy.elasticsearch
   version: 4.1.1
-- src: geerlingguy.elasticsearch-curator
+- name: geerlingguy.elasticsearch-curator
   version: 2.1.0
-- src: geerlingguy.kibana
+- name: geerlingguy.kibana
   version: 4.0.0
-- src: geerlingguy.logstash
+- name: geerlingguy.logstash
   version: 5.1.0
-- src: geerlingguy.filebeat
+- name: geerlingguy.filebeat
   version: 3.0.1

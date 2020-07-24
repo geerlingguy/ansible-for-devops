@@ -1,4 +1,5 @@
 ---
-- src: geerlingguy.firewall
-- src: geerlingguy.certbot
-- src: geerlingguy.nginx
+roles:
+  - name: geerlingguy.firewall
+  - name: geerlingguy.certbot
+  - name: geerlingguy.nginx

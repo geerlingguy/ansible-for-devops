@@ -1,5 +1,6 @@
 ---
-- src: geerlingguy.git
-- src: geerlingguy.ruby
-- src: geerlingguy.nodejs
-- src: geerlingguy.passenger
+roles:
+  - name: geerlingguy.git
+  - name: geerlingguy.ruby
+  - name: geerlingguy.nodejs
+  - name: geerlingguy.passenger

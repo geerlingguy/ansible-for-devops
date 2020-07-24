@@ -1,3 +1,4 @@
 ---
-- src: geerlingguy.firewall
-- src: geerlingguy.glusterfs
+roles:
+  - name: geerlingguy.firewall
+  - name: geerlingguy.glusterfs
