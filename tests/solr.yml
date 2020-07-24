@@ -1,3 +1,13 @@
 ---
+- hosts: all
+
+  tasks:
+    # See: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199
+    - name: Ensure 'man' directory exists.
+      file:
+        path: /usr/share/man/man1
+        state: directory
+        recurse: True
+
 # Solr test.
 - import_playbook: ../solr/provisioning/playbook.yml

@@ -2,7 +2,7 @@
 
 This project aims to make spinning up a simple local Apache Solr environment incredibly quick and easy, and to introduce users to the fast and powerful search engine behind some of the largest document collections on the Internet.
 
-It will install the following on a Ubuntu 16.04 Linux VM:
+It will install the following on a VM:
 
   - Java
   - Apache Solr

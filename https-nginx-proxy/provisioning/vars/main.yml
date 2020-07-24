@@ -6,13 +6,11 @@ firewall_allowed_tcp_ports:
   - "443"
 
 # Python settings.
-pip_package: python3-pip
 pip_install_packages: ['pyopenssl']
 
 # Nginx settings.
 nginx_vhosts: []
 nginx_remove_default_vhost: True
-nginx_ppa_use: True
 nginx_ppa_version: stable
 nginx_docroot: /var/www/html
 

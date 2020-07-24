@@ -11,7 +11,7 @@
 
   tasks:
     - name: Install Java.
-      apt: name=openjdk-8-jdk state=present
+      apt: name=openjdk-11-jdk state=present
 
     - name: Download Solr.
       get_url:

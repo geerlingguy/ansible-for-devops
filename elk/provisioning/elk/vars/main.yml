@@ -1,6 +1,6 @@
 ---
 java_packages:
-  - openjdk-8-jdk
+  - openjdk-11-jdk
 
 nginx_user: www-data
 nginx_remove_default_vhost: true
