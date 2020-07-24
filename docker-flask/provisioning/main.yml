@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=3600
+
+  roles:
+    - role: geerlingguy.docker
+
+  tasks:
+    - import_tasks: setup.yml
+    - import_tasks: docker.yml
