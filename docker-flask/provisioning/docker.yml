@@ -5,7 +5,7 @@
     tag: "{{ item.tag }}"
     source: build
     build:
-      path: "/vagrant/provisioning/{{ item.directory }}"
+      path: "{{ build_root }}/{{ item.directory }}"
       pull: false
     state: present
   with_items:

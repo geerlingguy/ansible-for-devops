@@ -8,5 +8,7 @@
   roles:
     - geerlingguy.docker
 
-# Docker Hubot test.
+# Docker Flask test.
 - import_playbook: ../docker-flask/provisioning/main.yml
+  vars:
+    build_root: "{{ playbook_dir }}"

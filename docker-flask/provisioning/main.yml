@@ -2,6 +2,9 @@
 - hosts: all
   become: true
 
+  vars:
+    build_root: /vagrant/provisioning
+
   pre_tasks:
     - name: Update apt cache if needed.
       apt: update_cache=yes cache_valid_time=3600
