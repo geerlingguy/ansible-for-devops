@@ -1,16 +1,21 @@
 ---
 roles:
+  - name: geerlingguy.ansible
+  - name: geerlingguy.apache
+  - name: geerlingguy.docker
   - name: geerlingguy.firewall
   - name: geerlingguy.git
-  - name: geerlingguy.ruby
+  - name: geerlingguy.java
+  - name: geerlingguy.jenkins
+  - name: geerlingguy.mysql
   - name: geerlingguy.nginx
   - name: geerlingguy.nodejs
   - name: geerlingguy.passenger
-  - name: geerlingguy.docker
   - name: geerlingguy.pip
-  - name: geerlingguy.ansible
-  - name: geerlingguy.java
-  - name: geerlingguy.jenkins
+  - name: geerlingguy.php
+  - name: geerlingguy.php-mysql
+  - name: geerlingguy.ruby
+  - name: geerlingguy.solr
 
   - name: geerlingguy.elasticsearch
     version: 4.1.1

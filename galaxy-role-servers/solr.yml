@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: yes
+
+  roles:
+    - geerlingguy.java
+    - geerlingguy.solr

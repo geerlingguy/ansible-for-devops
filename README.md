@@ -38,6 +38,7 @@ Here is an outline of all the examples contained in this repository, by chapter:
 ### Chapter 6
 
   - [`nodejs-role`](nodejs-role/): The same playbook as the [`nodejs`](nodejs/) example, but using a role to break out the Node.js aspects into a separate `nodejs` role.
+  - [`galaxy-role-servers`](galaxy-role-servers/): A couple very short playbooks that demonstrate how easy it is to get new servers running leveraging the power of community Ansible Galaxy roles.
 
 ### Chapter 7
 
