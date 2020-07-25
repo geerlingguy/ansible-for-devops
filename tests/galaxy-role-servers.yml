@@ -6,5 +6,5 @@
       apt: update_cache=yes cache_valid_time=600
 
 # Galaxy Role Servers test.
-- import_playbook: ../galaxy-roles-servers/lamp.yml
-- import_playbook: ../galaxy-roles-servers/solr.yml
+- import_playbook: ../galaxy-role-servers/lamp.yml
+- import_playbook: ../galaxy-role-servers/solr.yml
