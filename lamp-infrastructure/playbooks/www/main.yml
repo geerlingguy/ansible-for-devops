@@ -1,5 +1,5 @@
 ---
-- hosts: lamp-www
+- hosts: lamp_www
   become: yes
 
   vars_files:
@@ -23,3 +23,12 @@
       template:
         src: templates/index.php.j2
         dest: /var/www/html/index.php
+
+    - name: Configure SELinux to allow HTTPD connections.
+      seboolean:
+        name: "{{ item }}"
+        state: true
+        persistent: true
+      with_items:
+        - httpd_can_network_connect_db
+        - httpd_can_network_memcache

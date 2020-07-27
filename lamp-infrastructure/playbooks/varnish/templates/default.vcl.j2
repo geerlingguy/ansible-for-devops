@@ -2,7 +2,7 @@ vcl 4.0;
 
 import directors;
 
-{% for host in groups['lamp-www'] %}
+{% for host in groups['lamp_www'] %}
 backend www{{ loop.index }} {
   .host = "{{ host }}";
   .port = "80";
@@ -11,7 +11,7 @@ backend www{{ loop.index }} {
 
 sub vcl_init {
   new vdir = directors.random();
-{% for host in groups['lamp-www'] %}
+{% for host in groups['lamp_www'] %}
   vdir.add_backend(www{{ loop.index }}, 1);
 {% endfor %}
 }

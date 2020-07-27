@@ -5,40 +5,40 @@
 
   vars:
     droplets:
-      - { name: a4d.lamp.varnish, group: "lamp-varnish" }
-      - { name: a4d.lamp.www.1, group: "lamp-www" }
-      - { name: a4d.lamp.www.2, group: "lamp-www" }
-      - { name: a4d.lamp.db.1, group: "lamp-db" }
-      - { name: a4d.lamp.db.2, group: "lamp-db" }
-      - { name: a4d.lamp.memcached, group: "lamp-memcached" }
+      - { name: a4d.lamp.varnish, group: "lamp_varnish" }
+      - { name: a4d.lamp.www.1, group: "lamp_www" }
+      - { name: a4d.lamp.www.2, group: "lamp_www" }
+      - { name: a4d.lamp.db.1, group: "lamp_db" }
+      - { name: a4d.lamp.db.2, group: "lamp_db" }
+      - { name: a4d.lamp.memcached, group: "lamp_memcached" }
 
   tasks:
     - name: Provision DigitalOcean droplets.
-      digital_ocean:
+      digital_ocean_droplet:
         state: "{{ item.state | default('present') }}"
-        command: droplet
         name: "{{ item.name }}"
         private_networking: yes
-        size_id: "{{ item.size | default('s-1vcpu-1gb') }}"
-        image_id: "{{ item.image | default('centos-7-x64') }}"
-        region_id: "{{ item.region | default('nyc3') }}"
+        size: "{{ item.size | default('1gb') }}"
+        image: "{{ item.image | default('centos-7-x64') }}"
+        region: "{{ item.region | default('nyc3') }}"
         # Customize this default for your account.
-        ssh_key_ids: "{{ item.ssh_key | default('138954') }}"
+        ssh_keys:
+          - "{{ item.ssh_key | default('138954') }}"
         unique_name: yes
       register: created_droplets
       with_items: "{{ droplets }}"
 
     - name: Add DigitalOcean hosts to inventory groups.
       add_host:
-        name: "{{ item.1.droplet.ip_address }}"
-        groups: "do,{{ droplets[item.0].group }},{{ item.1.droplet.name }}"
+        name: "{{ item.1.data.ip_address }}"
+        groups: "do,{{ droplets[item.0].group }},{{ item.1.data.droplet.name }}"
         # You can dynamically add inventory variables per-host.
         ansible_user: root
-        mysql_replication_role: >
-          "{{ 'master' if (item.1.droplet.name == 'a4d.lamp.db.1')
-          else 'slave' }}"
+        mysql_replication_role: >-
+          {{ 'master' if (item.1.data.droplet.name == 'a4d.lamp.db.1')
+          else 'slave' }}
         mysql_server_id: "{{ item.0 }}"
-      when: item.1.droplet is defined
+      when: item.1.data is defined
       with_indexed_items: "{{ created_droplets.results }}"
 
 - hosts: do
@@ -46,5 +46,5 @@
   gather_facts: false
 
   tasks:
-    - name: Wait for port 22 to become available.
-      local_action: "wait_for port=22 host={{ inventory_hostname }}"
+    - name: Wait for host to become reachable.
+      wait_for_connection:

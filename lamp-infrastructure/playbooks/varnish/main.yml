@@ -1,5 +1,5 @@
 ---
-- hosts: lamp-varnish
+- hosts: lamp_varnish
   become: yes
 
   vars_files:

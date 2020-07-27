@@ -7,7 +7,7 @@
  */
 
 $mysql_servers = array(
-{% for host in groups['lamp-db'] %}
+{% for host in groups['lamp_db'] %}
   '{{ host }}',
 {% endfor %}
 );
@@ -26,7 +26,7 @@ foreach ($mysql_servers as $host) {
 $memcached_result = '<span style="color: red;">FAIL</span>';
 if (class_exists('Memcached')) {
   $memcached = new Memcached;
-  $memcached->addServer('{{ groups['lamp-memcached'][0] }}', 11211);
+  $memcached->addServer('{{ groups['lamp_memcached'][0] }}', 11211);
 
   // Test adding a value to memcached.
   if ($memcached->add('test', 'success', 1)) {

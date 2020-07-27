@@ -6,22 +6,22 @@
   vars:
     instances:
       - name: a4d.lamp.varnish
-        group: "lamp-varnish"
+        group: "lamp_varnish"
         security_group: ["default", "a4d_lamp_http"]
       - name: a4d.lamp.www.1
-        group: "lamp-www"
+        group: "lamp_www"
         security_group: ["default", "a4d_lamp_http"]
       - name: a4d.lamp.www.2
-        group: "lamp-www"
+        group: "lamp_www"
         security_group: ["default", "a4d_lamp_http"]
       - name: a4d.lamp.db.1
-        group: "lamp-db"
+        group: "lamp_db"
         security_group: ["default", "a4d_lamp_db"]
       - name: a4d.lamp.db.2
-        group: "lamp-db"
+        group: "lamp_db"
         security_group: ["default", "a4d_lamp_db"]
       - name: a4d.lamp.memcached
-        group: "lamp-memcached"
+        group: "lamp_memcached"
         security_group: ["default", "a4d_lamp_memcached"]
 
     security_groups:
@@ -98,7 +98,7 @@
         # You can dynamically add inventory variables per-host.
         ansible_user: ec2-user
         host_key_checking: false
-        mysql_replication_role: >
+        mysql_replication_role: >-
           {{ 'master' if (item.1.item.name == 'a4d.lamp.db.1')
           else 'slave' }}
         mysql_server_id: "{{ item.0 }}"

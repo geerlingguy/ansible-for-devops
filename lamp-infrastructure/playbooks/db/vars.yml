@@ -3,7 +3,10 @@ firewall_allowed_tcp_ports:
   - "22"
   - "3306"
 
-mysql_replication_user: {name: 'replication', password: 'secret'}
+mysql_replication_user:
+  name: replication
+  password: secret
+
 mysql_databases:
   - name: mycompany_database
     collation: utf8_general_ci

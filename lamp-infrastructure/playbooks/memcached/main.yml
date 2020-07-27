@@ -1,5 +1,5 @@
 ---
-- hosts: lamp-memcached
+- hosts: lamp_memcached
   become: yes
 
   vars_files:

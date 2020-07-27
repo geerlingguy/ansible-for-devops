@@ -32,8 +32,8 @@
   gather_facts: False
 
   tasks:
-    - name: Wait for port 22 to become available.
-      wait_for: port=22
+    - name: Wait for host to become reachable.
+      wait_for_connection:
 
     - name: Install tcpdump.
       yum: name=tcpdump state=present
