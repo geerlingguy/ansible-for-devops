@@ -24,6 +24,11 @@
         src: templates/index.php.j2
         dest: /var/www/html/index.php
 
+    - name: Ensure required SELinux dependency is installed.
+      package:
+        name: libsemanage-python
+        state: present
+
     - name: Configure SELinux to allow HTTPD connections.
       seboolean:
         name: "{{ item }}"
@@ -32,3 +37,4 @@
       with_items:
         - httpd_can_network_connect_db
         - httpd_can_network_memcache
+      when: ansible_selinux.status == 'enabled'
