@@ -103,7 +103,6 @@
         groups: "aws,{{ item.1.item.group }},{{ item.1.item.name }}"
         # You can dynamically add inventory variables per-host.
         ansible_user: centos
-        ansible_ssh_private_key_file: ~/.ssh/lamp_aws.pem
         host_key_checking: false
         mysql_replication_role: >-
           {{ 'master' if (item.1.item.name == 'a4d.lamp.db.1')
