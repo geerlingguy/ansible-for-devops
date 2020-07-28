@@ -74,6 +74,25 @@
         state: started
         enabled: yes
 
+    # Automating updates for Debian systems.
+    - name: Install unattended upgrades package.
+      apt:
+        name: unattended-upgrades
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: Copy unattended-upgrades configuration files in place.
+      template:
+        src: "../templates/{{ item }}.j2"
+        dest: "/etc/apt/apt.conf.d/{{ item }}"
+        owner: root
+        group: root
+        mode: 0644
+      with_items:
+        - 20auto-upgrades
+        - 50unattended-upgrades
+      when: ansible_os_family == 'Debian'
+
     # Configuring a firewall with `firewalld` on RHEL.
     - name: Ensure firewalld is running.
       service:

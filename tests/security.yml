@@ -1,3 +1,11 @@
 ---
+- hosts: all
+
+  tasks:
+    - name: Install Python SELinux library.
+      yum:
+        name: python3-libselinux
+        state: present
+
 # Security test.
 - import_playbook: ../security/main.yml
