@@ -1,0 +1,3 @@
+---
+# Security test.
+- import_playbook: ../security/main.yml

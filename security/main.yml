@@ -1,0 +1,136 @@
+---
+- hosts: all
+  become: true
+
+  handlers:
+    - name: restart ssh
+      service: name=sshd state=restarted
+
+  tasks:
+    # Use secure and encrypted communication.
+    - name: Allow sshd to listen on tcp port 2849.
+      seport:
+        ports: 2849
+        proto: tcp
+        setype: ssh_port_t
+        state: present
+
+    - name: Update SSH configuration to be more secure.
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: "{{ item.regexp }}"
+        line: "{{ item.line }}"
+        state: present
+        validate: 'sshd -t -f %s'
+      with_items:
+        - regexp: "^PasswordAuthentication"
+          line: "PasswordAuthentication no"
+        - regexp: "^PermitRootLogin"
+          line: "PermitRootLogin no"
+        - regexp: "^Port"
+          line: "Port 2849"
+      notify: restart ssh
+
+    # User account configuration.
+    - name: Add a deployment user.
+      user:
+        name: johndoe
+        state: present
+
+    # Disable root login and use `sudo`.
+    - name: Add sudo rights for deployment user.
+      lineinfile:
+        dest: /etc/sudoers
+        regexp: '^johndoe'
+        line: 'johndoe ALL=(ALL) NOPASSWD: ALL'
+        state: present
+        validate: 'visudo -cf %s'
+
+    # Remove unused software, open only required ports.
+    - name: Remove unused packages.
+      package:
+        name:
+          - nano
+          - sendmail
+        state: absent
+
+    # File permissions.
+    - name: Configure the permissions for the messages log.
+      file:
+        path: /var/log/messages
+        owner: root
+        group: root
+        mode: 0600
+
+    # Automating updates for RHEL systems.
+    - name: Install dnf-automatic.
+      yum:
+        name: dnf-automatic
+        state: present
+
+    - name: Ensure dnf-automatic is running and enabled on boot.
+      service:
+        name: dnf-automatic-install.timer
+        state: started
+        enabled: yes
+
+    # Configuring a firewall with `firewalld` on RHEL.
+    - name: Ensure firewalld is running.
+      service:
+        name: firewalld
+        state: started
+
+    - name: Configure open ports with firewalld.
+      firewalld:
+        state: "{{ item.state }}"
+        port: "{{ item.port }}"
+        zone: external
+        immediate: yes
+        permanent: yes
+      with_items:
+        - { state: 'enabled', port: '22/tcp' }
+        - { state: 'enabled', port: '80/tcp' }
+        - { state: 'enabled', port: '123/udp' }
+
+    # Monitor logins and block suspect IP addresses.
+    - name: Ensure EPEL repo is present.
+      yum:
+        name: epel-release
+        state: present
+      when: ansible_os_family == 'RedHat'
+
+    - name: Install fail2ban (RedHat).
+      yum:
+        name: fail2ban
+        state: present
+        enablerepo: epel
+      when: ansible_os_family == 'RedHat'
+
+    - name: Install fail2ban (Debian).
+      apt:
+        name: fail2ban
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: Ensure fail2ban is running and enabled on boot.
+      service:
+        name: fail2ban
+        state: started
+        enabled: yes
+
+    # Use SELinux (Security-Enhanced Linux).
+    - name: Install Python SELinux library.
+      yum:
+        name: python3-libselinux
+        state: present
+
+    - name: Ensure SELinux is enabled in `targeted` mode.
+      selinux:
+        policy: targeted
+        state: enforcing
+
+    - name: Ensure httpd can connect to the network.
+      seboolean:
+        name: httpd_can_network_connect
+        state: yes
+        persistent: yes

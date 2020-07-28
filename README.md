@@ -63,7 +63,7 @@ Here is an outline of all the examples contained in this repository, by chapter:
 
 ### Chapter 11
 
-  - N/A
+  - [`security`](security/): A playbook containing many security automation tasks to demonstrate how Ansible helps automate security hardening.
 
 ### Chapter 12
 

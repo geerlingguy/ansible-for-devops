@@ -84,6 +84,9 @@ env:
   # - playbook: orchestration.yml
   #   distro: ubuntu2004
 
+  - playbook: security.yml
+    distro: centos8
+
   - playbook: solr.yml
     distro: ubuntu2004
 
