@@ -4,9 +4,7 @@
   gather_facts: false
 
   vars:
-    # aws_profile: default
-    # TODO
-    aws_profile: jeffgeerling
+    aws_profile: default
     aws_region: us-east-1 # North Virginia
     aws_ec2_ami: ami-06cf02a98a61f9f5e # CentOS 7
 
