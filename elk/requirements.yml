@@ -2,6 +2,7 @@
 roles:
 - name: geerlingguy.java
 - name: geerlingguy.nginx
+- name: geerlingguy.pip
 - name: geerlingguy.elasticsearch
   version: 4.1.1
 - name: geerlingguy.elasticsearch-curator

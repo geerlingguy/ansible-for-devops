@@ -12,6 +12,7 @@
   roles:
     - geerlingguy.java
     - geerlingguy.nginx
+    - geerlingguy.pip
     - geerlingguy.elasticsearch
     - geerlingguy.elasticsearch-curator
     - geerlingguy.kibana
