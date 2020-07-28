@@ -4,6 +4,12 @@
   gather_facts: false
 
   vars:
+    # aws_profile: default
+    # TODO
+    aws_profile: jeffgeerling
+    aws_region: us-east-1 # North Virginia
+    aws_ec2_ami: ami-06cf02a98a61f9f5e # CentOS 7
+
     instances:
       - name: a4d.lamp.varnish
         group: "lamp_varnish"
@@ -66,10 +72,11 @@
       ec2_group:
         name: "{{ item.name }}"
         description: Example EC2 security group for A4D.
-        region: "{{ item.region | default('us-west-2') }}" # Oregon
-        state: present
+        state: absent
         rules: "{{ item.rules }}"
         rules_egress: "{{ item.rules_egress }}"
+        profile: "{{ aws_profile }}"
+        region: "{{ aws_region }}"
       with_items: "{{ security_groups }}"
 
     - name: Provision EC2 instances.
@@ -79,15 +86,16 @@
           inventory_group: "{{ item.group | default('') }}"
           inventory_host: "{{ item.name | default('') }}"
         group: "{{ item.security_group | default('') }}"
-        instance_type: "{{ item.type | default('t2.micro')}}" # Free
-        image: "{{ item.image | default('ami-3ecc8f46') }}" # CentOS 7
-        region: "{{ item.region | default('us-west-2') }}" # Oregon
+        instance_type: "{{ item.type | default('t2.micro')}}"
+        image: "{{ aws_ec2_ami }}"
         wait: yes
         wait_timeout: 500
         exact_count: 1
         count_tag:
           inventory_group: "{{ item.group | default('') }}"
           inventory_host: "{{ item.name | default('') }}"
+        profile: "{{ aws_profile }}"
+        region: "{{ aws_region }}"
       register: created_instances
       with_items: "{{ instances }}"
 
@@ -96,7 +104,8 @@
         name: "{{ item.1.tagged_instances.0.public_ip }}"
         groups: "aws,{{ item.1.item.group }},{{ item.1.item.name }}"
         # You can dynamically add inventory variables per-host.
-        ansible_user: ec2-user
+        ansible_user: centos
+        ansible_ssh_private_key_file: ~/.ssh/lamp_aws.pem
         host_key_checking: false
         mysql_replication_role: >-
           {{ 'master' if (item.1.item.name == 'a4d.lamp.db.1')
@@ -105,14 +114,9 @@
       when: item.1.instances is defined
       with_indexed_items: "{{ created_instances.results }}"
 
-# Run some general configuration on all AWS hosts.
 - hosts: aws
   gather_facts: false
 
   tasks:
-    - name: Wait for port 22 to become available.
-      local_action: "wait_for port=22 host={{ inventory_hostname }}"
-
-    - name: Set selinux into 'permissive' mode.
-      selinux: policy=targeted state=permissive
-      become: yes
+    - name: Wait for host to become available.
+      wait_for_connection:
