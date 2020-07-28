@@ -1,11 +1,25 @@
 ---
-- hosts: balancer
+- name: Firewall configuration.
+  hosts: all
   become: yes
 
   vars:
     firewall_allowed_tcp_ports:
       - "22"
       - "80"
+
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=3600
+
+  roles:
+    - geerlingguy.firewall
+
+- name: HAProxy Load Balancer setup.
+  hosts: balancer
+  become: yes
+
+  vars:
     haproxy_backend_servers:
       - name: 192.168.4.3
         address: 192.168.4.3:80
@@ -13,17 +27,11 @@
         address: 192.168.4.4:80
 
   roles:
-    - geerlingguy.firewall
     - geerlingguy.haproxy
 
-- hosts: app
+- name: Apache webserver setup.
+  hosts: app
   become: yes
 
-  vars:
-    firewall_allowed_tcp_ports:
-      - "22"
-      - "80"
-
   roles:
-    - geerlingguy.firewall
     - geerlingguy.apache
