@@ -70,7 +70,7 @@
       ec2_group:
         name: "{{ item.name }}"
         description: Example EC2 security group for A4D.
-        state: absent
+        state: present
         rules: "{{ item.rules }}"
         rules_egress: "{{ item.rules_egress }}"
         profile: "{{ aws_profile }}"
