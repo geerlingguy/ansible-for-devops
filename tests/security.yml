@@ -1,11 +1,16 @@
 ---
 - hosts: all
 
+  vars:
+    ansible_python_interpreter: python3
+
   tasks:
-    - name: Install Python 2 SELinux library.
+    - name: Install Python SELinux library.
       yum:
-        name: libselinux-python
+        name: python3-libselinux
         state: present
 
 # Security test.
 - import_playbook: ../security/main.yml
+  vars:
+    ansible_python_interpreter: python3
