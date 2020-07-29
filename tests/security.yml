@@ -13,6 +13,7 @@
           - selinux-policy
           - selinux-policy-targeted
           - openssh-server
+          - firewalld
         state: present
 
     - name: Ensure sshd is started.
