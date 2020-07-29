@@ -12,6 +12,11 @@
           - python3-policycoreutils
         state: present
 
+    - name: Ensure SELinux is enabled in `targeted` mode.
+      selinux:
+        policy: targeted
+        state: enforcing
+
 # Security test.
 - import_playbook: ../security/main.yml
   vars:
