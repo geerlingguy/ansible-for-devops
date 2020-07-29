@@ -148,7 +148,6 @@
       selinux:
         policy: targeted
         state: enforcing
-      when: ansible_selinux.status == 'enabled'
 
     - name: Ensure httpd can connect to the network.
       seboolean:
