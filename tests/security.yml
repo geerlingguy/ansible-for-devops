@@ -20,6 +20,12 @@
         name: sshd
         state: started
 
+    - name: Ensure /var/log/messages exists.
+      file:
+        path: /var/log/messages
+        state: touch
+        mode: 0600
+
 # Security test.
 - import_playbook: ../security/main.yml
   vars:
