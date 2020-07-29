@@ -2,9 +2,9 @@
 - hosts: all
 
   tasks:
-    - name: Install Python SELinux library.
+    - name: Install Python 2 SELinux library.
       yum:
-        name: python3-libselinux
+        name: libselinux-python
         state: present
 
 # Security test.
