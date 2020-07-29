@@ -10,6 +10,8 @@
         name:
           - python3-libselinux
           - python3-policycoreutils
+          - selinux-policy
+          - selinux-policy-targeted
         state: present
 
     - name: Ensure SELinux is enabled in `targeted` mode.
