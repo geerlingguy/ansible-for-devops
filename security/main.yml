@@ -14,6 +14,7 @@
         proto: tcp
         setype: ssh_port_t
         state: present
+      when: ansible_selinux.status == 'enabled'
 
     - name: Update SSH configuration to be more secure.
       lineinfile:
@@ -147,9 +148,11 @@
       selinux:
         policy: targeted
         state: enforcing
+      when: ansible_selinux.status == 'enabled'
 
     - name: Ensure httpd can connect to the network.
       seboolean:
         name: httpd_can_network_connect
         state: yes
         persistent: yes
+      when: ansible_selinux.status == 'enabled'
