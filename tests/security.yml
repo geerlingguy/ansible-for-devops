@@ -22,9 +22,10 @@
         state: started
 
     - name: Ensure /var/log/messages exists.
-      file:
-        path: /var/log/messages
-        state: touch
+      copy:
+        content: ""
+        dest: /var/log/messages
+        force: no
         mode: 0600
 
 # Security test.
