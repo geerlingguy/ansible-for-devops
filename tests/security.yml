@@ -5,13 +5,14 @@
     ansible_python_interpreter: python3
 
   tasks:
-    - name: Install Python SELinux dependencies.
+    - name: Install test dependencies.
       yum:
         name:
           - python3-libselinux
           - python3-policycoreutils
           - selinux-policy
           - selinux-policy-targeted
+          - openssh-server
         state: present
 
 # Security test.
