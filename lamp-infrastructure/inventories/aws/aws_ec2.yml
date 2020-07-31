@@ -1,0 +1,14 @@
+---
+plugin: aws_ec2
+
+regions:
+  - us-east-1
+
+hostnames:
+  - ip-address
+
+keyed_groups:
+  - key: tags.inventory_group
+    separator: ''
+  - key: tags.Application
+    separator: ''

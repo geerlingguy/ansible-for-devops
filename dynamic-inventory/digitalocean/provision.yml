@@ -32,7 +32,7 @@
   gather_facts: False
 
   tasks:
-    - name: Wait for host to become reachable.
+    - name: Wait for hosts to become reachable.
       wait_for_connection:
 
     - name: Install tcpdump.

@@ -82,7 +82,7 @@ After everything is booted and configured, visit the IP address of the Varnish s
 
   - Public IP addresses are used for all cross-instance communication (e.g. PHP to MySQL/Memcached communication, MySQL master/slave replication). For better security and potentially a tiny performance improvement, you can use instances' `private_ip` for cross-instance communication.
   - Hosting instances on AWS may incur hosting fees (unless all usage falls within AWS's first-year free tier limits). While the charges will be nominal (likely less than $1 USD for many hours of testing), it's important to destroy instances you aren't actively using!
-  - You can use the included `ec2.py` inventory script for dynamic inventory (`./ec2.py --list` to test).
+  - You can use the included `aws_ec2.yml` inventory plugin configuration for dynamic inventory (`ansible-inventory -i inventories/aws/aws_ec2.yml --graph` to test).
 
 ## About the Author
 

@@ -81,6 +81,8 @@
       ec2:
         key_name: "{{ item.ssh_key | default('lamp_aws') }}"
         instance_tags:
+          Name: "{{ item.name | default('') }}"
+          Application: lamp_aws
           inventory_group: "{{ item.group | default('') }}"
           inventory_host: "{{ item.name | default('') }}"
         group: "{{ item.security_group | default('') }}"
@@ -90,7 +92,6 @@
         wait_timeout: 500
         exact_count: 1
         count_tag:
-          inventory_group: "{{ item.group | default('') }}"
           inventory_host: "{{ item.name | default('') }}"
         profile: "{{ aws_profile }}"
         region: "{{ aws_region }}"
@@ -115,5 +116,5 @@
   gather_facts: false
 
   tasks:
-    - name: Wait for host to become available.
+    - name: Wait for hosts to become available.
       wait_for_connection:
