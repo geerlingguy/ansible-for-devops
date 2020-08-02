@@ -3,7 +3,7 @@
   become: yes
 
   tasks:
-  - name: Ensure Chrony (for time synchronization) is installed.
+  - name: Ensure chrony (for time synchronization) is installed.
     yum:
       name: chrony
       state: present
