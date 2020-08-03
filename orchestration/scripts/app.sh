@@ -4,15 +4,14 @@
 set -e
 
 # Configure Django on app server.
-ansible app -b -m yum -a "name=MySQL-python state=present"
-ansible app -b -m yum -a "name=python-setuptools state=present"
-ansible app -b -m easy_install -a "name=django<2 state=present"
+ansible app -b -m yum -a "name=python3-pip state=present"
+ansible app -b -m pip -a "name=django<4 state=present"
 
 # Check Django version.
-ansible app -a "python -c 'import django; print django.get_version()'"
+ansible app -a "python3 -m django --version"
 
 # Other commands from the book.
-ansible app -b -a "service ntpd status"
+# ansible app -b -a "systemctl status chronyd"
 ansible app -b -m group -a "name=admin state=present"
 ansible app -b -m user -a "name=johndoe group=admin createhome=yes"
 ansible app -b -m user -a "name=johndoe state=absent remove=yes"
