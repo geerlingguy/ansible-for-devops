@@ -130,7 +130,7 @@
         mv /tmp/composer.phar /usr/local/bin/composer
         creates=/usr/local/bin/composer
 
-    - name: Ensure Drupal docroot exists.
+    - name: Ensure Drupal directory exists.
       file:
         path: "{{ drupal_core_path }}"
         state: directory
