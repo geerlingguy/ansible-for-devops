@@ -1,12 +1,15 @@
 ---
 # The core version you want to use.
-drupal_core_version: "8.9.x"
+drupal_core_version: "9.0.x"
 
 # The path where Drupal will be downloaded and installed.
-drupal_core_path: "/var/www/drupal-{{ drupal_core_version }}-dev"
+drupal_core_path: "/var/www/drupal"
 
 # The resulting domain will be [domain].test (with .test appended).
 domain: "drupal"
 
 # Your Drupal site name.
 drupal_site_name: "Drupal Test"
+
+# The Drush branch version to install.
+drush_version: "10.x"

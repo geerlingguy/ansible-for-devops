@@ -18,8 +18,8 @@
       apt:
         state: present
         name:
-          - python-apt
-          - python-pycurl
+          - python3-apt
+          - python3-pycurl
 
     - name: Add ondrej repository for later versions of PHP.
       apt_repository: repo='ppa:ondrej/php' update_cache=yes
@@ -64,7 +64,7 @@
       apache2_module: name=rewrite state=present
       notify: restart apache
 
-    - name: Add Apache virtualhost for Drupal 8.
+    - name: Add Apache virtualhost for Drupal.
       template:
         src: "templates/drupal.test.conf.j2"
         dest: "/etc/apache2/sites-available/{{ domain }}.test.conf"
@@ -73,17 +73,16 @@
         mode: 0644
       notify: restart apache
 
-    - name: Symlink Drupal virtualhost to sites-enabled.
-      file:
-        src: "/etc/apache2/sites-available/{{ domain }}.test.conf"
-        dest: "/etc/apache2/sites-enabled/{{ domain }}.test.conf"
-        state: link
+    - name: Enable the Drupal site.
+      command: >
+        a2ensite {{ domain }}.test
+        creates=/etc/apache2/sites-enabled/{{ domain }}.test.conf
       notify: restart apache
 
-    - name: Remove default virtualhost file.
-      file:
-        path: "/etc/apache2/sites-enabled/000-default.conf"
-        state: absent
+    - name: Disable the default site.
+      command: >
+        a2dissite 000-default
+        removes=/etc/apache2/sites-enabled/000-default.conf
       notify: restart apache
 
     - name: Adjust OpCache memory setting.
@@ -131,53 +130,43 @@
         mv /tmp/composer.phar /usr/local/bin/composer
         creates=/usr/local/bin/composer
 
-    - name: Check out drush 8.x branch.
-      git:
-        repo: https://github.com/drush-ops/drush.git
-        version: 8.x
-        dest: /opt/drush
-
-    - name: Install Drush dependencies with Composer.
-      command: >
-        /usr/local/bin/composer install
-        chdir=/opt/drush
-        creates=/opt/drush/vendor/autoload.php
-
-    - name: Create drush bin symlink.
-      file:
-        src: /opt/drush/drush
-        dest: /usr/local/bin/drush
-        state: link
-
-    - name: Check out Drupal Core to the Apache docroot.
-      git:
-        repo: https://git.drupal.org/project/drupal.git
-        version: "{{ drupal_core_version }}"
-        dest: "{{ drupal_core_path }}"
-      register: git_checkout
-
-    - name: Ensure Drupal codebase is owned by www-data.
+    - name: Ensure Drupal docroot exists.
       file:
         path: "{{ drupal_core_path }}"
+        state: directory
         owner: www-data
         group: www-data
-        recurse: true
-      when: git_checkout.changed | bool
 
-    - name: Install Drupal dependencies with Composer.
-      command: >
-        /usr/local/bin/composer install
-        chdir={{ drupal_core_path }}
-        creates={{ drupal_core_path }}/vendor/autoload.php
+    - name: Check if Drupal project already exists.
+      stat:
+        path: "{{ drupal_core_path }}/composer.json"
+      register: drupal_composer_json
+
+    - name: Create Drupal project.
+      composer:
+        command: create-project
+        arguments: drupal/recommended-project "{{ drupal_core_path }}"
+        working_dir: "{{ drupal_core_path }}"
+        no_dev: true
       become_user: www-data
+      when: not drupal_composer_json.stat.exists
+
+    - name: Add drush to the Drupal site with Composer.
+      composer:
+        command: require
+        arguments: drush/drush:10.*
+        working_dir: "{{ drupal_core_path }}"
+      become_user: www-data
+      when: not drupal_composer_json.stat.exists
 
     - name: Install Drupal.
       command: >
-        drush si -y --site-name="{{ drupal_site_name }}"
+        vendor/bin/drush si -y --site-name="{{ drupal_site_name }}"
         --account-name=admin
         --account-pass=admin
         --db-url=mysql://{{ domain }}:1234@localhost/{{ domain }}
-        --root={{ drupal_core_path }}
-        creates={{ drupal_core_path }}/sites/default/settings.php
+        --root={{ drupal_core_path }}/web
+        chdir={{ drupal_core_path }}
+        creates={{ drupal_core_path }}/web/sites/default/settings.php
       notify: restart apache
       become_user: www-data
