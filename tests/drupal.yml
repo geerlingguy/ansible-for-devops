@@ -5,8 +5,12 @@
     - name: Update the apt cache so we can install ufw.
       apt: update_cache=yes cache_valid_time=600
 
-    - name: Install ufw so we can disable it in the playbook.
-      apt: name=ufw state=present
+    - name: Install required test dependencies.
+      apt:
+        name:
+          - ufw
+          - dirmngr
+        state: present
 
 # Drupal test.
 - import_playbook: ../drupal/provisioning/playbook.yml
