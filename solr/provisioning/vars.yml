@@ -6,5 +6,5 @@ download_dir: /tmp
 solr_dir: /opt/solr
 
 # Solr version and download information.
-solr_version: 8.2.0
-solr_checksum: sha512:beb4e37fc21bf483e3b6bae43cb06a49bc420a0f2b920c97909a69a5efeacba1e7d2ff09ae8018446c87bf007f88f06a59de73cd1923f0967e8206629b0509b6
+solr_version: 8.6.0
+solr_checksum: sha512:6b0d618069e37215f305d9a61a3e65be2b9cfc32a3689ea6a25be2f220b1ecc96a644ecc31c81e335a2dfa0bc8b7d0f2881ca192c36fd435cdd832fd309a9ddb
