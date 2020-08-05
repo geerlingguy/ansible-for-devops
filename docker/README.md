@@ -8,7 +8,7 @@ To run the example, make sure you have Docker installed on the workstation or VM
 
 After a minute or so, Ansible will have built and run a `test` container, built from the included Dockerfile.
 
-For a more complete example of using Ansible to build and manage Docker containers, see the [Ansible Vagrant Examples - Docker Flask app example](https://github.com/geerlingguy/ansible-vagrant-examples/tree/master/docker).
+For a more complete example of using Ansible to build and manage Docker containers, see the [Ansible Vagrant Examples - Docker Flask app example](https://github.com/geerlingguy/ansible-for-devops/tree/master/docker-flask).
 
 ## About the Author
 
