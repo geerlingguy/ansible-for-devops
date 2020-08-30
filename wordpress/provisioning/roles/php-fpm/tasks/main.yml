@@ -1,0 +1,26 @@
+---
+
+- name: Copy Install bash script to /tmp
+  template:
+    src: Install.sh
+    dest: /tmp/Install.sh
+- name: execute Install.sh
+  shell: bash /tmp/Install.sh
+
+
+- name: Disable default pool
+  command: mv /etc/php-fpm.d/www.conf /etc/php-fpm.d/www.disabled creates=/etc/php-fpm.d/www.disabled
+  notify: restart php-fpm
+
+- name: Copy php-fpm configuration
+  template:
+    src: www.conf.j2
+    dest: /etc/php-fpm.d/www.conf
+    owner: 'root'
+    group: 'root'
+    mode: '644'
+  notify: restart php-fpm 
+
+- name: privilege /var/lib/php
+  command: sudo chown -R nginx /var/lib/php
+  notify: restart php-fpm
