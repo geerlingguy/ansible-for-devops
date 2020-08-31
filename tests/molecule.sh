@@ -11,7 +11,7 @@ sudo apt-get install -y python3-pip python3-setuptools
 curl https://gist.githubusercontent.com/geerlingguy/ce883ad4aec6a5f1187ef93bd338511e/raw/36612d28981d92863f839c5aefe5b7dd7193d6c6/travis-ci-docker-upgrade.sh | sudo bash
 
 # Install dependencies.
-pip3 install ansible molecule ansible-lint yamllint docker
+pip3 install wheel ansible molecule ansible-lint yamllint docker
 
 cd molecule
 
