@@ -9,7 +9,7 @@ sudo apt-get install -y python3-pip python3-setuptools
 pip3 install --upgrade setuptools pip
 
 # Install dependencies.
-sudo pip3 install ansible
+pip3 install ansible
 
 cd orchestration/scripts
 
