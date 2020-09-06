@@ -1,0 +1,107 @@
+sudo yum install python3
+
+sudo apt update && sudo apt install python3 python3-pip
+
+python3 --version
+
+sudo pip3 install ansible
+
+ansible --version
+
+ansible localhost -m ping
+
+--------------Windows-------------------
+# Linux Ansible
+pip3 install pywinrm
+
+# vim /etc/ansible/hosts
+[winhost]
+192.168.43.57
+
+[winhost:vars]
+ansible_user=IEUser
+ansible_password=Passw0rd!
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+
+
+# vim chocolatey.yml
+---
+- host: winhost
+  gather_facts: no
+  tasks:
+   - name: Install Chocolatey on Windows10
+     win_chocolatey: name=procexp  state=present
+
+ansible-playbook chocolatey.yml
+
+# Windows hosts
+# https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1
+.\ConfigureRemotingForAnsible.ps1
+ansible winhost -m win_ping
+
+
+
+======================== SSH ====
+
+ssh ubuntu@13.126.103.232
+
+ssh-keygen -t rsa
+
+cat ~/.ssh/id_rsa.pub | ssh -i ~/.ssh/aws.pem ubuntu@13.126.103.232 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+ansible aws -i hosts.ini --private-key ../.ssh/aws.pem -m ping -u ubuntu
+
+ansible aws -i hosts.ini --private-key ../.ssh/aws.pem -a "free -h" -u ubuntu
+
+============================ GIT ===
+
+git clone git@github.com:prostopasta/ansible-for-devops.git
+
+#add SSH key to Github
+cat ~/.ssh/id_rsa.pub
+
+git config --global user.email "past80@gmail.com"
+git config --global user.name "prostopasta"
+
+============================ Chapter 1 ====
+
+mkdir chapter1 && cd chapter1
+printf "[example]\n13.126.103.232\n" > inventory
+ansible -i inventory example -m ping -u ubuntu
+
+ansible example -a "free -h" -u ubuntu
+
+date
+ansible example -a "date" -u ubuntu
+ansible example -m command -a "date" -u ubuntu
+
+cd .. && git add . && git commit -m "Chapter 1 added" && git push
+
+
+============================ Chapter 2 ====
+
+cd /d/FILES/"OneDrive - NGN International"/Education/Linux/Ansible/"Ansible 101"
+
+mkdir chapter2 && cd chapter2
+
+vagrant box add geerlingguy/centos7
+
+vagrant init centos/7
+
+vagrant up
+
+vagrant ssh
+
+vagrant ssh-config
+
+
+
+
+
+
+
+
+
+
+
