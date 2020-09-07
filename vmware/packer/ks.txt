@@ -1,0 +1,178 @@
+# Install a fresh new system (optional)
+install
+
+# Specify installation method to use for installation
+# To use a different one comment out the 'url' one below, update
+# the selected choice with proper options & un-comment it
+cdrom
+#
+# Set language to use during installation and the default language to use on the installed system (required)
+lang en_US.UTF-8
+
+# Set system keyboard type / layout (required)
+keyboard us
+
+# Configure network information for target system and activate network devices in the installer environment (optional)
+# --onboot	enable device at a boot time
+# --device	device to be activated and / or configured with the network command
+# --bootproto	method to obtain networking configuration for device (default dhcp)
+# --noipv6	disable IPv6 on this device
+#
+# NOTE: Usage of DHCP will fail CCE-27021-5 (DISA FSO RHEL-06-000292). To use static IP configuration,
+#       "--bootproto=static" must be used. For example:
+# network --bootproto=static --ip=10.0.2.15 --netmask=255.255.255.0 --gateway=10.0.2.254 --nameserver 192.168.2.1,192.168.3.1
+#
+network --onboot yes --device ens192 --bootproto dhcp --noipv6 --hostname centos7
+
+# Set the system's root password (required)
+# Plaintext password is: server
+# Refer to e.g. http://fedoraproject.org/wiki/Anaconda/Kickstart#rootpw to see how to create
+# encrypted password form for different plaintext password
+rootpw --iscrypted $6$rhel6usgcb$aS6oPGXcPKp3OtFArSrhRwu6sN8q2.yEGY7AIwDOQd23YCtiz9c5mXbid1BzX9bmXTEZi.hCzTEXFosVBI5ng0
+
+# The selected profile will restrict root login
+# Add a user that can login and escalate privileges
+# Plaintext password is: admin123
+user --name=admin --groups=wheel --password=$6$Ga6ZnIlytrWpuCzO$q0LqT1USHpahzUafQM9jyHCY9BiE5/ahXLNWUMiVQnFGblu0WWGZ1e6icTaCGO4GNgZNtspp1Let/qpM7FMVB0 --iscrypted
+
+# Configure firewall settings for the system (optional)
+# --enabled	reject incoming connections that are not in response to outbound requests
+# --ssh		allow sshd service through the firewall
+# firewall --enabled --ssh
+firewall --disabled
+
+# Set up the authentication options for the system (required)
+# --enableshadow	enable shadowed passwords by default
+# --passalgo		hash / crypt algorithm for new passwords
+# See the manual page for authconfig for a complete list of possible options.
+authconfig --enableshadow --passalgo=sha512
+
+# State of SELinux on the installed system (optional)
+# Defaults to enforcing
+selinux --permissive
+
+# Set the system time zone (required)
+timezone --utc Asia/Riyadh
+
+# Specify how the bootloader should be installed (required)
+# Plaintext password is: password
+# Refer to e.g. http://fedoraproject.org/wiki/Anaconda/Kickstart#rootpw to see how to create
+# encrypted password form for different plaintext password
+bootloader --location=mbr --append="crashkernel=auto rhgb quiet" --password=$6$rhel6usgcb$kOzIfC4zLbuo3ECp1er99NRYikN419wxYMmons8Vm/37Qtg0T8aB9dKxHwqapz8wWAFuVkuI/UJqQBU92bA5C0
+
+# Initialize (format) all disks (optional)
+# zerombr
+
+# The following partition layout scheme assumes disk of size 20GB or larger
+# Modify size of partitions appropriately to reflect actual machine's hardware
+# 
+# Remove Linux partitions from the system prior to creating new ones (optional)
+# --linux	erase all Linux partitions
+# --initlabel	initialize the disk label to the default based on the underlying architecture
+clearpart --linux --initlabel
+
+# Create primary system partitions (required for installs)
+part /boot --fstype=xfs --size=512
+part pv.01 --grow --size=1
+
+# Create a Logical Volume Management (LVM) group (optional)
+volgroup VolGroup --pesize=4096 pv.01
+# Create particular logical volumes (optional)
+logvol / --fstype=xfs --name=LogVol06 --vgname=VolGroup --size=12288 --grow
+# CCE-26557-9: Ensure /home Located On Separate Partition
+logvol /home --fstype=xfs --name=LogVol02 --vgname=VolGroup --size=1024 --fsoptions="nodev"
+# CCE-26435-8: Ensure /tmp Located On Separate Partition
+logvol /tmp --fstype=xfs --name=LogVol01 --vgname=VolGroup --size=1024 --fsoptions="nodev,noexec,nosuid"
+# CCE-26639-5: Ensure /var Located On Separate Partition
+logvol /var --fstype=xfs --name=LogVol03 --vgname=VolGroup --size=2048 --fsoptions="nodev"
+# CCE-26215-4: Ensure /var/log Located On Separate Partition
+logvol /var/log --fstype=xfs --name=LogVol04 --vgname=VolGroup --size=1024 --fsoptions="nodev"
+# CCE-26436-6: Ensure /var/log/audit Located On Separate Partition
+logvol /var/log/audit --fstype=xfs --name=LogVol05 --vgname=VolGroup --size=512 --fsoptions="nodev"
+logvol swap --name=lv_swap --vgname=VolGroup --size=2016
+
+
+
+# Packages selection (%packages section is required)
+%packages
+# Require @Base
+@Base
+@core
+sed
+perl
+less
+dmidecode
+bzip2
+iproute
+iputils
+sysfsutils
+rsync
+nano
+mdadm
+setserial
+man-pages.noarch
+findutils
+tar
+net-tools
+tmpwatch
+lsof
+python
+python3
+screen
+lvm2
+curl
+ypbind
+yp-tools
+smartmontools
+openssh-clients
+acpid
+irqbalance
+which
+bind-utils
+ntsysv
+ntp
+man
+mysql
+postfix
+chkconfig
+gzip
+mc
+vim
+
+# Install selected additional packages (required by profile)
+# CCE-27024-9: Install AIDE
+aide
+
+# Install libreswan package
+libreswan
+%end # End of %packages section
+
+
+%pre
+#!/bin/sh
+echo "Test"
+%end
+
+
+
+%post
+cat > /etc/cron.d/ntpdate < /dev/null 2>&1
+EOF
+
+chkconfig ntpd on
+chkconfig sshd on
+chkconfig ypbind on
+chkconfig iptables off
+chkconfig ip6tables off
+chkconfig yum-updatesd off
+chkconfig haldaemon off
+chkconfig mcstrans off
+chkconfig sysstat off
+cat > /etc/motd <This is STC Ansible POC server> /etc/motd
+
+echo >> /etc/motd
+%end
+
+# Reboot after the installation is complete (optional)
+# --eject	attempt to eject CD or DVD media before rebooting
+reboot --eject

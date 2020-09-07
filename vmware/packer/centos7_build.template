@@ -1,0 +1,50 @@
+{
+  "builders": [
+    {
+      "type": "vsphere-iso",
+
+      "vcenter_server":      "10.1.1.102",
+      "username":            "administrator@vsphere.local",
+      "password":            "!@#45Qaz",
+      "insecure_connection": "true",
+      "vm_name": "CentOS-Template",
+      "notes": "Build via Packer",
+      "datacenter": "dc",
+
+    // "cluster": "UA-CLS",
+
+      "host": "10.1.1.101",
+      "datastore": "ds1",
+      "network": "VM Network",
+
+    // "resource_pool": "UA-ResPool",
+
+      "guest_os_type": "centos7_64Guest",
+
+      "ssh_username": "root",
+      "ssh_password": "server",
+
+      "CPUs":             2,
+      "RAM":              2048,
+      "RAM_reserve_all": false,
+
+      "convert_to_template": true,
+
+      "disk_controller_type":  "pvscsi",
+      "disk_size":        50000,
+      "disk_thin_provisioned": true,
+
+      "network_card": "vmxnet3",
+
+      "iso_paths": [
+        "[ds1] ISO/centos7_64.iso"
+      ],
+      "iso_checksum": "5b61d5b378502e9cba8ba26b6696c92a",
+      "iso_checksum_type": "md5",
+      "floppy_files": [
+        "{{template_dir}}/ks.cfg"
+      ],
+      "boot_command": " <esc> <wait> linux inst.text inst.ks=hd:fd0:/ks.cfg <enter> " 
+          }
+  ]
+}
