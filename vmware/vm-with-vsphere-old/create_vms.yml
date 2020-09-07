@@ -1,0 +1,72 @@
+---
+- name: create some vms
+  hosts: localhost
+  connection: local
+  vars_prompt:
+    - name: "vcenter_host"
+      prompt: "Enter vcenter host"
+      private: no
+      default: "vcsa"
+    - name: "vcenter_user"
+      prompt: "Enter vcenter username"
+      private: no
+      default: "administrator@vsphere.local"
+    - name: "vcenter_pass"
+      prompt: "Enter vcenter password"
+      private: yes
+  vars:
+  #  esxi_host: 'esxi01.{{ pri_domain_name }}'
+    esxi_host: '10.1.1.101'
+    vcenter_datacenter: 'dc'
+    vcenter_datastore: 'ds1'
+    vcenter_folder: 'ansible-builds'
+    vms:
+      - guest: 'ub20'
+        state: 'powered_on'
+        vcpu_hotadd: 'no'
+        mem_hotadd: 'no'
+        notes: 'Ansible Created'
+        num_disks: 1
+        disks:
+          disk1:
+            size: 10
+            type: 'thin'
+        network: 'VM Network'
+        memory: 1024
+        cpus: 1
+        osid: 'ubuntu64Guest'
+    pri_domain_name: 'vsphere.local'
+  tasks:
+    - name: create vms (Single Disk)
+      vsphere_guest:
+        vcenter_hostname: "{{ vcenter_host }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        guest: "{{ item['guest'] }}"
+        state: "{{ item['state'] }}"
+        vm_extra_config:
+          vcpu.hotadd: "{{ item['vcpu_hotadd']|default(omit) }}"
+          mem.hotadd: "{{ item['mem_hotadd']|default(omit) }}"
+          notes: "{{ item['notes']|default(omit) }}"
+          folder: "{{ vcenter_folder }}"
+        vm_disk:
+          disk1:
+            size_gb: "{{ item['disks']['disk1']['size'] }}"
+            type: "{{ item['disks']['disk1']['type'] }}"
+            datastore: "{{ vcenter_datastore }}"
+            folder: "{{ vcenter_folder }}"
+        vm_nic:
+          nic1:
+            type: "vmxnet3"
+            network: "{{ item['network'] }}"
+            network_type: "standard"
+        vm_hardware:
+          memory_mb: "{{ item['memory'] }}"
+          num_cpus: "{{ item['cpus'] }}"
+          osid: "{{ item['osid'] }}"
+          scsi: "paravirtual"
+        esxi:
+          datacenter: "{{ vcenter_datacenter }}"
+          hostname: "{{ esxi_host }}"
+      with_items: vms
+      when: item['num_disks'] == 1

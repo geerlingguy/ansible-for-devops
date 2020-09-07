@@ -1,0 +1,60 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+  vars_prompt:
+    - name: "vsphere_password"
+      prompt: "vSphere Password"
+    - name: "notes"
+      prompt: "VM notes"
+      private: no
+      default: "Deployed with ansible"
+  tasks:
+  # get date
+  - set_fact: creationdate="{{lookup('pipe','date "+%Y/%m/%d %H:%M"')}}"
+  # Create a VM from a template
+  - name: create the VM
+    vmware_guest:
+      hostname: '{{ vsphere_host }}'
+      username: '{{ vsphere_user }}'
+      password: '{{ vsphere_password }}'
+      validate_certs: no
+      esxi_hostname: esxi_server
+      datacenter: 'dc'
+  #    folder: A_DEPLOYER
+      name: '{{ inventory_hostname }}'
+      state: poweredon
+  #    guest_id: rhel7_64Guest
+      guest_id: centos7_64Guest
+      annotation: "{{ notes }} - {{ creationdate }}"
+      disk:
+      - size_gb: 50
+        type: thin
+        datastore: '{{ vsphere_datastore }}'
+      networks:
+      - name: server_network
+        ip: '{{ custom_ip }}'
+        netmask: 255.255.252.0
+        gateway: 10.1.1.1
+        dns_servers:
+        - 1.1.1.1
+        - 8.8.4.4
+      hardware:
+        memory_mb: 2048
+        num_cpus: 2
+      customization:
+        dns_servers:
+        - 1.1.1.1
+        - 8.8.4.4
+        domain : stc.local
+        hostname: '{{ inventory_hostname }}'
+  #    template: tmpl-rhel-7-3-app
+      template: tmpl-centos-7
+      wait_for_ip_address: yes
+  - name: add to ansible hosts file
+    lineinfile:
+      dest: /etc/ansible/hosts
+      insertafter: '^\[{{ ansible_host_group }}\]'
+      line: '{{ item }}'
+    with_items: '{{play_hosts}}'
+    run_once: true

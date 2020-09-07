@@ -1,0 +1,127 @@
+Pushing Kickstarts with Ansible - https://medium.com/@jackprice/pushing-kickstarts-with-ansible-122b2cd9c1e
+
+Packer Automation – Build Redhat/CentOS VM on VMware vSphere - https://www.unixarena.com/2019/03/packer-automation-build-redhat-centos-vm-template-on-vmware-vsphere.html/
+
+
+
+
+https://computingforgeeks.com/rhel-centos-kickstart-automated-installation-kvm-virt-install/
+
+https://github.com/rembik/ansible-role-kickstart-iso
+
+
+
+
+See - 6) Deploy a virtual machine from a template!!!
+
+
+1) Intro - https://docs.ansible.com/ansible/latest/scenario_guides/vmware_scenarios/vmware_intro.html
+
+	Ansible VMware modules leveraging latest vSphere(6.0+) features are using vSphere Automation Python SDK:
+	pip install --upgrade git+https://github.com/vmware/vsphere-automation-sdk-python.git
+
+	Note:
+	Installing vSphere Automation Python SDK also installs pyvmomi. A separate installation of pyvmomi is not required.
+
+
+2) Ansible for VMware Concepts - https://docs.ansible.com/ansible/latest/scenario_guides/vmware_scenarios/vmware_concepts.html
+
+Control Node - Any machine with Ansible installed
+Delegation - Delegation allows you to select the system that executes a given task. 
+			If you do not have pyVmomi installed on your control node, use the delegate_to keyword 
+			on VMware-specific tasks to execute them on any host where you have pyVmomi installed.
+Modules
+Playbooks
+pyVmomi     - Ansible VMware modules are written on top of pyVmomi. 
+			pyVmomi is the official Python SDK for the VMware vSphere API that allows user to manage ESX, ESXi, and vCenter infrastructure.
+			- If you are using any delegate_to host which is different from your control node then you need to install pyVmomi on that delegate_to node.
+
+3) VMware Prerequisites - https://docs.ansible.com/ansible/latest/scenario_guides/vmware_scenarios/vmware_requirements.html
+
+Installing SSL Certificates on your Ansible control node or delegate node(s):
+	- Installing vCenter SSL certificates for Ansible 
+	- Installing ESXi SSL certificates for Ansible
+
+
+4) VMware Dynamic Inventory Plugin - https://docs.ansible.com/ansible/latest/scenario_guides/vmware_scenarios/vmware_inventory.html
+
+To use this VMware dynamic inventory plugin, you need to enable it first by specifying the following in the ansible.cfg file:
+
+	[inventory]
+	enable_plugins = vmware_vm_inventory
+	Then, create a file that ends in .vmware.yml or .vmware.yaml in your working directory.
+
+The vmware_vm_inventory script takes in the same authentication information as any VMware module.
+Here’s an example of a valid inventory file:
+
+	plugin: vmware_vm_inventory
+	strict: False
+	hostname: 10.65.223.31
+	username: administrator@vsphere.local
+	password: Esxi@123$%
+	validate_certs: False
+	with_tags: True
+
+Executing ansible-inventory --list -i <filename>.vmware.yml will create a list of VMware instances that are ready to be configured using Ansible.
+
+
+5) Using vaulted configuration files
+Since the inventory configuration file contains vCenter password in plain text, a security risk, you may want to encrypt your entire inventory configuration file.
+
+You can encrypt a valid inventory configuration file as follows:
+
+$ ansible-vault encrypt <filename>.vmware.yml
+  New Vault password:
+  Confirm New Vault password:
+  Encryption successful
+
+And you can use this vaulted inventory configuration file using:
+
+$ ansible-inventory -i filename.vmware.yml --list --vault-password-file=/path/to/vault_password_file
+
+
+
+##############################################################################################################
+6) Deploy a virtual machine from a template - https://docs.ansible.com/ansible/latest/scenario_guides/vmware_scenarios/scenario_clone_template.html
+
+	In order to utilize Guest Customization, VMware Tools must be installed on the template. 
+	For Linux, the open-vm-tools package is recommended, and it requires that Perl be installed.
+###############################################################################################################
+
+Ansible Deploy Multiple VM from Template VMware (2020) - https://www.virtualizationhowto.com/2020/07/ansible-deploy-multiple-vm-from-template-vmware/
+
+VM Guest OS Customization - https://www.nakivo.com/blog/vm-templates-a-to-z/
+
+
+https://www.tecmint.com/create-ansible-templates-to-create-configuration-for-nodes/
+
+
+
+
+1 - Manual converting a VM to a template with VMware vSphere vCenter 6.7 (2019)
+https://graspingtech.com/convert-vm-template/
+
+2 - Using Ansible to deploy a new VMware vSphere VM (2019)
+https://graspingtech.com/ansible-deploy-vmware-vm/
+
+	1) Install Ansible and pyVmomi - Python module, maintained by VMware, and regularly updated to take advantage of the new API functionnalities:
+	- sudo pip install pyvmomi	
+
+
+	
+3 - Deploy VMware virtual machines with Ansible (2017)
+https://blog.zwindler.fr/2017/09/26/deploy-vmware-virtual-machines-with-ansible/
+
+	vsphere_guest (deprecated) vs vmware_guest (new)
+
+4 - Creating vSphere VM’s using Ansible (2015)
+https://everythingshouldbevirtual.com/creating-vsphere-vms-using-ansible/
+	
+	1) installing the python module for vSphere:
+	- sudo pip install pysphere (deprecated, not maintained since 2013!)
+	
+
+	
+Ansible role which helps to upload OVF image to VMware vCenter Templates: https://github.com/jtyr/ansible-vmware_image_upload
+
+vmware_deploy_ovf – Deploys a VMware virtual machine from an OVF or OVA file - https://docs.ansible.com/ansible/latest/modules/vmware_deploy_ovf_module.html

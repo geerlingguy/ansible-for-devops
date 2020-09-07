@@ -1,0 +1,2 @@
+[web-vms]
+ans-web[01:05] disk='10' datastore='SSD-Pool_ELKStack_dev (NAS01)' network='vSS-OpenStack_Default' memory='256' cpucount='1' osid='ubuntu64Guest'
