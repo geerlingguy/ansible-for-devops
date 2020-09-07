@@ -1,0 +1,45 @@
+{
+  "builders": [
+    {
+      "CPUs": 2,
+      "RAM": 2048,
+      "RAM_reserve_all": false,
+      "boot_command": " <esc> <wait> linux inst.text inst.ks=hd:fd0:/ks.cfg <enter> ",
+      "convert_to_template": true,
+      "datacenter": "dc",
+      "datastore": "ds1",
+      "disk_controller_type": "pvscsi",
+      "floppy_files": [
+        "{{template_dir}}/ks.cfg"
+      ],
+      "guest_os_type": "centos7_64Guest",
+      "host": "10.1.1.101",
+      "insecure_connection": "true",
+      "iso_checksum": "md5:16673979023254ea09cc0b57853a7bbd",
+      "iso_paths": [
+        "[ds1] ISO/CentOS-7-x86_64-DVD-2003.iso"
+      ],
+      "network_adapters": [
+        {
+          "network": "VM Network",
+          "network_card": "vmxnet3"
+        }
+      ],
+      "notes": "Build via Packer",
+      "password": "!@#45Qaz",
+      "ssh_password": "server",
+      "ssh_username": "root",
+      "storage": [
+        {
+          "disk_size": 50000,
+          "disk_thin_provisioned": true
+        }
+      ],
+      "type": "vsphere-iso",
+      "username": "administrator@vsphere.local",
+      "vcenter_server": "10.1.1.102",
+      "vm_name": "CentOS-Template"
+    }
+  ]
+}
+
