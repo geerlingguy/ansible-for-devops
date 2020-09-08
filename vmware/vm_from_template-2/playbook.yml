@@ -1,0 +1,29 @@
+---
+# Based on https://graspingtech.com/ansible-deploy-vmware-vm/
+# Using Ansible to deploy a new VMware vSphere VM
+# 27 Oct 2019
+# Posted by GRASPINGTECH
+
+- name: Clone multiple VMs
+  hosts: localhost 
+  gather_facts: false
+  vars_files: 
+    vars.yml
+  tasks: 
+  - name: Clone multiple VMs from template
+    local_action:
+      module: vmware_guest
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      validate_certs: no      
+      folder: "{{ folder }}"
+      template: "{{ vmtemplate }}"
+      name: "{{ item }}"
+      cluster: "{{ vmcluster }}"
+      datacenter: CloudLocal
+      state: poweredon
+      customization_spec: "{{ customization_spec }}"
+    loop: "{{ servers }}"
+    async: 60
+    poll: 0

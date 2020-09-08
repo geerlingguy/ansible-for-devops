@@ -1,4 +1,9 @@
 ---
+# Based on https://blog.zwindler.fr/2017/09/26/deploy-vmware-virtual-machines-with-ansible/
+# 26 Sep 2017
+# Deploy VMware virtual machines with Ansible
+# Posted by zwindler
+
 - hosts: all
   gather_facts: false
   connection: local

@@ -2,7 +2,7 @@ Pushing Kickstarts with Ansible - https://medium.com/@jackprice/pushing-kickstar
 
 Packer Automation – Build Redhat/CentOS VM on VMware vSphere - https://www.unixarena.com/2019/03/packer-automation-build-redhat-centos-vm-template-on-vmware-vsphere.html/
 
-
+Deep Dive: Using Packer and Ansible to create a golden VMware image for Docker Enterprise - part 1 https://blog.sunekeller.dk/2018/12/declarative-docker-enterprise-deep-dive-packer/
 
 
 https://computingforgeeks.com/rhel-centos-kickstart-automated-installation-kvm-virt-install/
