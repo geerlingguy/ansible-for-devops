@@ -1,0 +1,1 @@
+Based on https://github.com/dfederlein/ansible-tower-demo/blob/master/roles/tower/files/tower_license.json

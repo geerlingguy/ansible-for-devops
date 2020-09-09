@@ -1,0 +1,12 @@
+{
+    "company_name": "Ansible", 
+    "contact_email": "gettingstarted@ansible.com", 
+    "contact_name": "David Federlein", 
+    "hostname": "5a3b2c61b9a44d9aa9e0de7bef4a853c", 
+    "instance_count": 10, 
+    "license_date": 2114874283, 
+    "license_key": "0a1bb3b5659ca65ed817480c66245a543e30d0299e3fe90674037ba630b04cfe", 
+    "license_type": "basic", 
+    "subscription_name": "Ansible Tower by Red Hat, Self-Support (10 Managed Nodes)",
+    "eula_accepted": "True"
+}

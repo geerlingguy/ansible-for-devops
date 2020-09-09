@@ -1,3 +1,6 @@
+https://www.redhat.com/sysadmin//deployment-ansible-design
+
+
 Pushing Kickstarts with Ansible - https://medium.com/@jackprice/pushing-kickstarts-with-ansible-122b2cd9c1e
 
 Packer Automation – Build Redhat/CentOS VM on VMware vSphere - https://www.unixarena.com/2019/03/packer-automation-build-redhat-centos-vm-template-on-vmware-vsphere.html/
