@@ -8,6 +8,3 @@ https://alchemist.digital/articles/vagrant-ansible-and-virtualbox-on-wsl-windows
 https://linuxize.com/post/how-to-install-vagrant-on-ubuntu-20-04/
 
 https://www.vagrantup.com/docs/other/wsl.html
-
-git config --global user.email "past80@gmail.com"
-git config --global user.name "prostopasta"
