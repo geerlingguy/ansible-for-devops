@@ -1,0 +1,21 @@
+# file:  vars.yml
+---
+  vcenter_datacenter: dc
+  vcenter_datastore: ds1
+  vcenter_folder: /{{ vcenter_datacenter }}/vm
+  vm_host: 10.1.1.101
+  vm_template: CentOS-7-Template
+  #vm_name: stc-web
+  #servers: centos7-0[1:2]
+
+  customization:
+      #existing_vm: false
+      hostname: stc-web
+      domain: stc.local
+      orgname: STC Bahrain
+      timezone: 150
+      # dns_servers:
+      #   - 8.8.8.8
+      #   - 2.2.2.2
+      hardware:
+        - memory_mb: 4096

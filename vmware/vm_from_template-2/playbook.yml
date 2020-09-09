@@ -6,24 +6,59 @@
 
 - name: Clone multiple VMs
   hosts: localhost 
-  gather_facts: false
+  gather_facts: no
+  vars_prompt:
+    - name: "vcenter_host"
+      prompt: "Enter vcenter host"
+      private: no
+      default: "10.1.1.102"
+
+    # - name: "vcenter_datacenter"
+    #   prompt: "Enter vcenter datacenter
+    #   private: no
+    #   default: "dc"
+
+    # - name: "vcenter_datastore"
+    #   prompt: "Enter vcenter datastore"
+    #   private: no
+    #   default: "ds1"
+
+    - name: "vcenter_user"
+      prompt: "Enter vcenter username"
+      private: no
+      default: "administrator@vsphere.local"
+
+    - name: "vcenter_pass"
+      prompt: "Enter vcenter password"
+      private: yes
+
+    - name: "vm_name"
+      prompt: "Enter vcenter username"
+      private: no
+      default: "stc-server"
   vars_files: 
     vars.yml
   tasks: 
-  - name: Clone multiple VMs from template
+  - name: Clone VMs from template
     local_action:
       module: vmware_guest
-      hostname: "{{ vcenter_hostname }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
+      hostname: "{{ vcenter_host }}"
+      username: "{{ vcenter_user }}"
+      password: "{{ vcenter_pass }}"
       validate_certs: no      
-      folder: "{{ folder }}"
-      template: "{{ vmtemplate }}"
-      name: "{{ item }}"
-      cluster: "{{ vmcluster }}"
-      datacenter: CloudLocal
+      folder: "{{ vcenter_folder }}"
+      template: "{{ vm_template }}"
+      name: "{{ vm_name }}"
+    #  name: "{{ item }}"
+    #  cluster: "{{ vmcluster }}"
+      esxi_hostname: "{{ vm_host }}"
+      datacenter: "{{ vcenter_datacenter }}"
+      datastore: "{{ vcenter_datastore }}"
       state: poweredon
-      customization_spec: "{{ customization_spec }}"
-    loop: "{{ servers }}"
-    async: 60
-    poll: 0
+      wait_for_ip_address: yes
+    # customization_spec: "{{ customization_spec }}"
+      customization: "{{ customization_spec }}
+
+    # loop: "{{ servers }}"
+    # async: 60
+    # poll: 0

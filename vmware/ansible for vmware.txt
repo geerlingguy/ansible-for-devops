@@ -5,6 +5,10 @@ Packer Automation – Build Redhat/CentOS VM on VMware vSphere - https://www.uni
 Deep Dive: Using Packer and Ansible to create a golden VMware image for Docker Enterprise - part 1 https://blog.sunekeller.dk/2018/12/declarative-docker-enterprise-deep-dive-packer/
 
 
+https://stackoverflow.com/questions/59796025/ansible-vmware-guest-optional-disk-with-ansible-tower-survey
+
+
+
 https://computingforgeeks.com/rhel-centos-kickstart-automated-installation-kvm-virt-install/
 
 https://github.com/rembik/ansible-role-kickstart-iso

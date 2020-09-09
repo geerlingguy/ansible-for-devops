@@ -38,7 +38,7 @@
       "type": "vsphere-iso",
       "username": "administrator@vsphere.local",
       "vcenter_server": "10.1.1.102",
-      "vm_name": "CentOS-Template"
+      "vm_name": "CentOS-7-Template"
     }
   ]
 }
