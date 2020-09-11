@@ -32,10 +32,10 @@
       prompt: "Enter vcenter password"
       private: yes
 
-    - name: "vm_name"
-      prompt: "Enter vcenter username"
-      private: no
-      default: "stc-server"
+    # - name: "vm_name"
+    #   prompt: "Enter vcenter username"
+    #   private: no
+    #   default: "stc-server"
   vars_files: 
     vars.yml
   tasks: 
@@ -48,8 +48,8 @@
       validate_certs: no      
       folder: "{{ vcenter_folder }}"
       template: "{{ vm_template }}"
-      name: "{{ vm_name }}"
-    #  name: "{{ item }}"
+    #  name: "{{ vm_name }}"
+      name: "{{ item }}"
     #  cluster: "{{ vmcluster }}"
       esxi_hostname: "{{ vm_host }}"
       datacenter: "{{ vcenter_datacenter }}"

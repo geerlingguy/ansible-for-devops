@@ -6,7 +6,8 @@
   vm_host: 10.1.1.101
   vm_template: CentOS-7-Template
   #vm_name: stc-web
-  #servers: centos7-0[1:2]
+  servers: 
+    - centos7-0[1:2]
 
   customization:
       #existing_vm: false
