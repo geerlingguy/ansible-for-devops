@@ -1,4 +1,10 @@
 ---
+- hosts: all
+
+  pre_tasks:
+    - name: Update the apt cache.
+      apt: update_cache=yes cache_valid_time=600
+
 # Deployments test.
 - import_playbook: ../deployments/playbooks/provision.yml
 - import_playbook: ../deployments/playbooks/deploy.yml
