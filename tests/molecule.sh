@@ -4,7 +4,7 @@
 set -e
 
 # Install dependencies.
-pip3 install ansible molecule ansible-lint yamllint docker
+pip3 install ansible molecule[docker] ansible-lint yamllint docker
 
 cd molecule
 
