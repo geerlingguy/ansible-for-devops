@@ -89,8 +89,10 @@ jobs:
           - playbook: includes.yml
             distro: ubuntu2004
 
-          - playbook: jenkins.yml
-            distro: ubuntu2004
+          # TODO: This started failing on GitHub Actions.
+          # See: https://github.com/geerlingguy/ansible-for-devops/issues/359
+          # - playbook: jenkins.yml
+          #   distro: ubuntu2004
 
           # TODO: Not easy to test in CI at this time.
           # - playbook: kubernetes.yml
