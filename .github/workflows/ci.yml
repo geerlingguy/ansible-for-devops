@@ -43,8 +43,10 @@ jobs:
           # - playbook: deployments-balancer.yml
           #   distro: ubuntu2004
 
-          - playbook: deployments-rolling.yml
-            distro: ubuntu2004
+          # TODO: This started failing on GitHub Actions.
+          # See: https://github.com/geerlingguy/ansible-for-devops/issues/359
+          # - playbook: deployments-rolling.yml
+          #   distro: ubuntu2004
 
           - playbook: docker.yml
             distro: ubuntu2004
