@@ -5,34 +5,129 @@ name: CI
   push:
     branches:
       - master
+  schedule:
+    - cron: "10 2 * * 0"
 
 jobs:
-
-  test:
-    name: Molecule
+  scripts:
+    name: Scripts
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        distro:
-          - centos8
-          - debian10
+        include:
+          - test_script: collection
+          - test_script: molecule
+          - test_script: orchestration
 
     steps:
-      - name: Check out the codebase.
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Set up Python 3.
-        uses: actions/setup-python@v2
+      - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
-      - name: Install test dependencies.
-        run: pip3 install molecule[docker] yamllint ansible-lint
+      - name: Run test script.
+        run: tests/${{ matrix.test_script }}.sh
 
-      - name: Run Molecule tests.
-        run: molecule test
+  playbooks:
+    name: Playbooks
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - playbook: deployments.yml
+            distro: ubuntu2004
+            test_idempotence: false
+
+          # TODO: Not easy to test in CI at this time.
+          # - playbook: deployments-balancer.yml
+          #   distro: ubuntu2004
+
+          - playbook: deployments-rolling.yml
+            distro: ubuntu2004
+
+          - playbook: docker.yml
+            distro: ubuntu2004
+            test_idempotence: false
+
+          - playbook: docker-flask.yml
+            distro: ubuntu2004
+            test_idempotence: false
+
+          - playbook: docker-hubot.yml
+            distro: ubuntu2004
+            test_idempotence: false
+
+          - playbook: drupal.yml
+            distro: ubuntu2004
+
+          # TODO: Not easy to test in CI at this time.
+          # - playbook: dynamic-inventory.yml
+          #   distro: ubuntu2004
+
+          - playbook: elk.yml
+            distro: ubuntu2004
+
+          - playbook: first-ansible-playbook.yml
+            distro: centos7
+
+          - playbook: galaxy-role-servers.yml
+            distro: ubuntu2004
+
+          # TODO: Not easy to test in CI at this time.
+          # - playbook: gluster.yml
+          #   distro: ubuntu2004
+
+          - playbook: https-self-signed.yml
+            distro: ubuntu2004
+
+          - playbook: https-nginx-proxy.yml
+            distro: debian10
+
+          - playbook: includes.yml
+            distro: ubuntu2004
+
+          - playbook: jenkins.yml
+            distro: ubuntu2004
+
+          # TODO: Not easy to test in CI at this time.
+          # - playbook: kubernetes.yml
+          #   distro: debian9
+
+          # TODO: Not easy to test in CI at this time.
+          # - playbook: lamp-infrastructure.yml
+          #   distro: ubuntu2004
+
+          - playbook: nodejs.yml
+            distro: centos7
+
+          - playbook: nodejs-role.yml
+            distro: centos7
+
+          - playbook: security.yml
+            distro: centos8
+
+          - playbook: solr.yml
+            distro: ubuntu2004
+
+          - playbook: test-plugin.yml
+            distro: centos7
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Download test shim.
+        run: |
+          wget -O tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
+          chmod +x tests/test.sh
+
+      - name: Run playbook with test shim.
+        run: tests/test.sh
         env:
-          PY_COLORS: '1'
-          ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRO: ${{ matrix.distro }}
-        working-directory: molecule
+          playbook: ${{ matrix.playbook }}
+          distro: ${{ matrix.distro }}
+          test_idempotence: ${{ matrix.test_idempotence }}
