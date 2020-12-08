@@ -86,8 +86,10 @@ jobs:
           - playbook: https-nginx-proxy.yml
             distro: debian10
 
-          - playbook: includes.yml
-            distro: ubuntu2004
+          # TODO: This started failing on GitHub Actions.
+          # See: https://github.com/geerlingguy/ansible-for-devops/issues/359
+          # - playbook: includes.yml
+          #   distro: ubuntu2004
 
           # TODO: This started failing on GitHub Actions.
           # See: https://github.com/geerlingguy/ansible-for-devops/issues/359
