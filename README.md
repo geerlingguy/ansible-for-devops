@@ -98,6 +98,8 @@ MIT
 
 * [TinyPilot](https://tinypilotkvm.com): An open-source, low-cost KVM over IP for managing your servers.
 
+The above sponsor is [sponsoring Jeff Geerling on GitHub Sponsors](https://github.com/sponsors/geerlingguy). You can sponsor Jeff's work too, to help him continue improving this book and Ansible open source work!
+
 ## Buy the Book
 
 [![Ansible for DevOps Cover](https://s3.amazonaws.com/titlepages.leanpub.com/ansible-for-devops/medium)](https://www.ansiblefordevops.com/)
