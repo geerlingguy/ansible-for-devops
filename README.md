@@ -94,6 +94,10 @@ Here is an outline of all the examples contained in this repository, by chapter:
 
 MIT
 
+## Sponsors
+
+* [TinyPilot](https://tinypilotkvm.com): An open-source, low-cost KVM over IP for managing your servers.
+
 ## Buy the Book
 
 [![Ansible for DevOps Cover](https://s3.amazonaws.com/titlepages.leanpub.com/ansible-for-devops/medium)](https://www.ansiblefordevops.com/)
