@@ -6,7 +6,7 @@ This folder contains two quick demo playbooks which build a LAMP and Apache Solr
 
 After running `vagrant up`, you can access the installed LAMP site or Solr Admin dashboard following these instructions:
 
-  1. [Edit your hosts file](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file), adding the line `192.168.18.8  galaxy-role-servers.test` so you can connect to the VM.
+  1. [Edit your hosts file](http://docs.rackspace.com/support/how-to/modify-your-hosts-file/), adding the line `192.168.18.8  galaxy-role-servers.test` so you can connect to the VM.
   2. Open your browser and access the following:
     a. LAMP server: [http://galaxy-role-servers.test/](http://galaxy-role-servers.test/).
     b. Solr Admin dashboard: [http://galaxy-role-servers.test:8983/](http://galaxy-role-servers.test:8983/).
