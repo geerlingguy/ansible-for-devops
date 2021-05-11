@@ -70,8 +70,10 @@ jobs:
           - playbook: elk.yml
             distro: ubuntu2004
 
-          - playbook: first-ansible-playbook.yml
-            distro: centos7
+          # TODO: This started failing on GitHub Actions.
+          # See: https://github.com/geerlingguy/ansible-for-devops/issues/402
+          # - playbook: first-ansible-playbook.yml
+          #   distro: centos7
 
           - playbook: galaxy-role-servers.yml
             distro: ubuntu2004
