@@ -6,7 +6,7 @@ This demonstrates generating valid TLS certificates using Let's Encrypt and Cert
 
 ### 1 - Install dependencies
 
-  1. Install [Ansible](http://docs.ansible.com/intro_installation.html).
+  1. Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
   2. Install role dependencies: `ansible-galaxy install -r requirements.yml`
 
 ### 2 - Create a publicly-accessible VM/VPS
