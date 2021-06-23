@@ -32,7 +32,7 @@ For the purpose of demonstration, Varnish's caching is completely disabled, so y
 
 ## Prerequisites
 
-Before you can run any of these playbooks, you will need to [install Ansible](http://docs.ansible.com/intro_installation.html), and run the following command to download dependencies (from within the same directory as this README file):
+Before you can run any of these playbooks, you will need to [install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html), and run the following command to download dependencies (from within the same directory as this README file):
 
     $ ansible-galaxy install -r requirements.yml
 
