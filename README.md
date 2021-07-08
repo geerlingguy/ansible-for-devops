@@ -97,7 +97,6 @@ MIT
 ## Sponsors
 
 * [TinyPilot](https://tinypilotkvm.com): An open-source, low-cost KVM over IP for managing your servers.
-* [Tugboat](https://www.tugboat.qa): Tugboat is the fastest data-first ephemeral environment CI/CD tool. And here's a tub goat to prove it: 🛁🐐
 
 The above sponsor(s) are supporting Jeff Geerling on [GitHub Sponsors](https://github.com/sponsors/geerlingguy). You can sponsor Jeff's work too, to help him continue improving this book and Ansible open source work!
 
