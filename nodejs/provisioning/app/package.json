@@ -1,5 +1,6 @@
 {
   "name": "examplenodeapp",
+  "version": "1.0.0",
   "description": "Example Express Node.js app.",
   "author": "Jeff Geerling <geerlingguy@mac.com>",
   "dependencies": {
