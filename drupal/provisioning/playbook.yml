@@ -123,7 +123,6 @@
       command: >
         php composer-installer.php
         chdir=/tmp
-        creates=/usr/local/bin/composer
 
     - name: Move Composer into globally-accessible location.
       command: >
