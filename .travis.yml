@@ -90,7 +90,7 @@ script:
         ${PWD}/tests/test.sh
       fi
 
-  # Run script directly if script is provided.
+  # Run script directly if script is provided...
   - |
       if [ ! -z "$shell_script" ]; then
         ${PWD}/tests/${shell_script}
