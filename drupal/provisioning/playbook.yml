@@ -45,7 +45,7 @@
           - php7.4-mbstring
           - php7.4-pdo
           - php7.4-mysql
-          - php-apcu
+          - php7.4-apcu
           - libpcre3-dev
           - libapache2-mod-php7.4
           - python3-mysqldb
