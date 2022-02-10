@@ -9,16 +9,6 @@
     - name: Install EPEL repo.
       yum: name=epel-release state=present
 
-    - name: Import Remi GPG key.
-      rpm_key:
-        key: "https://rpms.remirepo.net/RPM-GPG-KEY-remi"
-        state: present
-
-    - name: Install Remi repo.
-      yum:
-        name: "https://rpms.remirepo.net/enterprise/remi-release-7.rpm"
-        state: present
-
     - name: Ensure firewalld is stopped (since this is a test server).
       service: name=firewalld state=stopped
 
@@ -38,10 +28,10 @@
       npm: "path={{ node_apps_location }}/app"
 
     - name: Check list of running Node.js apps.
-      command: forever list
+      command: /usr/local/bin/forever list
       register: forever_list
       changed_when: false
 
     - name: Start example Node.js app.
-      command: "forever start {{ node_apps_location }}/app/app.js"
+      command: "/usr/local/bin/forever start {{ node_apps_location }}/app/app.js"
       when: "forever_list.stdout.find(node_apps_location + '/app/app.js') == -1"
