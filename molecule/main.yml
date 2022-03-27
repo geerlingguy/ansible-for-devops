@@ -9,25 +9,25 @@
 
   handlers:
     - name: restart apache
-      service:
+      ansible.builtin.service:
         name: "{{ apache_service }}"
         state: restarted
 
   pre_tasks:
     - name: Override Apache vars for Red Hat.
-      set_fact:
+      ansible.builtin.set_fact:
         apache_package: httpd
         apache_service: httpd
       when: ansible_os_family == 'RedHat'
 
   tasks:
     - name: Ensure Apache is installed.
-      package:
+      ansible.builtin.package:
         name: "{{ apache_package }}"
         state: present
 
     - name: Copy a web page.
-      copy:
+      ansible.builtin.copy:
         content: |
           <html>
           <head><title>Hello world!</title></head>
@@ -38,7 +38,7 @@
       notify: restart apache
 
     - name: Ensure Apache is running and starts at boot.
-      service:
+      ansible.builtin.service:
         name: "{{ apache_service }}"
         state: started
         enabled: true

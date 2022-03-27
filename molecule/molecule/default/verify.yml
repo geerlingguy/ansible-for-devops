@@ -4,6 +4,6 @@
 
   tasks:
   - name: Verify Apache is serving web requests.
-    uri:
+    ansible.builtin.uri:
       url: http://localhost/
       status_code: 200
