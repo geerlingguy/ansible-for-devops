@@ -113,7 +113,7 @@ jobs:
             distro: centos7
 
           - playbook: security.yml
-            distro: centos8
+            distro: rockylinux8
 
           - playbook: solr.yml
             distro: ubuntu2004
