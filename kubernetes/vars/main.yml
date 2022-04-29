@@ -5,15 +5,15 @@ swap_file_path: /dev/mapper/packer--debian--9--amd64--vg-swap_1
 docker_package: docker-ce=5:18.09.0~3-0~debian-stretch
 docker_install_compose: False
 
-kubernetes_version: '1.19'
+kubernetes_version: '1.23'
 kubernetes_allow_pods_on_master: False
 kubernetes_pod_network_cidr: '10.244.0.0/16'
 kubernetes_packages:
-  - name: kubelet=1.19.8-00
+  - name: kubelet=1.23.5-00
     state: present
-  - name: kubectl=1.19.8-00
+  - name: kubectl=1.23.5-00
     state: present
-  - name: kubeadm=1.19.8-00
+  - name: kubeadm=1.23.5-00
     state: present
   - name: kubernetes-cni
     state: present
