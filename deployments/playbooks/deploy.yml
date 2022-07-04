@@ -15,9 +15,11 @@
         version: "{{ app_version }}"
         dest: "{{ app_directory }}"
         accept_hostkey: true
-        force: yes
+        force: true
       register: app_updated
       notify: restart nginx
+      become: true
+      become_user: "{{ app_user }}"
 
     - name: Ensure secrets file is present.
       template:

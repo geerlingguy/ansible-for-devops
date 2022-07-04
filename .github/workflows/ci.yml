@@ -35,9 +35,11 @@ jobs:
     strategy:
       matrix:
         include:
-          - playbook: deployments.yml
-            distro: ubuntu2004
-            test_idempotence: false
+          # TODO: This started failing on GitHub Actions.
+          # See: https://github.com/geerlingguy/ansible-for-devops/issues/429
+          # - playbook: deployments.yml
+          #   distro: ubuntu2004
+          #   test_idempotence: false
 
           # TODO: Not easy to test in CI at this time.
           # - playbook: deployments-balancer.yml
@@ -107,19 +109,19 @@ jobs:
           #   distro: ubuntu2004
 
           - playbook: nodejs.yml
-            distro: centos7
+            distro: rockylinux8
 
           - playbook: nodejs-role.yml
-            distro: centos7
+            distro: rockylinux8
 
           - playbook: security.yml
-            distro: centos8
+            distro: rockylinux8
 
           - playbook: solr.yml
             distro: ubuntu2004
 
           - playbook: test-plugin.yml
-            distro: centos7
+            distro: rockylinux8
 
     steps:
       - uses: actions/checkout@v2

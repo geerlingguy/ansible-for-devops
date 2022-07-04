@@ -18,8 +18,8 @@ passenger_ruby: /usr/local/bin/ruby
 
 # Variables for Ruby installation.
 ruby_install_from_source: true
-ruby_download_url: https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.0.tar.gz
-ruby_version: 2.6.0
+ruby_download_url: https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.6.tar.gz
+ruby_version: 2.7.6
 
 # Variables for Node.js installation.
 nodejs_install_npm_user: root
