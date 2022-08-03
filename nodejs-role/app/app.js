@@ -11,4 +11,5 @@ app.get('/', function(req, res){
 });
 
 // Listen on port 80 (like a true web server).
-app.listen(80, () => console.log('Express server started successfully.'));
+app.listen(80);
+console.log('Express server started successfully.');

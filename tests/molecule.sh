@@ -8,7 +8,7 @@ pip3 install ansible molecule[docker] ansible-lint yamllint docker
 
 cd molecule
 
-# Run default test (Rocky Linux).
+# Run default test (CentOS).
 molecule test
 
 # Run tests on Debian.

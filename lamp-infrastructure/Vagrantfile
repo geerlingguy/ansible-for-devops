@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
       inline: "sudo yum update -y"
 
     www1.vm.provider :virtualbox do |v|
-      v.customize ["modifyvm", :id, "--memory", 512]
+      v.customize ["modifyvm", :id, "--memory", 256]
     end
   end
 
@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
       inline: "sudo yum update -y"
 
     www2.vm.provider :virtualbox do |v|
-      v.customize ["modifyvm", :id, "--memory", 512]
+      v.customize ["modifyvm", :id, "--memory", 256]
     end
   end
 
