@@ -7,7 +7,7 @@
 
   tasks:
     - name: Install EPEL repo.
-      yum: name=epel-release state=present
+      dnf: name=epel-release state=present
 
     - name: Import Remi GPG key.
       rpm_key:
@@ -15,7 +15,7 @@
         state: present
 
     - name: Install Remi repo.
-      yum:
+      dnf:
         name: "https://rpms.remirepo.net/enterprise/remi-release-8.rpm"
         state: present
 
@@ -23,7 +23,7 @@
       service: name=firewalld state=stopped
 
     - name: Install Node.js and npm.
-      yum: name=npm state=present enablerepo=epel
+      dnf: name=npm state=present enablerepo=epel
 
     - name: Install Forever (to run our Node.js app).
       npm: name=forever global=yes state=present

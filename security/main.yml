@@ -65,7 +65,7 @@
 
     # Automating updates for RHEL systems.
     - name: Install dnf-automatic.
-      yum:
+      dnf:
         name: dnf-automatic
         state: present
 
@@ -114,13 +114,13 @@
 
     # Monitor logins and block suspect IP addresses.
     - name: Ensure EPEL repo is present.
-      yum:
+      dnf:
         name: epel-release
         state: present
       when: ansible_os_family == 'RedHat'
 
     - name: Install fail2ban (RedHat).
-      yum:
+      dnf:
         name: fail2ban
         state: present
         enablerepo: epel
@@ -140,7 +140,7 @@
 
     # Use SELinux (Security-Enhanced Linux).
     - name: Install Python SELinux library.
-      yum:
+      dnf:
         name: python3-libselinux
         state: present
 
