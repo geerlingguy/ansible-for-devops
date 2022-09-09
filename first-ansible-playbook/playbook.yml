@@ -4,7 +4,7 @@
 
   tasks:
   - name: Ensure chrony (for time synchronization) is installed.
-    yum:
+    dnf:
       name: chrony
       state: present
 
@@ -18,5 +18,5 @@
 - hosts: all
   become: yes
   tasks:
-  - yum: name=chrony state=present
+  - dnf: name=chrony state=present
   - service: name=chronyd state=started enabled=yes

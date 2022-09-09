@@ -6,7 +6,7 @@
 
   tasks:
     - name: Install test dependencies.
-      yum:
+      dnf:
         name:
           - python3-libselinux
           - python3-policycoreutils

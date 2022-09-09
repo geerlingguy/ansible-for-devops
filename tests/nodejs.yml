@@ -3,7 +3,7 @@
 
   tasks:
     - name: Install firewalld so we can disable it in the playbook.
-      yum: name=firewalld state=present
+      dnf: name=firewalld state=present
 
 # Node.js test.
 - import_playbook: ../nodejs/provisioning/playbook.yml

@@ -36,4 +36,4 @@
       wait_for_connection:
 
     - name: Install tcpdump.
-      yum: name=tcpdump state=present
+      dnf: name=tcpdump state=present

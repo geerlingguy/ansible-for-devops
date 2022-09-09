@@ -11,12 +11,12 @@
         state: present
 
     - name: Install Remi repo.
-      yum:
+      dnf:
         name: "https://rpms.remirepo.net/enterprise/remi-release-8.rpm"
         state: present
 
     - name: Install EPEL repo.
-      yum: name=epel-release state=present
+      dnf: name=epel-release state=present
 
     - name: Ensure firewalld is stopped (since this is a test server).
       service: name=firewalld state=stopped
