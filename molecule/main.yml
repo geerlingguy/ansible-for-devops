@@ -8,7 +8,7 @@
     apache_service: apache2
 
   handlers:
-    - name: restart apache
+    - name: Restart apache
       ansible.builtin.service:
         name: "{{ apache_service }}"
         state: restarted
@@ -35,7 +35,7 @@
           </html>
         dest: "/var/www/html/index.html"
         mode: 0664
-      notify: restart apache
+      notify: Restart apache
 
     - name: Ensure Apache is running and starts at boot.
       ansible.builtin.service:
