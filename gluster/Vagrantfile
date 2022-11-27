@@ -14,8 +14,8 @@ Vagrant.configure("2") do |config|
 
   # Define two VMs with static private IP addresses.
   boxes = [
-    { :name => "gluster1", :ip => "192.168.29.2" },
-    { :name => "gluster2", :ip => "192.168.29.3" }
+    { :name => "gluster1", :ip => "192.168.56.2" },
+    { :name => "gluster2", :ip => "192.168.56.3" }
   ]
 
   # Provision each of the VMs.

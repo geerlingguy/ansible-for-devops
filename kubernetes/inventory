@@ -1,9 +1,9 @@
 [k8s-master]
-master ansible_host=192.168.84.2 kubernetes_role=master
+master ansible_host=192.168.56.2 kubernetes_role=master
 
 [k8s-nodes]
-node1 ansible_host=192.168.84.3 kubernetes_role=node
-node2 ansible_host=192.168.84.4 kubernetes_role=node
+node1 ansible_host=192.168.56.3 kubernetes_role=node
+node2 ansible_host=192.168.56.4 kubernetes_role=node
 
 [k8s:children]
 k8s-master

@@ -13,7 +13,7 @@ This project builds a [Node.js](https://nodejs.org/)-based API app inside a VM. 
 Once the VM is built, you can test the API by running the following command (copy and paste verbatim, without the leading `$`), which requests the `/hello/:name` endpoint on each server:
 
     $ for i in {2..5}; \
-        do curl -w "\n" "http://192.168.3.$i:8080/hello/john"; \
+        do curl -w "\n" "http://192.168.56.$i:8080/hello/john"; \
       done
 
 If the above command outputs `"hello john"` on four lines, everything worked correctly!

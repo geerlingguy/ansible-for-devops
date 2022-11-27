@@ -23,7 +23,7 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 
 ### 3 - Configure your host machine to access the VM.
 
-  1. [Edit your hosts file](http://docs.rackspace.com/support/how-to/modify-your-hosts-file/), adding the line `192.168.76.76  jenkinsci.test` so you can connect to the VM.
+  1. [Edit your hosts file](http://docs.rackspace.com/support/how-to/modify-your-hosts-file/), adding the line `192.168.56.76  jenkinsci.test` so you can connect to the VM.
   2. Open your browser and access [http://jenkinsci.test:8080](http://jenkinsci.test:8080).
 
 ## Notes

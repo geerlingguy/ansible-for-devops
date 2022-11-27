@@ -32,7 +32,7 @@ class ExampleInventory(object):
     def example_inventory(self):
         return {
             'group': {
-                'hosts': ['192.168.28.71', '192.168.28.72'],
+                'hosts': ['192.168.56.71', '192.168.56.72'],
                 'vars': {
                     'ansible_user': 'vagrant',
                     'ansible_ssh_private_key_file':
@@ -44,10 +44,10 @@ class ExampleInventory(object):
             },
             '_meta': {
                 'hostvars': {
-                    '192.168.28.71': {
+                    '192.168.56.71': {
                         'host_specific_var': 'foo'
                     },
-                    '192.168.28.72': {
+                    '192.168.56.72': {
                         'host_specific_var': 'bar'
                     }
                 }

@@ -10,7 +10,7 @@ This project builds a [Ruby on Rails](http://rubyonrails.org/)-based app inside 
   4. Run `ansible-galaxy install -r requirements.yml` in this directory to get the required Ansible roles.
   5. Run `vagrant up` to build the VM and deploy the version of the app specified in `playbooks/vars.yml`.
 
-Once the VM is built, you can visit `http://192.168.33.7/` (or whatever domain name you point to that IP address in your local hosts file) to view the demo app.
+Once the VM is built, you can visit `http://192.168.56.7/` (or whatever domain name you point to that IP address in your local hosts file) to view the demo app.
 
 ## Deploying application updates
 

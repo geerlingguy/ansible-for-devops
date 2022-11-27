@@ -20,8 +20,8 @@ Once the VMs are up and running (after `vagrant up` is complete and you're back 
 
 You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`; Windows: `%systemroot%\system32\drivers\etc\hosts`), adding the lines below:
 
-    192.168.9.90  logs.test
-    192.168.9.91  web.test
+    192.168.56.90  logs.test
+    192.168.56.91  web.test
 
 (Where `logs.test`/`web.test` is the hostname you have configured in the `Vagrantfile`).
 

@@ -24,7 +24,7 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 
 ### 3 - Configure your host machine to access the VM.
 
-  1. [Edit your hosts file](http://docs.rackspace.com/support/how-to/modify-your-hosts-file/), adding the line `192.168.46.84  https-proxy.test` so you can connect to the VM.
+  1. [Edit your hosts file](http://docs.rackspace.com/support/how-to/modify-your-hosts-file/), adding the line `192.168.56.84  https-proxy.test` so you can connect to the VM.
   2. Open your browser and access [http://https.test](http://https.test), and you should be redirected to the `https://` version of the URL.
 
 ## Notes

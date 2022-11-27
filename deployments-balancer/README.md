@@ -4,15 +4,15 @@ This project builds a simple application architecture with a load balancer which
 
 The infrastructure is fairly simple, with the following structure:
 
-                     -----------------------
-                    | HAProxy (192.168.4.2) |
-                     -----------------------
+                     ------------------------
+                    | HAProxy (192.168.56.2) |
+                     ------------------------
                                |
                 _______________________________
                |                               |
-     ----------------------         ----------------------
-    | Apache (192.168.4.3) |       | Apache (192.168.4.4) |
-     ----------------------         ----------------------
+     -----------------------         -----------------------
+    | Apache (192.168.56.3) |       | Apache (192.168.56.4) |
+     -----------------------         -----------------------
 
 ## Building the VMs
 
@@ -22,7 +22,7 @@ The infrastructure is fairly simple, with the following structure:
   4. Run `ansible-galaxy install -r requirements.yml` in this directory to get the required Ansible roles.
   5. Run `vagrant up` to build the VMs and configure the infrastructure.
 
-When Vagrant is finished provisioning the VMs with Ansible, you should be able to visit `http://192.168.4.2/`, and you'll see the default Ubuntu Apache 2 'installation complete' page (loaded from one of the two backend web servers through HAProxy).
+When Vagrant is finished provisioning the VMs with Ansible, you should be able to visit `http://192.168.56.2/`, and you'll see the default Ubuntu Apache 2 'installation complete' page (loaded from one of the two backend web servers through HAProxy).
 
 ## Performing a zero-downtime deployment
 

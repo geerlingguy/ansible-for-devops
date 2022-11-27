@@ -32,7 +32,7 @@ Note: *If there are any errors during the course of running `vagrant up`, and it
 
 ### 3 - Configure your host machine to access the VM.
 
-  1. [Edit your hosts file](http://docs.rackspace.com/support/how-to/modify-your-hosts-file/), adding the line `192.168.88.8  drupal.test` so you can connect to the VM.
+  1. [Edit your hosts file](http://docs.rackspace.com/support/how-to/modify-your-hosts-file/), adding the line `192.168.56.8  drupal.test` so you can connect to the VM.
   2. Open your browser and access [http://drupal.test/](http://drupal.test/).
 
 ## Notes

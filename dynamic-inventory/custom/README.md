@@ -6,7 +6,7 @@ Each of the scripts has comments for all the different parts of the code which g
 
 ## Testing these scripts
 
-A Vagrantfile is provided, so you can build a couple local VMs to test with the inventory scripts. Make sure you have Vagrant and VirtualBox installed, and run `vagrant up` inside this folder to build the two VMs, with the IP addresses `192.168.28.71` and `192.168.28.72`.
+A Vagrantfile is provided, so you can build a couple local VMs to test with the inventory scripts. Make sure you have Vagrant and VirtualBox installed, and run `vagrant up` inside this folder to build the two VMs, with the IP addresses `192.168.56.71` and `192.168.56.72`.
 
 Then run the following command to test the inventory file with Ansible:
 

@@ -19,13 +19,13 @@ Vagrant.configure("2") do |config|
   # Varnish.
   config.vm.define "varnish" do |varnish|
     varnish.vm.hostname = "varnish.test"
-    varnish.vm.network :private_network, ip: "192.168.2.2"
+    varnish.vm.network :private_network, ip: "192.168.56.2"
   end
 
   # Apache.
   config.vm.define "www1" do |www1|
     www1.vm.hostname = "www1.test"
-    www1.vm.network :private_network, ip: "192.168.2.3"
+    www1.vm.network :private_network, ip: "192.168.56.3"
 
     www1.vm.provision "shell",
       inline: "sudo yum update -y"
@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
   # Apache.
   config.vm.define "www2" do |www2|
     www2.vm.hostname = "www2.test"
-    www2.vm.network :private_network, ip: "192.168.2.4"
+    www2.vm.network :private_network, ip: "192.168.56.4"
 
     www2.vm.provision "shell",
       inline: "sudo yum update -y"
@@ -51,19 +51,19 @@ Vagrant.configure("2") do |config|
   # MySQL.
   config.vm.define "db1" do |db1|
     db1.vm.hostname = "db1.test"
-    db1.vm.network :private_network, ip: "192.168.2.5"
+    db1.vm.network :private_network, ip: "192.168.56.5"
   end
 
   # MySQL.
   config.vm.define "db2" do |db2|
     db2.vm.hostname = "db2.test"
-    db2.vm.network :private_network, ip: "192.168.2.6"
+    db2.vm.network :private_network, ip: "192.168.56.6"
   end
 
   # Memcached.
   config.vm.define "memcached" do |memcached|
     memcached.vm.hostname = "memcached.test"
-    memcached.vm.network :private_network, ip: "192.168.2.7"
+    memcached.vm.network :private_network, ip: "192.168.56.7"
 
     # Run Ansible provisioner once for all VMs at the end.
     memcached.vm.provision "ansible" do |ansible|
