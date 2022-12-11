@@ -18,6 +18,7 @@ Note for Windows users: *This guide assumes you're on a Mac or Linux host. Windo
   2. Open Terminal, cd to this directory (containing the `Vagrantfile` and this README file).
   3. Run `ansible-galaxy install -r requirements.yml` to install required Ansible roles.
   4. Type in `vagrant up`, and let Vagrant do its magic.
+  5. This is git training 2022
 
 Note: *If there are any errors during the course of running `vagrant up`, and it drops you back to your command prompt, just run `vagrant provision` to continue building the VM from where you left off. If there are still errors after doing this a few times, post an issue to this project's issue queue on GitHub with the error.*
 
