@@ -9,6 +9,12 @@
     - geerlingguy.passenger
 
   tasks:
+    - name: Allow Git invocations in repositories owned by other users.
+      git_config:
+        name: safe.directory
+        scope: global
+        value: '*'
+
     - name: Ensure demo application is at correct release.
       git:
         repo: https://github.com/geerlingguy/demo-rails-app.git
@@ -18,8 +24,6 @@
         force: true
       register: app_updated
       notify: restart nginx
-      become: true
-      become_user: "{{ app_user }}"
 
     - name: Ensure secrets file is present.
       template:
