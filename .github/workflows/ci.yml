@@ -13,6 +13,7 @@ jobs:
     name: Scripts
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         include:
           - test_script: collection
@@ -33,6 +34,7 @@ jobs:
     name: Playbooks
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         include:
           - playbook: deployments.yml
