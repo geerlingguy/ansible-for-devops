@@ -35,11 +35,9 @@ jobs:
     strategy:
       matrix:
         include:
-          # TODO: This started failing on GitHub Actions.
-          # See: https://github.com/geerlingguy/ansible-for-devops/issues/429
-          # - playbook: deployments.yml
-          #   distro: ubuntu2004
-          #   test_idempotence: false
+          - playbook: deployments.yml
+            distro: ubuntu2004
+            test_idempotence: false
 
           # TODO: Not easy to test in CI at this time.
           # - playbook: deployments-balancer.yml
