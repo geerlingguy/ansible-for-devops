@@ -3,7 +3,7 @@
 This folder contains two quick demo playbooks which build a LAMP and Apache Solr server, respectively, leaning entirely on Ansible Galaxy roles and their defaults for all functionality.
 
 ## Requirements
-
+- Python 3.6 or higher
 - Ansible 2.10 or higher
 
 ## Installation
