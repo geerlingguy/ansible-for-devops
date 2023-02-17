@@ -2,6 +2,21 @@
 
 This folder contains two quick demo playbooks which build a LAMP and Apache Solr server, respectively, leaning entirely on Ansible Galaxy roles and their defaults for all functionality.
 
+## Requirements
+
+- Ansible 2.10 or higher
+
+## Installation
+
+To install the necessary dependencies, run:
+```shell
+pip install ansible==<version>
+```
+or to upgrade:
+```shell
+sudo pip install --upgrade ansible
+```
+
 ## Usage
 
 After running `vagrant up`, you can access the installed LAMP site or Solr Admin dashboard following these instructions:
