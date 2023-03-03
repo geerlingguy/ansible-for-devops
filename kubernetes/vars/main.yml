@@ -2,7 +2,8 @@
 swap_file_state: absent
 swap_file_path: /dev/mapper/packer--debian--9--amd64--vg-swap_1
 
-docker_package: docker-ce=5:18.09.0~3-0~debian-stretch
+docker_packages: 
+  - docker-ce=5:18.09.0~3-0~debian-stretch
 docker_install_compose: False
 
 kubernetes_version: '1.13'
