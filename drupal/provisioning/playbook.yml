@@ -34,20 +34,19 @@
           - unzip
           - sendmail
           - apache2
-          - php7.4-common
-          - php7.4-cli
-          - php7.4-dev
-          - php7.4-gd
-          - php7.4-curl
-          - php7.4-json
-          - php7.4-opcache
-          - php7.4-xml
-          - php7.4-mbstring
-          - php7.4-pdo
-          - php7.4-mysql
-          - php7.4-apcu
+          - php8.2-common
+          - php8.2-cli
+          - php8.2-dev
+          - php8.2-gd
+          - php8.2-curl
+          - php8.2-opcache
+          - php8.2-xml
+          - php8.2-mbstring
+          - php8.2-pdo
+          - php8.2-mysql
+          - php8.2-apcu
           - libpcre3-dev
-          - libapache2-mod-php7.4
+          - libapache2-mod-php8.2
           - python3-mysqldb
           - mysql-server
 
@@ -87,7 +86,7 @@
 
     - name: Adjust OpCache memory setting.
       lineinfile:
-        dest: "/etc/php/7.4/apache2/conf.d/10-opcache.ini"
+        dest: "/etc/php/8.2/apache2/conf.d/10-opcache.ini"
         regexp: "^opcache.memory_consumption"
         line: "opcache.memory_consumption = 96"
         state: present
@@ -145,7 +144,7 @@
     - name: Add drush to the Drupal site with Composer.
       composer:
         command: require
-        arguments: drush/drush:10.*
+        arguments: drush/drush:11.*
         working_dir: "{{ drupal_core_path }}"
       become_user: www-data
       when: not drupal_composer_json.stat.exists
