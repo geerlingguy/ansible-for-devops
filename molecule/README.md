@@ -4,9 +4,9 @@ This directory contains an example Molecule configuration for an Ansible playboo
 
 The Molecule configuration can be run locally or in a Continuous Integration (CI) environment, to ensure the playbook is always working correctly.
 
-To run the Molecule environment, you must have `molecule` (with it's `docker` driver) and the `docker` Python library installed:
+To run the Molecule environment, you must have `molecule` (with it's `docker` driver), `ansible`, and the `docker` Python library installed:
 
-    pip3 install molecule[docker] docker
+    pip3 install ansible molecule molecule-plugins[docker] docker
 
 Additionally, there are lint tools configured to ensure code formatting is correct, so you need to make sure the lint tools are installed:
 
