@@ -1,5 +1,5 @@
 [k8s-master]
-master ansible_host=192.168.56.2 kubernetes_role=master
+master ansible_host=192.168.56.2 kubernetes_role=control_plane
 
 [k8s-nodes]
 node1 ansible_host=192.168.56.3 kubernetes_role=node
