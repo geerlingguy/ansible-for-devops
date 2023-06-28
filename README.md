@@ -27,7 +27,7 @@ Here is an outline of all the examples contained in this repository, by chapter:
 ### Chapter 4
 
   - [`drupal`](drupal/): A single-file playbook which configures the LAMP stack on a Linux host and installs Drupal.
-  - [`includes`](includes/): The same playbook as the [`drupal`](drupal/) example, but using `include`s to make the playbook more understandable.
+  - [`includes`](includes/): The same playbook as the [`drupal`](drupal/) example, but using `includes` to make the playbook more understandable.
   - [`nodejs`](nodejs/): A single-file playbook which configures a Node.js app to run on a Linux host.
   - [`solr`](solr/): A single-file playbook which installs Apache Solr on a Linux host.
 
