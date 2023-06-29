@@ -4,9 +4,13 @@
 
 This repository contains Ansible examples developed to support different sections of [Ansible for DevOps](https://www.ansiblefordevops.com/), a book on [Ansible](http://www.ansible.com/) by [Jeff Geerling](https://www.jeffgeerling.com/).
 
-Most of the examples are full-fledged VM examples, which use Vagrant, VirtualBox, and Ansible to boot and configure VMs on your local workstation. Not all playbooks follow all of Ansible's best practices, as they illustrate particular Ansible features in an instructive manner.
+Many examples use Vagrant, VirtualBox, and Ansible to boot and configure VMs on your local workstation.
 
-For more interesting examples of what you can do with Ansible, please see the [Ansible Vagrant Examples](https://github.com/geerlingguy/ansible-vagrant-examples) repository, and browse through some of [geerlingguy's roles on Ansible Galaxy](https://galaxy.ansible.com/geerlingguy/).
+Not all playbooks follow all of Ansible's best practices, as they illustrate particular Ansible features in an instructive manner.
+
+## Manuscript
+
+The book's manuscript is released under the CC BY-SA license, and is publicly available in a separate repository: [Ansible for DevOps - Manuscript](https://github.com/geerlingguy/ansible-for-devops-manuscript).
 
 ## Examples and Chapters in which they're used
 
