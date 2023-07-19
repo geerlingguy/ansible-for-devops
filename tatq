@@ -1,0 +1,2753 @@
+[33mcommit d26799e88f2244d524f239fc18324489bc2088b1[m[33m ([m[1;36mHEAD -> [m[1;32mdevops_leela[m[33m)[m
+Author: unknown <leeladharkumawat02@gmail.com>
+Date:   Wed Jul 19 11:57:20 2023 +0530
+
+    a new file is added and modified by three lines
+
+[33mcommit 8058f712c375039dd62c67b8c2518795718b262f[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jun 29 11:03:04 2023 -0500
+
+    Add a link to the book's manuscript repository.
+
+[33mcommit 7b243a017e790d99308819f042e71086e82ca12f[m
+Merge: 6c753ca f5006ee
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jun 17 23:00:21 2023 -0500
+
+    Merge pull request #471 from hippogriffin/470-k8s-1.19
+    
+    470 - Update k8s to 1.23
+
+[33mcommit 6c753ca9e79f0d28df7f154a0422f7e1b3ffbc3b[m
+Merge: ff2a7eb 30fa822
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jun 17 22:52:04 2023 -0500
+
+    Merge pull request #533 from weshouman/kubernetes-example-fixes
+    
+    Kubernetes example fixes
+
+[33mcommit ff2a7ebcf8c1d733836f342db2e6169b583e2c24[m
+Merge: 0f7a648 51cd594
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jun 17 22:42:51 2023 -0500
+
+    Merge pull request #526 from Brain2life/ch04-drupal-playbook-fix
+    
+    Change PHP version to 8.2 and Drush to 11*
+
+[33mcommit 0f7a64822c9c727871e3b22471aab728b7871399[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jun 17 22:18:16 2023 -0500
+
+    Small fix to README.
+
+[33mcommit a4b7cfb5fb4e536496aad02161910238167e757d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jun 17 21:57:54 2023 -0500
+
+    Fixes #531: systemd with molecule Docker containers requires cgroupns set to host and rw.
+
+[33mcommit eeb73d7a436570a142337f4291e7e8ce8096e77e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jun 17 21:48:26 2023 -0500
+
+    Proper way of installing molecule with docker tests.
+
+[33mcommit 30fa8228eb409c4293f662c0914aa3d80dcc91c3[m
+Author: Walid Shouman <eng.walidshouman@gmail.com>
+Date:   Fri Mar 3 07:17:35 2023 +0100
+
+    Use docker_packages instead of docker_package
+    
+    Reflecting [PR#365](https://github.com/geerlingguy/ansible-role-docker/pull/365)
+
+[33mcommit 553ad77c05a993894e84243bcd8bc539c8b47ebe[m
+Author: Walid Shouman <eng.walidshouman@gmail.com>
+Date:   Fri Mar 3 07:12:59 2023 +0100
+
+    Update master node label
+    
+    Reflecting: [PR107](https://github.com/geerlingguy/ansible-role-kubernetes/pull/107)
+
+[33mcommit 51cd5945f1a22c62a4800d6b79bfa000400403ea[m
+Author: Maxat Akbanov <30049303+Brain2life@users.noreply.github.com>
+Date:   Sat Feb 11 13:58:13 2023 +0600
+
+    Change PHP version to 8.2 and Drush to 11*
+
+[33mcommit 814d4e948c46cca6751119728a589764597c4259[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Nov 27 13:33:47 2022 -0600
+
+    Update all Vagrant VM host-only private network IP ranges.
+
+[33mcommit 441f8b17310700d7b4af522d407adff170471942[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Nov 26 22:59:00 2022 -0600
+
+    Remove deprecated warn option from docker-hubot example.
+
+[33mcommit 3fc6a15b8c18eff6a81af2982925aacbf8380f96[m
+Merge: f78c6c3 df0e3da
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 9 09:42:40 2022 -0500
+
+    Merge pull request #502 from alishahrudi/master
+    
+    duplicated mysql task removed.
+
+[33mcommit df0e3daec96da0f9dd248719098d1f1c98369614[m
+Merge: 33aaebf f78c6c3
+Author: ali shahrudi <59047473+alishahrudi@users.noreply.github.com>
+Date:   Fri Sep 9 02:49:10 2022 -0400
+
+    Merge branch 'geerlingguy:master' into master
+
+[33mcommit 33aaebf7e3d565262d1fe24bb771930bf40db4b0[m
+Author: ali shahrudi <59047473+alishahrudi@users.noreply.github.com>
+Date:   Fri Sep 9 02:48:32 2022 -0400
+
+    remove duplicate task.
+
+[33mcommit f78c6c300016f7496ce66e7e9fccf26349fda221[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Sep 8 23:30:17 2022 -0500
+
+    Fixes #501: Update some references from yum to dnf. Hopefully not breaking.
+
+[33mcommit f5006eecadde7c644d7295e36458a84d88eeafb9[m
+Author: hippogriffin <40152338+hippogriffin@users.noreply.github.com>
+Date:   Fri Apr 29 20:21:22 2022 +0100
+
+    use k8s 1.23 instead
+
+[33mcommit 2b60b7d159f12eb1e1cb7bfae80cb2487a5366e7[m
+Author: hippogriffin <40152338+hippogriffin@users.noreply.github.com>
+Date:   Fri Apr 29 18:12:58 2022 +0100
+
+    update to k8s v1.19
+
+[33mcommit c1b8c4f7554e93fb846f3465d0a6ca6dbc8de850[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Apr 15 15:46:28 2022 -0500
+
+    Issue #429: Stop testing Rails deployment example test in chapter 10 for now.
+
+[33mcommit e7f47ec42cb18bd2d34d86efbf60dd089208ee38[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Apr 15 14:42:36 2022 -0500
+
+    Issue #429: Another attempt to fix rails app checkout.
+
+[33mcommit 3bc149a34b73cc63f89d87fb791adfc8c7f927c9[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Apr 15 14:19:32 2022 -0500
+
+    Issue #429: Try to fix up chapter 10 deploy rails app example a bit.
+
+[33mcommit da5415055aa35d307e9585755bca8fa40fd73c0b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Apr 15 00:12:38 2022 -0500
+
+    Update to Rocky Linux 8 on Node.js examples.
+
+[33mcommit fa76a4aca0b7f6d4a654105f74172076b9cc62fd[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 14 23:28:25 2022 -0500
+
+    Fixes #337: Fix error with django installation in chapter 3.
+
+[33mcommit b643ec4393182029a6e10e8dd4375a35575f2b24[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 14 22:57:38 2022 -0500
+
+    Fixes #460: Bump www server memory from 256 to 512 MB of RAM.
+
+[33mcommit da9d6ffc695db4547819d85707da386c39a487d2[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 14 22:32:37 2022 -0500
+
+    Fixes #425: Update node.js forever app example to use rockylinux8.
+
+[33mcommit b282c5dd75cdf73786528b377d7c137eac7fe4b1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 14 22:16:31 2022 -0500
+
+    Issue #453: Update some broken CentOS 8 references in the code examples.
+
+[33mcommit a7b0308feff5e91da7ec5dc777d795a0fb8ccf36[m
+Merge: a623bc1 71097ae
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 14 21:56:42 2022 -0500
+
+    Merge pull request #225 from mkrawczuk/node_example_fix
+    
+    Move success message to `app`'s `listen` callback.
+
+[33mcommit a623bc1a15884e13bf37cfb36fdf4bdc439216da[m
+Merge: fac6ffd 1381f1b
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 14 21:52:41 2022 -0500
+
+    Merge pull request #369 from fgierlinger/patch-1
+    
+    Issue #335: Change url of the dynamic inventory script.
+
+[33mcommit fac6ffde6e19d469fd49d18752b5213897e8b006[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Mar 27 16:14:46 2022 -0500
+
+    Use FQCNs for builtins in molecule example to avoid adding additional lint configs.
+
+[33mcommit 386738f8a707adaac3bc6ecfc53310ba8eac7f1a[m
+Merge: d250d97 281dd46
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Feb 2 12:31:51 2022 -0600
+
+    Merge pull request #454 from geerlingguy/447-php-apcu-fix
+    
+    Issue #447: Fix php-apcu package install error on Debian.
+
+[33mcommit 281dd46d28df61fc92a007f61834aac4be53c3ad[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Feb 2 12:13:22 2022 -0600
+
+    Issue #447: Fix php-apcu package install error on Debian.
+
+[33mcommit d250d97a4c091e17a7a9d243548ec9fa3bd1260a[m
+Merge: 7138f8c 708c23c
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jul 8 17:55:27 2021 -0500
+
+    Merge pull request #412 from q0rban/patch-1
+    
+    Thank you on behalf of the entire Tugboat.qa team!
+
+[33mcommit 708c23c052f249ee1071cae9f87a9bee4037d684[m
+Author: James Sansbury <james@lullabot.com>
+Date:   Thu Jul 8 16:28:43 2021 -0400
+
+    Thank you on behalf of the entire Tugboat.qa team!
+    
+    And our apologies that we cannot continue our sponsorship at this time 😿
+
+[33mcommit 7138f8ce302fc2909d20d0b63cb34b8b0c932fbd[m
+Merge: 1678406 5353048
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jun 23 09:22:39 2021 -0500
+
+    Merge pull request #407 from githubERIK/ansible-install-url-fix
+    
+    Correct ansible installation link
+
+[33mcommit 53530482162253e6866939eced5385263f1fdf44[m
+Author: githubERIK <githubERIK@users.noreply.github.com>
+Date:   Wed Jun 23 13:34:07 2021 +0300
+
+    Correct ansible installation link
+    
+    Invalid: http://docs.ansible.com/intro_installation.html
+    Valid: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+
+[33mcommit 16784065f8762ca97cb6c8ce25c9435a38af3af5[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jun 12 14:43:23 2021 -0500
+
+    Fixes #397: Add directions to install molecule docker driver.
+
+[33mcommit 6d4850459664f0395fabfa9d456c8067dcb67d98[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 11 10:15:22 2021 -0500
+
+    Issue #403: Update Hubot example Node.js version to 14.
+
+[33mcommit 2d669992a16900189b31965cc03e6eab3e415ee1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 11 09:44:23 2021 -0500
+
+    Issue #402: Disable first-ansible-playbook CI test for now.
+
+[33mcommit 79911583fcc1fca612a31bb1de41dcc9e5540c5c[m
+Merge: a531ef1 016385b
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon May 10 10:11:00 2021 -0500
+
+    Merge pull request #400 from rm/master
+    
+    fix link to how-do-i-modify-my-hosts-file
+
+[33mcommit 016385b41650a1902804cab0de60f2659afe857f[m
+Author: Roshan Mathews <rmathews@gmail.com>
+Date:   Sat May 8 21:08:34 2021 +0530
+
+    fix link to how-do-i-modify-my-hosts-file
+
+[33mcommit a531ef1d8fa84ac6b31f525969d7271b0f7887b2[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Mar 19 10:26:15 2021 -0500
+
+    Issue #393: Make sure Ansible is installed for molecule tests.
+
+[33mcommit 27825972e13dada4b155f8db5a08a9bba0df10cc[m
+Merge: 333a83b 63bb39a
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Mar 19 10:18:40 2021 -0500
+
+    Merge pull request #392 from TugboatQA/tugboat-sponsorship
+    
+    Adding 🛁🐐 sponsorship info
+
+[33mcommit 63bb39a27207756072976978364345d1f0c50989[m
+Author: James Sansbury <james@lullabot.com>
+Date:   Fri Mar 19 11:13:08 2021 -0400
+
+    Fix the grammar
+
+[33mcommit 4a3d42dd634e1c7c01bb5b7fa3c5b5fe50fb0b3e[m
+Author: James Sansbury <james@lullabot.com>
+Date:   Fri Mar 19 11:00:46 2021 -0400
+
+    Adding 🛁🐐 sponsorship info
+
+[33mcommit 333a83bdbf7e5ff28ab69fbf012cbad325e443c0[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jan 14 15:04:50 2021 -0600
+
+    PR #375: Added note about GitHub sponsors to new sponsor section.
+
+[33mcommit 43fbe5c9a1b153b712c1d80103455a42252c3883[m
+Merge: 28d7e83 05cce29
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jan 14 15:02:57 2021 -0600
+
+    Merge pull request #375 from mtlynch/tinypilot-sponsor
+    
+    Add TinyPilot as a proud sponsor of geerlingguy
+
+[33mcommit 05cce29bf55d1f3a30702f3e7ca40d360c5be6a6[m
+Author: Michael Lynch <git@mtlynch.io>
+Date:   Thu Jan 14 06:41:10 2021 -0500
+
+    Add TinyPilot as a proud sponsor of geerlingguy
+
+[33mcommit 1381f1bd8510d0c05d5847c7bfc2487e566d6e17[m
+Author: fgierlinger <2966031+fgierlinger@users.noreply.github.com>
+Date:   Sat Jan 9 15:08:18 2021 +0100
+
+    Issue #335: Change url of the dynamic inventory script.
+
+[33mcommit 28d7e8302f8f0b2c7d378dc223cccd9abce76446[m
+Merge: 50913b6 8929b08
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Dec 8 09:53:57 2020 -0600
+
+    Merge pull request #360 from geerlingguy/359-ci-to-gh-actions
+    
+    Issue #359: Convert tests to use GitHub Actions for CI.
+
+[33mcommit 8929b080959b083356d5dc516ea5754e2374e74a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 7 23:35:42 2020 -0600
+
+    Issue #359: Disable includes.yml Drupal install playbook due to failures.
+
+[33mcommit fc55174824268feb8a18f57e99cbe4bf05d7ee3e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 7 23:26:39 2020 -0600
+
+    Issue #359: Disable failing Jenkins test.
+
+[33mcommit ff701b4a3c0a776efc49d786488681f704b0a28d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 7 23:11:36 2020 -0600
+
+    Issue #359: Disable currently-failing test.
+
+[33mcommit 3a24b6f548e18c05d28bdff828f3a754ec70f5be[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 7 23:06:51 2020 -0600
+
+    Minor tweaks to naming things.
+
+[33mcommit 12259fbef65b1228493815548cf29fa6036897fa[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 7 22:48:21 2020 -0600
+
+    Issue #359: Convert tests to use GitHub Actions for CI.
+
+[33mcommit 50913b62dd8f396fddbec214a58e3ee2f45daf04[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Oct 26 20:03:32 2020 -0500
+
+    Switch from travis-ci.org to travis-ci.com.
+
+[33mcommit 4492e96a2c8f79471cc3b308c777cbd9426598f2[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Oct 16 11:54:28 2020 -0500
+
+    Fix broken test build due to molecule docker dependency missing.
+
+[33mcommit deae30739b10f02aef9722437427a7415ea1054b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Sep 28 11:11:34 2020 -0500
+
+    Bump Elasticsearch role requirement version.
+
+[33mcommit d7365df79b6412be2d2e7cea2d8e50729a3e8320[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Sep 23 14:38:01 2020 -0500
+
+    Make sure apt caches are updated more frequently for deployments and elk tests.
+
+[33mcommit a11484d78ef029f185ffe5aa0ac24d301d071b3e[m
+Merge: 1933758 5f2aee8
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 11 11:37:50 2020 -0500
+
+    Merge branch 'test-molecule-deps' into master
+
+[33mcommit 5f2aee8fcf7fb6bcf6b5af793cd9fc62d73052e7[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 11 11:30:18 2020 -0500
+
+    Test if molecule[docker] works correctly.
+
+[33mcommit 1933758ff50d29e4a7590763ff81016424010e96[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 31 14:08:54 2020 -0500
+
+    Update build environment to focal fossa.
+
+[33mcommit 281b96b1ca8f17145292b9ebb14ff8cba34e1667[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 31 13:47:55 2020 -0500
+
+    Try manually installing wheel for molecule Travis CI test.
+
+[33mcommit 28c2b5f4d5afc4a347f225884eeab87431ec915a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 31 11:10:15 2020 -0500
+
+    Attempt to fix pip3 installs of ansible and molecule.
+
+[33mcommit 6c0ea316ca70a7fab9e9efa2c4afe164d7102b42[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 31 10:56:21 2020 -0500
+
+    Don't use sudo with pip3 installs in test environments.
+
+[33mcommit 583d2cb4f0fde042eae522a95878624d804a4082[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Aug 14 10:24:57 2020 -0500
+
+    Fixes #314: Explicitly define 'mode' for web page molecule example.
+
+[33mcommit 6594566e036961d86e8474e31661c144376540df[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Aug 12 14:52:43 2020 -0500
+
+    Fix broken molecule test on older Travis CI default Docker version.
+
+[33mcommit 00543f526840492837ae5449740ea4da3f530e48[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Aug 5 13:43:31 2020 -0500
+
+    Issue #310: Fix link to Docker Flask app example. [ci skip]
+
+[33mcommit 3c069f36008699da982a96ed65c72f1de11a6e5a[m
+Merge: 98ee43a 7577ca3
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 3 17:52:26 2020 -0500
+
+    Merge pull request #309 from geerlingguy/221-orchestration-tests
+    
+    Issue #221: Add tests for current multi-server ad-hoc orchestration examples.
+
+[33mcommit 7577ca35aa190c5060ac52dd03aee747cd287c80[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 3 16:02:00 2020 -0500
+
+    Issue #221: Fix broken tests by using the right names.
+
+[33mcommit af69790068bf4163f5da0af2db984faab9388d39[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 3 15:46:57 2020 -0500
+
+    Fixes #221: Final tweaks to orchestration testing.
+
+[33mcommit de3e84231354aa69c47f09fbcbae54db96b50d0d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 3 15:31:47 2020 -0500
+
+    Issue #221: Update everything in Django orchestration example to CentOS 8 and Django 3.
+
+[33mcommit 9fa380e0e484b4095d08fdb52b5b40d44e8f7452[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 3 14:40:26 2020 -0500
+
+    Issue #221: Add tests for current multi-server ad-hoc orchestration examples.
+
+[33mcommit 98ee43a189e507634b2ec5b66e0c15993e3253ec[m
+Merge: b510094 48d1755
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 3 13:08:28 2020 -0500
+
+    Merge pull request #306 from Redmar-van-den-Berg/master
+    
+    Fix capitalization for chrony
+
+[33mcommit b5100942d768a1a887b792a32e30038f9ffcbb7c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 3 11:11:04 2020 -0500
+
+    Issue #308: Remove unused variables.
+
+[33mcommit 10c61e0db1b9a661c21b878feac8854fb9ecabd8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 3 10:41:34 2020 -0500
+
+    Issue #308: Add additional dirmngr test dependency.
+
+[33mcommit cf2819d6c1f3b37415a6b3732f5538ac093d9fef[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Aug 3 10:17:17 2020 -0500
+
+    Issue #308: Update Drupal example in chapter 4 to 9.0.x.
+
+[33mcommit 802f4b32f89f9288b82db50c837ea7d582f3c751[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Aug 2 19:06:41 2020 -0500
+
+    Issue #307: Update Apache Solr example in Chapter 4 to latest 8.6.0 version.
+
+[33mcommit 5c6acede5c9d839c86b0190e25c1b09f91206f1f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Aug 2 11:36:57 2020 -0500
+
+    Fixes #260: Default to storing inventory alongside projects.
+
+[33mcommit 48d175530e6e7fc12ef17f9443347a8cdf38e80c[m
+Author: Redmar <redmar@ubuntu.com>
+Date:   Sun Aug 2 08:36:04 2020 +0200
+
+    Fix capitalization for chrony
+
+[33mcommit 6ca0abf1910975ce525f63991e88d73f8a9451fa[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jul 30 22:25:14 2020 -0500
+
+    Fixes #303: Update 'Dynamic inventory with AWS' example to use aws_ec2 plugin.
+
+[33mcommit dfad2cc37f3590fba9c360beda6e0c67ff50a610[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 29 10:00:54 2020 -0500
+
+    Now with idempotence.
+
+[33mcommit 9014cc35167d52a4fb8a074e6004b8b9a351a317[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 29 09:36:39 2020 -0500
+
+    This is just getting tiring. Try installing firewalld.
+
+[33mcommit 708dfb5b153daf4a9af6f6c63d17eaac2f6dbe08[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 29 09:17:24 2020 -0500
+
+    Another fix, this time for security messages log.
+
+[33mcommit d580d6e326d3ebe3bb9eaad1e3d3d4412d9046f7[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 29 08:51:52 2020 -0500
+
+    For security test, make sure sshd is running already.
+
+[33mcommit ee974fd1132ecbf55174ff0eb8e95f2be744750e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 23:50:35 2020 -0500
+
+    Anotehr fix, this time for OpenSSH, in security test environment.
+
+[33mcommit 1649a0417a51c3eb3624b1e73b014ec7d6f03b88[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 23:32:48 2020 -0500
+
+    Final tweaks to security test configuration.
+
+[33mcommit c656bfd3501c24881cbe0c526071a9badf87c1c7[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 23:31:37 2020 -0500
+
+    This time it should work.
+
+[33mcommit f20e1e362f957b1ecc578392ea62b756eaa2291f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 22:51:01 2020 -0500
+
+    Maybe this works.
+
+[33mcommit 316b971dfe93c64396c47ad1c4a0621a91bb59fe[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 22:30:59 2020 -0500
+
+    Another attempt to fix security test.
+
+[33mcommit 3be01ccc501a9f6c885b80cb6ab4d87bfd740185[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 22:05:21 2020 -0500
+
+    Another attempt to fix security tests.
+
+[33mcommit f6ebfe19aec037573e7127bfaf0339bbda0e3aa4[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 21:44:49 2020 -0500
+
+    Attempt to fix broken security test.
+
+[33mcommit f77076a72e8021ccf61f29174bb847f02b0fcaba[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 21:31:31 2020 -0500
+
+    Add guide to security README [ci skip].
+
+[33mcommit 45c6197a2f592c1eba8ed2a6446c93f03b0c1838[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 21:19:25 2020 -0500
+
+    Try to get test working on CentOS 8 docker container.
+
+[33mcommit 0c6c3a7048c5028ea468f0124380d45899b4bb97[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 18:11:53 2020 -0500
+
+    Fixes #277: Correct 20auto-upgrades filename in chapter 11 example.
+
+[33mcommit 8fc20e6c9262dde6bb9f5a13b24bcb83417b1a37[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 17:32:06 2020 -0500
+
+    Fixes #283: Add security code snippets to new playbook for chapter 11.
+
+[33mcommit fe7becf4b90f3aa444ca391866bb2c6f26d25cd3[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 16:58:22 2020 -0500
+
+    Fixes #259: Update Rails deployment demo Vagrantfile for better WSL compatibility.
+
+[33mcommit 23694c696b0693e2091e6418683e1c79fce9a097[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 28 16:54:03 2020 -0500
+
+    Fixes #258: Add pip to elk example requirements and bump RAM for ES to 4GB.
+
+[33mcommit b4597f9dd4cc2363d8c8ea6710e9fb3209b5a397[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jul 27 20:13:20 2020 -0500
+
+    Fixes #239: Rework HAProxy balancer example and make sure apt cache is updated.
+
+[33mcommit 9e02bcf4c78ada3e44cfdfc95ece3d2fbc3bc035[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jul 27 20:00:30 2020 -0500
+
+    This is the third time I've missed a little fixup. Oops.
+
+[33mcommit 03387918a2014f6eb5ec35110b0bebbaf8897f22[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jul 27 19:59:12 2020 -0500
+
+    More cleanup after silly previous two commits.
+
+[33mcommit 0a5e083010c5b608b7aa6934ad0fe09d51a8777e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jul 27 19:56:34 2020 -0500
+
+    Follow-up to previous commit: remove TODO.
+
+[33mcommit bd83f2c701f7344be66facfda006462eea90ac43[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jul 27 19:31:26 2020 -0500
+
+    Fixes #304: Update AWS LAMP provisioner.
+
+[33mcommit d1dbe2f0e43254c7b13ffac6bb55cedd0aabb906[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jul 27 12:51:23 2020 -0500
+
+    Issue #229: Also make sure selinux dependencies installed for lamp-infra example.
+
+[33mcommit a4e01fb0cd564194cdeb3121292b0b20438faef6[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jul 27 09:53:39 2020 -0500
+
+    Fixes #229: Update to newest DigitalOcean modules.
+
+[33mcommit 408568db5a8f005a1b56b6afbbdba72ba604cc63[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Jul 26 17:56:40 2020 -0500
+
+    Issue #229: Update DigitalOcean dynamic inventory example in chapter 8.
+
+[33mcommit f5cc6c34c5edf9c6aec70f6a960b2ef819094bf3[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 20:55:32 2020 -0500
+
+    Issue #187: Fix path for role servers.
+
+[33mcommit f979c4cf283b215e670e3a5abf823f9c88d63258[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 20:13:30 2020 -0500
+
+    Fixes #187: Add galaxy role-based servers for lamp and solr.
+
+[33mcommit f351b0a14878c5d9b66d66d9ed3febff66a702df[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 16:51:18 2020 -0500
+
+    Fixes #93: Assume Python 3 is available on Ubuntu 20.04.
+
+[33mcommit 995ac71c82dc138e3133fc064b9187966108e7fc[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 16:36:24 2020 -0500
+
+    Fixes #298: Change usage of 'src' in requirements.yml files.
+
+[33mcommit ac7b2554b25bf090209e49d4ab04645721275ce0[m
+Merge: 5e1b717 eab24e0
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 16:28:54 2020 -0500
+
+    Merge pull request #302 from geerlingguy/301-docker-flask
+    
+    Issue #301: Move Docker Flask example into repository and update for Ubuntu 20.04.
+
+[33mcommit eab24e0794d6c147c82c9fb5367b5c6a4b3cc22c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 15:35:48 2020 -0500
+
+    Issue #301: Update flask example to run in CI correctly.
+
+[33mcommit 80184cc41c7dcaa9e8d9c40ec119ccd016f984bb[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 14:54:04 2020 -0500
+
+    Issue #301: Move Docker Flask example into repository and update for Ubuntu 20.04.
+
+[33mcommit 5e1b7179a4a6b9dd8b489f794cf0cb73f8c0ba4f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 14:27:04 2020 -0500
+
+    Fixes #299: Move Gluster example into this repository.
+
+[33mcommit ab9b2aaaa20b3a61b1329655e74fc8a516220078[m
+Merge: 13ee874 568ca60
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 14:13:35 2020 -0500
+
+    Merge pull request #296 from geerlingguy/ubuntu2004
+    
+    Issue #295: Update all Ubuntu-based examples to use 20.04.
+
+[33mcommit 568ca60857b5f400b97f39156aeb0639ce64e630[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 24 14:13:16 2020 -0500
+
+    Issue #295: Remove extra vvv flag.
+
+[33mcommit e602b21aa08904f76a59ed7d9efaf5237f947c6c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jul 23 12:35:39 2020 -0500
+
+    Issue #295: Update memory allocation for VMs.
+
+[33mcommit b9fd476540b110e13aca89ca0f37c9039bb34e80[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 22 12:30:06 2020 -0500
+
+    Issue #295: Yay more fixes for Ubuntu 20.04 compatibility.
+
+[33mcommit 5eea27d042bd8d92653961c34039e246fa0d7e19[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 22 12:09:46 2020 -0500
+
+    Issue #295: More batches of fixes for Ubuntu 20.04 compatibility.
+
+[33mcommit 35ad605012c10fd720e523ab2e955982b1409b46[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 22 10:52:45 2020 -0500
+
+    Issue #295: Yet again, more fixes for Ubuntu 20.04 compatibility.
+
+[33mcommit 800e0f787987765972765c64e7b537b0be02a566[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 22 10:37:46 2020 -0500
+
+    Issue #295: Even more fixes for Ubuntu 20.04 compatibility.
+
+[33mcommit 692d15e479e7a367d166d2fd9fc7fa3c32cdade4[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 22 09:39:05 2020 -0500
+
+    Issue #295: More fixes for Ubuntu 20.04 compatibility.
+
+[33mcommit 72ee0ca5c18da817f958555dfba61abe9371d3ec[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jul 22 09:14:04 2020 -0500
+
+    Issue #295: Some adjustments and fixes for Ubuntu 20.04 compatibility.
+
+[33mcommit 78b906592e40217ddc6a3dd9a585438ffc0d8cdc[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 21 21:53:10 2020 -0500
+
+    Issue #295: Update all Ubuntu-based examples to use 20.04.
+
+[33mcommit 13ee87436d9a9f5620ab5de3341d1085f7954325[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 21 10:05:38 2020 -0500
+
+    Fixes #249: Update Helm example in chapter 16.
+
+[33mcommit efc0786f7c2c6f3c1fc3fda8198a0778bf2cf002[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jul 20 14:36:02 2020 -0500
+
+    PR #206: Remove compatibility_mode setting from ELK Vagrantfile for consistency.
+
+[33mcommit 182a899558b5687ba1212f232e2581d88653f3d8[m
+Merge: 1475f1d fa7c19f
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jul 20 14:30:36 2020 -0500
+
+    Merge pull request #287 from geerlingguy/202-collections
+    
+    Issue #202: New Collections chapter content.
+
+[33mcommit fa7c19f16833df65c1b17d939f9780a5adfac271[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jun 16 22:32:07 2020 -0500
+
+    Issue #202: Local collections don't require config to be picked up.
+
+[33mcommit ae2c7b8c4082db810ab2a53102b3f3d024b387bb[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jun 16 15:10:47 2020 -0500
+
+    Issue #202: Try to run collection test from shell script instead.
+
+[33mcommit cd7ee5df32fb44318ce9c9cfcf6015719ddaf32e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jun 16 10:26:43 2020 -0500
+
+    Issue #202: Add collection test.
+
+[33mcommit f89a5c600434483b739101c618e3d64e16267431[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Jun 14 15:42:33 2020 -0500
+
+    Issue #202: More idiomatic Ansible Python style.
+
+[33mcommit 11ca62bb00b0172fb56f51c0b17c29e058104963[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Jun 14 14:14:24 2020 -0500
+
+    Issue #202: Add 'blue' test plugin for chapter 7.
+
+[33mcommit 1475f1dcadbc4b3bffe7905d76e82e5b066caae1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jun 10 09:15:38 2020 -0500
+
+    Make chapter 9 deployment example slightly more real.
+
+[33mcommit c78c5d8cc6aee11e9b87ba07a78948cf3cf7230c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jun 3 08:52:11 2020 -0500
+
+    Fixes #281: Simpler json import for Python dynamic inventory example.
+
+[33mcommit 3d5febc3d9d195aa9396b44e83401a1ea45e1e21[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jun 2 22:25:07 2020 -0500
+
+    Fixes #280: Ansible inventory dynamic Python script updates for Python 3 compatibility.
+
+[33mcommit 284d7a4e14fec925da367a7f4cc1195ce5746ae5[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 12 23:11:40 2020 -0500
+
+    Fixes #230: Convert instances of ansible_ssh_user to ansible_user.
+
+[33mcommit 95b557f0e63ce5c0efe3626237ecfa7c0efd2e46[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 12 17:12:43 2020 -0500
+
+    Issue #264: Tweaks to ci.yml workflow for consistent style.
+
+[33mcommit 8f389cdd2fa54a9877ab6a13da0ea2fdf5619430[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 21:40:53 2020 -0500
+
+    Issue #264: Add mention of GitHub Actions workflow in README.
+
+[33mcommit 72f3f51a5c5e6d189da67e720ba6d903daaad205[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 12 15:47:46 2020 -0500
+
+    PR #238 follow-up: Add acl to Drupal roles example too.
+
+[33mcommit 852803d84607abab90c52908f9845847914c77b2[m
+Merge: 52c8eda f334809
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 12 15:46:10 2020 -0500
+
+    Merge pull request #238 from misse/master
+    
+    drupal playbook failing without acl installed
+
+[33mcommit 52c8eda4cd48aca6df74e4c5c23d7a2e961a822d[m
+Merge: 1a2aa9f 35f5b5b
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 21:18:40 2020 -0500
+
+    Merge pull request #265 from geerlingguy/264-github-actions
+    
+    Issue #264: Add GitHub Actions integration for Molecule test.
+
+[33mcommit 35f5b5bfa82419296ed4214d4f4684893514a327[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 21:13:17 2020 -0500
+
+    Issue #264: Add status badge and fix workflow strategy matrix.
+
+[33mcommit ca59532f286ca397f137e9f179377355c7f33f0d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 21:06:11 2020 -0500
+
+    Issue #264: Set up build matrix properly.
+
+[33mcommit 82b3ab24684a58b6a0799c5f5f5bbdc3a9a26666[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 20:50:09 2020 -0500
+
+    Issue #264: Add multiple distros, force ansible color, in GitHub Actions.
+
+[33mcommit 270b1d7029d860ae5679fb998b1f01e0df50764c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 20:43:41 2020 -0500
+
+    Issue #264: Only run on master pushes and set PY_COLORS=1 for Molecule.
+
+[33mcommit b0d7f9a71f9713bf94c4ccca9e555c006a399dd7[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 20:30:36 2020 -0500
+
+    Issue #264: Add GitHub Actions integration for Molecule test.
+
+[33mcommit 1a2aa9feb5a22c22d38dfa7263049b21001ba102[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 19:54:36 2020 -0500
+
+    Issue #101: Remember to document all the things.
+
+[33mcommit 70232238928cdf45144959c7d7a3f5f9b7c33424[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 19:29:01 2020 -0500
+
+    Issue #101 follow-up: Add ansible-lint, not ansible-test.
+
+[33mcommit 230045b8ee25aaa7282351a734c37f9763dba499[m
+Merge: d27ef34 ea7f82f
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 19:00:42 2020 -0500
+
+    Merge pull request #263 from geerlingguy/101-molecule
+    
+    Issue #101: Add molecule testing example.
+
+[33mcommit ea7f82f83e6ff37025baa65ba6f3d28fe3db0d41[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 18:53:33 2020 -0500
+
+    Issue #101: Add lint configuration to molecule.
+
+[33mcommit ffa215420f9d7739e5c3f312f73880e29ba44f0d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 16:43:52 2020 -0500
+
+    Drop unneccessary parameter for molecule test config in Travis CI.
+
+[33mcommit f7861b397a6bb80e972864a5a94c74a82bf658d8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 16:43:05 2020 -0500
+
+    Issue #101: Add Debian 10 test as well for molecule playbook.
+
+[33mcommit 7208bac867e4432463b6fcd7dd5c743e79d76074[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 16:39:45 2020 -0500
+
+    Issue #101: Get molecule working correctly with CentOS 8.
+
+[33mcommit 39544992cd999ade04139ce0c8d3bb5e64063772[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 11:41:43 2020 -0500
+
+    More debugging.
+
+[33mcommit 8b141349c0de7f2b9105051d09c66d6abce6ba02[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 11:38:38 2020 -0500
+
+    More debug.
+
+[33mcommit f1a1d20cb4c094c5fa21d4b99d1ca6a97450ac6b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 11:36:39 2020 -0500
+
+    Issue #101: More test environment debugging.
+
+[33mcommit 274ca1198af556ec13b2920d879f545fd73be142[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 11:30:59 2020 -0500
+
+    Issue #101: Travis CI debugging.
+
+[33mcommit 35dc3b44432d4c1627b9bd6ccb7dc50dd83f17a7[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 11:17:00 2020 -0500
+
+    Issue #101: More attempts to get pip installed.
+
+[33mcommit 999134ebd10b4148d55342e2410545bef7acb000[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 10:32:41 2020 -0500
+
+    Issue #101: Attempt to get tests running properly in Travis CI.
+
+[33mcommit 6075bdac7cf224f402a408dbf06bc7431101545f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 10:20:12 2020 -0500
+
+    Fix oopsie on travis yaml file.
+
+[33mcommit d65af49dd795377683cbacd1b65a99f72767e183[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 10:01:21 2020 -0500
+
+    Travis CI: Only build master branch and PRs.
+
+[33mcommit 23541cc66af492e769d0aa92a4d1131a093ab0d0[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 09:58:52 2020 -0500
+
+    Issue #101: Try to get molecule tests to run.
+
+[33mcommit ffd5968c948cff0c8d3a5d5c0dbeddb2d01ca458[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat May 9 09:38:00 2020 -0500
+
+    Issue #101: Add test dependencies for molecule.
+
+[33mcommit cc39ed6f217fe47d9ff2f1efe961625cc2c520d1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 8 23:48:43 2020 -0500
+
+    Issue #101: Add molecule testing example.
+
+[33mcommit d27ef34dcb7a948af13a49c44452d3f0cf210570[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Apr 22 16:37:41 2020 -0500
+
+    Fixes #220: Add/update 'Your first Ansible playbook' example with chronyd.
+
+[33mcommit f334809dd4355b74d73749e2825de9f3d5e8c194[m
+Author: Martin Bergman <martin@devsed.se>
+Date:   Sun Apr 12 15:51:49 2020 +0200
+
+    drupal playbook failing without acl installed
+    
+    TASK [Install Drupal dependencies with Composer.] ******************************
+    fatal: [default]: FAILED! => {"msg": "Failed to set permissions on the temporary files Ansible needs to create when becoming an unprivileged user (rc: 1, err: chown: changing ownership of '/var/tmp/ansible-tmp-1586697780.51-117703352883265/': Operation not permitted\nchown: changing ownership of '/var/tmp/ansible-tmp-1586697780.51-117703352883265/command.py': Operation not permitted\n}). For information on working around this, see https://docs.ansible.com/ansible/become.html#becoming-an-unprivileged-user"}
+    
+    Fixed by installing `acl` package as per https://github.com/georchestra/ansible/issues/55#issuecomment-564130730
+
+[33mcommit 102ccbcbfd36faecbb3cb63f997a693c5be129db[m
+Merge: a7894d3 f2e85bb
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Apr 3 10:47:20 2020 -0500
+
+    Merge pull request #231 from fatpixel/master
+    
+    Fixed typo in lamp-infrastructure/provision.yml
+
+[33mcommit f2e85bb1e1f219aafd60473bc402ad4c016992f1[m
+Author: David Moseley <davidmoseley@gmail.com>
+Date:   Thu Apr 2 22:26:12 2020 -0700
+
+    Fixed typo in lamp-infrastructure/provision.yml
+
+[33mcommit 71097aeab726d827c4ab839e3fc3c86a8711f6a0[m
+Author: Mateusz Krawczuk <krawczukmat@gmail.com>
+Date:   Thu Mar 26 16:56:18 2020 +0100
+
+    Move success message to `app`'s `listen` callback.
+    
+    express's `server.listen` has an asynchronous nature and it's API enables
+    providing a callback that is fired upon success. Now the success messaage
+    is logged only when the server has been set up and listening on provided
+    socket address, otherwise the error stack trace is printed.
+
+[33mcommit a7894d3a20e7ae16735c3fa1b53e3ed17ab2c1ce[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Feb 26 16:26:09 2020 -0600
+
+    Fixes #140: Show mapping of examples to book chapters in README.
+
+[33mcommit 8d39d16b0170f4a1b764a41b136bffe09c4bc8e5[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Feb 24 11:46:09 2020 -0600
+
+    Fixes two issues with test failures in CI.
+
+[33mcommit 8287ec2d658d0d631aa3d5666dc4e1fa3367f012[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jan 16 09:16:23 2020 -0600
+
+    Don't verify host keys on multi server orchestration example.
+
+[33mcommit dbd5597b235e5c88915ed8b9084198a8859dc415[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 15 23:23:03 2020 -0600
+
+    Fix spacing issue in Node.js playbook example.
+
+[33mcommit 96d0993cf5af62a509eb96efb205d678b0739bd0[m
+Merge: 7df1569 fa535c4
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 15 23:13:04 2020 -0600
+
+    Merge pull request #190 from arashpath/patch-1
+    
+    Update playbook.yml in nodejs
+
+[33mcommit 7df156937cee0316d98a1023efca5e103e862ff1[m
+Merge: 858e10d 869c3f5
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 15 22:49:33 2020 -0600
+
+    Merge pull request #193 from SamyCoenen/patch-1
+    
+    Update kubectl-connection.yml
+
+[33mcommit 858e10d1985a916d5a8b5b54cf58a4bcfdb1f817[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 15 22:42:49 2020 -0600
+
+    Fixes #192: Make Drupal playbooks idempotent by fixing permissions issues.
+
+[33mcommit b78b2ba25adce17724493563e0b6ff6d3876b0ac[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 15 17:30:03 2020 -0600
+
+    Fixes #198: Update Drupal example to run 8.8.x.
+
+[33mcommit f1adb5c9f1d1dc524332fdf969b88517ed369a8f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 15 17:08:07 2020 -0600
+
+    Fixes #196: ELK example needs updating for modern usage.
+
+[33mcommit ff6e67c9e3dd4732754fad91def88f968db56364[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jan 14 10:22:27 2020 -0600
+
+    Bump version of Elasticsearch role in elk example.
+
+[33mcommit 514c2927443c0386ce61007a58a8aed2f1ecc85c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 13 16:13:43 2020 -0600
+
+    Optimized README file for elk example.
+
+[33mcommit 94ebf1528f75b7488843058acdde63cdfc1f93b4[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 13 15:52:20 2020 -0600
+
+    Issue #196: Add localhost to logs group.
+
+[33mcommit 6c1df0e4798c163fb81405e19f9931b510d43369[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 13 15:31:21 2020 -0600
+
+    Add requirements to test requirements.yml file.
+
+[33mcommit 104b5c772f6ab4cf45e41f10ee643860f37d4a87[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 13 15:21:53 2020 -0600
+
+    Issue #196: Add root roles path for requirements.
+
+[33mcommit 778b582b842c5fd079d83f353051366f77c55407[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 13 15:11:59 2020 -0600
+
+    Issue #196: Move ELK example into this repository. Preliminary tests.
+
+[33mcommit fa535c41c7242fb2a9bd2b7bacdd842388c34b6b[m
+Author: Prashaath R <arashpath@gmail.com>
+Date:   Fri Dec 13 16:00:25 2019 +0530
+
+    Update playbook.yml
+    
+    EPEL to be installed before installing remi-release-7.rpm, due to rpm dependency
+
+[33mcommit 68815ac97a80f6db9a90444a36547c0eeedc9c5e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Dec 11 09:45:14 2019 -0600
+
+    Create FUNDING.yml
+
+[33mcommit 5dda88c733cb378eb0efceffbaef58cdead9d1f0[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 2 17:18:16 2019 -0600
+
+    Fixes #182: Unused solr.xml template.
+
+[33mcommit 94961b58b52bb761295ced7b9cfd46fef8e3c134[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 2 17:13:32 2019 -0600
+
+    Fixes #181: Unused 'restart solr' handler in chapter 4 example.
+
+[33mcommit d5c6a182208840ea1e29b42197d4e540479d5299[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Oct 10 21:57:35 2019 -0500
+
+    Fix final two test failures.
+
+[33mcommit 522db8944a3d3fefb3292242b9efc08b863aecbd[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Oct 10 21:44:22 2019 -0500
+
+    Another attempt to fix failing tests with ipv6 var.
+
+[33mcommit 2329991149eca648e20ace126b2ad1b6577f78a8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Oct 10 19:46:42 2019 -0500
+
+    Attempt importing playbook that fails tests with added variable.
+
+[33mcommit c297a1b50434d043f4f0c75fd5658a329511938e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Oct 8 11:15:39 2019 -0500
+
+    Fix IPv6-related test failures on Travis CI.
+
+[33mcommit 34c7c5744d721fb3621003bac4752912121a069c[m
+Merge: eddd8ba 6159a10
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Sep 24 17:07:46 2019 -0400
+
+    Merge pull request #173 from z3dm4n/master
+    
+    Fix obvious typos
+
+[33mcommit 6159a10b5236718e5f98094ada1740658577b5bf[m
+Author: Erik Zettel <zettel@b1-systems.de>
+Date:   Tue Sep 24 13:40:18 2019 +0200
+
+    solr/README.md: fix typos
+
+[33mcommit 3768dbb958293c049049f99ff0fd517ddfa62789[m
+Author: Erik Zettel <zettel@b1-systems.de>
+Date:   Tue Sep 24 13:39:00 2019 +0200
+
+    orchestration/README.md: fix typos
+
+[33mcommit 9bbd5383bec44ed4d2f0d22b38488588873fb044[m
+Author: Erik Zettel <zettel@b1-systems.de>
+Date:   Tue Sep 24 13:38:15 2019 +0200
+
+    jenkins/README.md: fix typos
+
+[33mcommit 25ab4a9ef5e2c119bc7a5ca335f7b50254fcde74[m
+Author: Erik Zettel <zettel@b1-systems.de>
+Date:   Tue Sep 24 13:36:39 2019 +0200
+
+    drupal/README.md: fix typos
+
+[33mcommit 869c3f59feff2c94f6a34c129b80e83cc7b2e5d9[m
+Author: Samy Coenen <contact@samycoenen.be>
+Date:   Thu Sep 12 14:03:33 2019 +0200
+
+    Update kubectl-connection.yml
+
+[33mcommit eddd8bafba820a517c6f310f89c9c1dcaf091c9a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Sep 4 11:22:20 2019 -0500
+
+    Fixes #169: Update copy to remote_src usage in unarchive example.
+
+[33mcommit 1d82720a4e8b5ae76aae7a43434ad0ca53b9a315[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Sep 4 11:11:49 2019 -0500
+
+    Issue #169: Various fixes for typos and outdated usage.
+
+[33mcommit 8961f9bf895d30d4d0eb800be98bbe89265b54b7[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Aug 27 12:41:05 2019 -0500
+
+    Fixes #165: Fix lingering deprecation warnings in some examples.
+
+[33mcommit 062e6940e69080de17325cea4f20b39a269fb8ea[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Aug 22 22:23:14 2019 -0500
+
+    Fixes #164: Kubernetes example says load cluster.k8s.test but there is nothing there by default.
+
+[33mcommit c98a3f2afa00223644960682db02d7a91c72bdaa[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Aug 20 13:22:15 2019 -0500
+
+    Update digital_ocean.py script from Ansible repository.
+
+[33mcommit deabf0f346460a35e93a770933f5ddce48158caa[m
+Merge: 90913a1 af2d75a
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Aug 20 13:14:37 2019 -0500
+
+    Merge pull request #149 from torenware/146-kubectl-version
+    
+    Updated version of kubernetes packages to 1.13.8 from 1.13.1.
+
+[33mcommit 90913a156429cf6b90f5c628003129fe2a60effb[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Aug 20 13:11:55 2019 -0500
+
+    Issue #83: Final tweaks to examples in Chapter 12.
+
+[33mcommit bc8375a98fecc816d0413d6057d17ab7f29cd59e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Aug 16 11:23:51 2019 -0500
+
+    Issue #83: Test the right things in the right tests.
+
+[33mcommit 96974b1aeb708a7fb36892d0c7d6382c76ea9f43[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Aug 16 11:05:01 2019 -0500
+
+    Issue #83: Add Nginx HTTPS Proxy example and test.
+
+[33mcommit 603b08dec1a34f5124d0c69b7af77da68e185cd8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Aug 15 16:40:10 2019 -0500
+
+    Issue #83: More tweaks for Let's Encrypt example in chapter 12.
+
+[33mcommit 3430ece1aaedfcdb8a951e4618cdf737e6f148a6[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Aug 14 15:08:35 2019 -0500
+
+    Modify Lets Encrypt example to work correctly for non-root users.
+
+[33mcommit af2d75ab59b58ecb2f546b0a6f7578134a24d095[m
+Author: Rob Thorne <rob@torenware.com>
+Date:   Tue Jul 23 20:06:17 2019 -0700
+
+    Updated version of kubernetes packages to 1.13.8 from 1.13.1.
+
+[33mcommit 6a8fb24310d93989f72a7e8d451ca730b96e8552[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 31 09:16:11 2019 -0500
+
+    Fixes #139: Helm Tiller ServiceAccount task name fix.
+
+[33mcommit 12afd71fae911d7e0c81ca1488e46aae14af7f26[m
+Merge: fa6dcee 6ae047c
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 31 09:14:55 2019 -0500
+
+    Merge pull request #138 from Akasurde/patch-1
+    
+    Fix typo in README
+
+[33mcommit 6ae047c0f78ca94ae7dd6f815ffd8c8d48ac1eba[m
+Author: Abhijeet Kasurde <akasurde@redhat.com>
+Date:   Tue May 28 15:08:29 2019 +0530
+
+    Fix typo in README
+    
+    changed REAMDE to README
+
+[33mcommit fa6dcee0f48cbdca0c0764607fcc5d8e1320d646[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Mar 10 13:56:05 2019 -0500
+
+    Fixes #134: Add apt cache update in deployments-rolling playbook.
+
+[33mcommit 9cce4d160933d9b331ca5a6ab90c0892c883d4e4[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jan 26 22:40:59 2019 -0600
+
+    Fix broken test build for rolling deployments; ensure Ping is installed.
+
+[33mcommit d2f335d767f06eb98862f70fb57ea22450f62397[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 21 23:17:46 2019 -0600
+
+    Fixes #124: Update Node.js rolling deployment example to work with Ubuntu 18.04.
+
+[33mcommit 243aa4684eea3dbbab4cb8d3a210e56b81ecd4d5[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 16 23:11:10 2019 -0600
+
+    Update deployments-balancer example to use Ubuntu 18.04.
+
+[33mcommit 93c8bba24ea95c5333bb2c118b64ebef9388f3c9[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 16 23:05:25 2019 -0600
+
+    Update from ubuntu1404 to ubuntu1804 in dynamic-inventory example.
+
+[33mcommit d79d954abb41fec61f7f287748910c923b2d34c1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 16 21:31:17 2019 -0600
+
+    Issue #108: Upgrade Kubernetes example to 1.13.
+
+[33mcommit 6befa7595d6594c9f52831befb16ab76a2ce7202[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 16 00:10:43 2019 -0600
+
+    Issue #110: Update lamp-infrastructure example to use CentOS 7 for DO and AWS.
+
+[33mcommit 76d01c564a4a0191833c3a52b7682c4a92cdd56f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jan 15 23:30:54 2019 -0600
+
+    Fixes #110: Update lamp-infrastructure example to use CentOS 7.
+
+[33mcommit 376a930d06151fe30e663a3e76892bd6695abe03[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jan 15 21:15:15 2019 -0600
+
+    Issue #119: Some additional cleanups for Ruby deployment example.
+
+[33mcommit acea186b73be2317ffe9063754537d58f076dfe7[m
+Merge: ea8ef61 6a0f390
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jan 12 21:06:57 2019 -0600
+
+    Merge pull request #121 from geerlingguy/119-update-deployments
+    
+    Fixes #119: Build failing on Ruby on Rails deployments example
+
+[33mcommit 6a0f390f61d7abc8123af0361c3d658cb04ebbe7[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jan 12 21:06:45 2019 -0600
+
+    Fixes #119: Update README for Ruby on Rails deployments example.
+
+[33mcommit 3226836d5336fa4cd6355013f985e24cfdec8d6d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 9 23:23:40 2019 -0600
+
+    Issue #119: Add tzdata to app dependencies for Rails under Ubuntu 18.04.
+
+[33mcommit 93bb02ad1ba1a0eba00137b1f781d948cf57aede[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 9 22:49:38 2019 -0600
+
+    Issue #119: Use version 2.0.1 of rails demo app.
+
+[33mcommit 06e54a1a21349791540ccc1a9c4b58871b333adf[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 9 22:34:45 2019 -0600
+
+    Issue #119: Use version 2.0.0 of the Demo Rails app, on Ruby 2.6.0.
+
+[33mcommit 28c65479fb7e4bd93abb68c8afa7a9dfeb845da6[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jan 8 22:06:02 2019 -0600
+
+    Issue #119: Install libssl-dev to try to get bundler install to work.
+
+[33mcommit 36115a1aecea73b8636a28422a88a5cd48cea4c3[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jan 8 21:53:38 2019 -0600
+
+    Issue #119: Use Ruby 2.3.8 for now, as it works well with sass gem in demo app.
+
+[33mcommit 15f2f045ce1824bf69251469144a0b70ff9364ea[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jan 8 19:56:27 2019 -0600
+
+    Issue #119: Update to Ruby 2.6.0.
+
+[33mcommit d66a49aa4797afb9e8d4f99adc2161db6b5fd933[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jan 8 19:49:52 2019 -0600
+
+    Issue #119: Test deployments using Ubuntu 18.04.
+
+[33mcommit ea8ef619809ff6d60e183f8c618413919f9c2774[m
+Merge: 9d97644 17c115b
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Nov 18 11:53:47 2018 -0500
+
+    Merge pull request #114 from dglinder/patch-2
+    
+    update to non-loop "apt:" module usage
+
+[33mcommit 17c115b0229ca7cfa41f35df97497cc38fade094[m
+Author: Daniel Linder <dan@linder.org>
+Date:   Fri Nov 16 01:16:47 2018 -0600
+
+    update to non-loop "apt:" module usage
+    
+    This removes the deprecation warning which suggests removing the loop and use the "name:"  with multiple items.
+
+[33mcommit 9d97644bb7860c91177a5186811140eebd42c39b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Oct 25 10:40:18 2018 -0500
+
+    Update Express required version to mitigate GitHub security notice - other location.
+
+[33mcommit c2cce4bbe419d0ad63102e7faefdbb6257cde4d3[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Oct 25 10:39:16 2018 -0500
+
+    Update Express required version to mitigate GitHub security notice.
+
+[33mcommit df05b1219cd04fa475b35351da3212e81b73d0de[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Sep 15 22:38:08 2018 -0500
+
+    Add HTTPS Let's Encrypt example using geerlingguy.certbot role.
+
+[33mcommit 58ca936579949fc32f04d8b0db4f3aa05339e6e9[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Sep 12 21:51:00 2018 -0500
+
+    Fixes #106: Use https for Remi's repo in Node.js example.
+
+[33mcommit fe1187d0a0d401dc06b76d2304339dd2aea1c4fe[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Sep 12 21:32:24 2018 -0500
+
+    Tiny docs fix in kubectl-connection example.
+
+[33mcommit e0825aacbb12a99f0dd5fc0d945bc9b717782291[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Sep 11 10:01:03 2018 -0500
+
+    Issue #105: Don't install pip for Python 2 in HTTPS example.
+
+[33mcommit 1837b2a33d63e99a3b0d5d26caaf5d42ecd0f461[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Sep 11 09:35:47 2018 -0500
+
+    Fix self-signed HTTPS example - install libssl-dev dependency.
+
+[33mcommit 71b8d92a59bf0a61911dcd9c4b1be4191372ccac[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 7 23:16:12 2018 -0500
+
+    Typo in one of the Helm task names.
+
+[33mcommit c570fda85ca1e09e170b70435d0fcdceb783f466[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 7 23:07:14 2018 -0500
+
+    Print the NodePort of the phpmyadmin example app when running helm example.
+
+[33mcommit 352d702977ce5cf311d6962e349cc1155875358a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 7 00:20:09 2018 -0500
+
+    Add many examples - helm, k8s module, kubectl connection plugin.
+
+[33mcommit 28c1cadc1f7bc798398afaaa661d5e89653d6751[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Sep 4 19:32:03 2018 -0500
+
+    Use human-friendly names for Kubernetes inventory.
+
+[33mcommit 0d97e0abd0049769404a1b772068ad02eee47a11[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Aug 29 22:04:18 2018 -0500
+
+    Remove unneeded pip and docker-compose deps from Kubernetes example.
+
+[33mcommit 69eb81eae960db5916d69adcdf8d0767f50b8ce9[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Aug 28 22:29:26 2018 -0500
+
+    Switch to using geerlingguy.swap role to manage swap on K8s nodes.
+
+[33mcommit bfbbfe3eb10e3a8698b2409f82f564543846d256[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Aug 25 00:09:00 2018 -0500
+
+    Add Kubernetes cluster example for chapter 13.
+
+[33mcommit 14c00234997192567966ef99d2820a1dfa28d65a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Aug 21 22:23:14 2018 -0500
+
+    Small tweaks to the new Docker Hubot Slack container example.
+
+[33mcommit 55a74457ecd1b8e6f01d287d060e5cccd86ac01f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Aug 10 16:44:19 2018 -0500
+
+    Add example build of Hubot Slack Docker container image using Ansible.
+
+[33mcommit ac0a59ad8f028fa9ca1e18c0f1cf441e8af284f6[m
+Merge: 537cd31 3b658a1
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Aug 8 21:57:29 2018 -0500
+
+    Merge pull request #98 from dglinder/patch-1
+    
+    Use secured HTTP connection for Drupal download
+
+[33mcommit 537cd31d15ed157cd0fd446c09b05821d8ff13db[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Aug 8 21:57:19 2018 -0500
+
+    Fixes in addition to #98 - use https for drupal git repo.
+
+[33mcommit 44b80172bcd8fc42cc1bd46d3bbd213c1b1f69fc[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Aug 8 21:19:30 2018 -0500
+
+    Fixes #77: Make sure playbook has become: yes set instead of in Vagrantfile.
+
+[33mcommit 3b658a11f10d83713f2a26f73f8cf5d7df22434e[m
+Author: Daniel Linder <dan@linder.org>
+Date:   Mon Jul 2 22:09:00 2018 -0500
+
+    Use secured HTTP connection for Drupal download
+
+[33mcommit 7c5569c6e0158fa27dcfbf99e8f17c298849351c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Apr 24 18:56:56 2018 -0500
+
+    Remove version numbers from Drupal example.
+
+[33mcommit 7e650d1776fc26c6e32e884853de079e8128248d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Mar 15 11:32:31 2018 -0500
+
+    Update the DigitalOcean dynamic inventory script from Ansible upstream.
+
+[33mcommit 69f1a447700c9ef3a8265fb84112fd49e16843e0[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Mar 15 11:24:30 2018 -0500
+
+    Fix digitalocean provision.yml playbook to use proper size and image slugs.
+
+[33mcommit 496f3b180bd81f4307e0a57cc285f42a4f270018[m
+Merge: 021fabe 2a7578a
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Mar 15 11:11:21 2018 -0500
+
+    Merge pull request #84 from barisi/master
+    
+    Fixed incorrect port number
+
+[33mcommit 021fabe5407bb59fc4a36e072b4976e50fc721eb[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Mar 15 11:08:05 2018 -0500
+
+    Update tests to use import_playbook instead of include.
+
+[33mcommit 796dd1a669c4325e85d08560403f44fe4da8f82d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Mar 15 11:05:51 2018 -0500
+
+    Update deprecated use of include to import_playbook.
+
+[33mcommit 37ab110a07fc6bbfedae799a44860674f0cf5b85[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Mar 14 15:13:54 2018 -0500
+
+    Fixes #87: DigitalOcean lamp-infrastructure example fails because of image and size.
+
+[33mcommit 03e55e59ec2057884acf77a8e3006174af636bb1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Mar 14 14:25:25 2018 -0500
+
+    Update include usage in includes example, update Drupal core version.
+
+[33mcommit ed1f0325bab17b9115b355403b9579e68634de66[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Feb 1 09:27:13 2018 -0600
+
+    Fix failing builds due to new docker-py release.
+
+[33mcommit 2a7578a84452b98757496b0c6eec17dd4bd91c87[m
+Author: Barisi Kane <barisi.kane@capgemini.com>
+Date:   Thu Jan 4 11:34:26 2018 +0000
+
+    Fixed incorrect port number
+
+[33mcommit d5029c73cd3592a11d5d76b8bce03a024495685a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jan 3 21:25:48 2018 -0600
+
+    Issue #83: Vastly simplify the initial Nginx https server config.
+
+[33mcommit 7330cc53e10e8fa866994da58fc7ad4833308450[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Dec 31 20:54:01 2017 -0600
+
+    Issue #83: Add documentation to the https test config. [ci skip]
+
+[33mcommit 3b6ec614aa99e4648fa51d16bea3ea96e67148f2[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Dec 31 20:41:45 2017 -0600
+
+    Issue #83: Fix a couple of hardcoded paths.
+
+[33mcommit 84e8d02efc37b2cfb613fd31b6db1dc8fcfc6a89[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Dec 29 21:38:22 2017 -0600
+
+    Issue #83: Move vars for https-self-signed example into separate file.
+
+[33mcommit 173e00ecaa14553fbe41d032e1f3ea9116a5b593[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Dec 23 18:20:49 2017 -0600
+
+    Issue #83: Update apt cache before installing the pip 2 package.
+
+[33mcommit 5e2d1700a0f57b72ebca3f58935e34347b2abb21[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Dec 23 18:18:15 2017 -0600
+
+    Issue #83: Directly install the pip 2 package.
+
+[33mcommit e440362df1658900d7152f242d3473f3e339b3d1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Dec 23 12:35:26 2017 -0600
+
+    Issue #83: Attempt to get tests passing with pip 2 package.
+
+[33mcommit 21a42f8439c13c92ce7b7843692c41fa3cd997d5[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Dec 23 12:30:21 2017 -0600
+
+    Issue #83: Update apt cache before self-signed HTTPS setup.
+
+[33mcommit 99708c7c4f1d92a5ba8aac63e92139cf14e86fb2[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Dec 23 12:29:30 2017 -0600
+
+    Issue #83: Update apt cache before self-signed HTTPS setup.
+
+[33mcommit 3ce661e69215e1bfeb89fd02bf98a908a5758e42[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Dec 23 00:22:06 2017 -0600
+
+    Issue #83: Add missing dependency to first HTTPS example test.
+
+[33mcommit 775c075f2eff364b897fac54e2b52af13e951699[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Dec 23 00:13:53 2017 -0600
+
+    Issue #83: Add HTTPS examples.
+
+[33mcommit 1e044510f8391bddbefda7b36124ca67c0e58019[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Dec 17 14:25:06 2017 -0600
+
+    A few fixes to the includes example to make Vagrant usage easier.
+
+[33mcommit 9059dac2504ff188c3c9f4b6ecb74c3ebd24b8a6[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Dec 17 14:13:45 2017 -0600
+
+    Actually add the missing template files.
+
+[33mcommit 8e394ede78a1878a1f1ea9affa716eae22b4c6da[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Dec 17 14:06:39 2017 -0600
+
+    Change names of Drupal example config files so they work with .test.
+
+[33mcommit 1fb8624cab24ae71bad13eb902fdabe6b1317d4b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Dec 17 13:53:46 2017 -0600
+
+    Switch to using ansible.become in Vagrantfiles.
+
+[33mcommit 2845e0d336cf9e2b5cd8e0d763bdfd7292b58466[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Dec 17 13:46:31 2017 -0600
+
+    Switch to using the .test domain for local testing.
+
+[33mcommit 6ab8a4c4a18e87cb49b637608ade0c6cc8eb6eaa[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 14 23:27:18 2017 -0500
+
+    Fixes #59: Use 64-bit CentOS version on DigitalOcean in LAMP example.
+
+[33mcommit 419055cae920574d12293c86c817d9bf64166b9d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 14 23:04:58 2017 -0500
+
+    Fixes #65: Update AWS LAMP infrastructure example syntax.
+
+[33mcommit a830db4de263f8d7e82345c086cf0c92d688cbc4[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 14 22:04:50 2017 -0500
+
+    Fix with_items syntax in deployments-balancer example.
+
+[33mcommit 9539b4e3d81b91c6c9d85a449533755024dbfab8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Jun 25 15:27:44 2017 -0500
+
+    Dockerfile change to fix deprecated MAINTAINER line (now LABEL).
+
+[33mcommit a00e5c55d283cf5fc93d7e45c83d78ccc84320fe[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jun 1 22:15:07 2017 -0500
+
+    Fixes #58: Add README and Vagrantfile to nodejs-role example.
+
+[33mcommit 65ce5fd71ce4e90ee19deec73c9b243a2e043eb7[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jun 1 21:54:26 2017 -0500
+
+    Fixes #61: Add Solr automated test and bump version to 6.5.1.
+
+[33mcommit 76020d44448adde1bed07b59a1b1a75431e4835f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jun 1 21:10:10 2017 -0500
+
+    Issue #61: Add automated test for Node.js role example and fix to work with CentOS 7.
+
+[33mcommit b1e06757a4b7428bde50aedcc24cc2de6e5f2587[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jun 1 21:00:16 2017 -0500
+
+    Issue #61: Add automated test for Node.js example and fix when syntax.
+
+[33mcommit 5cf3d813e07dc8c2467417f947fcf0ded21f3f0a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 30 23:12:43 2017 -0500
+
+    Issue #61: Add automated test for Jenkins example.
+
+[33mcommit 3061bb1e9ad7982212bbe52a1ac1f6c0a71f8715[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 30 22:57:51 2017 -0500
+
+    Fix pip docker package.
+
+[33mcommit 9f406a2a98ecb8de0e422a4c2eb2e707676ce740[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 30 22:42:37 2017 -0500
+
+    Issue #61: Add test for includes example.
+
+[33mcommit 96de03ed6ce902cec11ca1677355ee38654f5392[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 30 22:40:37 2017 -0500
+
+    Fixes #57: Update 'includes' example with latest Drupal example updates.
+
+[33mcommit 3d812b08eca88fe169162133994875dd925030d4[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 30 21:34:26 2017 -0500
+
+    Fixes #62: Don't throw a warning on idempotence run for container.
+
+[33mcommit 29dfc647e613160e0d81dd59196a4a232258a5d2[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 30 21:28:20 2017 -0500
+
+    Issue #62: Attempt to have Travis CI actually build the job x2.
+
+[33mcommit 9f204232c45997f303caaa84c29bdc38134cbb79[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 30 21:07:14 2017 -0500
+
+    Issue #62: Attempt to have Travis CI actually build the job.
+
+[33mcommit 030dc1127759440d706426b22a97f0ff1ba022c8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue May 30 20:48:29 2017 -0500
+
+    Issue #62: Remove deprecated docker module usage.
+
+[33mcommit d1438defcfb45b220c872aeddea6c99f7e509c57[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 23:19:57 2017 -0500
+
+    Issue #61: Fix Docker tests missing docker-py dependency.
+
+[33mcommit ed276e4b88df4d6c62a4d5eb30374ed823fac772[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 22:43:21 2017 -0400
+
+    Issue #61: Test Docker example.
+
+[33mcommit ee04afe80e209beaaf93c04c4529346776b14868[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 22:20:31 2017 -0400
+
+    Issue #56: Attempt to fix Drupal installation while airborne.
+
+[33mcommit 90248ca0572ae570ca61c31026b8b7690706aa9c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 20:14:01 2017 -0400
+
+    Issue #61: Add a drupal example test.
+
+[33mcommit b7b7cf74da78f0b9fa960a84c15f5c30171d61cf[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 19:49:07 2017 -0400
+
+    Issue #61: Don't test idempotence on deployments example.
+
+[33mcommit 488b0fe0e8f1f37feb7f825479e5ff245e6b266a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 19:09:39 2017 -0400
+
+    Issue #61: Add rolling deployments test coverage, fix bug with deployments.
+
+[33mcommit 1105a20536986587f1eab360674429b1242b95ad[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 18:28:54 2017 -0400
+
+    Issue #61: Fix path in travisfile.
+
+[33mcommit 96e6d38e6ef8b7971f7a40b49f888d39abeda198[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 18:27:40 2017 -0400
+
+    Remove debug statement.
+
+[33mcommit f886fdcdbf8ac8d229bb2269423553e892986dd0[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 16:12:08 2017 -0400
+
+    Issue #61: Add first automated test integration with Travis CI.
+
+[33mcommit 6931427767a131cec0e3bb0cee585897dbf3cdc5[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 16:11:19 2017 -0400
+
+    Fixes #60: rolling-deploy example relies on defunct nodejs_forever variable.
+
+[33mcommit 4936b951d7ee1674160eb9e83c572c46322d36fd[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri May 26 15:31:28 2017 -0400
+
+    Update author URL.
+
+[33mcommit 5d3c9429a3ac0dee10c1ef2590c908f0c8cf45ef[m
+Merge: b30e565 d36ad22
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Apr 21 09:26:05 2017 -0500
+
+    Merge pull request #55 from noplanman/patch-1
+    
+    Tiny typo for second www server name
+
+[33mcommit d36ad22ab18069a9c6488df51570758c2a887f20[m
+Author: Armando Lüscher <armando@noplanman.ch>
+Date:   Fri Apr 21 11:37:36 2017 +0200
+
+    Tiny typo for second www server name
+
+[33mcommit b30e565894619e5a09c82d2594c45e59ffa7164c[m
+Merge: 832350a 6ba699b
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 16 22:15:24 2017 -0600
+
+    Merge pull request #46 from jonleibowitz/patch-1
+    
+    deprecated PPA
+
+[33mcommit 832350a8e29f003f7100dc18c44252712e734857[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 16 22:09:49 2017 -0600
+
+    Update Drupal example to use PHP 7.1.
+
+[33mcommit 138fa5622b56720a2f2c0fb8810b1ba2b78666db[m
+Merge: 82a8a81 58b2408
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 16 21:46:58 2017 -0600
+
+    Merge pull request #50 from santisaez/fix_drupal_composer_file
+    
+    Fix the file created by Composer
+
+[33mcommit 58b2408473072f774b3841faafaa383530f2abed[m
+Author: Santi Saez <santi.saez@cabify.com>
+Date:   Thu Jan 5 15:59:28 2017 +0100
+
+    Fix the file created by Composer
+
+[33mcommit 6ba699b1e6eca90f981c94e9c8258c080e9927f8[m
+Author: Jon Leibowitz <jonleibowitz@users.noreply.github.com>
+Date:   Sat Nov 26 22:25:57 2016 -0800
+
+    deprecated PPA
+    
+    ppa:ondrej/php5-5.6 is deprecated
+
+[33mcommit 82a8a81510021473fc78aa778ba5e032ab6ecfd1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Nov 23 16:48:59 2016 -0600
+
+    Fixes #40: Drupal example needs unzip.
+
+[33mcommit 2babfe185c9bc30eea4d5fa59cb22f09d8fa458f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Nov 23 16:15:27 2016 -0600
+
+    Add note about customizing DO keys.
+
+[33mcommit ff03edd8aa5236fbed0e0c464b5d489d15873f1f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jul 21 22:54:41 2016 -0400
+
+    Update DigitalOcean name.
+
+[33mcommit 94e0b524d8fd4b38869de2544368ded3c9e6946b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jul 21 22:52:24 2016 -0400
+
+    Wrap variable for 2.x variable style.
+
+[33mcommit 387a6098288cfdd69c6da7ff59cd71fb931aef0b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jul 21 22:50:16 2016 -0400
+
+    Update LAMP Infrastructure example to work better on DO v2 API.
+
+[33mcommit 90992223fc88952a5ab48add80c46659e055066c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jul 21 21:15:23 2016 -0400
+
+    Fixes #18: Update DigitalOcean example to use v2 and Ansible 2.x structure.
+
+[33mcommit 963f8ff5a905b42604a789fbf70540105d7025f9[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 15 14:12:28 2016 -0500
+
+    Update Docker example README.
+
+[33mcommit 366df1b8cc73e25907099f08cd15a7b23e25efc9[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 15 14:11:57 2016 -0500
+
+    Update book links to HTTPS.
+
+[33mcommit 921c049f70be0f9edfb602e2a904a45141829145[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 8 23:18:30 2016 -0500
+
+    Update links to personal site in README.md.
+
+[33mcommit 9fdcb1a8c9f4184ce76c3d4028ce753f0d65e5f1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 8 23:17:29 2016 -0500
+
+    Update Solr example to use Ubuntu 16.04 and Apache Solr 6.1.0.
+
+[33mcommit 7f6c460f5723393377fabec73a08be0f7a190508[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 8 22:33:27 2016 -0500
+
+    Modernize vars for Drupal example.
+
+[33mcommit 81c47c6f014319335685a3ecd7b89226b747148d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 8 22:15:07 2016 -0500
+
+    Update Drupal playbook example to use modern PHP 7.0, MySQL 5.7, etc.
+
+[33mcommit 13b49e16f1124f94eaba145068d8477064788025[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 8 16:45:43 2016 -0500
+
+    Use linked clones and more modern settings for all Vagrantfiles.
+
+[33mcommit 449ab2ffaef62cbd5b189551f3dca07a149c1bff[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 8 16:36:43 2016 -0500
+
+    Use linked clones in Orchestration Vagrantfile for ~30s speedup.
+
+[33mcommit a1d33a6027891d0f4823bf5cfdca45b97e4259cc[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jul 2 22:36:34 2016 -0500
+
+    Update nodejs install of Remi repo.
+
+[33mcommit 2fc2dce090a4479fa1a1a8bf3125dd67a2a52aa0[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jul 2 22:20:48 2016 -0500
+
+    Update orchestration example with inventory file.
+
+[33mcommit cbf1974ee0c84de29c5eca6dfb5d3c05515fe029[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jul 2 21:54:31 2016 -0500
+
+    Fixes #34: Update Drupal example.
+
+[33mcommit 4ae151849a238e853b4574b99731e658bfc1f88b[m
+Merge: 0db26b5 85c5bf0
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Jun 9 16:00:09 2016 -0500
+
+    Merge pull request #36 from daniloradenovic/master
+    
+    Fix link for Solr
+
+[33mcommit 85c5bf023fd9442e2592cc9613c598e4d60bc4fb[m
+Author: Danilo Radenovic <danilo.radenovic@sbgenomics.com>
+Date:   Thu Jun 9 22:07:15 2016 +0200
+
+    Fix link for Solr
+
+[33mcommit 0db26b561db4ff28ba5eea518df4d2bc4ce0abc9[m
+Merge: fbd580a 89f49fb
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Apr 10 22:26:27 2016 -0500
+
+    Merge pull request #29 from agentolivia/patch-1
+    
+    Add port number to jenkinsci.dev
+
+[33mcommit 89f49fb9704a86289c9b7bc3e7073f5db7d4a631[m
+Author: Amber Matz <amber@drupalize.me>
+Date:   Sat Apr 9 19:08:48 2016 -0700
+
+    Add port number to jenkinsci.dev
+    
+    Without the port number, I couldn't connect (connection would timeout). Adding 8080 to http://jenkinsci.dev allowed me to access the Jenkins dashboard.
+
+[33mcommit fbd580a2a3c4f81aa07c62b131925653bed9d3a6[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Feb 28 21:40:28 2016 -0600
+
+    Fix a misspelling.
+
+[33mcommit bf8385e5adcba0665cb897a80286f1660fec7a93[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Feb 23 11:42:31 2016 -0600
+
+    Fixes #23: Node.js forever doesn't install properly.
+
+[33mcommit a00cacd33deb774d4519b7ed258e76f4242d3e73[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Feb 23 11:12:27 2016 -0600
+
+    Switch use of deprecated 'sudo' to 'become'.
+
+[33mcommit cc7079b2955dba81930e981a40fc651feacdc8cf[m
+Merge: 878f627 94ca431
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jan 15 23:47:21 2016 -0600
+
+    Merge pull request #20 from lihop/fix-solr-playbook
+    
+    Update creates parameter in Solr playbook
+
+[33mcommit 94ca431213d98b2cce92637fb9e64a5240afb25e[m
+Author: Leroy Hopson <git@leroy.geek.nz>
+Date:   Sat Jan 9 14:30:55 2016 +1300
+
+    Update creates parameter in Solr playbook
+
+[33mcommit 878f627dd370922a9408d225cca733c8d71e5651[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Nov 3 16:58:21 2015 -0600
+
+    Update references to Ansible for DevOps website.
+
+[33mcommit df29ede7e50b2e7062277a005b446be6bdf30c18[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Oct 15 22:06:43 2015 -0500
+
+    Many tiny corrections for pre-print release.
+
+[33mcommit 64198c39f6eababcabff556f3981d350c949e1ed[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Oct 10 16:51:34 2015 -0500
+
+    Update styling to match book updates for large list objects.
+
+[33mcommit 836722873531124e4937755f74db57bd7edc61fc[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 25 23:33:31 2015 -0500
+
+    Update Solr example for chapter 4.
+
+[33mcommit fce2c44bb3a80560dba06368d1010b3cc65e58ce[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 25 22:32:58 2015 -0500
+
+    Missed a comma.
+
+[33mcommit c9608fa2ddaf3375abd481b94f493e8f19b8f8c1[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 25 22:22:46 2015 -0500
+
+    Fixes for Solr playbook.
+
+[33mcommit 752650e68e6bcf96955a9398e9a7ccd4f2651f4f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 25 22:18:45 2015 -0500
+
+    Syntax fixes for nodejs examples.
+
+[33mcommit 299bd7d369fe58118408bfbb41c038d31a82d2bb[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Sep 25 09:49:38 2015 -0500
+
+    Fixed memcached configuration in LAMP Infrastructure example.
+
+[33mcommit 91444430a356db38abcb9982b5b71301765d2b03[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Sep 24 23:54:19 2015 -0500
+
+    Fix Jenkins URL in Vagrantfile.
+
+[33mcommit e72c2688793fbe29935a36b8864b476e579edd4b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Sep 23 22:47:03 2015 -0500
+
+    Update the includes example based on the drupal example changes.
+
+[33mcommit aff99c082b2713b25eeeed59eeacb5dbed930a7f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Sep 23 22:06:14 2015 -0500
+
+    Force git updates for Ruby example deployment since deploys can modify files.
+
+[33mcommit 87c62f1640fcf16d7b2c2c073f787b79b2fc61f8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Sep 23 20:50:50 2015 -0500
+
+    A couple small tweaks to fix examples.
+
+[33mcommit 2cc6bd963662b2e9a8c722422b7990f5c715b24a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Sep 23 09:58:05 2015 -0500
+
+    Fix Composer installation in Drupal playbook.
+
+[33mcommit 7a4ee09d574ad38c7733c2a504121d5a9756112b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Sep 22 22:09:44 2015 -0500
+
+    Switch from requirements.txt to requirements.yml.
+
+[33mcommit 5992ffc92f56253d5caeee1226c91026d9d243a2[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Sep 19 15:07:09 2015 -0700
+
+    Replace installed with present for package states.
+
+[33mcommit 542edc419321827f799a5d17a3654207a2f6d3b0[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Sep 19 14:26:44 2015 -0700
+
+    Fixed spacing in Solr and Node.js examples.
+
+[33mcommit ff5537d3792dcd27d6a95fcc13033133063009d8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Sep 19 13:55:06 2015 -0700
+
+    Better formatting of Drupal example.
+
+[33mcommit 4629706f529b537b8e16ac600444acc21245436f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jul 25 23:22:36 2015 -0500
+
+    Update Node.js playbook example to use CentOS 7 instead of CentOS 6.
+
+[33mcommit a830d32e2342d21f9112b6255e370860e3f00717[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 21 22:32:50 2015 -0500
+
+    Removed GlusterFS example - moved to https://github.com/geerlingguy/ansible-vagrant-examples
+
+[33mcommit fbfd191f82c466474b05974601cd8cc63c529f57[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 21 22:29:13 2015 -0500
+
+    Simplify the Gluster example.
+
+[33mcommit 24acd2d6be8ad949291f4ac4989df8934e11a5f2[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 21 22:26:08 2015 -0500
+
+    Convert to using the gluster_volume module instead of custom gluster commands.
+
+[33mcommit b5dd934e558a1030fca0ce8f2acf282269863ba0[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 21 21:45:26 2015 -0500
+
+    Add new Gluster distributed filesystem example.
+
+[33mcommit 365a575e9f2dd39a226db07fd510260efa20c62a[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Jul 19 17:42:14 2015 -0500
+
+    Added information about zero-downtime deployments to README.
+
+[33mcommit eab27bc046b88739c60ea53829dcc87a33d594b8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Jul 18 22:01:15 2015 -0500
+
+    Add zero-downtime deployment example with HAProxy.
+
+[33mcommit 5e2c6f50c3eb7307708fbb46b4ebc986ae5a6569[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 17 23:33:45 2015 -0500
+
+    Add example of deployments behind a load balancer, using HAProxy.
+
+[33mcommit 5f2e4c38e8b3174a0020ddea0fa163440f68c5de[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jul 17 21:05:04 2015 -0500
+
+    Changed directories for more appealing layout.
+
+[33mcommit a59d67fe7bfbe35836af40b96f2463afaf37fc5d[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jun 29 21:14:40 2015 -0500
+
+    Major docs cleanup in preparation for final release.
+
+[33mcommit 011076beb97045f858308c28affa0ff577732267[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jun 29 14:23:14 2015 -0500
+
+    Whitespace fix in node.js example.
+
+[33mcommit 8ec9a2445b9cc8174eb8dee40fd4dbee51d2163e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jun 22 22:02:07 2015 -0500
+
+    Fixes #15: Node.js role example missing role.
+
+[33mcommit 2e833b4723851572ed244c52ec51ea7eaa9b0b50[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Jun 10 23:00:57 2015 -0500
+
+    Slight syntax cleanup for custom dynamic inventory examples.
+
+[33mcommit 7f9118637c09b658ffad733d7a66341a0a1a215e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jun 9 22:12:58 2015 -0500
+
+    Add example custom dynamic inventory scripts for Chapter 7.
+
+[33mcommit 568c92ba5915811a196806a514f41c30df3e2a75[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jun 5 21:40:21 2015 -0500
+
+    Formatting - capitalize Forever.
+
+[33mcommit d6539ae1c027585104c6f2a4cfefcf6235f81590[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed May 20 10:11:22 2015 -0500
+
+    Remove unneccessary git role from Jenkins example.
+
+[33mcommit 9749d3e5a3cd5310ccff84a8ee1a3ae90e309402[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed May 20 09:24:09 2015 -0500
+
+    Add Jenkins CI example.
+
+[33mcommit d4e008949483ec6ec77650f89a9b4ff0838d4783[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Apr 7 18:02:03 2015 -0500
+
+    Fixes #13: Use CentOS 7 so Django runs with Python 2.7 in Chapter 3 example.
+
+[33mcommit 383cdcb46eaf1a4a6a34da97de326e4d3a361d18[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Apr 7 10:32:47 2015 -0500
+
+    Better task order for rolling deployment.
+
+[33mcommit bc552cff973c692fcbff704e9b64934e71561e87[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Apr 7 09:41:42 2015 -0500
+
+    Ensure tests will run correctly in rolling deployments example.
+
+[33mcommit 05e72c6bb0ec652d5a594f38bd0ce329acf9de47[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Apr 6 21:22:06 2015 -0500
+
+    Add extra version info for rolling-deployments Node.js example.
+
+[33mcommit c8c2572f8b8af533b1e0f9d4f770e7a49bbee978[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Apr 4 22:56:36 2015 -0500
+
+    Better playbook organization for rolling-deployments example.
+
+[33mcommit cd1dbc83c83af525f82b443eb5990e40bb419050[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Apr 3 23:17:36 2015 -0500
+
+    Better Vagrantfile formatting and simpler README text for rolling deployments.
+
+[33mcommit 303bf54a782f351e6a6bf706650ee04a3a71c6ce[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Apr 3 23:09:11 2015 -0500
+
+    Add Node.js API App demonstration example for rolling deployments.
+
+[33mcommit 55c5f7231bf3eb0c6294ea8fb429cd6715a2692b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Mar 15 17:43:37 2015 -0500
+
+    Make DO dynamic inventory example a little more robust.
+
+[33mcommit 1714f206b3bd524326921f145856af5097fc9915[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Mar 15 17:20:03 2015 -0500
+
+    Fixes #10: Don't gather facts when checking if DO hosts are up.
+
+[33mcommit 55318dd48c838536d3548dfe09498016902a7d66[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Mar 4 10:29:37 2015 -0600
+
+    Update Drupal playbook to match book example.
+
+[33mcommit 63def47e923c3a1f1fc9c18628961c1090f0e3a5[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Mar 4 10:25:47 2015 -0600
+
+    Small style cleanups.
+
+[33mcommit 54842b79b50eb7540fa421100848460071de8d6d[m
+Merge: 51cb85a 0177377
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Mar 4 10:20:43 2015 -0600
+
+    Merge pull request #12 from arbabnazar/master
+    
+    Update apt cache after adding the php repo.
+
+[33mcommit 017737747e55eae379fd089a49451ad48c257980[m
+Author: Arbab Nazar <arbabnazar@users.noreply.github.com>
+Date:   Wed Mar 4 05:25:48 2015 +0500
+
+    Update playbook.yml
+
+[33mcommit d6fac9c946ffa021821426cbe65e5a9a68f58ad6[m
+Author: Arbab Nazar <arbabnazar@users.noreply.github.com>
+Date:   Sun Mar 1 16:11:06 2015 +0500
+
+    Update playbook.yml
+
+[33mcommit 33eea0e5c4072cee3f5493edb9ca7e29d4e0215b[m
+Author: Arbab Nazar <arbabnazar@users.noreply.github.com>
+Date:   Sun Mar 1 16:06:58 2015 +0500
+
+    update the cache after adding the php repo
+
+[33mcommit 51cb85a788de594252b5972a6edbcfc43b10bb89[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Feb 16 23:49:13 2015 -0600
+
+    Add note on version 1.3.0 of Rails app.
+
+[33mcommit 76b4903b028e0f1befb490148001aaa90ccc4fc2[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Feb 13 09:46:54 2015 -0600
+
+    Better inventory file formatting for deployment example.
+
+[33mcommit c4560b15be325fd26fc3a9fe090bcac11e35a3c5[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Feb 13 09:08:31 2015 -0600
+
+    Changes to support easier Rails application deployment.
+
+[33mcommit dbf01fe8163c85772b5d5a00718cbd74b5c903b5[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Feb 12 11:37:26 2015 -0600
+
+    Make deployment and provisioning idempotent for rails app.
+
+[33mcommit c9f60d8d703d47bd5db503e162fef53521a31def[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Feb 10 21:03:16 2015 -0600
+
+    Add notes about deploying updates and notable app releases.
+
+[33mcommit 7c154abaf0a19ccd4190e5ecb8708c07c6af0616[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Feb 6 07:49:26 2015 -0600
+
+    Add deployments example with Ruby on Rails demo app for chapter 9.
+
+[33mcommit 6d546ee47144ee7e72140de3d396c5ab880865a6[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Feb 5 15:51:40 2015 -0600
+
+    Fix Solr example README.
+
+[33mcommit 72b0001bf424ada30f94a220fecc42a94bfb0b41[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Feb 2 13:33:50 2015 -0600
+
+    Fixes #9: Update drupal_core_version for semantic versioning.
+
+[33mcommit b8e3997c2c28f6c377ba9fb83674caff58a096ec[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jan 30 14:44:03 2015 -0600
+
+    Update IP address of drupal VM to not conflict with separate project drupal-dev-vm.
+
+[33mcommit 1aafb1d299b34f375619019c22eb3d1dc4d83c97[m
+Merge: 5cc99f6 d071bc8
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jan 30 14:43:17 2015 -0600
+
+    Merge pull request #6 from victorkane/patch-1
+    
+    Fix APC error on drupal playbook.
+
+[33mcommit 5cc99f6a6bf97d7d320fab93272aadaed8986a32[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jan 30 14:35:37 2015 -0600
+
+    Fixes #8: Solr playbook issue - 404 on solr-4.7.1.tgz.
+
+[33mcommit 12ec4301fbd80f807e55e901d89e0fe2b8ffa1bd[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jan 16 21:48:59 2015 -0600
+
+    Add link to Ansible Vagrant Examples repository.
+
+[33mcommit 3d68b24d5d4c57e311b1d451c0106264adad2fea[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Jan 16 21:47:52 2015 -0600
+
+    Added extremely simple Docker example.
+
+[33mcommit b7efcb7cb9f4078c94a9304748e8a003dd4887ea[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Jan 5 08:49:06 2015 -0600
+
+    Change from pkg to name for apt and yum, following new Ansible packaging naming conventions.
+
+[33mcommit 23b83291f4af12198985631215fed2ff94edeba6[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 29 11:27:03 2014 -0600
+
+    Issue #7: Update vagrant configuration for insecure key changes in Vagrant 1.7.x.
+
+[33mcommit f9b73f8c0118b5ede874ba4bc9991678e6728973[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Dec 10 23:15:21 2014 -0600
+
+    Formatting fixes.
+
+[33mcommit fc0bf152fcd0a9c1ad01c0fc8ce0f0e3caf2c955[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Dec 9 21:49:09 2014 -0600
+
+    Removed debug line.
+
+[33mcommit 21e33b65d2fc3e0c2b7a78fdc485dc10cc8a613c[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 8 15:55:02 2014 -0600
+
+    Issue #5: Add MIT License.
+
+[33mcommit d8827390aeec76acfe97302baf3d7268c08856b4[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Dec 7 15:50:03 2014 -0600
+
+    Added a requirements.txt file to lamp-infrastructure example.
+
+[33mcommit 19f3eb22a0b02c798cbd0b3074cd379b929a451f[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Fri Dec 5 07:03:11 2014 -0600
+
+    Formatting cleanup for lamp-infrastructure provisioners.
+
+[33mcommit d071bc8f7cf5e4c854a6d41429916788afd2f6c1[m
+Author: Victor Kane <victorkane@gmail.com>
+Date:   Mon Dec 1 14:33:49 2014 -0300
+
+    APC error on drupal playbook #4
+    
+    Vagrant Up continues to abort as per #4
+
+[33mcommit 24651edf37f7c682a4d292578aceabcc8427c36b[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Dec 1 09:26:45 2014 -0600
+
+    Issue #3: DigitalOcean provisioning doesn't work.
+
+[33mcommit eac1ddd03fda4344a3454f9e8ea753eb8218a291[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Nov 27 00:26:35 2014 -0600
+
+    Updates for better legibility in lamp-infrastructure example.
+
+[33mcommit 31187427ca7c0fd785de49edd06a184eb9cb9ebd[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Nov 26 23:55:47 2014 -0600
+
+    Fix Vagrant provisioning in lamp-infrastructure example.
+
+[33mcommit e619c7289200f4c1e6faa4bf3b0057d2e45d2352[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Nov 25 23:08:27 2014 -0600
+
+    Remove port 443 from simple Apache example.
+
+[33mcommit ef65a29ddbb61a16ded377022741c8ecbbcd1105[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Nov 22 21:24:30 2014 -0600
+
+    Issue #2: Drupal playbook error on APC regex.
+
+[33mcommit 024bfa2d0007c5c8ed6de2640aec98fc3544c764[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Nov 12 12:03:35 2014 -0600
+
+    Update docs for LAMP infrastructure and add AWS dynamic inventory.
+
+[33mcommit fb5a98bbbea2d19fd82a4771bf2641863661a783[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Nov 12 11:25:18 2014 -0600
+
+    Update playbook to work on Vagrant, Digital Ocean, and AWS.
+
+[33mcommit 2f7f10df58ac8e359434d509266aa2013c8839d6[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Nov 10 17:38:22 2014 -0600
+
+    Update Vagrantfiles - unified, simpler syntax plus use geerlingguy/* base boxes.
+
+[33mcommit 5568b6ffd375cd4fc729cbaacaee9ac0abad7888[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Nov 10 11:01:00 2014 -0600
+
+    Update docs and fix bug with local VM dev.
+
+[33mcommit 175cacb59c58700f782083d7047c897dd6cb3706[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon Nov 10 10:09:11 2014 -0600
+
+    Radical update of lamp-infrastructure example. It works on DigitalOcean and Vagrant now.
+
+[33mcommit 50792c708302b6c3e9da4aa512e693448dac84f8[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Nov 8 14:01:57 2014 -0600
+
+    Use roles and simpler playbook layout for LAMP infrastructure example.
+
+[33mcommit a5c760c9d76c0520fd3389744dd13522c64dc934[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sat Nov 8 10:22:48 2014 -0600
+
+    Add example LAMP architecture VM configuration. First revision.
+
+[33mcommit 50b73d2c1ad92c2a9d9d38784b7111442e4064da[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Wed Oct 22 09:17:53 2014 -0500
+
+    Add Digital Ocean provisioning and dynamic inventory examples.
+
+[33mcommit d77cace2c812c4d5c9dfcf3b84e9ebb4aaf901fd[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Oct 5 22:15:10 2014 -0400
+
+    Updated solr playbook code guidelines.
+
+[33mcommit 02e7abcd428e5a1bac649c21183460de41492a09[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Oct 5 22:07:10 2014 -0400
+
+    Updated example playbooks with syntax that follows best practices more closely.
+
+[33mcommit f59af0c76a1cc9e1dab2d1210a8b8819d33d7743[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Tue Jul 29 20:45:36 2014 -0500
+
+    Update Drupal 8.x to 8.0.x.
+
+[33mcommit 146df52acc172f1282615b8e0356e948a4d0a9ba[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Jun 29 22:08:11 2014 -0500
+
+    Add nodejs-role example.
+
+[33mcommit 6346ac449fc6f7817e7bc7bf4f361dd641128079[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Jun 29 21:55:45 2014 -0500
+
+    Update Vagrantfiles with better docs.
+
+[33mcommit b279abc35b647c35c1e4bdfbdc0925f79ec66959[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun Jun 29 21:55:32 2014 -0500
+
+    Update handlers to use service module.
+
+[33mcommit b828f39e560ddd5cabdcd320327232c50752d353[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Mon May 5 21:32:19 2014 -0500
+
+    Use apache2_module module.
+
+[33mcommit b45450521d6e7253809c5e4a69d416de00fbbf16[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Sun May 4 21:58:10 2014 -0500
+
+    Added Chapter 6 Includes example, cleaned up gitignore files.
+
+[33mcommit 5c6cc9e92dc0058d114d6fe06225e9b408d2d660[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 24 21:06:21 2014 -0500
+
+    Added orchestration readme, and updated other readmes.
+
+[33mcommit 88184d01cf0172008a4e9d7d2ec0f4d3dee91ae9[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 24 20:58:23 2014 -0500
+
+    Updated README.md with cover image and link to buy book.
+
+[33mcommit 95660ab6b6723acd8027be06eb7b4562862ba6c3[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 24 20:54:55 2014 -0500
+
+    Updated README.md with book link.
+
+[33mcommit b41d19e3090a23fa928b36149d8302972671969e[m
+Author: Jeff Geerling <geerlingguy@mac.com>
+Date:   Thu Apr 24 20:44:35 2014 -0500
+
+    Initial commit.
