@@ -9,7 +9,7 @@
         state: absent
         name: ansible-test
         private_networking: yes
-        size: 1gb
+        size: s-1vcpu-1gb
         image_id: centos-7-x64
         region: nyc3
         # Customize this for your account.
