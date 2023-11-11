@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  become: yes
 
   vars:
     node_apps_location: /usr/local/opt/node
