@@ -141,13 +141,18 @@
       become_user: www-data
       when: not drupal_composer_json.stat.exists
 
+    - name: Check if Drush already exists.
+      stat:
+        path: "{{ drupal_core_path }}/vendor/bin/drush"
+      register: drush_binary
+
     - name: Add drush to the Drupal site with Composer.
       composer:
         command: require
-        arguments: drush/drush:11.*
+        arguments: drush/drush:12.*
         working_dir: "{{ drupal_core_path }}"
       become_user: www-data
-      when: not drupal_composer_json.stat.exists
+      when: not drush_binary.stat.exists
 
     - name: Install Drupal.
       command: >
