@@ -1,4 +1,4 @@
-#####---
+---
 roles:
   - name: geerlingguy.git
   - name: geerlingguy.ruby
