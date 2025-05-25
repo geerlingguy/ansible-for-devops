@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   boxes.each do |opts|
     config.vm.define opts[:name] do |config|
       config.vm.hostname = opts[:name] + ".k8s.test"
-      config.vm.network :private_network, ip: opts[:ip]
+      config.vm.network "private_network", ip: opts[:ip]
 
       # Provision all the VMs using Ansible after last VM is up.
       if opts[:name] == "node2"

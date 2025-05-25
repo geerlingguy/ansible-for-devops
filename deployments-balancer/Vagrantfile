@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   boxes.each do |opts|
     config.vm.define opts[:name] do |config|
       config.vm.hostname = opts[:name]
-      config.vm.network :private_network, ip: opts[:ip]
+      config.vm.network "private_network", ip: opts[:ip]
 
       # Provision all the VMs using Ansible after last VM is up.
       if opts[:name] == "app2"
