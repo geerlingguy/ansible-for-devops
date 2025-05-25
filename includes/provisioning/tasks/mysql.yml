@@ -10,7 +10,6 @@
     host: localhost
     state: present
 
-# TODO: See https://github.com/geerlingguy/ansible-for-devops/issues/297
 - name: Create a MySQL user for Drupal.
   mysql_user:
     name: "{{ domain }}"
