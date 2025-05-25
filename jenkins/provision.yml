@@ -11,7 +11,9 @@
 
   pre_tasks:
     - name: Update apt cache if needed.
-      apt: update_cache=yes cache_valid_time=3600
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
 
   roles:
     - geerlingguy.firewall
