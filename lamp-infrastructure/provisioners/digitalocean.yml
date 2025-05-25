@@ -18,7 +18,7 @@
         state: "{{ item.state | default('present') }}"
         name: "{{ item.name }}"
         private_networking: yes
-        size: "{{ item.size | default('1gb') }}"
+        size: "{{ item.size | default('s-1vcpu-1gb') }}"
         image: "{{ item.image | default('centos-7-x64') }}"
         region: "{{ item.region | default('nyc3') }}"
         # Customize this default for your account.
