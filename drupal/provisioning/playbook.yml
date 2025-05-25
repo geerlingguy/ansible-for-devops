@@ -34,19 +34,19 @@
           - unzip
           - sendmail
           - apache2
-          - php8.2-common
-          - php8.2-cli
-          - php8.2-dev
-          - php8.2-gd
-          - php8.2-curl
-          - php8.2-opcache
-          - php8.2-xml
-          - php8.2-mbstring
-          - php8.2-pdo
-          - php8.2-mysql
-          - php8.2-apcu
+          - php8.3-common
+          - php8.3-cli
+          - php8.3-dev
+          - php8.3-gd
+          - php8.3-curl
+          - php8.3-opcache
+          - php8.3-xml
+          - php8.3-mbstring
+          - php8.3-pdo
+          - php8.3-mysql
+          - php8.3-apcu
           - libpcre3-dev
-          - libapache2-mod-php8.2
+          - libapache2-mod-php8.3
           - python3-mysqldb
           - mysql-server
 
@@ -86,9 +86,9 @@
 
     - name: Adjust OpCache memory setting.
       lineinfile:
-        dest: "/etc/php/8.2/apache2/conf.d/10-opcache.ini"
+        dest: "/etc/php/8.3/apache2/conf.d/10-opcache.ini"
         regexp: "^opcache.memory_consumption"
-        line: "opcache.memory_consumption = 96"
+        line: "opcache.memory_consumption = 128"
         state: present
       notify: restart apache
 
@@ -127,6 +127,13 @@
         owner: www-data
         group: www-data
 
+    - name: Ensure home dir has correct owner.
+      file:
+        path: "{{ wwwdata_home_path }}"
+        state: directory
+        owner: www-data
+        group: www-data
+
     - name: Check if Drupal project already exists.
       stat:
         path: "{{ drupal_core_path }}/composer.json"
@@ -141,13 +148,25 @@
       become_user: www-data
       when: not drupal_composer_json.stat.exists
 
-    - name: Add drush to the Drupal site with Composer.
+    - name: Check if Drush already exists.
+      stat:
+        path: "{{ drupal_core_path }}/vendor/bin/drush"
+      register: drush_binary
+
+    - name: Install dependencies using composer.
       composer:
-        command: require
-        arguments: drush/drush:11.*
+        command: install
         working_dir: "{{ drupal_core_path }}"
       become_user: www-data
       when: not drupal_composer_json.stat.exists
+
+    - name: Add drush to the Drupal site with Composer.
+      composer:
+        command: require
+        arguments: drush/drush:13.*
+        working_dir: "{{ drupal_core_path }}"
+      become_user: www-data
+      when: not drush_binary.stat.exists
 
     - name: Install Drupal.
       command: >
