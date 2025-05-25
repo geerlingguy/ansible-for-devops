@@ -38,10 +38,10 @@
       npm: "path={{ node_apps_location }}/app"
 
     - name: Check list of running Node.js apps.
-      command: /usr/local/bin/forever list
+      command: npx forever list
       register: forever_list
       changed_when: false
 
     - name: Start example Node.js app.
-      command: "/usr/local/bin/forever start {{ node_apps_location }}/app/app.js"
+      command: "npx forever start {{ node_apps_location }}/app/app.js"
       when: "forever_list.stdout.find(node_apps_location + '/app/app.js') == -1"
