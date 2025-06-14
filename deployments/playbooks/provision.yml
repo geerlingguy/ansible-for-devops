@@ -19,11 +19,3 @@
           - libreadline-dev
           - tzdata
         state: present
-
-    - name: Ensure app directory exists and is writeable.
-      file:
-        path: "{{ app_directory }}"
-        state: directory
-        owner: "{{ app_user }}"
-        group: "{{ app_user }}"
-        mode: 0755
