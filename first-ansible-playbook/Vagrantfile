@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "geerlingguy/rockylinux8"
+  config.vm.box = "bento/rockylinux-9.5"
 
   # Provisioning configuration for Ansible.
   config.vm.provision "ansible" do |ansible|
